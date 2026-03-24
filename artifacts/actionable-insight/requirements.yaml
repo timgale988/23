@@ -1,0 +1,20 @@
+packages:
+  "framer-motion": "For premium scroll animations, page transitions, and interactive visual polish."
+  "clsx": "Utility for constructing className strings conditionally."
+  "tailwind-merge": "Utility to safely merge Tailwind CSS classes without style conflicts."
+
+images:
+  - path: "artifacts/actionable-insight/public/images/hero-mesh.png"
+    description: "Abstract corporate data mesh in dark navy and teal, glowing nodes, elegant deep background, premium 3d render, subtle"
+    aspect_ratio: "16:9"
+  - path: "artifacts/actionable-insight/public/images/prysm-abstract.png"
+    description: "Abstract glowing glass prism refracting light into data streams, dark sophisticated background, premium 3d visualization, teal and blue hues"
+    aspect_ratio: "16:9"
+  - path: "artifacts/actionable-insight/public/images/aperion-abstract.png"
+    description: "Abstract neural network core, glowing ethereal blue and teal nodes interconnected, sophisticated tech, dark background, premium depth"
+    aspect_ratio: "16:9"
+
+notes:
+  - Frontend-only application, no backend required.
+  - Using wouter for client-side routing.
+  - Relies on Framer Motion for scroll reveals and entry animations.
