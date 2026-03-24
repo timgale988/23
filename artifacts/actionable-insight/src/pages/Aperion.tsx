@@ -1,147 +1,169 @@
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Brain, Workflow, BellRing, Expand, ArrowRight, Layers, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Aperion() {
   return (
-    <div className="overflow-hidden bg-background">
+    <div className="overflow-hidden bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            <AnimatedSection direction="right" className="order-2 lg:order-1 relative hidden lg:block">
-              <div className="absolute inset-0 bg-gradient-to-bl from-accent/20 to-transparent blur-3xl rounded-full" />
-              <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-accent/10">
-                <img 
-                  src={`${import.meta.env.BASE_URL}images/aperion-abstract.png`}
-                  alt="Aperion Network Abstract" 
-                  className="w-full h-auto aspect-[4/3] object-cover"
-                />
-                <div className="absolute top-4 left-4 p-4 rounded-xl bg-background/80 backdrop-blur-md border border-border shadow-lg flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-                    <Cpu className="w-5 h-5 text-accent animate-pulse" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-foreground">Processing Pipeline</div>
-                    <div className="text-xs text-muted-foreground">1.2M events/sec</div>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 bg-[#141828] text-white">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[#141828]/90 z-10" />
+          <img 
+            src={`${import.meta.env.BASE_URL}images/aperion-abstract.png`}
+            alt="Aperion Network Abstract" 
+            className="w-full h-full object-cover opacity-20 mix-blend-screen"
+          />
+        </div>
 
-            <div className="order-1 lg:order-2 lg:pl-12">
-              <AnimatedSection>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6">
-                  Actionable Insight Product
-                </div>
-                <h1 className="text-5xl lg:text-7xl font-display font-extrabold text-foreground leading-[1.1] mb-6">
-                  Aperion.<br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-indigo-500">
-                    Intelligence at Every Layer
-                  </span>
-                </h1>
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                  An advanced AI-powered data processing and workflow automation platform that transforms raw data pipelines into intelligent, actionable outcomes.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="rounded-full text-base px-8 bg-foreground text-background hover:bg-foreground/90 shadow-xl">
-                    Get Enterprise Access
-                  </Button>
-                  <Button size="lg" variant="ghost" className="rounded-full text-base px-8 hover:bg-secondary">
-                    Read the Whitepaper
-                  </Button>
-                </div>
-              </AnimatedSection>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+          <div className="max-w-4xl">
+            <AnimatedSection>
+              <div className="inline-block px-4 py-2 bg-[#06B6D4]/20 border border-[#06B6D4]/30 text-[#06B6D4] text-xs font-bold tracking-[0.2em] uppercase mb-8">
+                Platform 02 — Aperion
+              </div>
+              <h1 className="text-5xl lg:text-[5.5rem] font-display font-bold text-white leading-[1.05] tracking-tighter mb-8 uppercase">
+                AI-Augmented <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4]">Fundraising</span>
+              </h1>
+              <p className="text-xl sm:text-2xl text-white/60 mb-12 leading-relaxed max-w-3xl font-light">
+                Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every conversation count.
+              </p>
+              <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0">
+                Request a demo
+              </Button>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-24 bg-card">
+      {/* Problem Callout */}
+      <section className="py-24 bg-[#0A0E1A] text-white border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">Built for the AI Era</h2>
-            <p className="text-muted-foreground text-lg">
-              Aperion sits between your data lakes and your operations, applying machine learning to automate complex decision-making processes.
-            </p>
-          </AnimatedSection>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <div className="text-8xl lg:text-[10rem] font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4] mb-8 leading-none">
+                75%
+              </div>
+              <div className="text-xl lg:text-2xl font-light text-white/80 max-w-md uppercase tracking-wider">
+                Of a gift officer's time is spent on administrative work that Aperion can automate.
+              </div>
+            </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                icon: <Brain className="w-8 h-8 text-accent" />,
-                title: "AI-Powered Processing",
-                desc: "Utilize custom LLMs and machine learning models to extract meaning, sentiment, and structured entities from unstructured data."
-              },
-              {
-                icon: <Workflow className="w-8 h-8 text-accent" />,
-                title: "Workflow Automation",
-                desc: "Visual orchestrator to build complex conditional logic chains that trigger actions across your entire tech stack."
-              },
-              {
-                icon: <BellRing className="w-8 h-8 text-accent" />,
-                title: "Smart Alerts",
-                desc: "Reduce alert fatigue. Aperion intelligently groups related incidents and only notifies your team when human intervention is truly required."
-              },
-              {
-                icon: <Expand className="w-8 h-8 text-accent" />,
-                title: "Enterprise Scalability",
-                desc: "Built on a distributed Kubernetes architecture ensuring high throughput and resilience regardless of load spikes."
-              }
-            ].map((feature, idx) => (
-              <AnimatedSection key={idx} delay={0.1 * idx} className="p-8 rounded-3xl bg-background border border-border hover:shadow-xl hover:border-accent/30 transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center mb-6">
-                  {feature.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4 font-display">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-lg">{feature.desc}</p>
-              </AnimatedSection>
-            ))}
+            <AnimatedSection delay={0.2} className="border-l border-white/20 pl-8 lg:pl-16">
+              <blockquote className="text-3xl lg:text-4xl font-display font-bold tracking-tighter text-white mb-8 leading-tight">
+                "Every gift officer deserves to spend their time on relationships, not research."
+              </blockquote>
+              <p className="text-lg text-white/60 font-light leading-relaxed">
+                The most impactful conversations happen when fundraisers arrive prepared. Aperion makes preparation automatic.
+              </p>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px] z-0" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <AnimatedSection className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">The Aperion Pipeline</h2>
-            <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">Seamless flow from ingestion to execution.</p>
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-20">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
+              HOW IT WORKS
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
+              FROM RAW DATA TO THE RIGHT CONVERSATION.
+            </h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4 relative">
+            {/* Sources */}
+            <AnimatedSection className="w-full lg:w-1/4 space-y-4">
+              {["Blackbaud CRM", "Prospect Research", "Wealth Screening", "Gift History"].map((source, idx) => (
+                <div key={idx} className="bg-[#F7F8FC] border border-[#E8ECF2] p-4 text-center font-bold text-sm tracking-widest uppercase text-[#6B7A90]">
+                  {source}
+                </div>
+              ))}
+            </AnimatedSection>
+
+            <div className="hidden lg:block w-8 h-[1px] bg-[#E8ECF2]" />
+            <div className="lg:hidden h-8 w-[1px] bg-[#E8ECF2]" />
+
+            {/* Core Engine */}
+            <AnimatedSection delay={0.2} className="w-full lg:w-1/3 bg-[#0A0E1A] border border-[#0A0E1A] p-12 text-center text-white shrink-0">
+              <h3 className="text-3xl font-display font-bold tracking-tighter mb-4">APERION</h3>
+              <div className="text-sm font-light tracking-widest uppercase text-white/60">
+                AI Intelligence Engine
+              </div>
+            </AnimatedSection>
+
+            <div className="hidden lg:block w-8 h-[1px] bg-[#E8ECF2]" />
+            <div className="lg:hidden h-8 w-[1px] bg-[#E8ECF2]" />
+
+            {/* Outputs */}
+            <AnimatedSection delay={0.4} className="w-full lg:w-1/4 space-y-4">
+              {["Donor Briefings", "Opportunity Matches", "Proposal Drafts", "Pipeline Scores"].map((output, idx) => (
+                <div key={idx} className="bg-white border border-[#06B6D4]/30 p-4 text-center font-bold text-sm tracking-widest uppercase text-[#06B6D4]">
+                  {output}
+                </div>
+              ))}
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Grid */}
+      <section className="py-24 bg-[#F7F8FC] border-t border-[#E8ECF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-16">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
+              MEASURABLE IMPACT
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
+              RESULTS YOUR TEAM WILL FEEL.
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-0 border border-[#E8ECF2] bg-[#E8ECF2]">
             {[
-              { step: "01", title: "Ingest", desc: "Connect streams via Kafka, Kinesis, or REST APIs. Aperion normalizes schemas on the fly." },
-              { step: "02", title: "Process", desc: "Data passes through inference nodes where AI models enrich, classify, and score the information." },
-              { step: "03", title: "Automate", desc: "Triggered workflows execute API calls, update databases, or route tickets based on the AI's confidence." }
+              { stat: "75%", title: "Admin Time Eliminated", desc: "Gift officers reclaim the majority of their week for relationship-building." },
+              { stat: "300+", title: "Opportunity Library", desc: "Pre-built funding opportunities matched intelligently to each donor's interests." },
+              { stat: "20:1", title: "ROI by Year Two", desc: "For every dollar invested in Aperion, health systems return twenty in philanthropic revenue." }
             ].map((item, idx) => (
-              <AnimatedSection key={idx} delay={0.2 * idx} className="bg-background/5 border border-primary-foreground/10 p-8 rounded-3xl backdrop-blur-sm hover:bg-background/10 transition-colors">
-                <div className="text-accent font-mono text-xl mb-4 font-bold">{item.step}</div>
-                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                <p className="text-primary-foreground/70 leading-relaxed">{item.desc}</p>
+              <AnimatedSection key={idx} delay={0.1 * idx} className="bg-white p-12 border-[0.5px] border-[#E8ECF2] text-center">
+                <div className="text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4] mb-8">
+                  {item.stat}
+                </div>
+                <h3 className="text-xl font-bold text-[#0A0E1A] mb-4 tracking-tight uppercase">{item.title}</h3>
+                <p className="text-[#6B7A90] font-light leading-relaxed">{item.desc}</p>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-background border-t border-border">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <AnimatedSection>
-            <Layers className="w-16 h-16 text-accent mx-auto mb-8" />
-            <h2 className="text-4xl font-display font-bold text-foreground mb-6">Automate the impossible.</h2>
-            <p className="text-xl text-muted-foreground mb-10">
-              Transform your operational efficiency with the most advanced data automation engine on the market.
-            </p>
-            <Button size="lg" className="rounded-full bg-foreground text-background hover:bg-foreground/90 text-lg px-10 h-14 shadow-lg">
-              Contact Engineering
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+      {/* Design Principles */}
+      <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-16">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#06B6D4] mb-6 uppercase">
+              DESIGN PRINCIPLES
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white mb-8 tracking-tighter">
+              BUILT FOR HOW GIFT OFFICERS ACTUALLY WORK.
+            </h2>
           </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Privacy by design", desc: "No PHI ever enters the Aperion system. Donors are matched on the fundraising side, never the clinical side." },
+              { title: "Workflow-first", desc: "Aperion surfaces intelligence inside your existing tools — not in a separate dashboard your team won't open." },
+              { title: "Continuous learning", desc: "Every closed gift and declined meeting trains the model — outcomes improve with every interaction." }
+            ].map((item, idx) => (
+              <AnimatedSection key={idx} delay={0.1 * idx} className="bg-white/5 border border-white/10 p-10">
+                <div className="w-12 h-12 bg-white/10 mb-8" />
+                <h3 className="text-xl font-bold text-white mb-4 tracking-tight uppercase">{item.title}</h3>
+                <p className="text-white/60 font-light leading-relaxed">{item.desc}</p>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
     </div>

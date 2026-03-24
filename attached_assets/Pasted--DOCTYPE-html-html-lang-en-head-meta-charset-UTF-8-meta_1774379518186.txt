@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actionable Insight AI — Healthcare Philanthropy Intelligence</title>
+<meta name="description" content="Prysm and Aperion — purpose-built platforms that connect clinical data with philanthropic strategy for health systems.">
+<meta property="og:title" content="Actionable Insight AI">
+<meta property="og:description" content="Two platforms. One mission. Healthcare philanthropy intelligence.">
+<meta property="og:url" content="https://actionableinsightai.com">
+<link rel="canonical" href="https://actionableinsightai.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+RESET & BASE
+============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+font-family: 'Urbanist', sans-serif;
+background: #fff;
+color: #0A0E1A;
+line-height: 1.6;
+overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ============================================================
+TOKENS
+============================================================ */
+:root {
+–dark: #0A0E1A;
+–dark-mid: #141828;
+–dark-soft: #1E2438;
+–white: #ffffff;
+–cream: #F7F8FC;
+–border: #E8ECF2;
+–muted: #6B7A90;
+–muted-light: #9AA3B2;
+–violet: #7C3AED;
+–blue: #2563EB;
+–cyan: #06B6D4;
+–teal: #0891B2;
+–grad: linear-gradient(90deg, #7C3AED, #2563EB, #06B6D4);
+–grad-diag: linear-gradient(135deg, #7C3AED 0%, #2563EB 50%, #06B6D4 100%);
+–nav-h: 68px;
+}
+
+/* ============================================================
+NAV
+============================================================ */
+#nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+height: var(–nav-h);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 60px;
+z-index: 1000;
+transition: background .3s, border-color .3s, box-shadow .3s;
+background: transparent;
+}
+#nav.scrolled {
+background: rgba(10,14,26,0.97);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(255,255,255,.07);
+box-shadow: 0 2px 32px rgba(0,0,0,.3);
+}
+#nav.light {
+background: rgba(255,255,255,0.97);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid var(–border);
+}
+.nav-logo {
+font-size: 14px;
+font-weight: 700;
+letter-spacing: .18em;
+text-transform: uppercase;
+color: #fff;
+transition: color .3s;
+}
+#nav.light .nav-logo { color: var(–dark); }
+.nav-links {
+display: flex;
+align-items: center;
+gap: 36px;
+list-style: none;
+}
+.nav-links a {
+font-size: 12px;
+letter-spacing: .1em;
+text-transform: uppercase;
+font-weight: 500;
+color: rgba(255,255,255,.55);
+transition: color .2s;
+}
+.nav-links a:hover { color: rgba(255,255,255,.9); }
+#nav.light .nav-links a { color: var(–muted); }
+#nav.light .nav-links a:hover { color: var(–dark); }
+.nav-cta {
+font-size: 11px !important;
+letter-spacing: .14em !important;
+font-weight: 600 !important;
+padding: 9px 24px;
+border: 1px solid rgba(255,255,255,.3);
+color: rgba(255,255,255,.9) !important;
+transition: border-color .2s, background .2s !important;
+}
+.nav-cta:hover {
+border-color: rgba(255,255,255,.6) !important;
+background: rgba(255,255,255,.06);
+}
+#nav.light .nav-cta {
+border-color: var(–violet) !important;
+color: var(–violet) !important;
+}
+#nav.light .nav-cta:hover {
+background: rgba(124,58,237,.06) !important;
+}
+
+/* ============================================================
+PAGE SECTIONS (scroll targets)
+============================================================ */
+.page-section {
+min-height: 100vh;
+}
+
+/* ============================================================
+SECTION: HOME
+============================================================ */
+#home {
+background: var(–dark);
+position: relative;
+overflow: hidden;
+display: flex;
+align-items: flex-end;
+min-height: 100vh;
+padding: calc(var(–nav-h) + 60px) 60px 80px;
+}
+.hero-bg-grid {
+position: absolute;
+inset: 0;
+opacity: .04;
+background-image:
+linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
+background-size: 64px 64px;
+}
+.hero-accent-1 {
+position: absolute;
+top: -120px; right: -80px;
+width: 600px; height: 600px;
+background: var(–grad-diag);
+opacity: .12;
+border-radius: 50%;
+filter: blur(80px);
+}
+.hero-accent-2 {
+position: absolute;
+bottom: -80px; left: 30%;
+width: 400px; height: 300px;
+background: linear-gradient(135deg, #2563EB, #06B6D4);
+opacity: .08;
+border-radius: 50%;
+filter: blur(60px);
+}
+.hero-content {
+position: relative;
+z-index: 2;
+max-width: 820px;
+}
+.hero-label {
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 11px;
+letter-spacing: .22em;
+text-transform: uppercase;
+color: rgba(255,255,255,.38);
+margin-bottom: 32px;
+font-weight: 500;
+}
+.hero-label::before {
+content: ‘’;
+display: block;
+width: 32px; height: 1px;
+background: rgba(255,255,255,.25);
+}
+.hero-h1 {
+font-size: 84px;
+font-weight: 700;
+line-height: .9;
+letter-spacing: -.04em;
+text-transform: uppercase;
+color: #fff;
+margin-bottom: 36px;
+}
+.hero-h1 .grad-text {
+background: var(–grad);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.hero-sub {
+font-size: 18px;
+color: rgba(255,255,255,.5);
+line-height: 1.7;
+font-weight: 300;
+max-width: 580px;
+margin-bottom: 52px;
+}
+.hero-actions {
+display: flex;
+gap: 16px;
+align-items: center;
+flex-wrap: wrap;
+}
+.btn-gradient {
+background: var(–grad);
+color: #fff;
+padding: 15px 40px;
+font-size: 11px;
+letter-spacing: .16em;
+text-transform: uppercase;
+font-weight: 700;
+cursor: pointer;
+border: none;
+display: inline-block;
+transition: opacity .2s;
+}
+.btn-gradient:hover { opacity: .85; }
+.btn-ghost-white {
+color: rgba(255,255,255,.45);
+font-size: 11px;
+letter-spacing: .14em;
+text-transform: uppercase;
+font-weight: 500;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+transition: color .2s;
+}
+.btn-ghost-white:hover { color: rgba(255,255,255,.75); }
+.btn-ghost-white::after { content: ‘→’; font-size: 14px; }
+.hero-scroll-hint {
+position: absolute;
+bottom: 36px;
+right: 60px;
+z-index: 2;
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 10px;
+letter-spacing: .18em;
+text-transform: uppercase;
+color: rgba(255,255,255,.2);
+}
+.scroll-line {
+width: 40px;
+height: 1px;
+background: rgba(255,255,255,.15);
+}
+
+/* ============================================================
+PRODUCT CARDS (home)
+============================================================ */
+.products-strip {
+display: grid;
+grid-template-columns: 1fr 1fr;
+border-bottom: 1px solid var(–border);
+}
+.prod-block {
+padding: 72px 60px;
+position: relative;
+overflow: hidden;
+border-right: 1px solid var(–border);
+}
+.prod-block:last-child { border-right: none; }
+.prod-stripe {
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 3px;
+}
+.prod-block.prysm .prod-stripe { background: linear-gradient(90deg, #7C3AED, #2563EB); }
+.prod-block.aperion .prod-stripe { background: linear-gradient(90deg, #2563EB, #06B6D4); }
+.prod-eyebrow {
+font-size: 10px;
+letter-spacing: .22em;
+text-transform: uppercase;
+font-weight: 700;
+margin-bottom: 18px;
+}
+.prod-block.prysm .prod-eyebrow { color: var(–violet); }
+.prod-block.aperion .prod-eyebrow { color: var(–teal); }
+.prod-title {
+font-size: 40px;
+font-weight: 700;
+letter-spacing: -.03em;
+text-transform: uppercase;
+color: var(–dark);
+line-height: .93;
+margin-bottom: 20px;
+}
+.prod-desc {
+font-size: 15px;
+color: var(–muted);
+line-height: 1.72;
+font-weight: 300;
+max-width: 400px;
+margin-bottom: 40px;
+}
+.prod-pills {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 36px;
+}
+.pill {
+font-size: 11px;
+border: 1px solid var(–border);
+color: var(–muted);
+padding: 5px 14px;
+letter-spacing: .04em;
+font-weight: 400;
+transition: border-color .2s;
+}
+.prod-cta {
+font-size: 11px;
+letter-spacing: .18em;
+text-transform: uppercase;
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+gap: 10px;
+font-weight: 700;
+transition: gap .2s;
+}
+.prod-cta:hover { gap: 16px; }
+.prod-block.prysm .prod-cta { color: var(–violet); }
+.prod-block.aperion .prod-cta { color: var(–teal); }
+
+/* ============================================================
+METRICS BAR
+============================================================ */
+.metrics-bar {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+background: var(–cream);
+border-bottom: 1px solid var(–border);
+}
+.metric {
+padding: 52px 60px;
+border-right: 1px solid var(–border);
+}
+.metric:last-child { border-right: none; }
+.metric-num {
+font-size: 60px;
+font-weight: 700;
+letter-spacing: -.05em;
+line-height: 1;
+color: var(–dark);
+margin-bottom: 8px;
+}
+.metric-num em {
+font-style: normal;
+background: var(–grad);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.metric-label {
+font-size: 12px;
+color: var(–muted-light);
+text-transform: uppercase;
+letter-spacing: .08em;
+line-height: 1.5;
+font-weight: 500;
+}
+
+/* ============================================================
+SECTION HEADER REUSABLE
+============================================================ */
+.section-wrap {
+padding: 96px 60px;
+border-bottom: 1px solid var(–border);
+}
+.section-eyebrow {
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 10px;
+letter-spacing: .22em;
+text-transform: uppercase;
+font-weight: 700;
+color: var(–violet);
+margin-bottom: 24px;
+}
+.section-eyebrow::before {
+content: ‘’;
+display: block;
+width: 24px; height: 1px;
+background: var(–violet);
+}
+.section-h2 {
+font-size: 52px;
+font-weight: 700;
+letter-spacing: -.04em;
+text-transform: uppercase;
+color: var(–dark);
+line-height: .92;
+margin-bottom: 20px;
+}
+.section-lead {
+font-size: 17px;
+color: var(–muted);
+line-height: 1.7;
+font-weight: 300;
+max-width: 560px;
+margin-bottom: 56px;
+}
+
+/* ============================================================
+SECTION: PRYSM
+============================================================ */
+#prysm { background: #fff; }
+.prysm-hero {
+background: var(–dark);
+padding: calc(var(–nav-h) + 80px) 60px 80px;
+position: relative;
+overflow: hidden;
+}
+.prysm-hero-accent {
+position: absolute;
+top: -100px; right: -100px;
+width: 500px; height: 500px;
+background: linear-gradient(135deg, #7C3AED, #2563EB);
+opacity: .14;
+border-radius: 50%;
+filter: blur(80px);
+}
+.prysm-hero-content { position: relative; z-index: 2; }
+.prysm-label {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+font-size: 10px;
+letter-spacing: .22em;
+text-transform: uppercase;
+font-weight: 700;
+color: var(–violet);
+background: rgba(124,58,237,.12);
+padding: 7px 16px;
+margin-bottom: 36px;
+}
+.prysm-h1 {
+font-size: 72px;
+font-weight: 700;
+letter-spacing: -.04em;
+text-transform: uppercase;
+color: #fff;
+line-height: .9;
+margin-bottom: 28px;
+max-width: 700px;
+}
+.prysm-sub {
+font-size: 18px;
+color: rgba(255,255,255,.5);
+line-height: 1.7;
+font-weight: 300;
+max-width: 560px;
+margin-bottom: 44px;
+}
+.problem-section {
+padding: 96px 60px;
+border-bottom: 1px solid var(–border);
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: start;
+}
+.problem-left {}
+.problem-right {
+padding-top: 72px;
+}
+.big-stat {
+margin-bottom: 40px;
+}
+.big-stat-num {
+font-size: 100px;
+font-weight: 700;
+letter-spacing: -.05em;
+line-height: 1;
+background: var(–grad);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 8px;
+}
+.big-stat-label {
+font-size: 14px;
+color: var(–muted);
+line-height: 1.6;
+font-weight: 300;
+max-width: 320px;
+}
+.how-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+margin-top: 56px;
+}
+.how-card {
+background: #fff;
+padding: 36px 32px;
+}
+.how-num {
+font-size: 11px;
+letter-spacing: .18em;
+color: var(–violet);
+font-weight: 700;
+margin-bottom: 16px;
+}
+.how-title {
+font-size: 16px;
+font-weight: 600;
+letter-spacing: -.01em;
+color: var(–dark);
+margin-bottom: 10px;
+text-transform: uppercase;
+}
+.how-desc {
+font-size: 13px;
+color: var(–muted);
+line-height: 1.65;
+font-weight: 300;
+}
+.capability-list {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+}
+.cap-item {
+background: var(–cream);
+padding: 28px 32px;
+display: flex;
+align-items: flex-start;
+gap: 14px;
+}
+.cap-dot {
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(–violet);
+margin-top: 8px;
+flex-shrink: 0;
+}
+.cap-text {
+font-size: 14px;
+color: var(–dark);
+font-weight: 400;
+line-height: 1.5;
+}
+.cap-sub {
+font-size: 12px;
+color: var(–muted);
+font-weight: 300;
+margin-top: 3px;
+}
+
+/* ============================================================
+SECTION: APERION
+============================================================ */
+#aperion { background: #fff; }
+.aperion-hero {
+background: var(–dark-mid);
+padding: calc(var(–nav-h) + 80px) 60px 80px;
+position: relative;
+overflow: hidden;
+}
+.aperion-hero-accent {
+position: absolute;
+top: -80px; right: -60px;
+width: 480px; height: 480px;
+background: linear-gradient(135deg, #2563EB, #06B6D4);
+opacity: .14;
+border-radius: 50%;
+filter: blur(80px);
+}
+.aperion-label {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+font-size: 10px;
+letter-spacing: .22em;
+text-transform: uppercase;
+font-weight: 700;
+color: var(–cyan);
+background: rgba(6,182,212,.1);
+padding: 7px 16px;
+margin-bottom: 36px;
+}
+.aperion-h1 {
+font-size: 72px;
+font-weight: 700;
+letter-spacing: -.04em;
+text-transform: uppercase;
+color: #fff;
+line-height: .9;
+margin-bottom: 28px;
+max-width: 700px;
+}
+.aperion-h1 em {
+font-style: normal;
+background: linear-gradient(90deg, #2563EB, #06B6D4);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.aperion-sub {
+font-size: 18px;
+color: rgba(255,255,255,.5);
+line-height: 1.7;
+font-weight: 300;
+max-width: 560px;
+margin-bottom: 44px;
+}
+.problem-callout {
+background: var(–dark);
+padding: 80px 60px;
+border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.callout-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+.callout-stat-big {
+font-size: 120px;
+font-weight: 700;
+letter-spacing: -.06em;
+line-height: 1;
+background: linear-gradient(90deg, #2563EB, #06B6D4);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 12px;
+}
+.callout-stat-label {
+font-size: 16px;
+color: rgba(255,255,255,.45);
+font-weight: 300;
+line-height: 1.6;
+max-width: 340px;
+}
+.callout-quote {
+font-size: 26px;
+font-weight: 600;
+letter-spacing: -.02em;
+color: #fff;
+line-height: 1.35;
+margin-bottom: 24px;
+}
+.callout-quote em {
+font-style: normal;
+background: linear-gradient(90deg, #2563EB, #06B6D4);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.callout-sub {
+font-size: 15px;
+color: rgba(255,255,255,.4);
+font-weight: 300;
+line-height: 1.7;
+}
+.how-it-works {
+padding: 96px 60px;
+border-bottom: 1px solid var(–border);
+}
+.flow-diagram {
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+gap: 32px;
+align-items: center;
+margin-top: 56px;
+}
+.flow-col {
+display: flex;
+flex-direction: column;
+gap: 2px;
+}
+.flow-col-label {
+font-size: 10px;
+letter-spacing: .2em;
+text-transform: uppercase;
+font-weight: 700;
+margin-bottom: 14px;
+padding: 0 24px;
+}
+.flow-col.sources .flow-col-label { color: var(–muted); }
+.flow-col.outputs .flow-col-label { color: var(–teal); }
+.flow-item {
+padding: 18px 24px;
+background: var(–cream);
+border: 1px solid var(–border);
+font-size: 13px;
+font-weight: 500;
+color: var(–dark);
+letter-spacing: .02em;
+}
+.flow-center {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+}
+.flow-center-box {
+background: var(–dark);
+padding: 32px 28px;
+text-align: center;
+min-width: 160px;
+}
+.flow-center-name {
+font-size: 18px;
+font-weight: 700;
+letter-spacing: .06em;
+text-transform: uppercase;
+background: linear-gradient(90deg, #2563EB, #06B6D4);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 4px;
+}
+.flow-center-sub {
+font-size: 10px;
+letter-spacing: .14em;
+text-transform: uppercase;
+color: rgba(255,255,255,.3);
+font-weight: 500;
+}
+.flow-arrow {
+font-size: 20px;
+color: var(–muted-light);
+}
+.impact-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+margin-top: 56px;
+}
+.impact-card {
+background: #fff;
+padding: 40px 36px;
+}
+.impact-num {
+font-size: 44px;
+font-weight: 700;
+letter-spacing: -.04em;
+line-height: 1;
+background: linear-gradient(90deg, #2563EB, #06B6D4);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 10px;
+}
+.impact-label {
+font-size: 13px;
+font-weight: 600;
+letter-spacing: .04em;
+text-transform: uppercase;
+color: var(–dark);
+margin-bottom: 8px;
+}
+.impact-desc {
+font-size: 13px;
+color: var(–muted);
+line-height: 1.6;
+font-weight: 300;
+}
+.principle-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+margin-top: 56px;
+}
+.principle-card {
+background: var(–dark);
+padding: 44px 36px;
+}
+.principle-icon {
+width: 36px; height: 36px;
+background: rgba(6,182,212,.12);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 20px;
+}
+.principle-icon svg { width: 18px; height: 18px; }
+.principle-title {
+font-size: 14px;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #fff;
+margin-bottom: 12px;
+}
+.principle-desc {
+font-size: 13px;
+color: rgba(255,255,255,.45);
+line-height: 1.7;
+font-weight: 300;
+}
+
+/* ============================================================
+SECTION: HOW IT WORKS (site-level)
+============================================================ */
+#how-it-works { background: #fff; }
+.hiw-hero {
+background: var(–dark);
+padding: calc(var(–nav-h) + 80px) 60px 80px;
+position: relative;
+overflow: hidden;
+}
+.hiw-accent {
+position: absolute;
+top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+width: 800px; height: 400px;
+background: var(–grad-diag);
+opacity: .08;
+border-radius: 50%;
+filter: blur(100px);
+}
+.steps-section {
+padding: 96px 60px;
+border-bottom: 1px solid var(–border);
+}
+.step-list {
+margin-top: 56px;
+border-top: 1px solid var(–border);
+}
+.step-item {
+display: grid;
+grid-template-columns: 80px 1fr 1fr;
+gap: 40px;
+align-items: start;
+padding: 44px 0;
+border-bottom: 1px solid var(–border);
+}
+.step-num {
+font-size: 11px;
+letter-spacing: .18em;
+color: var(–muted-light);
+font-weight: 700;
+padding-top: 4px;
+}
+.step-title {
+font-size: 24px;
+font-weight: 700;
+letter-spacing: -.02em;
+text-transform: uppercase;
+color: var(–dark);
+margin-bottom: 12px;
+}
+.step-label {
+font-size: 10px;
+letter-spacing: .18em;
+text-transform: uppercase;
+font-weight: 700;
+margin-bottom: 6px;
+}
+.step-label.prysm-color { color: var(–violet); }
+.step-label.aperion-color { color: var(–teal); }
+.step-label.both-color {
+background: var(–grad);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.step-desc {
+font-size: 15px;
+color: var(–muted);
+line-height: 1.7;
+font-weight: 300;
+}
+.step-detail {
+font-size: 14px;
+color: var(–muted);
+line-height: 1.7;
+font-weight: 300;
+}
+.arch-section {
+padding: 96px 60px;
+border-bottom: 1px solid var(–border);
+background: var(–dark);
+}
+.arch-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2px;
+background: rgba(255,255,255,.06);
+border: 1px solid rgba(255,255,255,.06);
+margin-top: 56px;
+}
+.arch-card {
+background: var(–dark-soft);
+padding: 44px 36px;
+}
+.arch-card-label {
+font-size: 10px;
+letter-spacing: .2em;
+text-transform: uppercase;
+font-weight: 700;
+margin-bottom: 16px;
+}
+.arch-card.epic .arch-card-label { color: var(–violet); }
+.arch-card.prysm-card .arch-card-label { color: var(–violet); }
+.arch-card.blackbaud .arch-card-label { color: var(–cyan); }
+.arch-card-title {
+font-size: 22px;
+font-weight: 700;
+letter-spacing: -.02em;
+text-transform: uppercase;
+color: #fff;
+margin-bottom: 14px;
+}
+.arch-card-desc {
+font-size: 13px;
+color: rgba(255,255,255,.4);
+line-height: 1.65;
+font-weight: 300;
+}
+
+/* ============================================================
+SECTION: INTEGRATIONS
+============================================================ */
+#integrations { background: #fff; }
+.int-hero {
+background: var(–dark);
+padding: calc(var(–nav-h) + 80px) 60px 80px;
+position: relative;
+overflow: hidden;
+}
+.int-accent {
+position: absolute;
+top: -100px; left: -80px;
+width: 500px; height: 500px;
+background: linear-gradient(135deg, #7C3AED, #06B6D4);
+opacity: .1;
+border-radius: 50%;
+filter: blur(80px);
+}
+.int-grid-main {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+margin-top: 56px;
+}
+.int-card-main {
+background: #fff;
+padding: 44px 44px;
+position: relative;
+}
+.int-card-stripe {
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 3px;
+}
+.int-card-main.epic .int-card-stripe { background: linear-gradient(90deg, #7C3AED, #2563EB); }
+.int-card-main.blackbaud .int-card-stripe { background: linear-gradient(90deg, #2563EB, #06B6D4); }
+.int-card-main.salesforce .int-card-stripe { background: linear-gradient(90deg, #06B6D4, #059669); }
+.int-card-main.ai-layer .int-card-stripe { background: var(–grad); }
+.int-card-abbr {
+font-size: 28px;
+font-weight: 700;
+letter-spacing: -.02em;
+color: var(–dark);
+margin-bottom: 6px;
+}
+.int-card-name {
+font-size: 18px;
+font-weight: 600;
+letter-spacing: -.01em;
+color: var(–dark);
+margin-bottom: 6px;
+}
+.int-card-type {
+font-size: 10px;
+letter-spacing: .18em;
+text-transform: uppercase;
+color: var(–muted-light);
+font-weight: 600;
+margin-bottom: 20px;
+}
+.int-card-desc {
+font-size: 14px;
+color: var(–muted);
+line-height: 1.7;
+font-weight: 300;
+}
+.security-section {
+padding: 96px 60px;
+background: var(–dark);
+border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.security-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2px;
+background: rgba(255,255,255,.06);
+border: 1px solid rgba(255,255,255,.06);
+margin-top: 56px;
+}
+.security-card {
+background: var(–dark-soft);
+padding: 40px 36px;
+}
+.security-icon {
+width: 32px; height: 32px;
+background: rgba(124,58,237,.15);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 18px;
+}
+.security-title {
+font-size: 13px;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+color: #fff;
+margin-bottom: 10px;
+}
+.security-desc {
+font-size: 13px;
+color: rgba(255,255,255,.4);
+line-height: 1.65;
+font-weight: 300;
+}
+
+/* ============================================================
+SECTION: RESULTS
+============================================================ */
+#results { background: #fff; }
+.results-hero {
+background: var(–dark);
+padding: calc(var(–nav-h) + 80px) 60px 80px;
+position: relative;
+overflow: hidden;
+}
+.results-accent {
+position: absolute;
+bottom: -80px; right: 10%;
+width: 400px; height: 400px;
+background: var(–grad-diag);
+opacity: .1;
+border-radius: 50%;
+filter: blur(80px);
+}
+.case-study-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+margin-top: 56px;
+}
+.case-card {
+background: #fff;
+padding: 52px 52px;
+position: relative;
+}
+.case-stripe {
+position: absolute;
+top: 0; left: 0;
+width: 3px; height: 100%;
+}
+.case-card:nth-child(1) .case-stripe { background: linear-gradient(180deg, #7C3AED, #2563EB); }
+.case-card:nth-child(2) .case-stripe { background: linear-gradient(180deg, #2563EB, #06B6D4); }
+.case-card:nth-child(3) .case-stripe { background: linear-gradient(180deg, #7C3AED, #06B6D4); }
+.case-card:nth-child(4) .case-stripe { background: linear-gradient(180deg, #06B6D4, #059669); }
+.case-client {
+font-size: 10px;
+letter-spacing: .22em;
+text-transform: uppercase;
+font-weight: 700;
+color: var(–muted-light);
+margin-bottom: 20px;
+}
+.case-headline {
+font-size: 32px;
+font-weight: 700;
+letter-spacing: -.03em;
+text-transform: uppercase;
+color: var(–dark);
+line-height: .95;
+margin-bottom: 16px;
+}
+.case-headline em {
+font-style: normal;
+background: var(–grad);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.case-desc {
+font-size: 14px;
+color: var(–muted);
+line-height: 1.7;
+font-weight: 300;
+margin-bottom: 28px;
+}
+.case-stats {
+display: flex;
+gap: 32px;
+}
+.case-stat {}
+.case-stat-num {
+font-size: 32px;
+font-weight: 700;
+letter-spacing: -.03em;
+color: var(–dark);
+line-height: 1;
+margin-bottom: 4px;
+}
+.case-stat-label {
+font-size: 11px;
+color: var(–muted-light);
+text-transform: uppercase;
+letter-spacing: .07em;
+font-weight: 500;
+}
+.clients-section {
+padding: 72px 60px;
+border-bottom: 1px solid var(–border);
+background: var(–cream);
+}
+.clients-label {
+font-size: 10px;
+letter-spacing: .22em;
+text-transform: uppercase;
+font-weight: 700;
+color: var(–muted-light);
+margin-bottom: 36px;
+text-align: center;
+}
+.clients-row {
+display: flex;
+gap: 0;
+justify-content: center;
+flex-wrap: wrap;
+border-top: 1px solid var(–border);
+border-left: 1px solid var(–border);
+}
+.client-badge {
+padding: 24px 40px;
+border-right: 1px solid var(–border);
+border-bottom: 1px solid var(–border);
+font-size: 13px;
+font-weight: 700;
+letter-spacing: .1em;
+text-transform: uppercase;
+color: var(–muted);
+}
+
+/* ============================================================
+SECTION: ABOUT
+============================================================ */
+#about { background: #fff; }
+.about-hero {
+background: var(–dark);
+padding: calc(var(–nav-h) + 80px) 60px 80px;
+position: relative;
+overflow: hidden;
+}
+.about-accent {
+position: absolute;
+top: -60px; right: -40px;
+width: 480px; height: 480px;
+background: var(–grad-diag);
+opacity: .1;
+border-radius: 50%;
+filter: blur(90px);
+}
+.mission-section {
+padding: 96px 60px;
+border-bottom: 1px solid var(–border);
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: start;
+}
+.mission-quote {
+font-size: 36px;
+font-weight: 600;
+letter-spacing: -.03em;
+color: var(–dark);
+line-height: 1.2;
+margin-bottom: 28px;
+}
+.mission-quote em {
+font-style: normal;
+background: var(–grad);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.mission-body {
+font-size: 16px;
+color: var(–muted);
+line-height: 1.75;
+font-weight: 300;
+}
+.mission-body p + p { margin-top: 20px; }
+.values-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+}
+.value-card {
+background: var(–cream);
+padding: 40px 36px;
+}
+.value-num {
+font-size: 10px;
+letter-spacing: .2em;
+text-transform: uppercase;
+color: var(–violet);
+font-weight: 700;
+margin-bottom: 14px;
+}
+.value-title {
+font-size: 18px;
+font-weight: 700;
+letter-spacing: -.01em;
+text-transform: uppercase;
+color: var(–dark);
+margin-bottom: 10px;
+}
+.value-desc {
+font-size: 13px;
+color: var(–muted);
+line-height: 1.65;
+font-weight: 300;
+}
+.team-section {
+padding: 96px 60px;
+border-bottom: 1px solid var(–border);
+background: var(–dark);
+}
+
+/* ============================================================
+SECTION: CONTACT
+============================================================ */
+#contact { background: #fff; }
+.contact-hero {
+background: var(–dark);
+padding: calc(var(–nav-h) + 80px) 60px 80px;
+position: relative;
+overflow: hidden;
+}
+.contact-accent {
+position: absolute;
+bottom: -100px; right: -60px;
+width: 500px; height: 500px;
+background: var(–grad-diag);
+opacity: .1;
+border-radius: 50%;
+filter: blur(80px);
+}
+.contact-wrap {
+padding: 96px 60px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+border-bottom: 1px solid var(–border);
+}
+.contact-left {}
+.contact-intro {
+font-size: 17px;
+color: var(–muted);
+line-height: 1.75;
+font-weight: 300;
+margin-bottom: 48px;
+}
+.contact-detail {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+.contact-item {
+display: flex;
+align-items: flex-start;
+gap: 16px;
+padding-bottom: 20px;
+border-bottom: 1px solid var(–border);
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-item-label {
+font-size: 10px;
+letter-spacing: .18em;
+text-transform: uppercase;
+font-weight: 700;
+color: var(–muted-light);
+min-width: 80px;
+padding-top: 2px;
+}
+.contact-item-value {
+font-size: 15px;
+color: var(–dark);
+font-weight: 400;
+line-height: 1.5;
+}
+.contact-form {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
+}
+.form-group {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.form-label {
+font-size: 10px;
+letter-spacing: .18em;
+text-transform: uppercase;
+font-weight: 700;
+color: var(–muted);
+}
+.form-input, .form-select, .form-textarea {
+background: var(–cream);
+border: 1px solid var(–border);
+padding: 14px 18px;
+font-family: ‘Urbanist’, sans-serif;
+font-size: 15px;
+color: var(–dark);
+font-weight: 400;
+outline: none;
+transition: border-color .2s;
+width: 100%;
+-webkit-appearance: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+border-color: var(–violet);
+}
+.form-textarea {
+resize: vertical;
+min-height: 120px;
+line-height: 1.6;
+}
+.form-select {
+cursor: pointer;
+}
+.form-submit {
+background: var(–grad);
+color: #fff;
+padding: 16px 40px;
+font-family: ‘Urbanist’, sans-serif;
+font-size: 11px;
+letter-spacing: .18em;
+text-transform: uppercase;
+font-weight: 700;
+cursor: pointer;
+border: none;
+align-self: flex-start;
+transition: opacity .2s;
+}
+.form-submit:hover { opacity: .85; }
+.form-note {
+font-size: 12px;
+color: var(–muted-light);
+font-weight: 300;
+line-height: 1.6;
+}
+.pilot-section {
+padding: 80px 60px;
+background: var(–dark);
+border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.pilot-inner {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+gap: 60px;
+}
+.pilot-text {}
+.pilot-heading {
+font-size: 52px;
+font-weight: 700;
+letter-spacing: -.04em;
+text-transform: uppercase;
+color: #fff;
+line-height: .92;
+margin-bottom: 16px;
+}
+.pilot-heading em {
+font-style: normal;
+background: var(–grad);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.pilot-sub {
+font-size: 16px;
+color: rgba(255,255,255,.4);
+font-weight: 300;
+line-height: 1.6;
+max-width: 480px;
+}
+.pilot-cta {
+flex-shrink: 0;
+}
+
+/* ============================================================
+FOOTER
+============================================================ */
+#site-footer {
+background: var(–dark);
+border-top: 1px solid rgba(255,255,255,.06);
+}
+.footer-top {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+gap: 0;
+padding: 72px 60px 52px;
+border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.footer-brand {}
+.footer-logo {
+font-size: 14px;
+font-weight: 700;
+letter-spacing: .18em;
+text-transform: uppercase;
+color: #fff;
+margin-bottom: 14px;
+}
+.footer-tagline {
+font-size: 13px;
+color: rgba(255,255,255,.3);
+font-weight: 300;
+line-height: 1.6;
+max-width: 220px;
+}
+.footer-col {}
+.footer-col-title {
+font-size: 10px;
+letter-spacing: .2em;
+text-transform: uppercase;
+font-weight: 700;
+color: rgba(255,255,255,.3);
+margin-bottom: 20px;
+}
+.footer-col ul {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.footer-col ul li a {
+font-size: 13px;
+color: rgba(255,255,255,.5);
+font-weight: 300;
+transition: color .2s;
+}
+.footer-col ul li a:hover { color: #fff; }
+.footer-bottom {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 24px 60px;
+}
+.footer-copy {
+font-size: 12px;
+color: rgba(255,255,255,.2);
+letter-spacing: .04em;
+}
+.footer-domain {
+font-size: 12px;
+color: rgba(255,255,255,.2);
+letter-spacing: .08em;
+text-transform: uppercase;
+font-weight: 500;
+}
+
+/* ============================================================
+DIVIDER / PAGE TRANSITION STRIP
+============================================================ */
+.grad-strip {
+height: 3px;
+background: var(–grad);
+}
+
+/* ============================================================
+UTILITY
+============================================================ */
+.text-grad {
+background: var(–grad);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.mt-56 { margin-top: 56px; }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+NAV
+============================================================ -->
+
+<nav id="nav">
+<div class="nav-logo">Actionable Insight AI</div>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#prysm">Prysm</a></li>
+<li><a href="#aperion">Aperion</a></li>
+<li><a href="#how-it-works">How It Works</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact" class="nav-cta">Book a Demo</a></li>
+</ul>
+</nav>
+
+<!-- ============================================================
+SECTION 1: HOME
+============================================================ -->
+
+<section id="home" class="page-section">
+
+<!-- Hero -->
+
+<div class="hero-bg-grid"></div>
+<div class="hero-accent-1"></div>
+<div class="hero-accent-2"></div>
+<div class="hero-content">
+<div class="hero-label">Healthcare philanthropy intelligence</div>
+<h1 class="hero-h1">
+Intelligence<br>
+that moves<br>
+<span class="grad-text">people to give.</span>
+</h1>
+<p class="hero-sub">Two purpose-built platforms — Prysm and Aperion — designed to transform how health systems identify, engage, and inspire their most capable philanthropists.</p>
+<div class="hero-actions">
+<a href="#prysm" class="btn-gradient">Explore our platforms</a>
+<a href="#results" class="btn-ghost-white">View client results</a>
+</div>
+</div>
+<div class="hero-scroll-hint">
+<span class="scroll-line"></span>
+Scroll to explore
+</div>
+
+</section>
+
+<!-- Products Strip -->
+
+<div class="products-strip">
+<div class="prod-block prysm">
+<div class="prod-stripe"></div>
+<div class="prod-eyebrow">Prysm — Platform 01</div>
+<h3 class="prod-title">Grateful Patient<br>Intelligence</h3>
+<p class="prod-desc">Prysm bridges Epic EMR with Blackbaud CRM to automatically surface major gift prospects from clinical encounter data — identifying grateful patients before the window of opportunity closes.</p>
+<div class="prod-pills">
+<span class="pill">Epic EMR</span>
+<span class="pill">Blackbaud CRM</span>
+<span class="pill">Real-time scoring</span>
+<span class="pill">HIPAA-compliant</span>
+</div>
+<a href="#prysm" class="prod-cta">Explore Prysm →</a>
+</div>
+<div class="prod-block aperion">
+<div class="prod-stripe"></div>
+<div class="prod-eyebrow">Aperion — Platform 02</div>
+<h3 class="prod-title">AI-Augmented<br>Fundraising</h3>
+<p class="prod-desc">Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every conversation count.</p>
+<div class="prod-pills">
+<span class="pill">Donor briefings</span>
+<span class="pill">Prospect matching</span>
+<span class="pill">300+ opportunities</span>
+<span class="pill">20:1 ROI</span>
+</div>
+<a href="#aperion" class="prod-cta">Explore Aperion →</a>
+</div>
+</div>
+
+<!-- Metrics Bar -->
+
+<div class="metrics-bar">
+<div class="metric">
+<div class="metric-num">305<em>%</em></div>
+<div class="metric-label">Increase in first-time<br>major gifts</div>
+</div>
+<div class="metric">
+<div class="metric-num">$4.3<em>M</em></div>
+<div class="metric-label">Realized revenue,<br>Providence South Division</div>
+</div>
+<div class="metric">
+<div class="metric-num">20<em>×</em></div>
+<div class="metric-label">ROI by year two,<br>per fundraising team</div>
+</div>
+</div>
+
+<!-- Integrations Preview -->
+
+<div class="section-wrap">
+<div class="section-eyebrow">Native integrations</div>
+<h2 class="section-h2">Built on the systems<br>your team already uses.</h2>
+<p class="section-lead">No rip-and-replace. No parallel data infrastructure. Prysm and Aperion connect natively with the platforms health system philanthropy teams rely on every day.</p>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);">
+<div style="background:#fff;padding:32px 32px;">
+<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--violet);margin-bottom:12px;">Epic</div>
+<div style="font-size:16px;font-weight:600;color:var(--dark);margin-bottom:4px;">Epic EMR</div>
+<div style="font-size:12px;color:var(--muted-light);text-transform:uppercase;letter-spacing:.07em;">Clinical data source</div>
+</div>
+<div style="background:#fff;padding:32px 32px;">
+<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:12px;">BB</div>
+<div style="font-size:16px;font-weight:600;color:var(--dark);margin-bottom:4px;">Blackbaud CRM</div>
+<div style="font-size:12px;color:var(--muted-light);text-transform:uppercase;letter-spacing:.07em;">Fundraising CRM</div>
+</div>
+<div style="background:#fff;padding:32px 32px;">
+<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#C2410C;margin-bottom:12px;">SF</div>
+<div style="font-size:16px;font-weight:600;color:var(--dark);margin-bottom:4px;">Salesforce NPSP</div>
+<div style="font-size:12px;color:var(--muted-light);text-transform:uppercase;letter-spacing:.07em;">Donor management</div>
+</div>
+<div style="background:#fff;padding:32px 32px;">
+<div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:12px;">AI</div>
+<div style="font-size:16px;font-weight:600;color:var(--dark);margin-bottom:4px;">Aperion AI Layer</div>
+<div style="font-size:12px;color:var(--muted-light);text-transform:uppercase;letter-spacing:.07em;">Intelligence engine</div>
+</div>
+</div>
+</div>
+
+<div class="grad-strip"></div>
+
+<!-- ============================================================
+SECTION 2: PRYSM
+============================================================ -->
+
+<section id="prysm" class="page-section">
+
+<div class="prysm-hero">
+<div class="hero-bg-grid"></div>
+<div class="prysm-hero-accent"></div>
+<div class="prysm-hero-content">
+<div class="prysm-label">Platform 01 — Prysm</div>
+<h2 class="prysm-h1">Grateful patients<br>become transformational<br>donors.</h2>
+<p class="prysm-sub">Prysm is a grateful patient intelligence platform that connects Epic EMR with Blackbaud CRM to automatically identify and prioritize major gift prospects — at the exact moment clinical gratitude is highest.</p>
+<a href="#contact" class="btn-gradient">Request a demo</a>
+</div>
+</div>
+
+<div class="problem-section">
+<div class="problem-left">
+<div class="section-eyebrow">The problem</div>
+<h2 class="section-h2">Grateful patients<br>go unnoticed.</h2>
+<p class="section-lead" style="margin-bottom:0;">Every week, thousands of patients leave your health system with genuine gratitude — and no mechanism exists to connect that gratitude to your philanthropy program. The window closes in days, not months.</p>
+</div>
+<div class="problem-right">
+<div class="big-stat">
+<div class="big-stat-num">305%</div>
+<div class="big-stat-label">Increase in first-time major gifts at Providence South Division following Prysm implementation.</div>
+</div>
+<div class="big-stat">
+<div class="big-stat-num">$4.3M</div>
+<div class="big-stat-label">In realized philanthropic revenue attributed directly to Prysm-identified patient prospects.</div>
+</div>
+</div>
+</div>
+
+<div class="section-wrap">
+<div class="section-eyebrow">How Prysm works</div>
+<h2 class="section-h2">Clinical data.<br>Philanthropic intelligence.</h2>
+<p class="section-lead">Prysm operates at the intersection of Epic and Blackbaud, automating the identification and qualification process that would otherwise require a full-time research staff.</p>
+<div class="how-grid">
+<div class="how-card">
+<div class="how-num">01</div>
+<div class="how-title">Ingest clinical data</div>
+<div class="how-desc">Prysm connects directly to Epic via FHIR-compliant APIs, ingesting encounter data, discharge records, and clinical interactions in real time — fully HIPAA-compliant.</div>
+</div>
+<div class="how-card">
+<div class="how-num">02</div>
+<div class="how-title">Score & qualify</div>
+<div class="how-desc">Each patient interaction is scored against philanthropic capacity indicators, wealth screening data, and engagement signals to surface the highest-probability prospects.</div>
+</div>
+<div class="how-card">
+<div class="how-num">03</div>
+<div class="how-title">Deliver to CRM</div>
+<div class="how-desc">Qualified prospects are pushed directly into Blackbaud CRM with complete context — ready for gift officer assignment, outreach scheduling, and cultivation tracking.</div>
+</div>
+</div>
+</div>
+
+<div class="section-wrap" style="background:var(--cream);">
+<div class="section-eyebrow">Platform capabilities</div>
+<h2 class="section-h2">Everything your team<br>needs to execute.</h2>
+<p class="section-lead">Prysm delivers end-to-end grateful patient management — from initial identification through gift close — within the systems your team already operates.</p>
+<div class="capability-list">
+<div class="cap-item">
+<div class="cap-dot"></div>
+<div>
+<div class="cap-text">Epic EMR native integration</div>
+<div class="cap-sub">FHIR-compliant, real-time data ingestion from all Epic modules</div>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-dot"></div>
+<div>
+<div class="cap-text">Blackbaud CRM push</div>
+<div class="cap-sub">Automated prospect creation with full clinical and wealth context</div>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-dot"></div>
+<div>
+<div class="cap-text">Wealth screening integration</div>
+<div class="cap-sub">Iwave, DonorSearch, and WealthEngine API connectivity</div>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-dot"></div>
+<div>
+<div class="cap-text">HIPAA-compliant architecture</div>
+<div class="cap-sub">Role-based access, PHI isolation, and full audit logging</div>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-dot"></div>
+<div>
+<div class="cap-text">Clinician engagement layer</div>
+<div class="cap-sub">Structured physician referral workflows with attribution tracking</div>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-dot"></div>
+<div>
+<div class="cap-text">Pipeline intelligence dashboard</div>
+<div class="cap-sub">Real-time gift pipeline analytics by department, physician, and timeframe</div>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-dot"></div>
+<div>
+<div class="cap-text">Multi-hospital support</div>
+<div class="cap-sub">Single platform managing grateful patient programs across divisions</div>
+</div>
+</div>
+<div class="cap-item">
+<div class="cap-dot"></div>
+<div>
+<div class="cap-text">Playbook-driven operations</div>
+<div class="cap-sub">Built-in Prysm Clinician & Patient Engagement Playbook for consistent execution</div>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<div class="grad-strip"></div>
+
+<!-- ============================================================
+SECTION 3: APERION
+============================================================ -->
+
+<section id="aperion" class="page-section">
+
+...
+
+[Message clipped]  View entire message

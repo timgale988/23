@@ -1,147 +1,145 @@
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { BarChart, Zap, Settings, Database, ArrowRight, LineChart, PieChart } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function Prysm() {
   return (
-    <div className="overflow-hidden bg-background">
+    <div className="overflow-hidden bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            <div>
-              <AnimatedSection>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6">
-                  Actionable Insight Product
-                </div>
-                <h1 className="text-5xl lg:text-7xl font-display font-extrabold text-foreground leading-[1.1] mb-6">
-                  Prysm.<br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-500">
-                    Clarity Through Data
-                  </span>
-                </h1>
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                  A premium business intelligence and analytics platform that provides real-time dashboards, customizable reports, and predictive insights for modern teams.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="rounded-full text-base px-8 bg-foreground text-background hover:bg-foreground/90 shadow-xl">
-                    Start Free Trial
-                  </Button>
-                  <Button size="lg" variant="outline" className="rounded-full text-base px-8 border-border">
-                    Watch Video
-                  </Button>
-                </div>
-              </AnimatedSection>
-            </div>
-            
-            <AnimatedSection direction="left" delay={0.2} className="relative hidden lg:block">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent blur-3xl rounded-full" />
-              <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-accent/10">
-                <img 
-                  src={`${import.meta.env.BASE_URL}images/prysm-abstract.png`}
-                  alt="Prysm Interface Abstract" 
-                  className="w-full h-auto aspect-[4/3] object-cover"
-                />
-                <div className="absolute bottom-4 left-4 right-4 p-6 rounded-xl bg-background/80 backdrop-blur-md border border-border shadow-lg">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-muted-foreground">Live Revenue Stream</span>
-                    <span className="text-xs font-bold text-accent flex items-center gap-1"><Zap className="w-3 h-3"/> +24.5%</span>
-                  </div>
-                  <div className="h-12 w-full bg-gradient-to-r from-accent/20 via-accent/50 to-blue-500/50 rounded-md" />
-                </div>
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 bg-[#0A0E1A] text-white">
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[#0A0E1A]/90 z-10" />
+          <img 
+            src={`${import.meta.env.BASE_URL}images/prysm-abstract.png`}
+            alt="Prysm Interface Abstract" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+          <div className="max-w-4xl">
+            <AnimatedSection>
+              <div className="inline-block px-4 py-2 bg-[#7C3AED]/20 border border-[#7C3AED]/30 text-[#7C3AED] text-xs font-bold tracking-[0.2em] uppercase mb-8">
+                Platform 01 — Prysm
               </div>
+              <h1 className="text-5xl lg:text-[5.5rem] font-display font-bold text-white leading-[1.05] tracking-tighter mb-8">
+                GRATEFUL PATIENTS BECOME TRANSFORMATIONAL DONORS.
+              </h1>
+              <p className="text-xl sm:text-2xl text-white/60 mb-12 leading-relaxed max-w-3xl font-light">
+                Prysm is a grateful patient intelligence platform that connects Epic EMR with Blackbaud CRM to automatically identify and prioritize major gift prospects — at the exact moment clinical gratitude is highest.
+              </p>
+              <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0">
+                Request a demo
+              </Button>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-24 bg-card">
+      {/* The Problem Section */}
+      <section className="py-24 lg:py-32 border-b border-[#E8ECF2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">See Everything. Miss Nothing.</h2>
-            <p className="text-muted-foreground text-lg">
-              Prysm consolidates your fragmented data silos into a single source of truth with elegant, powerful visualization tools.
-            </p>
-          </AnimatedSection>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
+                THE PROBLEM
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
+                GRATEFUL PATIENTS GO UNNOTICED.
+              </h2>
+              <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
+                Every week, thousands of patients leave your health system with genuine gratitude — and no mechanism exists to connect that gratitude to your philanthropy program. The window closes in days, not months.
+              </p>
+            </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                icon: <BarChart className="w-8 h-8 text-accent" />,
-                title: "Real-Time Dashboards",
-                desc: "Monitor your KPIs as they happen with websockets-powered live updates. No refreshing required."
-              },
-              {
-                icon: <LineChart className="w-8 h-8 text-accent" />,
-                title: "Predictive Analytics",
-                desc: "Built-in machine learning models forecast trends and alert you to anomalies before they become problems."
-              },
-              {
-                icon: <Settings className="w-8 h-8 text-accent" />,
-                title: "Custom Reporting",
-                desc: "Drag-and-drop report builder allows anyone to create board-ready presentations in minutes."
-              },
-              {
-                icon: <Database className="w-8 h-8 text-accent" />,
-                title: "Seamless Data Integration",
-                desc: "Native connectors for Snowflake, Redshift, Postgres, and 150+ SaaS tools."
-              }
-            ].map((feature, idx) => (
-              <AnimatedSection key={idx} delay={0.1 * idx} className="p-8 rounded-3xl bg-background border border-border hover:shadow-xl hover:border-accent/30 transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center mb-6">
-                  {feature.icon}
+            <div className="space-y-12">
+              <AnimatedSection delay={0.1}>
+                <div className="text-6xl lg:text-8xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] via-[#2563EB] to-[#06B6D4] mb-4">
+                  305%
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4 font-display">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-lg">{feature.desc}</p>
+                <div className="text-sm font-semibold tracking-widest uppercase text-[#0A0E1A] max-w-sm leading-relaxed border-l-2 border-[#7C3AED] pl-6">
+                  Increase in first-time major gifts at Providence South Division following Prysm implementation.
+                </div>
               </AnimatedSection>
-            ))}
+
+              <AnimatedSection delay={0.2}>
+                <div className="text-6xl lg:text-8xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] via-[#2563EB] to-[#06B6D4] mb-4">
+                  $4.3M
+                </div>
+                <div className="text-sm font-semibold tracking-widest uppercase text-[#0A0E1A] max-w-sm leading-relaxed border-l-2 border-[#7C3AED] pl-6">
+                  In realized philanthropic revenue attributed directly to Prysm-identified patient prospects.
+                </div>
+              </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="py-24 bg-background">
+      <section className="py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">How Prysm Works</h2>
-            <p className="text-muted-foreground text-lg">From raw data to board-ready insights in three simple steps.</p>
+          <AnimatedSection className="max-w-3xl mb-20">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
+              HOW PRYSM WORKS
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
+              CLINICAL DATA. PHILANTHROPIC INTELLIGENCE.
+            </h2>
+            <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
+              Prysm operates at the intersection of Epic and Blackbaud, automating the identification and qualification process that would otherwise require a full-time research staff.
+            </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-8 relative">
-            <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-border z-0" />
-            
+          <div className="grid md:grid-cols-3 gap-0 border border-[#E8ECF2] bg-[#E8ECF2]">
             {[
-              { step: "01", title: "Connect", desc: "Securely link your databases, data warehouses, and SaaS applications with one-click authentications." },
-              { step: "02", title: "Analyze", desc: "Use our semantic layer to define metrics once, then explore data visually without writing SQL." },
-              { step: "03", title: "Act", desc: "Share interactive dashboards, set up automated email reports, and trigger alerts based on thresholds." }
+              { step: "01", title: "INGEST CLINICAL DATA", desc: "Prysm connects directly to Epic via FHIR-compliant APIs, ingesting encounter data, discharge records, and clinical interactions in real time — fully HIPAA-compliant." },
+              { step: "02", title: "SCORE & QUALIFY", desc: "Each patient interaction is scored against philanthropic capacity indicators, wealth screening data, and engagement signals to surface the highest-probability prospects." },
+              { step: "03", title: "DELIVER TO CRM", desc: "Qualified prospects are pushed directly into Blackbaud CRM with complete context — ready for gift officer assignment, outreach scheduling, and cultivation tracking." }
             ].map((item, idx) => (
-              <AnimatedSection key={idx} delay={0.2 * idx} className="relative z-10">
-                <div className="w-24 h-24 rounded-full bg-card border-8 border-background flex items-center justify-center text-2xl font-display font-bold text-foreground shadow-lg mb-8 mx-auto md:mx-0">
+              <AnimatedSection key={idx} delay={0.1 * idx} className="bg-white p-12 border-[0.5px] border-[#E8ECF2] hover:bg-[#F7F8FC] transition-colors relative">
+                <div className="text-4xl font-display font-bold text-[#E8ECF2] absolute top-8 right-8">
                   {item.step}
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4 text-center md:text-left">{item.title}</h3>
-                <p className="text-muted-foreground text-center md:text-left leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-bold text-[#0A0E1A] mt-8 mb-6 tracking-tight uppercase">{item.title}</h3>
+                <p className="text-[#6B7A90] text-base font-light leading-relaxed">{item.desc}</p>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-secondary/50 border-t border-border">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <AnimatedSection>
-            <PieChart className="w-16 h-16 text-accent mx-auto mb-8" />
-            <h2 className="text-4xl font-display font-bold text-foreground mb-6">Stop guessing. Start knowing.</h2>
-            <p className="text-xl text-muted-foreground mb-10">
-              Deploy Prysm today and give your team the clarity they need to drive performance.
+      {/* Capabilities */}
+      <section className="py-24 lg:py-32 bg-[#F7F8FC] border-t border-[#E8ECF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-3xl mb-16">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
+              PLATFORM CAPABILITIES
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
+              EVERYTHING YOUR TEAM NEEDS TO EXECUTE.
+            </h2>
+            <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
+              Prysm delivers end-to-end grateful patient management — from initial identification through gift close — within the systems your team already operates.
             </p>
-            <Button size="lg" className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-10 h-14 shadow-lg shadow-accent/20">
-              Request Prysm Demo
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
           </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+            {[
+              { title: "Epic EMR native integration", desc: "FHIR-compliant, real-time data ingestion from all Epic modules" },
+              { title: "Blackbaud CRM push", desc: "Automated prospect creation with full clinical and wealth context" },
+              { title: "Wealth screening integration", desc: "Iwave, DonorSearch, and WealthEngine API connectivity" },
+              { title: "HIPAA-compliant architecture", desc: "Role-based access, PHI isolation, and full audit logging" },
+              { title: "Clinician engagement layer", desc: "Structured physician referral workflows with attribution tracking" },
+              { title: "Pipeline intelligence dashboard", desc: "Real-time prospect pipeline with gift officer activity tracking" }
+            ].map((feature, idx) => (
+              <AnimatedSection key={idx} delay={0.1 * idx} className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-[#7C3AED] shrink-0 mt-1" />
+                <div>
+                  <h4 className="text-lg font-bold text-[#0A0E1A] mb-2 uppercase tracking-tight">{feature.title}</h4>
+                  <p className="text-[#6B7A90] font-light">{feature.desc}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
     </div>
