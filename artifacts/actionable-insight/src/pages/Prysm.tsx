@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { ArrowRight, CheckCircle2, Phone, Mail, MessageSquare, MapPin, Quote } from "lucide-react";
+import { ArrowRight, CheckCircle2, Quote } from "lucide-react";
 
 
 const outcomeStats = [
@@ -54,12 +54,6 @@ const testimonials = [
   },
 ];
 
-const omniChannelStats = [
-  { icon: Phone, label: "Phone", rate: "85%", color: "#7C3AED", note: "CTI-integrated outreach" },
-  { icon: MessageSquare, label: "Text / SMS", rate: "45%", color: "#2563EB", note: "Direct patient messaging" },
-  { icon: Mail, label: "Email", rate: "8.5%", color: "#06B6D4", note: "Digital outreach" },
-  { icon: MapPin, label: "Direct Mail", rate: "1.5%", color: "#6B7A90", note: "Traditional channel" },
-];
 
 export default function Prysm() {
   return (
@@ -219,32 +213,6 @@ export default function Prysm() {
             ))}
           </div>
 
-          {/* Omnichannel Outreach Rates */}
-          <AnimatedSection className="bg-[#0A0E1A] p-12 lg:p-16">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-4 uppercase">
-                Omnichannel Patient Outreach
-              </div>
-              <h3 className="text-3xl lg:text-4xl font-display font-bold text-white tracking-tighter mb-4">
-                PHONE OUTREACH IS 10× MORE EFFECTIVE THAN EMAIL.
-              </h3>
-              <p className="text-white/50 font-light mb-12 max-w-2xl">
-                Prysm's CTI integration enables gift officers to call directly from the platform — the highest-converting channel — with full patient context on screen.
-              </p>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06]">
-                {omniChannelStats.map((channel, i) => (
-                  <div key={i} className="bg-[#0A0E1A] p-8 text-center">
-                    <channel.icon className="w-6 h-6 mx-auto mb-4" style={{ color: channel.color }} />
-                    <div className="text-4xl font-display font-bold tracking-tighter mb-2" style={{ color: channel.color }}>
-                      {channel.rate}
-                    </div>
-                    <div className="text-sm font-bold text-white uppercase tracking-widest mb-1">{channel.label}</div>
-                    <div className="text-[10px] text-white/30 uppercase tracking-wider">{channel.note}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
