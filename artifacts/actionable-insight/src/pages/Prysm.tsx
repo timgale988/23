@@ -181,17 +181,47 @@ export default function Prysm() {
               </p>
             </AnimatedSection>
 
-            <div className="space-y-0 border border-[#E8ECF2]">
-              {sectorChallenges.map((challenge, i) => (
-                <AnimatedSection key={i} delay={0.1 * i} className="p-8 border-b border-[#E8ECF2] last:border-0 flex items-start gap-5">
-                  <AlertTriangle className="w-5 h-5 text-[#7C3AED] shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-2">{challenge.title}</h4>
-                    <p className="text-sm text-[#6B7A90] font-light leading-relaxed">{challenge.desc}</p>
+            <AnimatedSection delay={0.1} className="relative bg-[#0A0E1A] overflow-hidden">
+              {/* Gradient glow */}
+              <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#7C3AED]/15 blur-[80px] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#06B6D4]/10 blur-[60px] pointer-events-none" />
+              {/* Subtle grid */}
+              <div
+                className="absolute inset-0 opacity-[0.04] pointer-events-none"
+                style={{
+                  backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+                  backgroundSize: "40px 40px",
+                }}
+              />
+              {/* Header stripe */}
+              <div className="relative z-10 px-8 pt-8 pb-6 border-b border-white/[0.08]">
+                <div className="flex items-center gap-3">
+                  <AlertTriangle className="w-4 h-4 text-[#7C3AED]" />
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#7C3AED]">
+                    Sector Challenges
+                  </span>
+                </div>
+                <p className="text-white/35 text-xs font-light mt-2 leading-relaxed">
+                  Why traditional grateful patient programs fail at scale
+                </p>
+              </div>
+              {/* Challenge items */}
+              <div className="relative z-10">
+                {sectorChallenges.map((challenge, i) => (
+                  <div key={i} className="px-8 py-7 border-b border-white/[0.06] last:border-0 flex items-start gap-5 group">
+                    <div className="shrink-0 w-8 h-8 rounded-none flex items-center justify-center bg-gradient-to-br from-[#7C3AED]/30 to-[#2563EB]/20 border border-white/10 mt-0.5">
+                      <span className="text-[11px] font-bold text-white/60 font-display">0{i + 1}</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white uppercase tracking-tight mb-2 group-hover:text-[#A78BFA] transition-colors">{challenge.title}</h4>
+                      <p className="text-sm text-white/45 font-light leading-relaxed">{challenge.desc}</p>
+                    </div>
                   </div>
-                </AnimatedSection>
-              ))}
-            </div>
+                ))}
+              </div>
+              {/* Bottom accent bar */}
+              <div className="h-1 w-full bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4]" />
+            </AnimatedSection>
           </div>
 
           {/* Big stats */}
