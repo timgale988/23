@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { ArrowRight, CheckCircle2, Quote, AlertTriangle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Quote, AlertTriangle, Database, Zap, Users, MapPin, BarChart3, Phone, Brain, Shield, Building2, FileSearch, TrendingUp } from "lucide-react";
 
 const outcomeStats = [
   { value: "305%", label: "Increase in first-time major gifts", sub: "Providence South Division" },
@@ -255,51 +255,198 @@ export default function Prysm() {
       </section>
 
       {/* ── How Prysm Works ── */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl mb-20">
-            <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
+      <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white relative overflow-hidden">
+        <style>{`
+          @keyframes flowDown {
+            0%   { top: -60%; opacity: 0; }
+            15%  { opacity: 1; }
+            85%  { opacity: 1; }
+            100% { top: 160%; opacity: 0; }
+          }
+          @keyframes engineGlow {
+            0%, 100% { box-shadow: 0 0 40px rgba(124,58,237,0.15), 0 0 80px rgba(37,99,235,0.06); }
+            50%       { box-shadow: 0 0 70px rgba(124,58,237,0.35), 0 0 140px rgba(37,99,235,0.15), 0 0 220px rgba(6,182,212,0.06); }
+          }
+          .engine-glow { animation: engineGlow 4s ease-in-out infinite; }
+        `}</style>
+
+        {/* Ambient background grid */}
+        <div
+          className="absolute inset-0 opacity-[0.025] pointer-events-none"
+          style={{
+            backgroundImage: "linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#7C3AED]/8 blur-[140px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+          {/* Header */}
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-20">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
               How Prysm Works
             </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
-              CLINICAL DATA. PHILANTHROPIC INTELLIGENCE. AUTOMATED EXECUTION.
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter mb-6">
+              FROM CLINICAL ENCOUNTER TO MAJOR GIFT — AUTOMATED.
             </h2>
-            <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
-              Prysm operates as a unified intelligent ecosystem — connecting every stakeholder, from gift officers and clinicians to operations and executive leadership, through a single source of truth that runs continuously and automatically.
+            <p className="text-xl text-white/45 font-light leading-relaxed">
+              Prysm bridges Epic, Blackbaud, and Salesforce into a single intelligent pipeline. Clinical data enters at the top. Qualified, ready-to-engage major gift prospects flow out the bottom. Everything in between is automated by the Prysm Intelligence Engine.
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-0 border border-[#E8ECF2] bg-[#E8ECF2]">
-            {[
-              {
-                step: "01",
-                title: "INGEST CLINICAL DATA",
-                desc: "Prysm connects directly to Epic via FHIR-compliant APIs, ingesting encounter data, discharge records, diagnosis codes, care team information, and clinical interaction history in real time. Every patient is immediately available for philanthropic scoring — fully HIPAA-compliant, with role-based access controls and PHI isolation throughout.",
-                detail: "70,000+ physician panels analyzed continuously across health system networks.",
-              },
-              {
-                step: "02",
-                title: "SCORE & QUALIFY",
-                desc: "Each patient encounter is passed through Prysm's AI-driven prospect scoring engine, which combines clinical engagement signals with Windfall wealth data, DonorSearch philanthropic history, and Einstein AI machine learning models. The result is a ranked, qualified prospect list — updated daily — that surfaces the highest-probability major gift candidates before gift officers would ever find them manually.",
-                detail: "200–400% increase in patient qualification rates versus manual screening.",
-              },
-              {
-                step: "03",
-                title: "ENGAGE AND CULTIVATE",
-                desc: "Qualified prospects flow directly into Blackbaud CRM or Salesforce NPSP with full clinical context, wealth scores, and recommended outreach actions attached. Gift officers receive daily prioritized patient lists, click-to-dial CTI calling from within the platform, geolocation mapping for visit planning, and automated follow-up scheduling — all from a single dashboard that eliminates administrative overhead and drives consistent execution.",
-                detail: "90% reduction in onboarding time. Programs producing results in weeks, not quarters.",
-              },
-            ].map((item, idx) => (
-              <AnimatedSection key={idx} delay={0.1 * idx} className="bg-white p-12 border-[0.5px] border-[#E8ECF2] hover:bg-[#F7F8FC] transition-colors relative">
-                <div className="text-5xl font-display font-bold text-[#E8ECF2] absolute top-8 right-8 select-none">
-                  {item.step}
+          {/* ═══ DIAGRAM ═══ */}
+          <AnimatedSection>
+
+            {/* ROW 1 — Input sources */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+              {[
+                { icon: <Database className="w-5 h-5" />, label: "Epic EMR", desc: "FHIR-compliant real-time encounter ingestion", tag: "Data Source" },
+                { icon: <TrendingUp className="w-5 h-5" />, label: "Windfall Wealth", desc: "Net worth, assets & investable capacity", tag: "Wealth Data" },
+                { icon: <FileSearch className="w-5 h-5" />, label: "DonorSearch", desc: "Philanthropic giving history & capacity", tag: "Prospect Intel" },
+                { icon: <Building2 className="w-5 h-5" />, label: "Clinical Encounters", desc: "70K+ physician panels, continuously refreshed", tag: "Engagement Signal" },
+              ].map((node, i) => (
+                <div key={i} className="border border-[#7C3AED]/25 bg-[#7C3AED]/[0.05] p-5 flex flex-col gap-3 hover:bg-[#7C3AED]/[0.10] transition-colors">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="text-[#A78BFA] mt-0.5">{node.icon}</div>
+                    <div className="text-[9px] font-bold tracking-widest uppercase text-[#7C3AED]/70 border border-[#7C3AED]/20 px-2 py-0.5 shrink-0">{node.tag}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-white uppercase tracking-tight mb-1">{node.label}</div>
+                    <div className="text-xs text-white/35 font-light leading-snug">{node.desc}</div>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-[#0A0E1A] mt-8 mb-4 tracking-tight uppercase">{item.title}</h3>
-                <p className="text-[#6B7A90] text-base font-light leading-relaxed mb-6">{item.desc}</p>
-                <p className="text-[11px] font-bold tracking-widest uppercase text-[#7C3AED]">{item.detail}</p>
-              </AnimatedSection>
+              ))}
+            </div>
+
+            {/* Flow lines: Inputs → Engine */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+              {[0, 1, 2, 3].map(i => (
+                <div key={i} className="flex flex-col items-center h-16 relative">
+                  <div className="w-px flex-1 bg-white/[0.05] relative overflow-hidden">
+                    <div
+                      className="absolute inset-x-0 h-10 bg-gradient-to-b from-transparent via-[#7C3AED] to-transparent"
+                      style={{ animation: `flowDown 2s linear ${i * 0.3}s infinite` }}
+                    />
+                  </div>
+                  <div className="text-[#7C3AED]/50 text-[10px] leading-none mt-0.5">▼</div>
+                </div>
+              ))}
+            </div>
+
+            {/* ROW 2 — Prysm Engine */}
+            <div className="engine-glow relative">
+              <div className="p-px bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4]">
+                <div className="bg-[#0C1020] p-8 lg:p-12 relative overflow-hidden">
+
+                  {/* Large watermark */}
+                  <div className="absolute right-8 top-1/2 -translate-y-1/2 text-[8rem] lg:text-[11rem] font-display font-bold text-white/[0.018] select-none pointer-events-none leading-none tracking-tighter">
+                    PRYSM
+                  </div>
+
+                  <div className="relative z-10">
+                    {/* Engine header */}
+                    <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-[#7C3AED]/20 border border-[#7C3AED]/30">
+                          <Brain className="w-5 h-5 text-[#7C3AED]" />
+                        </div>
+                        <div>
+                          <div className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#7C3AED] mb-0.5">Intelligence Engine</div>
+                          <h3 className="text-2xl lg:text-3xl font-display font-bold text-white tracking-tighter leading-none">
+                            PRYSM
+                          </h3>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 border border-white/[0.08] px-4 py-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Running continuously</span>
+                      </div>
+                    </div>
+
+                    <p className="text-white/40 font-light text-sm mb-8 max-w-2xl leading-relaxed border-l-2 border-[#7C3AED]/40 pl-4">
+                      Every patient encounter is automatically scored against philanthropic capacity indicators, AI-driven wealth models, and clinical engagement signals. The result: a daily ranked prospect list delivered directly into your CRM — with no manual research required.
+                    </p>
+
+                    {/* Capability tiles */}
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
+                      {[
+                        { icon: <Brain className="w-4 h-4" />, label: "Einstein AI Scoring", detail: "ML-driven prospect ranking & prioritization" },
+                        { icon: <TrendingUp className="w-4 h-4" />, label: "Windfall + DonorSearch Layers", detail: "Combined wealth & philanthropic intelligence" },
+                        { icon: <Shield className="w-4 h-4" />, label: "HIPAA-Compliant Architecture", detail: "PHI isolation, role-based access, full audit log" },
+                        { icon: <BarChart3 className="w-4 h-4" />, label: "Real-Time Pipeline Dashboard", detail: "360° views for officers, managers & leadership" },
+                        { icon: <Phone className="w-4 h-4" />, label: "CTI Phone Integration", detail: "Click-to-dial with call logging & outcome capture" },
+                        { icon: <MapPin className="w-4 h-4" />, label: "Geolocation Mapping", detail: "Regional prospect segmentation & event targeting" },
+                      ].map((cap, i) => (
+                        <div key={i} className="flex items-start gap-3 p-4 border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
+                          <div className="text-[#7C3AED] shrink-0 mt-0.5">{cap.icon}</div>
+                          <div>
+                            <div className="text-[11px] font-bold text-white uppercase tracking-tight leading-tight mb-0.5">{cap.label}</div>
+                            <div className="text-[10px] text-white/30 font-light leading-snug">{cap.detail}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            {/* Flow lines: Engine → Outputs */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+              {[0, 1, 2, 3].map(i => (
+                <div key={i} className="flex flex-col items-center h-16 relative">
+                  <div className="w-px flex-1 bg-white/[0.05] relative overflow-hidden">
+                    <div
+                      className="absolute inset-x-0 h-10 bg-gradient-to-b from-transparent via-[#06B6D4] to-transparent"
+                      style={{ animation: `flowDown 2s linear ${i * 0.3 + 1.0}s infinite` }}
+                    />
+                  </div>
+                  <div className="text-[#06B6D4]/50 text-[10px] leading-none mt-0.5">▼</div>
+                </div>
+              ))}
+            </div>
+
+            {/* ROW 3 — Outputs */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+              {[
+                { icon: <Database className="w-5 h-5" />, label: "Blackbaud CRM", desc: "Qualified prospects with clinical context, wealth scores & outreach actions", tag: "CRM Push" },
+                { icon: <Zap className="w-5 h-5" />, label: "Salesforce NPSP", desc: "Native integration for SF-based philanthropy teams, no duplicate data", tag: "CRM Push" },
+                { icon: <Users className="w-5 h-5" />, label: "Gift Officer Queue", desc: "Daily prioritized patient list ranked by giving probability & engagement readiness", tag: "Outreach" },
+                { icon: <BarChart3 className="w-5 h-5" />, label: "ROI & Analytics", desc: "Pipeline dashboards, gift attribution, and portfolio growth reporting for leadership", tag: "Intelligence" },
+              ].map((node, i) => (
+                <div key={i} className="border border-[#06B6D4]/20 bg-[#06B6D4]/[0.04] p-5 flex flex-col gap-3 hover:bg-[#06B6D4]/[0.08] transition-colors">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="text-[#06B6D4] mt-0.5">{node.icon}</div>
+                    <div className="text-[9px] font-bold tracking-widest uppercase text-[#06B6D4]/60 border border-[#06B6D4]/20 px-2 py-0.5 shrink-0">{node.tag}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-white uppercase tracking-tight mb-1">{node.label}</div>
+                    <div className="text-xs text-white/35 font-light leading-snug">{node.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </AnimatedSection>
+          {/* ═══ END DIAGRAM ═══ */}
+
+          {/* Stat callouts */}
+          <div className="grid md:grid-cols-3 gap-0 border-t border-white/[0.06] mt-20 pt-16">
+            {[
+              { val: "200–400%", label: "Patient qualification rate increase", sub: "vs. manual screening baseline" },
+              { val: "90%", label: "Reduction in gift officer onboarding time", sub: "Platform-driven activation" },
+              { val: "70K+", label: "Physician panels analyzed", sub: "Continuously, across all deployments" },
+            ].map((s, i) => (
+              <div key={i} className="pr-10 border-r border-white/[0.06] last:border-0 pl-0 lg:pl-10 first:pl-0 pb-10 lg:pb-0">
+                <div className="text-5xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] mb-3 leading-none">{s.val}</div>
+                <div className="text-sm font-bold text-white uppercase tracking-tight mb-1">{s.label}</div>
+                <div className="text-xs text-white/30 uppercase tracking-wider">{s.sub}</div>
+              </div>
             ))}
           </div>
+
         </div>
       </section>
 
