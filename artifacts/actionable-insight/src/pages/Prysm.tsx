@@ -2,18 +2,6 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ArrowRight, CheckCircle2, Phone, Mail, MessageSquare, MapPin, Quote } from "lucide-react";
 
-import img3107 from "@assets/IMG_3107_1774471695154.PNG";
-import img3110 from "@assets/IMG_3110_1774471695155.JPG";
-import img3114 from "@assets/IMG_3114_1774471695156.PNG";
-import img3116 from "@assets/IMG_3116_1774471695157.PNG";
-import img3120 from "@assets/IMG_3120_1774471695158.PNG";
-import img3140 from "@assets/IMG_3140_1774471695158.PNG";
-import img4013 from "@assets/IMG_4013_1774471695159.PNG";
-import img4117 from "@assets/IMG_4117_1774471695160.PNG";
-import img4118 from "@assets/IMG_4118_1774471695160.PNG";
-import img4544 from "@assets/IMG_4544_1774471695161.PNG";
-import img5380 from "@assets/IMG_5380_1774471695162.PNG";
-import img6403 from "@assets/IMG_6403_1774471695162.JPG";
 
 const outcomeStats = [
   { value: "305%", label: "Increase in first-time major gifts", sub: "Providence South Division" },
@@ -37,21 +25,6 @@ const capabilities = [
   { title: "Playbook-driven operations", desc: "Built-in Prysm Clinician & Patient Engagement Playbook — consistent execution at scale" },
 ];
 
-const dashboardScreenshots = [
-  { img: img4117, label: "Patient Pipeline Dashboard", desc: "Real-time view of qualified prospects by stage, gift officer, and division" },
-  { img: img4118, label: "Clinician Referral Analytics", desc: "3,095+ referrals tracked by specialty, physician, and conversion rate" },
-  { img: img3114, label: "Master Data Management", desc: "78,666 physicians · 1.7M patients · 8.5M visit records unified in one system" },
-  { img: img4013, label: "Assigned Patient Outreach", desc: "CTI-integrated calling queue with prospect context and outcome logging" },
-];
-
-const secondaryScreenshots = [
-  { img: img3107, label: "Automation Decision Engine" },
-  { img: img3116, label: "Patient Engagement Tracking" },
-  { img: img3120, label: "Mobile Gift Officer App" },
-  { img: img3140, label: "Physician Engagement Portal" },
-  { img: img4544, label: "Omnichannel Outreach Center" },
-  { img: img5380, label: "Division Performance View" },
-];
 
 const providenceResults = [
   { num: "461", label: "Qualified major gift prospects", sub: "From 3,098 total patients screened" },
@@ -272,67 +245,6 @@ export default function Prysm() {
               </div>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ── Platform Screenshots ── */}
-      <section className="py-24 lg:py-32 bg-[#F7F8FC] border-t border-[#E8ECF2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl mb-16">
-            <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
-              Platform Interface
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
-              BUILT FOR GIFT OFFICERS. POWERED BY CLINICAL DATA.
-            </h2>
-            <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
-              Prysm surfaces what matters — the right patient, the right moment, the right channel — without requiring gift officers to navigate complex data systems.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
-            {dashboardScreenshots.map((screen, i) => (
-              <AnimatedSection key={i} delay={0.1 * i} className="group">
-                <div className="relative overflow-hidden border border-[#E8ECF2] bg-white">
-                  <div className="overflow-hidden">
-                    <img
-                      src={screen.img}
-                      alt={screen.label}
-                      className="w-full h-64 object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6 border-t border-[#E8ECF2]">
-                    <div className="text-[10px] font-bold tracking-widest uppercase text-[#7C3AED] mb-1">Platform View</div>
-                    <div className="text-base font-bold text-[#0A0E1A] uppercase tracking-tight mb-1">{screen.label}</div>
-                    <div className="text-sm text-[#6B7A90] font-light">{screen.desc}</div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
-            {secondaryScreenshots.map((screen, i) => (
-              <AnimatedSection key={i} delay={0.05 * i} className="group">
-                <div className="relative overflow-hidden border border-[#E8ECF2] bg-white">
-                  <img
-                    src={screen.img}
-                    alt={screen.label}
-                    className="w-full h-24 object-cover object-top group-hover:opacity-80 transition-opacity duration-300"
-                  />
-                  <div className="px-2 py-2 bg-white">
-                    <div className="text-[9px] font-bold tracking-wider uppercase text-[#6B7A90] leading-tight">{screen.label}</div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          <div className="mt-4 text-center">
-            <div className="text-[10px] text-[#9AA3B2] uppercase tracking-widest font-semibold">
-              Screenshots from live Prysm deployments — actual platform interfaces
-            </div>
-          </div>
         </div>
       </section>
 
