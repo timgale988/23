@@ -255,201 +255,152 @@ export default function Prysm() {
       </section>
 
       {/* ── How Prysm Works ── */}
-      <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white relative overflow-hidden">
-        <style>{`
-          @keyframes flowDown {
-            0%   { top: -60%; opacity: 0; }
-            15%  { opacity: 1; }
-            85%  { opacity: 1; }
-            100% { top: 160%; opacity: 0; }
-          }
-          @keyframes engineGlow {
-            0%, 100% { box-shadow: 0 0 40px rgba(124,58,237,0.15), 0 0 80px rgba(37,99,235,0.06); }
-            50%       { box-shadow: 0 0 70px rgba(124,58,237,0.35), 0 0 140px rgba(37,99,235,0.15), 0 0 220px rgba(6,182,212,0.06); }
-          }
-          .engine-glow { animation: engineGlow 4s ease-in-out infinite; }
-        `}</style>
+        <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white relative overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-[0.025] pointer-events-none"
+            style={{
+              backgroundImage: "linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#7C3AED]/[0.07] blur-[130px] pointer-events-none" />
 
-        {/* Ambient background grid */}
-        <div
-          className="absolute inset-0 opacity-[0.025] pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#7C3AED]/8 blur-[140px] pointer-events-none" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-          {/* Header */}
-          <AnimatedSection className="text-center max-w-3xl mx-auto mb-20">
-            <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
-              How Prysm Works
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter mb-6">
-              FROM CLINICAL ENCOUNTER TO MAJOR GIFT — AUTOMATED.
-            </h2>
-            <p className="text-xl text-white/45 font-light leading-relaxed">
-              Prysm bridges Epic, Blackbaud, and Salesforce into a single intelligent pipeline. Clinical data enters at the top. Qualified, ready-to-engage major gift prospects flow out the bottom. Everything in between is automated by the Prysm Intelligence Engine.
-            </p>
-          </AnimatedSection>
-
-          {/* ═══ DIAGRAM ═══ */}
-          <AnimatedSection>
-
-            {/* ROW 1 — Input sources */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
-              {[
-                { icon: <Database className="w-5 h-5" />, label: "Epic EMR", desc: "FHIR-compliant real-time encounter ingestion", tag: "Data Source" },
-                { icon: <TrendingUp className="w-5 h-5" />, label: "Windfall Wealth", desc: "Net worth, assets & investable capacity", tag: "Wealth Data" },
-                { icon: <FileSearch className="w-5 h-5" />, label: "DonorSearch", desc: "Philanthropic giving history & capacity", tag: "Prospect Intel" },
-                { icon: <Building2 className="w-5 h-5" />, label: "Clinical Encounters", desc: "70K+ physician panels, continuously refreshed", tag: "Engagement Signal" },
-              ].map((node, i) => (
-                <div key={i} className="border border-[#7C3AED]/25 bg-[#7C3AED]/[0.05] p-5 flex flex-col gap-3 hover:bg-[#7C3AED]/[0.10] transition-colors">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="text-[#A78BFA] mt-0.5">{node.icon}</div>
-                    <div className="text-[9px] font-bold tracking-widest uppercase text-[#7C3AED]/70 border border-[#7C3AED]/20 px-2 py-0.5 shrink-0">{node.tag}</div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-white uppercase tracking-tight mb-1">{node.label}</div>
-                    <div className="text-xs text-white/35 font-light leading-snug">{node.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Flow lines: Inputs → Engine */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
-              {[0, 1, 2, 3].map(i => (
-                <div key={i} className="flex flex-col items-center h-16 relative">
-                  <div className="w-px flex-1 bg-white/[0.05] relative overflow-hidden">
-                    <div
-                      className="absolute inset-x-0 h-10 bg-gradient-to-b from-transparent via-[#7C3AED] to-transparent"
-                      style={{ animation: `flowDown 2s linear ${i * 0.3}s infinite` }}
-                    />
-                  </div>
-                  <div className="text-[#7C3AED]/50 text-[10px] leading-none mt-0.5">▼</div>
-                </div>
-              ))}
-            </div>
-
-            {/* ROW 2 — Prysm Engine */}
-            <div className="engine-glow relative">
-              <div className="p-px bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4]">
-                <div className="bg-[#0C1020] p-8 lg:p-12 relative overflow-hidden">
-
-                  {/* Large watermark */}
-                  <div className="absolute right-8 top-1/2 -translate-y-1/2 text-[8rem] lg:text-[11rem] font-display font-bold text-white/[0.018] select-none pointer-events-none leading-none tracking-tighter">
-                    PRYSM
-                  </div>
-
-                  <div className="relative z-10">
-                    {/* Engine header */}
-                    <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-[#7C3AED]/20 border border-[#7C3AED]/30">
-                          <Brain className="w-5 h-5 text-[#7C3AED]" />
-                        </div>
-                        <div>
-                          <div className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#7C3AED] mb-0.5">Intelligence Engine</div>
-                          <h3 className="text-2xl lg:text-3xl font-display font-bold text-white tracking-tighter leading-none">
-                            PRYSM
-                          </h3>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2 border border-white/[0.08] px-4 py-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Running continuously</span>
-                      </div>
-                    </div>
-
-                    <p className="text-white/40 font-light text-sm mb-8 max-w-2xl leading-relaxed border-l-2 border-[#7C3AED]/40 pl-4">
-                      Every patient encounter is automatically scored against philanthropic capacity indicators, AI-driven wealth models, and clinical engagement signals. The result: a daily ranked prospect list delivered directly into your CRM — with no manual research required.
-                    </p>
-
-                    {/* Capability tiles */}
-                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
-                      {[
-                        { icon: <Brain className="w-4 h-4" />, label: "Einstein AI Scoring", detail: "ML-driven prospect ranking & prioritization" },
-                        { icon: <TrendingUp className="w-4 h-4" />, label: "Windfall + DonorSearch Layers", detail: "Combined wealth & philanthropic intelligence" },
-                        { icon: <Shield className="w-4 h-4" />, label: "HIPAA-Compliant Architecture", detail: "PHI isolation, role-based access, full audit log" },
-                        { icon: <BarChart3 className="w-4 h-4" />, label: "Real-Time Pipeline Dashboard", detail: "360° views for officers, managers & leadership" },
-                        { icon: <Phone className="w-4 h-4" />, label: "CTI Phone Integration", detail: "Click-to-dial with call logging & outcome capture" },
-                        { icon: <MapPin className="w-4 h-4" />, label: "Geolocation Mapping", detail: "Regional prospect segmentation & event targeting" },
-                      ].map((cap, i) => (
-                        <div key={i} className="flex items-start gap-3 p-4 border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                          <div className="text-[#7C3AED] shrink-0 mt-0.5">{cap.icon}</div>
-                          <div>
-                            <div className="text-[11px] font-bold text-white uppercase tracking-tight leading-tight mb-0.5">{cap.label}</div>
-                            <div className="text-[10px] text-white/30 font-light leading-snug">{cap.detail}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                </div>
+            <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
+              <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
+                How Prysm Works
               </div>
-            </div>
+              <h2 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter mb-6">
+                FROM CLINICAL ENCOUNTER TO MAJOR GIFT — AUTOMATED.
+              </h2>
+              <p className="text-xl text-white/45 font-light leading-relaxed">
+                Prysm sits at the center of your philanthropy stack — connecting clinical data on the left to CRM systems and gift officer workflows on the right, automatically.
+              </p>
+            </AnimatedSection>
 
-            {/* Flow lines: Engine → Outputs */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
-              {[0, 1, 2, 3].map(i => (
-                <div key={i} className="flex flex-col items-center h-16 relative">
-                  <div className="w-px flex-1 bg-white/[0.05] relative overflow-hidden">
-                    <div
-                      className="absolute inset-x-0 h-10 bg-gradient-to-b from-transparent via-[#06B6D4] to-transparent"
-                      style={{ animation: `flowDown 2s linear ${i * 0.3 + 1.0}s infinite` }}
-                    />
-                  </div>
-                  <div className="text-[#06B6D4]/50 text-[10px] leading-none mt-0.5">▼</div>
-                </div>
-              ))}
-            </div>
+            <AnimatedSection>
+              <svg viewBox="0 0 1000 520" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="gradLeft" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#7C3AED" stopOpacity="0" />
+                    <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.55" />
+                  </linearGradient>
+                  <linearGradient id="gradRight" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.55" />
+                    <stop offset="100%" stopColor="#06B6D4" stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#7C3AED" />
+                    <stop offset="50%" stopColor="#2563EB" />
+                    <stop offset="100%" stopColor="#06B6D4" />
+                  </linearGradient>
+                  <radialGradient id="coreFill" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#0A0E1A" stopOpacity="0.1" />
+                  </radialGradient>
+                </defs>
 
-            {/* ROW 3 — Outputs */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                {/* Section labels */}
+                <text x="115" y="28" textAnchor="middle" fill="rgba(167,139,250,0.45)" fontSize="8.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">DATA INPUTS</text>
+                <text x="885" y="28" textAnchor="middle" fill="rgba(103,232,249,0.45)" fontSize="8.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">OUTPUTS</text>
+                <text x="500" y="16" textAnchor="middle" fill="rgba(167,139,250,0.25)" fontSize="7" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">INTELLIGENTLY ORCHESTRATED HEALTHCARE PHILANTHROPY</text>
+
+                {/* LEFT INPUT CARDS */}
+                <rect x="10" y="72"  width="210" height="58" rx="0" fill="rgba(124,58,237,0.07)" stroke="rgba(124,58,237,0.28)" strokeWidth="1" />
+                <text x="115" y="97"  textAnchor="middle" fill="rgba(196,181,253,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">EPIC EMR</text>
+                <text x="115" y="116" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">FHIR encounter ingestion</text>
+
+                <rect x="10" y="174" width="210" height="58" rx="0" fill="rgba(124,58,237,0.07)" stroke="rgba(124,58,237,0.28)" strokeWidth="1" />
+                <text x="115" y="199" textAnchor="middle" fill="rgba(196,181,253,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">WINDFALL WEALTH</text>
+                <text x="115" y="218" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Net worth &amp; capacity data</text>
+
+                <rect x="10" y="276" width="210" height="58" rx="0" fill="rgba(124,58,237,0.07)" stroke="rgba(124,58,237,0.28)" strokeWidth="1" />
+                <text x="115" y="301" textAnchor="middle" fill="rgba(196,181,253,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">DONORSEARCH</text>
+                <text x="115" y="320" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Philanthropic history &amp; giving</text>
+
+                <rect x="10" y="378" width="210" height="58" rx="0" fill="rgba(124,58,237,0.07)" stroke="rgba(124,58,237,0.28)" strokeWidth="1" />
+                <text x="115" y="403" textAnchor="middle" fill="rgba(196,181,253,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">CLINICAL ENCOUNTERS</text>
+                <text x="115" y="422" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">70K+ physician panels</text>
+
+                {/* LEFT DASHED LINES */}
+                <line x1="220" y1="101" x2="360" y2="202" stroke="url(#gradLeft)" strokeWidth="1" strokeDasharray="5 5" />
+                <line x1="220" y1="203" x2="354" y2="237" stroke="url(#gradLeft)" strokeWidth="1" strokeDasharray="5 5" />
+                <line x1="220" y1="305" x2="354" y2="283" stroke="url(#gradLeft)" strokeWidth="1" strokeDasharray="5 5" />
+                <line x1="220" y1="407" x2="360" y2="318" stroke="url(#gradLeft)" strokeWidth="1" strokeDasharray="5 5" />
+
+                {/* CENTER CIRCLE */}
+                <circle cx="500" cy="260" r="178" fill="none" stroke="rgba(124,58,237,0.09)" strokeWidth="1" strokeDasharray="2 14" />
+                <circle cx="500" cy="260" r="150" fill="rgba(10,14,26,0.97)" stroke="url(#ringGrad)" strokeWidth="1.5" />
+                <circle cx="500" cy="260" r="105" fill="rgba(124,58,237,0.04)" stroke="rgba(124,58,237,0.35)" strokeWidth="1" />
+                <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="rgba(124,58,237,0.75)" strokeWidth="2" />
+
+                {/* 8 dots on inner ring r=105 */}
+                <circle cx="500" cy="155" r="4" fill="#7C3AED" />
+                <circle cx="574" cy="186" r="4" fill="#5B21B6" />
+                <circle cx="605" cy="260" r="4" fill="#2563EB" />
+                <circle cx="574" cy="334" r="4" fill="#0284C7" />
+                <circle cx="500" cy="365" r="4" fill="#06B6D4" />
+                <circle cx="426" cy="334" r="4" fill="#0284C7" />
+                <circle cx="395" cy="260" r="4" fill="#2563EB" />
+                <circle cx="426" cy="186" r="4" fill="#5B21B6" />
+
+                {/* Capability labels between rings */}
+                <text x="500" y="128" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">AI PROSPECT SCORING</text>
+                <text x="585" y="169" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">WEALTH INTELLIGENCE</text>
+                <text x="628" y="264" textAnchor="start"  fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">REAL-TIME ANALYTICS</text>
+                <text x="585" y="355" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">HIPAA COMPLIANCE</text>
+                <text x="500" y="393" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CTI OUTREACH</text>
+                <text x="415" y="355" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">DAILY PATIENT LISTS</text>
+                <text x="372" y="264" textAnchor="end"    fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">GEOLOCATION</text>
+                <text x="415" y="169" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CLINICIAN REFERRALS</text>
+
+                {/* Center text */}
+                <text x="500" y="254" textAnchor="middle" fill="white"              fontSize="21" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-0.8">PRYSM</text>
+                <text x="500" y="272" textAnchor="middle" fill="rgba(167,139,250,0.8)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">PURPOSE BUILT</text>
+
+                {/* RIGHT DASHED LINES */}
+                <line x1="640" y1="202" x2="780" y2="101" stroke="url(#gradRight)" strokeWidth="1" strokeDasharray="5 5" />
+                <line x1="646" y1="237" x2="780" y2="203" stroke="url(#gradRight)" strokeWidth="1" strokeDasharray="5 5" />
+                <line x1="646" y1="283" x2="780" y2="305" stroke="url(#gradRight)" strokeWidth="1" strokeDasharray="5 5" />
+                <line x1="640" y1="318" x2="780" y2="407" stroke="url(#gradRight)" strokeWidth="1" strokeDasharray="5 5" />
+
+                {/* RIGHT OUTPUT CARDS */}
+                <rect x="780" y="72"  width="210" height="58" rx="0" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.28)" strokeWidth="1" />
+                <text x="885" y="97"  textAnchor="middle" fill="rgba(103,232,249,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">BLACKBAUD CRM</text>
+                <text x="885" y="116" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Qualified prospect push</text>
+
+                <rect x="780" y="174" width="210" height="58" rx="0" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.28)" strokeWidth="1" />
+                <text x="885" y="199" textAnchor="middle" fill="rgba(103,232,249,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">SALESFORCE NPSP</text>
+                <text x="885" y="218" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Native SF integration</text>
+
+                <rect x="780" y="276" width="210" height="58" rx="0" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.28)" strokeWidth="1" />
+                <text x="885" y="301" textAnchor="middle" fill="rgba(103,232,249,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">GIFT OFFICER QUEUE</text>
+                <text x="885" y="320" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Daily prioritized lists</text>
+
+                <rect x="780" y="378" width="210" height="58" rx="0" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.28)" strokeWidth="1" />
+                <text x="885" y="403" textAnchor="middle" fill="rgba(103,232,249,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">ROI &amp; ANALYTICS</text>
+                <text x="885" y="422" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Pipeline &amp; gift reporting</text>
+
+              </svg>
+            </AnimatedSection>
+
+            <div className="grid md:grid-cols-3 gap-0 border-t border-white/[0.06] mt-16 pt-16">
               {[
-                { icon: <Database className="w-5 h-5" />, label: "Blackbaud CRM", desc: "Qualified prospects with clinical context, wealth scores & outreach actions", tag: "CRM Push" },
-                { icon: <Zap className="w-5 h-5" />, label: "Salesforce NPSP", desc: "Native integration for SF-based philanthropy teams, no duplicate data", tag: "CRM Push" },
-                { icon: <Users className="w-5 h-5" />, label: "Gift Officer Queue", desc: "Daily prioritized patient list ranked by giving probability & engagement readiness", tag: "Outreach" },
-                { icon: <BarChart3 className="w-5 h-5" />, label: "ROI & Analytics", desc: "Pipeline dashboards, gift attribution, and portfolio growth reporting for leadership", tag: "Intelligence" },
-              ].map((node, i) => (
-                <div key={i} className="border border-[#06B6D4]/20 bg-[#06B6D4]/[0.04] p-5 flex flex-col gap-3 hover:bg-[#06B6D4]/[0.08] transition-colors">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="text-[#06B6D4] mt-0.5">{node.icon}</div>
-                    <div className="text-[9px] font-bold tracking-widest uppercase text-[#06B6D4]/60 border border-[#06B6D4]/20 px-2 py-0.5 shrink-0">{node.tag}</div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-white uppercase tracking-tight mb-1">{node.label}</div>
-                    <div className="text-xs text-white/35 font-light leading-snug">{node.desc}</div>
-                  </div>
+                { val: "200–400%", label: "Patient qualification rate increase", sub: "vs. manual screening baseline" },
+                { val: "90%", label: "Reduction in gift officer onboarding time", sub: "Platform-driven activation" },
+                { val: "70K+", label: "Physician panels analyzed", sub: "Continuously, across all deployments" },
+              ].map((s, i) => (
+                <div key={i} className="pr-10 border-r border-white/[0.06] last:border-0 lg:pl-10 first:pl-0 pb-10 lg:pb-0">
+                  <div className="text-5xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] mb-3 leading-none">{s.val}</div>
+                  <div className="text-sm font-bold text-white uppercase tracking-tight mb-1">{s.label}</div>
+                  <div className="text-xs text-white/30 uppercase tracking-wider">{s.sub}</div>
                 </div>
               ))}
             </div>
 
-          </AnimatedSection>
-          {/* ═══ END DIAGRAM ═══ */}
-
-          {/* Stat callouts */}
-          <div className="grid md:grid-cols-3 gap-0 border-t border-white/[0.06] mt-20 pt-16">
-            {[
-              { val: "200–400%", label: "Patient qualification rate increase", sub: "vs. manual screening baseline" },
-              { val: "90%", label: "Reduction in gift officer onboarding time", sub: "Platform-driven activation" },
-              { val: "70K+", label: "Physician panels analyzed", sub: "Continuously, across all deployments" },
-            ].map((s, i) => (
-              <div key={i} className="pr-10 border-r border-white/[0.06] last:border-0 pl-0 lg:pl-10 first:pl-0 pb-10 lg:pb-0">
-                <div className="text-5xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] mb-3 leading-none">{s.val}</div>
-                <div className="text-sm font-bold text-white uppercase tracking-tight mb-1">{s.label}</div>
-                <div className="text-xs text-white/30 uppercase tracking-wider">{s.sub}</div>
-              </div>
-            ))}
           </div>
-
-        </div>
-      </section>
-
+        </section>
       {/* ── Capabilities ── */}
       <section className="py-24 lg:py-32 bg-[#F7F8FC] border-t border-[#E8ECF2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
