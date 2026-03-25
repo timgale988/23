@@ -26,12 +26,6 @@ const capabilities = [
 ];
 
 
-const providenceResults = [
-  { num: "461", label: "Qualified major gift prospects", sub: "From 3,098 total patients screened" },
-  { num: "$6.6B", label: "Qualified MG prospect net worth", sub: "Combined philanthropic capacity" },
-  { num: "$4.32M", label: "Realized revenue, Year One", sub: "Directly attributed to Prysm" },
-  { num: "448%", label: "Engagement rate increase", sub: "Compared to pre-Prysm baseline" },
-];
 
 const testimonials = [
   {
@@ -246,81 +240,88 @@ export default function Prysm() {
       </section>
 
       {/* ── Providence Case Study ── */}
-      <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white">
+      <section className="py-24 lg:py-32 bg-white border-t border-[#E8ECF2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-16">
+
+          {/* Header */}
+          <AnimatedSection className="mb-16 max-w-3xl">
             <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
-              Case Study
+              Case Study — Providence Health &amp; Services, South Division
             </div>
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-              <h2 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter max-w-2xl">
-                PROVIDENCE SOUTH DIVISION: GROWTH INTELLIGENCE REPORT
-              </h2>
-              <div className="text-white/40 font-light text-sm max-w-sm leading-relaxed lg:text-right">
-                Real outcomes from a live Prysm deployment across Providence Health &amp; Services, South Division — one of the largest health systems in the United States.
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] tracking-tighter mb-6">
+              3,098 PATIENTS. 461 PROSPECTS. $4.32M RAISED IN YEAR ONE.
+            </h2>
+            <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
+              Providence South Division deployed Prysm across their health system philanthropy program. In the first year, Prysm automatically identified and qualified major gift prospects from clinical encounter data — producing results their team had never achieved through manual research.
+            </p>
+          </AnimatedSection>
+
+          {/* Story flow — the pipeline */}
+          <AnimatedSection className="mb-16">
+            <div className="grid md:grid-cols-3 gap-px bg-[#E8ECF2]">
+
+              <div className="bg-[#F7F8FC] p-10">
+                <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] uppercase mb-6">Step 1 — Input</div>
+                <div className="text-6xl font-display font-bold text-[#0A0E1A] tracking-tighter mb-3 leading-none">3,098</div>
+                <div className="text-base font-semibold text-[#0A0E1A] uppercase tracking-tight mb-3">Clinical encounters screened</div>
+                <p className="text-sm text-[#6B7A90] font-light leading-relaxed">
+                  Prysm ingested Epic encounter data across Providence's divisions and ran every patient through automated wealth and engagement scoring.
+                </p>
               </div>
+
+              <div className="bg-white p-10 border-l-4 border-[#7C3AED]">
+                <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] uppercase mb-6">Step 2 — Qualified</div>
+                <div className="text-6xl font-display font-bold tracking-tighter mb-3 leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#2563EB]">461</div>
+                <div className="text-base font-semibold text-[#0A0E1A] uppercase tracking-tight mb-3">Major gift prospects identified</div>
+                <p className="text-sm text-[#6B7A90] font-light leading-relaxed">
+                  Of those 3,098 patients, 461 met the threshold for major gift qualification — a 14.9% rate that would have taken a full-time research team months to achieve manually.
+                </p>
+              </div>
+
+              <div className="bg-[#0A0E1A] p-10">
+                <div className="text-[10px] tracking-[0.2em] font-bold text-[#06B6D4] uppercase mb-6">Step 3 — Revenue</div>
+                <div className="text-6xl font-display font-bold tracking-tighter mb-3 leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#2563EB] to-[#06B6D4]">$4.32M</div>
+                <div className="text-base font-semibold text-white uppercase tracking-tight mb-3">Realized in Year One</div>
+                <p className="text-sm text-white/50 font-light leading-relaxed">
+                  The 461 qualified prospects had a combined net worth of $6.6 billion. First-year revenue of $4.32M delivered a return exceeding 20× the cost of the Prysm platform.
+                </p>
+              </div>
+
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06] mb-16">
-            {providenceResults.map((result, i) => (
-              <AnimatedSection key={i} delay={0.1 * i} className="bg-[#0A0E1A] p-10">
-                <div className="text-5xl lg:text-6xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] mb-3 leading-none">
-                  {result.num}
+          {/* Outcome stats */}
+          <AnimatedSection className="mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 border border-[#E8ECF2] divide-x divide-y md:divide-y-0 divide-[#E8ECF2]">
+              {[
+                { num: "305%", label: "Increase in first-time major gifts", context: "vs. pre-Prysm baseline" },
+                { num: "448%", label: "Increase in donor engagement rate", context: "across qualified prospects" },
+                { num: "$6.6B", label: "Combined prospect net worth", context: "461 qualified patients" },
+                { num: "20×+", label: "Return on platform investment", context: "Year One, South Division" },
+              ].map((stat, i) => (
+                <div key={i} className="p-8 lg:p-10">
+                  <div className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] mb-2 leading-none">
+                    {stat.num}
+                  </div>
+                  <div className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-1">{stat.label}</div>
+                  <div className="text-[11px] text-[#9AA3B2] uppercase tracking-wider">{stat.context}</div>
                 </div>
-                <div className="text-sm font-bold text-white uppercase tracking-widest mb-2 leading-snug">{result.label}</div>
-                <div className="text-[11px] text-white/30 uppercase tracking-wider">{result.sub}</div>
-              </AnimatedSection>
-            ))}
-          </div>
+              ))}
+            </div>
+          </AnimatedSection>
 
-          <div className="grid lg:grid-cols-3 gap-px bg-white/[0.06]">
-            <div className="lg:col-span-2 bg-[#0A0E1A] p-10">
-              <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
-                Methodology
-              </div>
-              <div className="grid sm:grid-cols-3 gap-8">
-                {[
-                  { label: "Total patients screened", value: "3,098" },
-                  { label: "Qualified MG prospects identified", value: "461" },
-                  { label: "Qualification rate", value: "14.9%" },
-                ].map((m, i) => (
-                  <div key={i}>
-                    <div className="text-3xl font-display font-bold text-white tracking-tighter mb-1">{m.value}</div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-white/40">{m.label}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 pt-8 border-t border-white/[0.06]">
-                <p className="text-white/50 font-light leading-relaxed text-sm">
-                  Prysm's automated AI scoring — combining Epic clinical encounter data with Windfall and DonorSearch wealth intelligence — identified 461 qualified major gift prospects from a pool of 3,098 patients, achieving a 14.9% qualification rate. First-year realized revenue of $4.32M represents a return on investment exceeding 20× the cost of the Prysm platform.
-                </p>
-              </div>
+          {/* CTA */}
+          <AnimatedSection>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+              <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0">
+                Request the full case study <ArrowRight className="w-4 h-4 ml-3" />
+              </Button>
+              <p className="text-sm text-[#9AA3B2] font-light">
+                Includes detailed methodology, data inputs, gift officer activity metrics, and a full breakdown of revenue by prospect tier.
+              </p>
             </div>
-            <div className="bg-[#141828] p-10 flex flex-col justify-between">
-              <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
-                Result Multipliers
-              </div>
-              <div className="space-y-4 flex-1">
-                {[
-                  "Automation-first patient identification pipeline",
-                  "CTI phone integration for highest-converting outreach",
-                  "Clinician referral workflows with gift attribution",
-                  "AI wealth scoring layered on clinical encounter data",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] mt-2 shrink-0" />
-                    <div className="text-white/50 text-sm font-light leading-relaxed">{item}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 pt-8 border-t border-white/[0.06]">
-                <Button variant="outline" className="rounded-none text-xs tracking-widest uppercase font-semibold w-full h-12 border-white/20 text-white/60 hover:text-white hover:border-white/40 bg-transparent">
-                  Request full case study <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </div>
-          </div>
+          </AnimatedSection>
+
         </div>
       </section>
 
