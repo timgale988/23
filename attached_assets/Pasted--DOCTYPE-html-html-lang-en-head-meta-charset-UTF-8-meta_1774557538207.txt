@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Providence South Division — Pipeline Intelligence Case Study</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  @font-face { font-family: 'Aptos'; src: local('Aptos'), local('Calibri'), local('Helvetica Neue'); font-weight: 400; }
+  @font-face { font-family: 'Aptos'; src: local('Aptos Bold'), local('Calibri Bold'), local('Helvetica Neue Bold'); font-weight: 700; }
+
+:root {
+–navy: #1B3A5C;
+–navy-deep: #0F2740;
+–blue: #2B6CB0;
+–blue-light: #4A90D9;
+–teal: #0D7377;
+–teal-light: #38A89D;
+–gold: #C49A2A;
+–coral: #C75B39;
+–green: #2F855A;
+–purple: #6B46C1;
+–red: #9B2C2C;
+–bg: #FFFFFF;
+–bg-alt: #F7FAFC;
+–bg-warm: #F0F5FA;
+–border: #D2DDE8;
+–border-dark: #B8C9D9;
+–text-primary: #1A202C;
+–text-secondary: #4A5568;
+–text-tertiary: #718096;
+–text-caption: #A0AEC0;
+}
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4 landscape; margin: 0.5in; }
+
+body {
+font-family: ‘Aptos’, ‘Calibri’, ‘Helvetica Neue’, sans-serif;
+background: var(–bg); color: var(–text-primary);
+line-height: 1.7; font-size: 15px;
+-webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+
+.page-break { page-break-before: always; break-before: page; }
+
+/* ============ HERO ============ */
+.hero {
+min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+padding: 80px; background: var(–bg); border-bottom: 4px solid var(–navy); position: relative;
+}
+.hero-institution { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(–teal); font-weight: 700; margin-bottom: 6px; }
+.hero-divider { width: 60px; height: 3px; background: var(–navy); margin: 14px 0 22px; }
+.hero h1 { font-size: 44px; font-weight: 700; line-height: 1.15; color: var(–navy); margin-bottom: 6px; max-width: 800px; }
+.hero h1 .accent { color: var(–teal); }
+.hero-subtitle { font-size: 20px; color: var(–text-secondary); margin-bottom: 20px; }
+.hero-abstract { font-size: 15px; color: var(–text-tertiary); max-width: 640px; line-height: 1.75; border-left: 3px solid var(–blue-light); padding-left: 20px; margin-bottom: 50px; }
+.hero-stats-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; max-width: 1000px; }
+.hero-stat { background: var(–bg-alt); border: 1px solid var(–border); border-top: 3px solid var(–navy); padding: 18px 20px; }
+.hero-stat .value { font-size: 28px; font-weight: 700; color: var(–navy); line-height: 1.2; }
+.hero-stat .label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(–text-caption); margin-top: 4px; font-weight: 600; }
+.hero-stat .sub { font-size: 11px; color: var(–text-tertiary); margin-top: 4px; }
+.hero-footer { position: absolute; bottom: 30px; right: 80px; font-size: 12px; color: var(–text-caption); }
+
+/* ============ SECTIONS ============ */
+.section { min-height: 100vh; padding: 50px 70px; background: var(–bg); border-bottom: 1px solid var(–border); }
+.section.dark { background: var(–navy-deep); color: white; border-bottom-color: var(–navy); }
+.section.dark .section-num { color: var(–teal-light); }
+.section.dark .section-title { color: white; border-bottom-color: rgba(255,255,255,0.2); }
+.section.dark .section-narrative { color: rgba(255,255,255,0.75); }
+.section.dark .section-narrative strong { color: white; }
+
+.section-num { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(–teal); font-weight: 700; margin-bottom: 6px; }
+.section-title { font-size: 28px; font-weight: 700; color: var(–navy); margin-bottom: 6px; border-bottom: 2px solid var(–navy); padding-bottom: 10px; display: inline-block; }
+.section-narrative { font-size: 14px; color: var(–text-secondary); max-width: 920px; margin: 14px 0 24px; line-height: 1.75; }
+.section-narrative strong { color: var(–text-primary); }
+.section-narrative .hl { color: var(–teal); font-weight: 600; }
+.section-narrative .warn { color: var(–coral); font-weight: 600; }
+
+/* ============ INSIGHT BOX ============ */
+.insight-box { background: var(–bg-warm); border-left: 4px solid var(–teal); padding: 16px 20px; margin: 20px 0; font-size: 13px; color: var(–text-secondary); line-height: 1.7; }
+.insight-box .insight-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(–teal); margin-bottom: 4px; }
+.insight-box strong { color: var(–text-primary); }
+
+/* ============ CHARTS ============ */
+.chart-grid { display: grid; gap: 20px; margin-top: 12px; }
+.chart-grid.two-col { grid-template-columns: 1fr 1fr; }
+.chart-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+.chart-grid.single { grid-template-columns: 1fr; }
+.chart-grid.w60-40 { grid-template-columns: 3fr 2fr; }
+
+.chart-panel { background: var(–bg-alt); border: 1px solid var(–border); padding: 20px; }
+.chart-panel h3 { font-size: 12px; font-weight: 700; color: var(–text-primary); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+.chart-container { position: relative; width: 100%; }
+.chart-container.h240 { height: 240px; }
+.chart-container.h280 { height: 280px; }
+.chart-container.h300 { height: 300px; }
+.chart-container.h320 { height: 320px; }
+.chart-container.h360 { height: 360px; }
+.chart-container.h400 { height: 400px; }
+
+/* ============ TABLES ============ */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { background: var(–navy); color: white; padding: 8px 10px; text-align: left; font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; }
+.data-table th.num { text-align: right; }
+.data-table td { padding: 7px 10px; border-bottom: 1px solid var(–border); }
+.data-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table tr:hover { background: var(–bg-warm); }
+.data-table .hi { color: var(–green); font-weight: 700; }
+.data-table .lo { color: var(–coral); font-weight: 700; }
+.data-table .mid { color: var(–text-primary); font-weight: 600; }
+
+/* Inline bar */
+.bar-cell { width: 120px; }
+.bar-bg { background: #EDF2F7; height: 14px; border-radius: 2px; position: relative; }
+.bar-fill { height: 100%; border-radius: 2px; }
+.bar-fill.green { background: var(–teal); }
+.bar-fill.amber { background: var(–gold); }
+.bar-fill.red { background: var(–coral); }
+
+/* ============ METRIC CARDS ============ */
+.metric-row { display: grid; gap: 14px; margin-bottom: 24px; }
+.metric-row.five { grid-template-columns: repeat(5, 1fr); }
+.metric-row.four { grid-template-columns: repeat(4, 1fr); }
+.metric-row.three { grid-template-columns: repeat(3, 1fr); }
+.metric-card { background: var(–bg-alt); border: 1px solid var(–border); padding: 14px 16px; text-align: center; }
+.metric-card .val { font-size: 24px; font-weight: 700; color: var(–navy); }
+.metric-card .lbl { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(–text-caption); font-weight: 600; margin-top: 2px; }
+.metric-card .delta { font-size: 12px; font-weight: 700; color: var(–green); margin-top: 3px; }
+
+/* ============ SMALL MULTIPLES ============ */
+.sparkline-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 12px; }
+.sparkline-panel { background: var(–bg-alt); border: 1px solid var(–border); padding: 20px; }
+.sparkline-metric { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(–text-tertiary); margin-bottom: 4px; }
+.sparkline-headline { display: flex; align-items: baseline; gap: 10px; margin-bottom: 2px; }
+.sparkline-headline .val { font-size: 32px; font-weight: 700; color: var(–navy); }
+.sparkline-headline .delta { font-size: 13px; font-weight: 700; color: var(–green); }
+.sparkline-sub { font-size: 11px; color: var(–text-caption); margin-bottom: 12px; }
+.sparkline-chart { height: 150px; position: relative; }
+
+/* ============ TREEMAP ============ */
+.treemap-wrapper { display: grid; width: 100%; height: 320px; gap: 3px; grid-template-rows: 1fr auto; }
+.tm-main { display: grid; gap: 3px; grid-template-columns: 52fr 18fr 17fr; }
+.tm-cell { display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; font-weight: 600; padding: 10px; text-align: center; }
+.tm-cell .tm-label { font-size: 12px; font-weight: 700; line-height: 1.2; }
+.tm-cell .tm-val { font-size: 22px; font-weight: 700; margin-top: 3px; }
+.tm-cell .tm-pct { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+.tm-right-stack { display: grid; gap: 3px; grid-template-rows: 1fr 1fr; }
+.tm-small-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; height: 50px; }
+.tm-small { display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; padding: 4px; text-align: center; }
+.tm-small .tm-label { font-size: 8px; font-weight: 600; }
+.tm-small .tm-pct { font-size: 10px; font-weight: 700; margin-top: 1px; }
+
+/* ============ OPPORTUNITY ============ */
+.opp-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+.opp-box { background: var(–navy); color: white; padding: 32px; }
+.opp-box h3 { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.8; margin-bottom: 6px; }
+.opp-box .big-num { font-size: 48px; font-weight: 700; line-height: 1.1; margin-bottom: 10px; }
+.opp-box p { font-size: 13px; opacity: 0.85; line-height: 1.6; }
+.opp-chart-panel { background: var(–bg-alt); border: 1px solid var(–border); padding: 20px; }
+
+.summary-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+.summary-card { border: 2px solid var(–navy); padding: 18px; text-align: center; }
+.summary-card .lbl { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(–text-caption); font-weight: 600; }
+.summary-card .val { font-size: 32px; font-weight: 700; color: var(–navy); margin: 3px 0; }
+.summary-card .sub { font-size: 11px; color: var(–text-tertiary); }
+.summary-card.teal { border-color: var(–teal); }
+.summary-card.teal .val { color: var(–teal); }
+.summary-card.green { border-color: var(–green); }
+.summary-card.green .val { color: var(–green); }
+
+.report-footer { text-align: center; padding: 20px; font-size: 11px; color: var(–text-caption); border-top: 3px solid var(–navy); margin-top: 40px; }
+
+@media print {
+body { font-size: 12px; }
+.hero { min-height: auto; padding: 40px 50px; }
+.section { min-height: auto; padding: 30px 50px; }
+.hero h1 { font-size: 36px; }
+.section-title { font-size: 22px; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+
+<div class="hero">
+  <div class="hero-institution">Providence Health & Services · South Division</div>
+  <div class="hero-divider"></div>
+  <h1>Grateful Patient Pipeline<br><span class="accent">Intelligence Report</span></h1>
+  <div class="hero-subtitle">Conversion Analytics · Platform Case Study · 2021–2025</div>
+  <p class="hero-abstract">
+    This report combines five years of pipeline performance data with prospect-level conversion analytics
+    to reveal patterns that volume metrics alone cannot surface — transforming a backward-looking performance
+    review into a forward-operating strategic intelligence document.
+  </p>
+  <div class="hero-stats-row">
+    <div class="hero-stat"><div class="value">3,095</div><div class="label">Prospects</div><div class="sub">Deduplicated records</div></div>
+    <div class="hero-stat"><div class="value">450</div><div class="label">Qualified — Major</div><div class="sub">14.5% conversion rate</div></div>
+    <div class="hero-stat"><div class="value">$46.0B</div><div class="label">Pipeline Net Worth</div><div class="sub">Across all stages</div></div>
+    <div class="hero-stat"><div class="value">$28.9B</div><div class="label">Unqualified Pipeline</div><div class="sub">1,607 active prospects</div></div>
+    <div class="hero-stat"><div class="value">3,225%</div><div class="label">Referral Growth</div><div class="sub">40 → 1,330 (2021–2025)</div></div>
+  </div>
+  <div class="hero-footer">Prysm Platform · As of February 23, 2026</div>
+</div>
+
+<!-- ==================== S01: PIPELINE ACCELERATION ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 01</div>
+  <div class="section-title">Pipeline Acceleration — Year Over Year</div>
+  <p class="section-narrative">
+    The South Division grateful patient program experienced exponential growth across every measurable dimension.
+    Physician referrals scaled from <strong>40 in 2021</strong> to <strong class="hl">1,330 in 2025</strong> — a 3,225% increase.
+    Introductory contacts grew from 39 to 1,782. Most critically, prospects reaching Qualified — Major Giving status surged
+    from zero in 2021 to 240 in 2025, demonstrating that the program has achieved conversion at scale.
+  </p>
+  <div class="metric-row five">
+    <div class="metric-card"><div class="val">40</div><div class="lbl">2021 Referrals</div></div>
+    <div class="metric-card"><div class="val">71</div><div class="lbl">2022 Referrals</div><div class="delta">+78%</div></div>
+    <div class="metric-card"><div class="val">100</div><div class="lbl">2023 Referrals</div><div class="delta">+41%</div></div>
+    <div class="metric-card"><div class="val">392</div><div class="lbl">2024 Referrals</div><div class="delta">+292%</div></div>
+    <div class="metric-card"><div class="val">1,330</div><div class="lbl">2025 Referrals</div><div class="delta">+239%</div></div>
+  </div>
+  <div class="sparkline-grid">
+    <div class="sparkline-panel">
+      <div class="sparkline-metric">Physician Referrals</div>
+      <div class="sparkline-headline"><span class="val">1,330</span><span class="delta">+3,225%</span></div>
+      <div class="sparkline-sub">40 (2021) → 1,330 (2025)</div>
+      <div class="sparkline-chart"><canvas id="spark1"></canvas></div>
+    </div>
+    <div class="sparkline-panel">
+      <div class="sparkline-metric">Introductory Contacts</div>
+      <div class="sparkline-headline"><span class="val">1,782</span><span class="delta">+4,469%</span></div>
+      <div class="sparkline-sub">39 (2021) → 1,782 (2025)</div>
+      <div class="sparkline-chart"><canvas id="spark2"></canvas></div>
+    </div>
+    <div class="sparkline-panel">
+      <div class="sparkline-metric">Qualified — Major Giving</div>
+      <div class="sparkline-headline"><span class="val">240</span><span class="delta">0 → 240</span></div>
+      <div class="sparkline-sub">First qualifications in 2022</div>
+      <div class="sparkline-chart"><canvas id="spark3"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== S02: PIPELINE VALUE ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 02</div>
+  <div class="section-title">Pipeline Value — Compounding Wealth Capture</div>
+  <p class="section-narrative">
+    As referral volume scaled, so did aggregate philanthropic potential. Total pipeline net worth grew from
+    <strong>$437M in 2021</strong> to <strong class="hl">$15.8B in 2025</strong> — a 36× increase. Average net worth
+    per prospect remained consistently strong at $14.7M, indicating that quality kept pace with quantity. The program
+    now sits on <strong>$46.0B</strong> in total pipeline net worth across all stages.
+  </p>
+  <div class="chart-grid two-col">
+    <div class="chart-panel">
+      <h3>Figure 2.1 — Aggregate Pipeline Net Worth by Year</h3>
+      <div class="chart-container h300"><canvas id="nwChart"></canvas></div>
+    </div>
+    <div class="chart-panel">
+      <h3>Figure 2.2 — Volume vs. Quality Analysis</h3>
+      <div class="chart-container h300"><canvas id="volValChart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== S03: QUALIFICATION FUNNEL ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 03</div>
+  <div class="section-title">Qualification Funnel — Conversion at Scale</div>
+  <p class="section-narrative">
+    Of 3,095 deduplicated prospects, <strong class="hl">450 reached Qualified — Major Giving</strong> (14.5% conversion).
+    An additional 75 qualified for mid-level or annual giving, bringing total qualified to 525 (17.0%). The
+    <strong>1,607 Unqualified Prospects</strong> represent the active pipeline — carrying <strong class="warn">$28.9B</strong>
+    in aggregate net worth at an average of $18.0M per prospect. Notably, unqualified prospects carry a higher average
+    net worth than those who have already qualified ($18.0M vs. $14.4M), suggesting the remaining pipeline
+    contains significant untapped philanthropic capacity.
+  </p>
+  <div class="chart-grid two-col">
+    <div class="chart-panel">
+      <h3>Figure 3.1 — Pipeline Stage Distribution</h3>
+      <div class="treemap-wrapper">
+        <div class="tm-main">
+          <div class="tm-cell" style="background:var(--navy);">
+            <div class="tm-label">Unqualified Prospect</div><div class="tm-val">1,607</div><div class="tm-pct">52%</div>
+          </div>
+          <div class="tm-cell" style="background:var(--coral);">
+            <div class="tm-label">Disqualified</div><div class="tm-val">554</div><div class="tm-pct">18%</div>
+          </div>
+          <div class="tm-right-stack">
+            <div class="tm-cell" style="background:var(--gold);">
+              <div class="tm-label">Qualified — Major</div><div class="tm-val">450</div><div class="tm-pct">14.5%</div>
+            </div>
+            <div class="tm-cell" style="background:var(--purple);">
+              <div class="tm-label">Patient</div><div class="tm-val">237</div><div class="tm-pct">7.7%</div>
+            </div>
+          </div>
+        </div>
+        <div class="tm-small-row">
+          <div class="tm-small" style="background:var(--blue);"><div class="tm-label">Physician Disqualified</div><div class="tm-pct">70 (2.3%)</div></div>
+          <div class="tm-small" style="background:var(--red);"><div class="tm-label">Deceased</div><div class="tm-pct">66 (2.1%)</div></div>
+          <div class="tm-small" style="background:var(--green);"><div class="tm-label">Qualified — Mid/Annual</div><div class="tm-pct">75 (2.4%)</div></div>
+          <div class="tm-small" style="background:var(--teal);"><div class="tm-label">Other</div><div class="tm-pct">36 (1.2%)</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-panel">
+      <h3>Figure 3.2 — Net Worth by Pipeline Stage</h3>
+      <div class="chart-container h320"><canvas id="nwByStageChart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== S04: REGIONAL HOSPITAL BENCHMARKS ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 04</div>
+  <div class="section-title">Hospital Conversion — Regional Benchmarks</div>
+  <p class="section-narrative">
+    Conversion rates vary dramatically across the South Division — from <strong class="hl">53.1% at Providence St. Joseph Burbank</strong>
+    to under 2% at several Swedish facilities. However, raw comparison across regions is misleading. Facilities operate at different
+    maturity stages, serve different patient populations, and have been on the platform for different lengths of time. To provide
+    meaningful context, hospitals are benchmarked against regional peers. Hospitals significantly above their regional benchmark
+    represent models worth studying; those below warrant examination of what barriers — staffing, training, physician engagement,
+    or patient demographics — may be limiting performance.
+  </p>
+
+  <div class="chart-grid two-col">
+    <div class="chart-panel">
+      <h3>Figure 4.1 — Conversion Rate by Hospital (All Ministries)</h3>
+      <div class="chart-container h400"><canvas id="hospConvChart"></canvas></div>
+    </div>
+    <div class="chart-panel">
+      <h3>Figure 4.2 — Regional Benchmark Summary</h3>
+      <table class="data-table">
+        <thead><tr><th>Region</th><th class="num">Prospects</th><th class="num">Qualified</th><th class="num">Benchmark</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Southern California — Los Angeles</strong></td><td class="num">964</td><td class="num">194</td><td class="num mid">20.1%</td></tr>
+          <tr><td><strong>Southern California — Orange County</strong></td><td class="num">1,013</td><td class="num">171</td><td class="num mid">16.9%</td></tr>
+          <tr><td><strong>Northern California</strong></td><td class="num">362</td><td class="num">30</td><td class="num">8.3%</td></tr>
+          <tr><td><strong>Pacific Northwest (Swedish)</strong></td><td class="num">365</td><td class="num">8</td><td class="num">2.2%</td></tr>
+        </tbody>
+      </table>
+
+```
+  <div class="insight-box" style="margin-top:16px;">
+    <div class="insight-label">Examine Why</div>
+    <strong>St. Joseph Burbank's 53.1% conversion is not merely an outlier — it represents what is achievable</strong>
+    when physician relationships, officer experience, and institutional culture align. Hospitals significantly below their
+    regional benchmark should examine what onboarding, training, and physician engagement strategies are being used at
+    higher-performing peer institutions within their region.
+  </div>
+
+  <h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin:20px 0 10px;">Top Performers vs. Regional Benchmark</h3>
+  <table class="data-table">
+    <thead><tr><th>Hospital</th><th class="num">N</th><th class="num">Q-Major</th><th class="num">Rate</th><th class="num">vs. Bench</th></tr></thead>
+    <tbody>
+      <tr><td>St. Joseph Burbank</td><td class="num">224</td><td class="num">119</td><td class="num hi">53.1%</td><td class="num hi">+33.0pp</td></tr>
+      <tr><td>St. Jude (Fullerton)</td><td class="num">244</td><td class="num">58</td><td class="num hi">23.8%</td><td class="num hi">+6.9pp</td></tr>
+      <tr><td>St. Joseph (Orange)</td><td class="num">398</td><td class="num">80</td><td class="num mid">20.1%</td><td class="num mid">+3.2pp</td></tr>
+      <tr><td>Santa Rosa Memorial</td><td class="num">132</td><td class="num">25</td><td class="num hi">18.9%</td><td class="num hi">+10.7pp</td></tr>
+      <tr><td>Tarzana Medical Center</td><td class="num">93</td><td class="num">12</td><td class="num">12.9%</td><td class="num lo">-7.2pp</td></tr>
+      <tr><td>PLCM (Torrance)</td><td class="num">384</td><td class="num">39</td><td class="num">10.2%</td><td class="num lo">-10.0pp</td></tr>
+      <tr><td>Holy Cross</td><td class="num">124</td><td class="num">12</td><td class="num">9.7%</td><td class="num lo">-10.4pp</td></tr>
+      <tr><td>Mission Hospital</td><td class="num">339</td><td class="num">26</td><td class="num lo">7.7%</td><td class="num lo">-9.2pp</td></tr>
+      <tr><td>Swedish (all facilities)</td><td class="num">365</td><td class="num">8</td><td class="num lo">2.2%</td><td class="num">baseline</td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- ==================== S05: CONTACT METHOD EFFICIENCY ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 05</div>
+  <div class="section-title">Contact Method Efficiency — Effort-Weighted Analysis</div>
+  <p class="section-narrative">
+    Introductory contact methods operate as a <strong>multi-stage engagement funnel</strong>, not competing channels.
+    Letters (51% of volume) require minimal effort per contact and serve as the scalable top-of-funnel — their role
+    is to initiate awareness at low cost, not to close qualifications. Phone calls require modest effort and convert at
+    <strong class="hl">25.7%</strong>. Hospital inpatient visits demand significantly more invested time per contact and
+    convert at <strong class="hl">38.3%</strong> — reflecting the deeper relationship that an in-person bedside interaction
+    creates. The appropriate question is not "which method is best" but rather how these methods work together as a progression
+    from awareness to relationship to qualification.
+  </p>
+  <div class="chart-grid two-col">
+    <div class="chart-panel">
+      <h3>Figure 5.1 — Conversion Rate by Contact Method</h3>
+      <div class="chart-container h280"><canvas id="contactConvChart"></canvas></div>
+    </div>
+    <div class="chart-panel">
+      <h3>Figure 5.2 — Contact Method: Volume, Effort & Conversion</h3>
+      <table class="data-table">
+        <thead><tr><th>Method</th><th class="num">Volume</th><th class="num">Qualified</th><th class="num">Rate</th><th>Effort Level</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Letter</strong></td><td class="num">1,462</td><td class="num">113</td><td class="num">7.7%</td><td>Minimal — mail merge, batch</td></tr>
+          <tr><td><strong>Email</strong></td><td class="num">439</td><td class="num">48</td><td class="num">10.9%</td><td>Low — templated, scalable</td></tr>
+          <tr><td><strong>Phone</strong></td><td class="num">723</td><td class="num">186</td><td class="num hi">25.7%</td><td>Low — outbound call</td></tr>
+          <tr><td><strong>Hospital Inpatient Visit</strong></td><td class="num">222</td><td class="num">85</td><td class="num hi">38.3%</td><td>High — in-person, scheduled</td></tr>
+          <tr><td><strong>Virtual Salon Event</strong></td><td class="num">18</td><td class="num">2</td><td class="num">11.1%</td><td>Medium — event planning</td></tr>
+        </tbody>
+      </table>
+      <div class="insight-box" style="margin-top:14px;">
+        <div class="insight-label">Key Distinction</div>
+        <strong>Phone calls represent the efficiency sweet spot</strong> — low effort per contact with 25.7% conversion.
+        Letters cast the wide net cheaply. Hospital visits deliver the highest conversion but at proportionally higher time
+        investment. The return on invested <em>time</em> for each method matters more than the raw conversion rate.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== S06: REFERRAL SOURCE ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 06</div>
+  <div class="section-title">Referral Source — The List Review to Direct Referral Pipeline</div>
+  <p class="section-narrative">
+    Clinician Referral — List Review drives 53% of all prospects and converts at <strong>11.8%</strong>.
+    Clinician Referral (Direct) accounts for 10% of volume but converts at <strong class="hl">34.1%</strong>.
+    This gap is not a problem — it is <strong>the program working as designed</strong>. List review is the engine
+    that builds physician trust over time. By proactively feeding clinicians patient opportunities through structured
+    reviews, the process sparks conversations that eventually convert physicians into proactive referral partners.
+    A higher proportion of direct referrals at a given hospital reflects more mature physician relationships — not a
+    better source channel.
+  </p>
+  <div class="chart-grid two-col">
+    <div class="chart-panel">
+      <h3>Figure 6.1 — Conversion Rate by Referral Source</h3>
+      <div class="chart-container h280"><canvas id="sourceConvChart"></canvas></div>
+    </div>
+    <div class="chart-panel">
+      <h3>Figure 6.2 — Source Volume and Conversion</h3>
+      <table class="data-table">
+        <thead><tr><th>Source</th><th class="num">Volume</th><th class="num">Q-Major</th><th class="num">Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Board Member Identified</td><td class="num">35</td><td class="num">15</td><td class="num hi">42.9%</td></tr>
+          <tr><td>Clinician Referral (Direct)</td><td class="num">314</td><td class="num">107</td><td class="num hi">34.1%</td></tr>
+          <tr><td>Nurse Identified</td><td class="num">18</td><td class="num">6</td><td class="num hi">33.3%</td></tr>
+          <tr><td>Fundraiser Identified</td><td class="num">1,026</td><td class="num">128</td><td class="num">12.5%</td></tr>
+          <tr><td>Clinician Referral — List Review</td><td class="num">1,641</td><td class="num">193</td><td class="num">11.8%</td></tr>
+          <tr><td>Circle of Caring</td><td class="num">53</td><td class="num">0</td><td class="num lo">0.0%</td></tr>
+        </tbody>
+      </table>
+      <div class="insight-box" style="margin-top:14px;">
+        <div class="insight-label">Examine Why</div>
+        <strong>The ratio of direct referrals to list review referrals is a leading indicator of physician engagement maturity.</strong>
+        Hospitals where direct referrals are growing as a share of total referrals are hospitals where the clinician relationship
+        strategy is maturing. Track this ratio over time at each ministry.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== S07: CLINICAL SPECIALTIES ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 07</div>
+  <div class="section-title">Clinical Pathway Analysis — Specialties vs. Treatment Settings</div>
+  <p class="section-narrative">
+    A patient's "top department" in the data reflects where they were <strong>clinically seen most often</strong> — not necessarily
+    the specialty of the physician who referred them for fundraising purposes. Departments like Radiology, Infusion Therapy, Lab, and Emergency
+    Medicine are treatment settings or access points — they reflect imaging visits, IV infusions, or ER admissions, not physician-driven clinical
+    relationships. True clinical specialties like Cardiology, Neurology, Hematology and Oncology, and Orthopedic Surgery represent physician-patient
+    relationships that are more meaningful for fundraising strategy. The analysis below separates these two categories.
+  </p>
+  <div class="chart-grid two-col">
+    <div class="chart-panel">
+      <h3>Figure 7.1 — Clinical Specialties: Conversion Rate (min 15 prospects)</h3>
+      <div class="chart-container h360"><canvas id="specConvChart"></canvas></div>
+    </div>
+    <div class="chart-panel">
+      <h3>Figure 7.2 — Specialty Performance Detail</h3>
+      <table class="data-table">
+        <thead><tr><th>Specialty</th><th class="num">N</th><th class="num">Q-Major</th><th class="num">Rate</th><th class="num">Pipeline NW</th></tr></thead>
+        <tbody>
+          <tr><td>Cardiology</td><td class="num">444</td><td class="num">76</td><td class="num hi">17.1%</td><td class="num">$8.0B</td></tr>
+          <tr><td>Hematology and Oncology</td><td class="num">169</td><td class="num">30</td><td class="num hi">17.8%</td><td class="num">$2.2B</td></tr>
+          <tr><td>Rehabilitation</td><td class="num">185</td><td class="num">33</td><td class="num hi">17.8%</td><td class="num">$2.3B</td></tr>
+          <tr><td>Neurology</td><td class="num">66</td><td class="num">16</td><td class="num hi">24.2%</td><td class="num">$0.9B</td></tr>
+          <tr><td>Internal Medicine</td><td class="num">209</td><td class="num">29</td><td class="num mid">13.9%</td><td class="num">$3.7B</td></tr>
+          <tr><td>Family Medicine</td><td class="num">285</td><td class="num">27</td><td class="num">9.5%</td><td class="num">$3.0B</td></tr>
+          <tr><td>Obstetrics and Gynecology</td><td class="num">81</td><td class="num">3</td><td class="num lo">3.7%</td><td class="num">$1.6B</td></tr>
+          <tr><td>Gastroenterology</td><td class="num">31</td><td class="num">3</td><td class="num">9.7%</td><td class="num">$1.0B</td></tr>
+          <tr><td>Orthopedic Surgery</td><td class="num">24</td><td class="num">6</td><td class="num hi">25.0%</td><td class="num">$0.2B</td></tr>
+        </tbody>
+      </table>
+      <div class="insight-box" style="margin-top:14px;">
+        <div class="insight-label">Note on Treatment Settings</div>
+        Radiology (552 prospects, 10.9%) and Emergency Medicine (220 prospects, 12.3%) appear as high-volume departments but reflect
+        <strong>where patients were seen for imaging or acute care</strong>, not the clinical relationship driving the referral.
+        These are excluded from the specialty chart to avoid misinterpreting treatment volume as specialty engagement.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== S08: DEVELOPMENT OFFICER SCORECARDS ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 08</div>
+  <div class="section-title">Development Team — Peer-Benchmarked Scorecards</div>
+  <p class="section-narrative">
+    Raw prospect volume tells you who is busiest. Conversion rate tells you who is most effective. But comparing officers
+    across different hospitals is misleading — an officer at St. Joseph Burbank (system-wide benchmark: 64.6%) operates in a
+    fundamentally different environment than one at Mission Hospital (7.1%) or Swedish (1.7%). Officers are therefore
+    benchmarked against peers at the same ministry. Those consistently above their peer benchmark represent practices
+    worth studying; those below warrant supportive examination of caseload composition, training opportunities, or
+    physician relationship depth.
+  </p>
+  <div class="chart-grid two-col">
+    <div class="chart-panel">
+      <h3>Figure 8.1 — Officer Conversion Rate by Ministry</h3>
+      <div class="chart-container h400"><canvas id="officerChart"></canvas></div>
+    </div>
+    <div class="chart-panel">
+      <h3>Figure 8.2 — Peer-Benchmarked Scorecards (Selected Ministries)</h3>
+      <table class="data-table" style="font-size:12px;">
+        <thead><tr><th>Officer</th><th>Ministry</th><th class="num">N</th><th class="num">Q-Maj</th><th class="num">Rate</th><th class="num">vs. Peers</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ani Kirikian</strong></td><td>St. Joseph Burbank</td><td class="num">67</td><td class="num">47</td><td class="num hi">70.1%</td><td class="num hi">+5.6pp</td></tr>
+          <tr><td><strong>Brianne Bear</strong></td><td>St. Joseph Burbank</td><td class="num">139</td><td class="num">86</td><td class="num hi">61.9%</td><td class="num">-2.7pp</td></tr>
+          <tr><td><strong>Thomas Chang</strong></td><td>St. Jude</td><td class="num">39</td><td class="num">15</td><td class="num hi">38.5%</td><td class="num hi">+12.1pp</td></tr>
+          <tr><td><strong>Alvin Phan</strong></td><td>Mission Hospital</td><td class="num">24</td><td class="num">9</td><td class="num hi">37.5%</td><td class="num hi">+30.4pp</td></tr>
+          <tr><td><strong>John Contreras</strong></td><td>Santa Rosa</td><td class="num">53</td><td class="num">18</td><td class="num hi">34.0%</td><td class="num hi">+12.9pp</td></tr>
+          <tr><td><strong>Matthew Rinnert</strong></td><td>Tarzana</td><td class="num">38</td><td class="num">12</td><td class="num hi">31.6%</td><td class="num hi">+20.0pp</td></tr>
+          <tr><td><strong>Katie McInerney</strong></td><td>St. Joseph Orange</td><td class="num">135</td><td class="num">31</td><td class="num mid">23.0%</td><td class="num hi">+4.5pp</td></tr>
+          <tr><td><strong>Kristin Curren</strong></td><td>PLCM</td><td class="num">313</td><td class="num">38</td><td class="num">12.1%</td><td class="num">+1.9pp</td></tr>
+          <tr><td><strong>Malika Middlebrooks</strong></td><td>Mission Hospital</td><td class="num">216</td><td class="num">12</td><td class="num">5.6%</td><td class="num">-1.5pp</td></tr>
+        </tbody>
+      </table>
+      <div class="insight-box" style="margin-top:14px;">
+        <div class="insight-label">Examine Why</div>
+        <strong>Alvin Phan at Mission Hospital converts at 37.5% against a ministry benchmark of 7.1%</strong> — a +30.4pp outperformance
+        that warrants close examination. What physician relationships, outreach patterns, or patient selection practices distinguish
+        his portfolio? Similarly, Thomas Chang (+12.1pp at St. Jude) and John Contreras (+12.9pp at Santa Rosa) are significantly
+        outperforming their peers.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== S09: PHYSICIAN ANALYSIS ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 09</div>
+  <div class="section-title">Physician Referral Intelligence</div>
+  <p class="section-narrative">
+    The referring physician on a prospect record denotes a <strong>fundraising relationship</strong> — who connected the
+    patient to the development team. This is distinct from the patient's top department or top hospital, which reflect
+    where the patient received clinical care. A physician in Neurosurgery may refer a patient whose most frequent visits
+    are in Radiology (for imaging). The analysis below focuses on physician referral patterns as a fundraising activity
+    metric, examining both high-converting physician partners and high-volume referrers whose patients have not yet
+    moved through the qualification pipeline.
+  </p>
+  <div class="chart-grid two-col">
+    <div class="chart-panel">
+      <h3>Figure 9.1 — Top Converting Physicians (min 15 referrals)</h3>
+      <table class="data-table" style="font-size:12px;">
+        <thead><tr><th>Physician</th><th class="num">Referrals</th><th class="num">Q-Major</th><th class="num">Rate</th><th>Patients' Top Dept</th></tr></thead>
+        <tbody>
+          <tr><td>Gordon, Ora</td><td class="num">19</td><td class="num">16</td><td class="num hi">84.2%</td><td>Genetics</td></tr>
+          <tr><td>Mukku, Roy Bharath</td><td class="num">19</td><td class="num">12</td><td class="num hi">63.2%</td><td>Cardiology</td></tr>
+          <tr><td>Barkhoudarian, Garni</td><td class="num">18</td><td class="num">9</td><td class="num hi">50.0%</td><td>Neurology</td></tr>
+          <tr><td>Pearre, Diana C.</td><td class="num">24</td><td class="num">10</td><td class="num hi">41.7%</td><td>Gynecologic Oncology</td></tr>
+          <tr><td>Grussie, Erwin</td><td class="num">15</td><td class="num">5</td><td class="num hi">33.3%</td><td>Hematology/Oncology</td></tr>
+          <tr><td>Kim, Thomas C</td><td class="num">41</td><td class="num">10</td><td class="num mid">24.4%</td><td>Cardiology</td></tr>
+          <tr><td>Kolski, Brian C</td><td class="num">46</td><td class="num">11</td><td class="num mid">23.9%</td><td>Emergency Medicine</td></tr>
+          <tr><td>Carpenter, Michele M</td><td class="num">32</td><td class="num">7</td><td class="num mid">21.9%</td><td>Radiology</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="chart-panel">
+      <h3>Figure 9.2 — High Volume, Pre-Qualification (min 20 referrals, &lt;10% conversion)</h3>
+      <table class="data-table" style="font-size:12px;">
+        <thead><tr><th>Physician</th><th class="num">Referrals</th><th class="num">Q-Major</th><th class="num">Rate</th><th>Patients' Top Dept</th></tr></thead>
+        <tbody>
+          <tr><td>Wisniewski, Paul John</td><td class="num">84</td><td class="num">0</td><td class="num lo">0.0%</td><td>Emergency Medicine</td></tr>
+          <tr><td>Pathi, Rama T</td><td class="num">55</td><td class="num">0</td><td class="num lo">0.0%</td><td>Emergency Medicine</td></tr>
+          <tr><td>Miranda, George G.</td><td class="num">56</td><td class="num">5</td><td class="num lo">8.9%</td><td>Hematology/Oncology</td></tr>
+          <tr><td>Mena, Raul R</td><td class="num">38</td><td class="num">0</td><td class="num lo">0.0%</td><td>Hematology/Oncology</td></tr>
+          <tr><td>Sivakumar, Walavan</td><td class="num">45</td><td class="num">4</td><td class="num lo">8.9%</td><td>Neurosurgery</td></tr>
+          <tr><td>Block, Edward J</td><td class="num">31</td><td class="num">0</td><td class="num lo">0.0%</td><td>Internal Medicine</td></tr>
+          <tr><td>Jiang, Fen</td><td class="num">28</td><td class="num">0</td><td class="num lo">0.0%</td><td>Hematology/Oncology</td></tr>
+          <tr><td>Ovsepyan, Tevan</td><td class="num">28</td><td class="num">0</td><td class="num lo">0.0%</td><td>Internal Medicine</td></tr>
+        </tbody>
+      </table>
+      <div class="insight-box" style="margin-top:14px;">
+        <div class="insight-label">Examine Why</div>
+        <strong>These physicians are actively referring — which is valuable.</strong> The absence of qualifications does not
+        mean the referrals lack merit. Many of these prospects may still be in the unqualified pipeline awaiting outreach,
+        or the patient populations they serve may have different philanthropic profiles. Examine whether these referrals are
+        newer (and simply haven't had time to progress), whether patients are being contacted, and whether the physicians'
+        referral patterns suggest opportunities to refine the outreach approach.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== S10: FORWARD OPPORTUNITY ==================== -->
+
+<div class="section page-break">
+  <div class="section-num">Section 10</div>
+  <div class="section-title">Forward Opportunity — The Unworked Pipeline</div>
+  <p class="section-narrative">
+    The most compelling story in this data is not what has been accomplished — it is what lies ahead.
+    With <strong>1,607 prospects</strong> still in unqualified status and a combined net worth of <strong class="warn">$28.9 billion</strong>,
+    the South Division sits on a pipeline that dwarfs many health system foundations' entire prospect universes.
+    At the demonstrated 14.5% major giving qualification rate, this pipeline could yield approximately <strong class="hl">233 additional
+    qualified major gift prospects</strong>.
+  </p>
+  <div class="opp-layout">
+    <div class="opp-box">
+      <h3>Unqualified Pipeline Opportunity</h3>
+      <div class="big-num">$28.9B</div>
+      <p>1,607 prospects in active pipeline. Average net worth of $18.0M per prospect — higher than the $14.4M average
+      among those already qualified. At the demonstrated 14.5% qualification rate, this yields 233+ new qualified
+      major gift prospects.</p>
+    </div>
+    <div class="opp-chart-panel">
+      <h3 style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;">Figure 10.1 — Pipeline Source Mix</h3>
+      <div class="chart-container h280"><canvas id="sourceChart"></canvas></div>
+    </div>
+  </div>
+  <div class="summary-row">
+    <div class="summary-card">
+      <div class="lbl">Current Qualified</div><div class="val">450</div><div class="sub">Major Giving</div>
+    </div>
+    <div class="summary-card teal">
+      <div class="lbl">In Pipeline</div><div class="val">1,607</div><div class="sub">Unqualified — Active</div>
+    </div>
+    <div class="summary-card green">
+      <div class="lbl">Projected Yield</div><div class="val">233+</div><div class="sub">At 14.5% Conversion</div>
+    </div>
+  </div>
+</div>
+
+<div class="report-footer">
+  Providence South Division · Pipeline Intelligence Case Study · 2021–2025 · Prysm Platform · February 2026
+</div>
+
+<!-- ==================== CHART SCRIPTS ==================== -->
+
+<script>
+const C = {
+  navy: '#1B3A5C', blue: '#2B6CB0', blueLight: '#4A90D9',
+  teal: '#0D7377', tealLight: '#38A89D', gold: '#C49A2A',
+  coral: '#C75B39', green: '#2F855A', purple: '#6B46C1', red: '#9B2C2C',
+  grid: 'rgba(210,221,232,0.5)', text: '#4A5568'
+};
+const F = "'Aptos','Calibri','Helvetica Neue',sans-serif";
+Chart.defaults.font.family = F;
+Chart.defaults.color = C.text;
+
+// S01 Sparklines
+function spark(id, data, color) {
+  new Chart(document.getElementById(id), {
+    type:'line', data:{ labels:['2021','2022','2023','2024','2025'],
+      datasets:[{ data, borderColor:color, backgroundColor:color+'20', fill:true, borderWidth:2.5, pointRadius:4, pointBackgroundColor:color, tension:0.35 }]
+    }, options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{ y:{grid:{color:C.grid},ticks:{font:{size:10},maxTicksLimit:4}}, x:{grid:{display:false},ticks:{font:{size:10}}} }
+    }
+  });
+}
+spark('spark1',[40,71,100,392,1330],C.navy);
+spark('spark2',[39,74,299,501,1782],C.coral);
+spark('spark3',[0,8,19,150,240],C.gold);
+
+// S02 Net Worth
+new Chart(document.getElementById('nwChart'), {
+  type:'bar', data:{ labels:['2021','2022','2023','2024','2025'],
+    datasets:[{ data:[0.437,0.681,1.442,5.107,15.755], backgroundColor:[C.navy+'55',C.navy+'77',C.navy+'99',C.navy+'BB',C.navy], borderRadius:3 }]
+  }, options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>'$'+ctx.parsed.y.toFixed(1)+'B'}}},
+    scales:{ y:{grid:{color:C.grid},title:{display:true,text:'Net Worth ($B)'}}, x:{grid:{display:false}} }
+  }
+});
+new Chart(document.getElementById('volValChart'), {
+  type:'bar', data:{ labels:['2021','2022','2023','2024','2025'],
+    datasets:[
+      { label:'Prospect Count', data:[32,59,85,353,1074], backgroundColor:C.coral+'CC', borderRadius:3, yAxisID:'y' },
+      { label:'Avg Net Worth ($M)', data:[13.7,11.5,17.0,14.5,14.7], type:'line', borderColor:C.gold, backgroundColor:C.gold, borderWidth:2.5, pointRadius:5, yAxisID:'y1' }
+    ]
+  }, options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'top',labels:{usePointStyle:true,padding:12}}},
+    scales:{ y:{grid:{color:C.grid},title:{display:true,text:'Count'},position:'left'}, y1:{grid:{display:false},title:{display:true,text:'Avg NW ($M)'},position:'right'}, x:{grid:{display:false}} }
+  }
+});
+
+// S03 NW by Stage
+new Chart(document.getElementById('nwByStageChart'), {
+  type:'bar', data:{
+    labels:['Unqualified','Qualified-Major','Disqualified','Patient','Phys. DQ','Qual Mid/Ann','Deceased','Other'],
+    datasets:[{ data:[28.9,6.5,6.2,1.7,0.8,1.1,0.5,0.3], backgroundColor:[C.navy,C.gold,C.coral,C.purple,C.blue,C.green,C.red,C.teal], borderRadius:3 }]
+  }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>'$'+ctx.parsed.x.toFixed(1)+'B'}}},
+    scales:{ x:{grid:{color:C.grid},title:{display:true,text:'Net Worth ($B)'}}, y:{grid:{display:false}} }
+  }
+});
+
+// S04 Hospital Conversion
+new Chart(document.getElementById('hospConvChart'), {
+  type:'bar', data:{
+    labels:['St. Joseph Burbank','St. Jude (Fullerton)','Saint John\'s','St. Joseph (Orange)','Santa Rosa','Tarzana','PLCM (Torrance)','Holy Cross','Mission Hospital','Swedish (all)','St. Mary'],
+    datasets:[{ data:[53.1,23.8,20.4,20.1,18.9,12.9,10.2,9.7,7.7,2.2,0.0],
+      backgroundColor:[C.teal,C.teal,C.green,C.green,C.green,C.gold,C.gold,C.coral,C.coral,C.coral,C.coral], borderRadius:3 }]
+  }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x.toFixed(1)+'%'}}},
+    scales:{ x:{grid:{color:C.grid},title:{display:true,text:'Qualification Rate (%)'},max:60}, y:{grid:{display:false}} }
+  }
+});
+
+// S05 Contact Conversion
+new Chart(document.getElementById('contactConvChart'), {
+  type:'bar', data:{
+    labels:['Hospital Inpatient Visit','Phone','Virtual Salon','Email','Letter'],
+    datasets:[
+      { label:'Conversion Rate', data:[38.3,25.7,11.1,10.9,7.7], backgroundColor:[C.navy,C.teal,C.blue,C.gold,C.coral], borderRadius:3 }
+    ]
+  }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x.toFixed(1)+'%'}}},
+    scales:{ x:{grid:{color:C.grid},title:{display:true,text:'Qualification Rate (%)'},max:45}, y:{grid:{display:false}} }
+  }
+});
+
+// S06 Source Conversion
+new Chart(document.getElementById('sourceConvChart'), {
+  type:'bar', data:{
+    labels:['Board Member','Clinician Direct','Nurse Identified','Fundraiser ID','Clinician List Review','Circle of Caring'],
+    datasets:[{ data:[42.9,34.1,33.3,12.5,11.8,0.0], backgroundColor:[C.teal,C.teal,C.green,C.gold,C.gold,C.coral], borderRadius:3 }]
+  }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x.toFixed(1)+'%'}}},
+    scales:{ x:{grid:{color:C.grid},title:{display:true,text:'Qualification Rate (%)'},max:50}, y:{grid:{display:false}} }
+  }
+});
+
+// S07 Specialty Conversion
+new Chart(document.getElementById('specConvChart'), {
+  type:'bar', data:{
+    labels:['Orthopedic Surgery','Neurology','Rehabilitation','Hem/Onc','Cardiology','General Surgery','Internal Med','Dermatology','Oncology','Gastroenterology','Family Medicine','OB/GYN','Neurosurgery'],
+    datasets:[{ data:[25.0,24.2,17.8,17.8,17.1,16.7,13.9,13.3,12.5,9.7,9.5,3.7,2.8],
+      backgroundColor:[C.teal,C.teal,C.teal,C.teal,C.teal,C.green,C.gold,C.gold,C.gold,C.gold,C.gold,C.coral,C.coral], borderRadius:3 }]
+  }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x.toFixed(1)+'%'}}},
+    scales:{ x:{grid:{color:C.grid},title:{display:true,text:'Qualification Rate (%)'},max:30}, y:{grid:{display:false}} }
+  }
+});
+
+// S08 Officer Chart
+new Chart(document.getElementById('officerChart'), {
+  type:'bar', data:{
+    labels:['Kirikian (Burbank)','Bear (Burbank)','Chang (St. Jude)','Phan (Mission)','Contreras (Santa Rosa)','Rinnert (Tarzana)','Amaro (St. Jude)','McInerney (SJO)','Jensen (SJO)','Russell (St. Jude)','Royster (St. Jude)','Harwell (SJO)','Johnston (SJO)','Curren (PLCM)','Langley (Santa Rosa)','Pepitone (Holy Cross)','Ayala (PLCM)','Middlebrooks (Mission)'],
+    datasets:[{ data:[70.1,61.9,38.5,37.5,34.0,31.6,32.3,23.0,21.0,23.1,18.6,14.8,14.6,12.1,12.5,11.8,7.3,5.6],
+      backgroundColor: [C.teal,C.teal,C.teal,C.teal,C.teal,C.teal,C.teal,C.green,C.green,C.green,C.gold,C.gold,C.gold,C.gold,C.gold,C.gold,C.coral,C.coral],
+      borderRadius:3 }]
+  }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x.toFixed(1)+'%'}}},
+    scales:{ x:{grid:{color:C.grid},title:{display:true,text:'Qualification Rate (%)'},max:75}, y:{grid:{display:false},ticks:{font:{size:10}}} }
+  }
+});
+
+// S10 Source Mix
+new Chart(document.getElementById('sourceChart'), {
+  type:'doughnut', data:{
+    labels:['Clinician List Review (1,641)','Fundraiser Identified (1,026)','Clinician Direct (314)','Circle of Caring (53)','Board Member (35)','Nurse Identified (18)'],
+    datasets:[{ data:[1641,1026,314,53,35,18], backgroundColor:[C.navy,C.coral,C.gold,C.purple,C.green,C.teal], borderWidth:2, borderColor:'#FFF' }]
+  }, options:{ responsive:true, maintainAspectRatio:false, cutout:'42%',
+    plugins:{legend:{position:'bottom',labels:{padding:10,usePointStyle:true,font:{size:10}}}}
+  }
+});
+</script>
+
+</body>
+</html>
