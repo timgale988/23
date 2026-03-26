@@ -22,6 +22,7 @@ export function Navbar() {
     { name: "Home", path: "/" },
     { name: "Prysm", path: "/prysm" },
     { name: "Aperion", path: "/aperion" },
+    { name: "Results", path: "/results" },
   ];
 
   return (

@@ -49,10 +49,12 @@ export default function Home() {
                 <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0 transition-all duration-300">
                   Explore our platforms
                 </Button>
-                <Button size="lg" variant="ghost" className="rounded-none text-sm tracking-widest uppercase font-semibold px-8 h-14 text-white hover:bg-white/5 hover:text-white group transition-all duration-300">
-                  View client results
-                  <ArrowRight className="ml-3 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link href="/results">
+                  <Button size="lg" variant="ghost" className="rounded-none text-sm tracking-widest uppercase font-semibold px-8 h-14 text-white hover:bg-white/5 hover:text-white group transition-all duration-300">
+                    View client results
+                    <ArrowRight className="ml-3 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </div>
             </AnimatedSection>
           </div>
