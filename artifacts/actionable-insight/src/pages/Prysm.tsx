@@ -306,7 +306,7 @@ export default function Prysm() {
                   {/* Concentric dashed rings */}
                   <circle cx="280" cy="260" r="195" fill="none" stroke="rgba(124,58,237,0.2)"  strokeWidth="1"   strokeDasharray="5 9" />
                   <circle cx="280" cy="260" r="148" fill="none" stroke="rgba(124,58,237,0.14)" strokeWidth="0.8" strokeDasharray="4 8" />
-                  <circle cx="280" cy="260" r="90"  fill="url(#pgCenter)" stroke="rgba(124,58,237,0.12)" strokeWidth="0.8" />
+                  <circle cx="280" cy="260" r="90"  fill="white" stroke="rgba(124,58,237,0.12)" strokeWidth="0.8" />
 
                   {/* Dashed radial guide lines from center to each pill */}
                   {PRYSM_PILLS.map((p, i) => (
