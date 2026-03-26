@@ -30,46 +30,53 @@ const sectorChallenges = [
   },
 ];
 
-const capabilities = [
+const featuredCapabilities = [
   {
+    icon: "Database" as const,
+    tag: "Core Infrastructure",
     title: "Unified CRM Ecosystem",
-    desc: "Prysm integrates Epic EMR, Blackbaud CRM, and Salesforce NPSP into a single system of record — giving fundraisers, clinicians, and leadership a unified view of every patient, prospect, and gift relationship.",
+    desc: "Prysm integrates Epic EMR, Blackbaud CRM, and Salesforce NPSP into a single system of record — giving fundraisers, clinicians, and leadership a unified view of every patient, prospect, and gift relationship. Native connectors. No rip-and-replace.",
+    stat: "3 systems",
+    statLabel: "unified in one platform",
+    from: "#7C3AED",
+    to: "#2563EB",
   },
   {
-    title: "Automation-First Architecture",
-    desc: "Engagement workflows are automated end-to-end: patient identification, prospect assignment, outreach scheduling, follow-up tracking, and reporting — all running continuously without manual intervention.",
-  },
-  {
-    title: "Real-Time Dashboards and Analytics",
-    desc: "360° views of patient journeys, outreach progress, gift officer activity, and program performance — updated in real time, visible to every stakeholder from frontline fundraisers to the chief philanthropy officer.",
-  },
-  {
-    title: "HIPAA-Compliant CTI Calling",
-    desc: "Click-to-dial phone outreach directly from the platform, with full PHI protection, call logging, outcome capture, and compliance audit trails. Gift officers call from anywhere with all patient context on screen.",
-  },
-  {
+    icon: "Brain" as const,
+    tag: "Intelligence Layer",
     title: "AI-Driven Prospect Scoring",
-    desc: "Machine learning models — drawing on Windfall, DonorSearch, Einstein AI, and clinical encounter signals — score and rank every patient by philanthropic capacity and engagement likelihood, surfacing the highest-priority prospects first.",
+    desc: "Machine learning models drawing on Windfall, DonorSearch, Einstein AI, and clinical encounter signals score every patient by philanthropic capacity and engagement likelihood — surfacing the highest-priority prospects automatically.",
+    stat: "200–400%",
+    statLabel: "qualification rate increase",
+    from: "#2563EB",
+    to: "#06B6D4",
+  },
+];
+
+const standardCapabilities = [
+  {
+    icon: "Zap" as const,
+    color: "#7C3AED",
+    title: "Automation-First Architecture",
+    desc: "Every step of the grateful patient pipeline — identification, assignment, outreach, follow-up, and reporting — runs continuously. Gift officers open Prysm to a prioritized queue, not a to-do list.",
   },
   {
+    icon: "Phone" as const,
+    color: "#2563EB",
+    title: "HIPAA-Compliant CTI Calling",
+    desc: "Click-to-dial outreach directly from the platform with full PHI protection, call logging, outcome capture, and compliance audit trails. Gift officers call from anywhere with all patient context on screen.",
+  },
+  {
+    icon: "Users" as const,
+    color: "#0284C7",
     title: "Clinician Engagement Workflows",
-    desc: "Structured physician referral workflows that make it easy for clinicians to identify and refer grateful patients — with attribution tracking, recognition reporting, and outcome visibility built in.",
+    desc: "Structured physician referral workflows make it easy for clinicians to identify and refer grateful patients — with attribution tracking, recognition reporting, and gift outcome visibility built in.",
   },
   {
-    title: "Geolocation Mapping and Segmentation",
-    desc: "Smart geographic segmentation for targeted outreach planning, event invitations, and regional capacity analysis — enabling gift officers to prioritize their time by location and prospect concentration.",
-  },
-  {
-    title: "Integrated Reporting and Daily Patient Lists",
-    desc: "Automated daily patient lists sync directly from Epic, filtered by encounter type, clinical context, and wealth scoring — so gift officers start every morning with a prioritized, actionable outreach queue.",
-  },
-  {
-    title: "Multi-Hospital and Division Support",
-    desc: "A single Prysm deployment manages grateful patient programs across all divisions, hospitals, and service lines of a health system — with division-level reporting and centralized governance.",
-  },
-  {
-    title: "Playbook-Driven Program Operations",
-    desc: "The built-in Prysm Clinician and Patient Engagement Playbook codifies best practices into the platform itself — ensuring every gift officer follows a consistent, proven process regardless of tenure or experience.",
+    icon: "BarChart3" as const,
+    color: "#06B6D4",
+    title: "Real-Time Dashboards & Analytics",
+    desc: "360° views of patient journeys, outreach progress, gift officer activity, and program performance — updated live, visible to every stakeholder from frontline fundraisers to the chief philanthropy officer.",
   },
 ];
 
@@ -402,30 +409,84 @@ export default function Prysm() {
           </div>
         </section>
       {/* ── Capabilities ── */}
-      <section className="py-24 lg:py-32 bg-[#F7F8FC] border-t border-[#E8ECF2]">
+      <section className="py-24 lg:py-32 bg-white border-t border-[#E8ECF2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl mb-16">
-            <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] mb-6 uppercase">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
               Platform Capabilities
             </div>
             <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
               A COMPLETE OPERATING SYSTEM FOR HEALTH SYSTEM PHILANTHROPY.
             </h2>
             <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
-              Prysm delivers a unified, intelligent ecosystem that enables every stakeholder — from individual gift officers to executive leadership — to operate from a single source of truth. No rip-and-replace. No parallel infrastructure. Prysm connects natively to the systems your team already uses and makes them dramatically more effective.
+              Prysm connects natively to the systems your team already uses — Epic, Blackbaud, Salesforce — and makes every one of them dramatically more effective. No rip-and-replace. No parallel infrastructure. One platform, fully automated.
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-0 border border-[#E8ECF2] bg-[#E8ECF2]">
-            {capabilities.map((feature, idx) => (
-              <AnimatedSection key={idx} delay={0.05 * idx} className="bg-white flex items-start gap-5 p-8 border-[0.5px] border-[#E8ECF2]">
-                <CheckCircle2 className="w-5 h-5 text-[#7C3AED] shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-sm font-bold text-[#0A0E1A] mb-2 uppercase tracking-tight">{feature.title}</h4>
-                  <p className="text-[#6B7A90] font-light text-sm leading-relaxed">{feature.desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
+          {/* Featured capabilities — 2-up dark cards */}
+          <div className="grid md:grid-cols-2 gap-px bg-[#E8ECF2] mb-px">
+            {featuredCapabilities.map((cap, idx) => {
+              const iconMap: Record<string, React.ElementType> = { Database, Brain };
+              const Icon = iconMap[cap.icon];
+              return (
+                <AnimatedSection key={idx} delay={0.05 * idx} className="bg-[#0A0E1A] p-10 lg:p-14 relative overflow-hidden">
+                  <div
+                    className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                    style={{
+                      backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+                      backgroundSize: "40px 40px",
+                    }}
+                  />
+                  <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#7C3AED]/10 blur-[80px] pointer-events-none" />
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-8">
+                      <div
+                        className="w-11 h-11 flex items-center justify-center shrink-0"
+                        style={{ background: `linear-gradient(135deg, ${cap.from}, ${cap.to})` }}
+                      >
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/35">{cap.tag}</span>
+                    </div>
+                    <h3 className="text-2xl lg:text-3xl font-display font-bold text-white tracking-tighter mb-4">{cap.title}</h3>
+                    <p className="text-white/50 font-light leading-relaxed mb-10 text-base">{cap.desc}</p>
+                    <div className="border-t border-white/[0.08] pt-8 flex items-end gap-4">
+                      <div
+                        className="text-4xl font-display font-bold tracking-tighter leading-none text-transparent bg-clip-text"
+                        style={{ backgroundImage: `linear-gradient(135deg, ${cap.from}, ${cap.to})` }}
+                      >
+                        {cap.stat}
+                      </div>
+                      <div className="text-[11px] font-bold uppercase tracking-widest text-white/30 mb-1 leading-tight">{cap.statLabel}</div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              );
+            })}
+          </div>
+
+          {/* Standard capabilities — 4-up light cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#E8ECF2]">
+            {standardCapabilities.map((cap, idx) => {
+              const iconMap: Record<string, React.ElementType> = { Zap, Phone, Users, BarChart3 };
+              const Icon = iconMap[cap.icon];
+              return (
+                <AnimatedSection key={idx} delay={0.06 * idx} className="bg-[#F7F8FC] p-8 lg:p-10 group relative">
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: `linear-gradient(90deg, ${cap.color}, transparent)` }}
+                  />
+                  <div
+                    className="w-10 h-10 flex items-center justify-center border mb-6"
+                    style={{ borderColor: `${cap.color}40` }}
+                  >
+                    <Icon className="w-4 h-4" style={{ color: cap.color }} />
+                  </div>
+                  <h4 className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-3">{cap.title}</h4>
+                  <p className="text-[#6B7A90] font-light text-sm leading-relaxed">{cap.desc}</p>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
