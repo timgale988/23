@@ -3,12 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-const HOME_METRICS = [
-  { value: "305%", label: "Increase in first-time\nmajor gifts" },
-  { value: "$4.32M", label: "Realized revenue,\nYear One" },
-  { value: "20×", label: "Return on platform\ninvestment" },
-  { value: "90%", label: "Reduction in gift officer\nonboarding time" },
-];
 
 export default function Home() {
   return (
@@ -88,27 +82,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ── Metrics strip ── */}
-      <div className="grid grid-cols-2 md:grid-cols-4 bg-[#F7F8FC] border-b border-[#E8ECF2] divide-x divide-[#E8ECF2]">
-        {HOME_METRICS.map((m, i) => (
-          <AnimatedSection
-            key={i}
-            delay={0.08 * i}
-            className="p-10 lg:p-12 text-center"
-          >
-            <div className="text-[clamp(36px,4vw,56px)] font-bold tracking-[-0.05em] leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] via-[#2563EB] to-[#06B6D4] mb-3">
-              {m.value}
-            </div>
-            <div
-              className="text-[11px] text-[#9AA3B2] uppercase tracking-[0.09em] font-semibold leading-[1.5]"
-              style={{ whiteSpace: "pre-line" }}
-            >
-              {m.label}
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
 
       {/* ── Products ── */}
       <section className="bg-white border-b border-[#E8ECF2]">
