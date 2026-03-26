@@ -212,175 +212,170 @@ export default function Prysm() {
       </section>
 
       {/* ── How Prysm Works ── */}
-        <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white relative overflow-hidden">
-          <div
-            className="absolute inset-0 opacity-[0.025] pointer-events-none"
-            style={{
-              backgroundImage: "linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#7C3AED]/[0.07] blur-[130px] pointer-events-none" />
+      <section className="py-24 lg:py-32 bg-[#F7F8FC] border-t border-[#E8ECF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
+              How Prysm Works
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] tracking-tighter mb-6">
+              FROM CLINICAL ENCOUNTER TO MAJOR GIFT — AUTOMATED.
+            </h2>
+            <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
+              Prysm sits at the center of your philanthropy stack — connecting clinical data on the left to CRM systems and gift officer workflows on the right, automatically.
+            </p>
+          </AnimatedSection>
 
-            <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-              <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
-                How Prysm Works
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter mb-6">
-                FROM CLINICAL ENCOUNTER TO MAJOR GIFT — AUTOMATED.
-              </h2>
-              <p className="text-xl text-white/45 font-light leading-relaxed">
-                Prysm sits at the center of your philanthropy stack — connecting clinical data on the left to CRM systems and gift officer workflows on the right, automatically.
-              </p>
-            </AnimatedSection>
+          <AnimatedSection>
+            <svg viewBox="0 0 1000 520" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gradLeft" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#7C3AED" stopOpacity="0" />
+                  <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.6" />
+                </linearGradient>
+                <linearGradient id="gradRight" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#7C3AED" />
+                  <stop offset="50%" stopColor="#2563EB" />
+                  <stop offset="100%" stopColor="#06B6D4" />
+                </linearGradient>
+                <radialGradient id="coreFill" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#0A0E1A" stopOpacity="0" />
+                </radialGradient>
+              </defs>
 
-            <AnimatedSection>
-              <svg viewBox="0 0 1000 520" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="gradLeft" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#7C3AED" stopOpacity="0" />
-                    <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.55" />
-                  </linearGradient>
-                  <linearGradient id="gradRight" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.55" />
-                    <stop offset="100%" stopColor="#06B6D4" stopOpacity="0" />
-                  </linearGradient>
-                  <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#7C3AED" />
-                    <stop offset="50%" stopColor="#2563EB" />
-                    <stop offset="100%" stopColor="#06B6D4" />
-                  </linearGradient>
-                  <radialGradient id="coreFill" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.25" />
-                    <stop offset="100%" stopColor="#0A0E1A" stopOpacity="0.1" />
-                  </radialGradient>
-                </defs>
+              {/* Column labels */}
+              <text x="115" y="28" textAnchor="middle" fill="rgba(124,58,237,0.55)" fontSize="8.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">DATA INPUTS</text>
+              <text x="885" y="28" textAnchor="middle" fill="rgba(8,145,178,0.55)"  fontSize="8.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">OUTPUTS</text>
+              <text x="500" y="16" textAnchor="middle" fill="rgba(10,14,26,0.18)"   fontSize="7"   fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">INTELLIGENTLY ORCHESTRATED HEALTHCARE PHILANTHROPY</text>
 
-                {/* Section labels */}
-                <text x="115" y="28" textAnchor="middle" fill="rgba(167,139,250,0.45)" fontSize="8.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">DATA INPUTS</text>
-                <text x="885" y="28" textAnchor="middle" fill="rgba(103,232,249,0.45)" fontSize="8.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">OUTPUTS</text>
-                <text x="500" y="16" textAnchor="middle" fill="rgba(167,139,250,0.25)" fontSize="7" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">INTELLIGENTLY ORCHESTRATED HEALTHCARE PHILANTHROPY</text>
+              {/* LEFT INPUT CARDS */}
+              <rect x="10" y="72"  width="210" height="58" rx="0" fill="white" stroke="rgba(124,58,237,0.22)" strokeWidth="1" />
+              <text x="115" y="97"  textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">EPIC EMR</text>
+              <text x="115" y="116" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">FHIR encounter ingestion</text>
 
-                {/* LEFT INPUT CARDS */}
-                <rect x="10" y="72"  width="210" height="58" rx="0" fill="rgba(124,58,237,0.07)" stroke="rgba(124,58,237,0.28)" strokeWidth="1" />
-                <text x="115" y="97"  textAnchor="middle" fill="rgba(196,181,253,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">EPIC EMR</text>
-                <text x="115" y="116" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">FHIR encounter ingestion</text>
+              <rect x="10" y="174" width="210" height="58" rx="0" fill="white" stroke="rgba(124,58,237,0.22)" strokeWidth="1" />
+              <text x="115" y="199" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">WINDFALL WEALTH</text>
+              <text x="115" y="218" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Net worth &amp; capacity data</text>
 
-                <rect x="10" y="174" width="210" height="58" rx="0" fill="rgba(124,58,237,0.07)" stroke="rgba(124,58,237,0.28)" strokeWidth="1" />
-                <text x="115" y="199" textAnchor="middle" fill="rgba(196,181,253,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">WINDFALL WEALTH</text>
-                <text x="115" y="218" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Net worth &amp; capacity data</text>
+              <rect x="10" y="276" width="210" height="58" rx="0" fill="white" stroke="rgba(124,58,237,0.22)" strokeWidth="1" />
+              <text x="115" y="301" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">DONORSEARCH</text>
+              <text x="115" y="320" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Philanthropic history &amp; giving</text>
 
-                <rect x="10" y="276" width="210" height="58" rx="0" fill="rgba(124,58,237,0.07)" stroke="rgba(124,58,237,0.28)" strokeWidth="1" />
-                <text x="115" y="301" textAnchor="middle" fill="rgba(196,181,253,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">DONORSEARCH</text>
-                <text x="115" y="320" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Philanthropic history &amp; giving</text>
+              <rect x="10" y="378" width="210" height="58" rx="0" fill="white" stroke="rgba(124,58,237,0.22)" strokeWidth="1" />
+              <text x="115" y="403" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">CLINICAL ENCOUNTERS</text>
+              <text x="115" y="422" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">70K+ physician panels</text>
 
-                <rect x="10" y="378" width="210" height="58" rx="0" fill="rgba(124,58,237,0.07)" stroke="rgba(124,58,237,0.28)" strokeWidth="1" />
-                <text x="115" y="403" textAnchor="middle" fill="rgba(196,181,253,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">CLINICAL ENCOUNTERS</text>
-                <text x="115" y="422" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">70K+ physician panels</text>
+              {/* LEFT DASHED LINES */}
+              <line x1="220" y1="101" x2="360" y2="202" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
+              <line x1="220" y1="203" x2="354" y2="237" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
+              <line x1="220" y1="305" x2="354" y2="283" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
+              <line x1="220" y1="407" x2="360" y2="318" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
 
-                {/* LEFT DASHED LINES */}
-                <line x1="220" y1="101" x2="360" y2="202" stroke="url(#gradLeft)" strokeWidth="1" strokeDasharray="5 5" />
-                <line x1="220" y1="203" x2="354" y2="237" stroke="url(#gradLeft)" strokeWidth="1" strokeDasharray="5 5" />
-                <line x1="220" y1="305" x2="354" y2="283" stroke="url(#gradLeft)" strokeWidth="1" strokeDasharray="5 5" />
-                <line x1="220" y1="407" x2="360" y2="318" stroke="url(#gradLeft)" strokeWidth="1" strokeDasharray="5 5" />
+              {/* CENTER CIRCLE — dark island on light background */}
+              <circle cx="500" cy="260" r="178" fill="none" stroke="rgba(124,58,237,0.1)" strokeWidth="1" strokeDasharray="2 14" />
+              <circle cx="500" cy="260" r="150" fill="#0A0E1A" stroke="url(#ringGrad)" strokeWidth="2" />
+              <circle cx="500" cy="260" r="105" fill="rgba(124,58,237,0.06)" stroke="rgba(124,58,237,0.4)" strokeWidth="1" />
+              <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="rgba(124,58,237,0.8)" strokeWidth="2" />
 
-                {/* CENTER CIRCLE */}
-                <circle cx="500" cy="260" r="178" fill="none" stroke="rgba(124,58,237,0.09)" strokeWidth="1" strokeDasharray="2 14" />
-                <circle cx="500" cy="260" r="150" fill="rgba(10,14,26,0.97)" stroke="url(#ringGrad)" strokeWidth="1.5" />
-                <circle cx="500" cy="260" r="105" fill="rgba(124,58,237,0.04)" stroke="rgba(124,58,237,0.35)" strokeWidth="1" />
-                <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="rgba(124,58,237,0.75)" strokeWidth="2" />
+              {/* 8 dots on inner ring */}
+              <circle cx="500" cy="155" r="4" fill="#7C3AED" />
+              <circle cx="574" cy="186" r="4" fill="#5B21B6" />
+              <circle cx="605" cy="260" r="4" fill="#2563EB" />
+              <circle cx="574" cy="334" r="4" fill="#0284C7" />
+              <circle cx="500" cy="365" r="4" fill="#06B6D4" />
+              <circle cx="426" cy="334" r="4" fill="#0284C7" />
+              <circle cx="395" cy="260" r="4" fill="#2563EB" />
+              <circle cx="426" cy="186" r="4" fill="#5B21B6" />
 
-                {/* 8 dots on inner ring r=105 */}
-                <circle cx="500" cy="155" r="4" fill="#7C3AED" />
-                <circle cx="574" cy="186" r="4" fill="#5B21B6" />
-                <circle cx="605" cy="260" r="4" fill="#2563EB" />
-                <circle cx="574" cy="334" r="4" fill="#0284C7" />
-                <circle cx="500" cy="365" r="4" fill="#06B6D4" />
-                <circle cx="426" cy="334" r="4" fill="#0284C7" />
-                <circle cx="395" cy="260" r="4" fill="#2563EB" />
-                <circle cx="426" cy="186" r="4" fill="#5B21B6" />
+              {/* Capability labels — inside dark circle, white text */}
+              <text x="500" y="128" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">AI PROSPECT SCORING</text>
+              <text x="585" y="169" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">WEALTH INTELLIGENCE</text>
+              <text x="628" y="264" textAnchor="start"  fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">REAL-TIME ANALYTICS</text>
+              <text x="585" y="355" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">HIPAA COMPLIANCE</text>
+              <text x="500" y="393" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CTI OUTREACH</text>
+              <text x="415" y="355" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">DAILY PATIENT LISTS</text>
+              <text x="372" y="264" textAnchor="end"    fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">GEOLOCATION</text>
+              <text x="415" y="169" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CLINICIAN REFERRALS</text>
 
-                {/* Capability labels between rings */}
-                <text x="500" y="128" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">AI PROSPECT SCORING</text>
-                <text x="585" y="169" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">WEALTH INTELLIGENCE</text>
-                <text x="628" y="264" textAnchor="start"  fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">REAL-TIME ANALYTICS</text>
-                <text x="585" y="355" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">HIPAA COMPLIANCE</text>
-                <text x="500" y="393" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CTI OUTREACH</text>
-                <text x="415" y="355" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">DAILY PATIENT LISTS</text>
-                <text x="372" y="264" textAnchor="end"    fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">GEOLOCATION</text>
-                <text x="415" y="169" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CLINICIAN REFERRALS</text>
+              {/* Center text — white inside the dark circle */}
+              <text x="500" y="254" textAnchor="middle" fill="white"               fontSize="21" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-0.8">PRYSM</text>
+              <text x="500" y="272" textAnchor="middle" fill="rgba(167,139,250,0.9)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">PURPOSE BUILT</text>
 
-                {/* Center text */}
-                <text x="500" y="254" textAnchor="middle" fill="white"              fontSize="21" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-0.8">PRYSM</text>
-                <text x="500" y="272" textAnchor="middle" fill="rgba(167,139,250,0.8)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">PURPOSE BUILT</text>
+              {/* RIGHT DASHED LINES */}
+              <line x1="640" y1="202" x2="780" y2="101" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
+              <line x1="646" y1="237" x2="780" y2="203" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
+              <line x1="646" y1="283" x2="780" y2="305" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
+              <line x1="640" y1="318" x2="780" y2="407" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
 
-                {/* RIGHT DASHED LINES */}
-                <line x1="640" y1="202" x2="780" y2="101" stroke="url(#gradRight)" strokeWidth="1" strokeDasharray="5 5" />
-                <line x1="646" y1="237" x2="780" y2="203" stroke="url(#gradRight)" strokeWidth="1" strokeDasharray="5 5" />
-                <line x1="646" y1="283" x2="780" y2="305" stroke="url(#gradRight)" strokeWidth="1" strokeDasharray="5 5" />
-                <line x1="640" y1="318" x2="780" y2="407" stroke="url(#gradRight)" strokeWidth="1" strokeDasharray="5 5" />
+              {/* RIGHT OUTPUT CARDS */}
+              <rect x="780" y="72"  width="210" height="58" rx="0" fill="white" stroke="rgba(8,145,178,0.25)" strokeWidth="1" />
+              <text x="885" y="97"  textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">BLACKBAUD CRM</text>
+              <text x="885" y="116" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Qualified prospect push</text>
 
-                {/* RIGHT OUTPUT CARDS */}
-                <rect x="780" y="72"  width="210" height="58" rx="0" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.28)" strokeWidth="1" />
-                <text x="885" y="97"  textAnchor="middle" fill="rgba(103,232,249,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">BLACKBAUD CRM</text>
-                <text x="885" y="116" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Qualified prospect push</text>
+              <rect x="780" y="174" width="210" height="58" rx="0" fill="white" stroke="rgba(8,145,178,0.25)" strokeWidth="1" />
+              <text x="885" y="199" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">SALESFORCE NPSP</text>
+              <text x="885" y="218" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Native SF integration</text>
 
-                <rect x="780" y="174" width="210" height="58" rx="0" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.28)" strokeWidth="1" />
-                <text x="885" y="199" textAnchor="middle" fill="rgba(103,232,249,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">SALESFORCE NPSP</text>
-                <text x="885" y="218" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Native SF integration</text>
+              <rect x="780" y="276" width="210" height="58" rx="0" fill="white" stroke="rgba(8,145,178,0.25)" strokeWidth="1" />
+              <text x="885" y="301" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">GIFT OFFICER QUEUE</text>
+              <text x="885" y="320" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Daily prioritized lists</text>
 
-                <rect x="780" y="276" width="210" height="58" rx="0" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.28)" strokeWidth="1" />
-                <text x="885" y="301" textAnchor="middle" fill="rgba(103,232,249,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">GIFT OFFICER QUEUE</text>
-                <text x="885" y="320" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Daily prioritized lists</text>
+              <rect x="780" y="378" width="210" height="58" rx="0" fill="white" stroke="rgba(8,145,178,0.25)" strokeWidth="1" />
+              <text x="885" y="403" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">ROI &amp; ANALYTICS</text>
+              <text x="885" y="422" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Pipeline &amp; gift reporting</text>
 
-                <rect x="780" y="378" width="210" height="58" rx="0" fill="rgba(6,182,212,0.06)" stroke="rgba(6,182,212,0.28)" strokeWidth="1" />
-                <text x="885" y="403" textAnchor="middle" fill="rgba(103,232,249,1)"   fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">ROI &amp; ANALYTICS</text>
-                <text x="885" y="422" textAnchor="middle" fill="rgba(255,255,255,0.32)" fontSize="8.5"  fontFamily="Urbanist, system-ui, sans-serif">Pipeline &amp; gift reporting</text>
+            </svg>
+          </AnimatedSection>
 
-              </svg>
-            </AnimatedSection>
-
-            {/* Capability cards — below the diagram */}
-            <AnimatedSection className="mt-16">
-              <div className="text-[10px] tracking-[0.2em] font-bold text-white/25 uppercase mb-6 text-center">Platform Capabilities</div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/[0.06]">
-                {[
-                  { icon: Brain,    color: "#A78BFA", title: "AI Prospect Scoring",         desc: "Windfall, DonorSearch, Einstein AI, and clinical signals — scored and ranked automatically." },
-                  { icon: Zap,      color: "#60A5FA", title: "Automation-First Workflows",  desc: "Every patient pipeline step runs continuously without manual intervention." },
-                  { icon: Phone,    color: "#38BDF8", title: "HIPAA-Compliant CTI Calling", desc: "Click-to-dial outreach with PHI protection, call logging, and audit trails." },
-                  { icon: Users,    color: "#34D399", title: "Clinician Engagement",        desc: "Structured physician referral workflows with attribution tracking built in." },
-                  { icon: BarChart3,color: "#06B6D4", title: "Real-Time Dashboards",        desc: "360° live views of journeys, activity, and program performance for all stakeholders." },
-                ].map((cap, i) => (
-                  <div key={i} className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors p-6 border border-white/[0.06] group">
-                    <div className="w-8 h-8 flex items-center justify-center mb-5" style={{ border: `1px solid ${cap.color}40` }}>
-                      <cap.icon className="w-3.5 h-3.5" style={{ color: cap.color }} />
-                    </div>
-                    <h4 className="text-xs font-bold text-white uppercase tracking-tight mb-2 leading-snug">{cap.title}</h4>
-                    <p className="text-[11px] text-white/35 font-light leading-relaxed">{cap.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-
-            {/* Stats row */}
-            <div className="grid md:grid-cols-3 gap-0 border-t border-white/[0.06] mt-16 pt-16">
+          {/* Capability cards */}
+          <AnimatedSection className="mt-16">
+            <div className="text-[10px] tracking-[0.2em] font-bold text-[#9AA3B2] uppercase mb-6 text-center">Platform Capabilities</div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[#E8ECF2]">
               {[
-                { val: "200–400%", label: "Patient qualification rate increase", sub: "vs. manual screening baseline" },
-                { val: "90%", label: "Reduction in gift officer onboarding time", sub: "Platform-driven activation" },
-                { val: "70K+", label: "Physician panels analyzed", sub: "Continuously, across all deployments" },
-              ].map((s, i) => (
-                <div key={i} className="pr-10 border-r border-white/[0.06] last:border-0 lg:pl-10 first:pl-0 pb-10 lg:pb-0">
-                  <div className="text-5xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] mb-3 leading-none">{s.val}</div>
-                  <div className="text-sm font-bold text-white uppercase tracking-tight mb-1">{s.label}</div>
-                  <div className="text-xs text-white/30 uppercase tracking-wider">{s.sub}</div>
+                { icon: Brain,    color: "#7C3AED", title: "AI Prospect Scoring",         desc: "Windfall, DonorSearch, Einstein AI, and clinical signals — scored and ranked automatically." },
+                { icon: Zap,      color: "#2563EB", title: "Automation-First Workflows",  desc: "Every patient pipeline step runs continuously without manual intervention." },
+                { icon: Phone,    color: "#0284C7", title: "HIPAA-Compliant CTI Calling", desc: "Click-to-dial outreach with PHI protection, call logging, and audit trails." },
+                { icon: Users,    color: "#0A0E1A", title: "Clinician Engagement",        desc: "Structured physician referral workflows with attribution tracking built in." },
+                { icon: BarChart3,color: "#06B6D4", title: "Real-Time Dashboards",        desc: "360° live views of journeys, activity, and program performance for all stakeholders." },
+              ].map((cap, i) => (
+                <div key={i} className="bg-white hover:bg-[#F7F8FC] transition-colors p-6 group relative">
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: `linear-gradient(90deg, ${cap.color}, transparent)` }}
+                  />
+                  <div className="w-8 h-8 flex items-center justify-center mb-5" style={{ border: `1px solid ${cap.color}30` }}>
+                    <cap.icon className="w-3.5 h-3.5" style={{ color: cap.color }} />
+                  </div>
+                  <h4 className="text-xs font-bold text-[#0A0E1A] uppercase tracking-tight mb-2 leading-snug">{cap.title}</h4>
+                  <p className="text-[11px] text-[#6B7A90] font-light leading-relaxed">{cap.desc}</p>
                 </div>
               ))}
             </div>
+          </AnimatedSection>
 
+          {/* Stats row */}
+          <div className="grid md:grid-cols-3 gap-0 border-t border-[#E8ECF2] mt-16 pt-16">
+            {[
+              { val: "200–400%", label: "Patient qualification rate increase", sub: "vs. manual screening baseline" },
+              { val: "90%", label: "Reduction in gift officer onboarding time", sub: "Platform-driven activation" },
+              { val: "70K+", label: "Physician panels analyzed", sub: "Continuously, across all deployments" },
+            ].map((s, i) => (
+              <div key={i} className="pr-10 border-r border-[#E8ECF2] last:border-0 lg:pl-10 first:pl-0 pb-10 lg:pb-0">
+                <div className="text-5xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] mb-3 leading-none">{s.val}</div>
+                <div className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-1">{s.label}</div>
+                <div className="text-xs text-[#9AA3B2] uppercase tracking-wider">{s.sub}</div>
+              </div>
+            ))}
           </div>
-        </section>
+
+        </div>
+      </section>
 
       {/* ── Providence Case Study ── */}
       <section className="py-24 lg:py-32 bg-white border-t border-[#E8ECF2]">
