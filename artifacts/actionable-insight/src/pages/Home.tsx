@@ -1,56 +1,140 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Activity, Zap, Database, BrainCircuit, HeartPulse } from "lucide-react";
+import { ArrowRight, Activity, Database, BrainCircuit, HeartPulse, TrendingUp, Users, Zap } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+
+const PROBLEM_POINTS = [
+  {
+    num: "01",
+    title: "The window closes in days.",
+    desc: "A patient's gratitude is highest in the weeks immediately following discharge. Without an automated system to identify and act on that window, the moment is lost permanently.",
+  },
+  {
+    num: "02",
+    title: "Manual research cannot scale.",
+    desc: "Traditional grateful patient programs rely on gift officers manually cross-referencing EMRs, spreadsheets, and donor databases — a process that takes days per prospect and misses the vast majority.",
+  },
+  {
+    num: "03",
+    title: "Siloed systems hide the opportunity.",
+    desc: "Clinical data lives in Epic. Donor data lives in Blackbaud or Salesforce. Without a bridge between them, health systems are operating blind — unable to see who among their patients has the capacity and propensity to give.",
+  },
+  {
+    num: "04",
+    title: "$48 trillion is already in motion.",
+    desc: "The largest intergenerational wealth transfer in history is underway. Health system philanthropy programs that cannot operate with precision and automation at scale will miss the single greatest generational giving opportunity.",
+  },
+];
+
+const JOURNEY_STEPS = [
+  {
+    step: "01",
+    color: "#7C3AED",
+    label: "Clinical Encounter",
+    desc: "Patient visit recorded in Epic EMR across any service line or department.",
+  },
+  {
+    step: "02",
+    color: "#5B21B6",
+    label: "AI Identification",
+    desc: "Prysm scores the encounter against wealth data, philanthropic history, and clinical signals.",
+  },
+  {
+    step: "03",
+    color: "#2563EB",
+    label: "Prospect Qualification",
+    desc: "Qualified patients are pushed to Blackbaud or Salesforce with complete donor profiles.",
+  },
+  {
+    step: "04",
+    color: "#0891B2",
+    label: "Gift Officer Outreach",
+    desc: "Aperion prepares AI-generated briefings and intelligent talking points for every conversation.",
+  },
+  {
+    step: "05",
+    color: "#06B6D4",
+    label: "Closed Gift",
+    desc: "Donor engagement culminates in a major gift — fully attributed back to the clinical encounter.",
+  },
+];
+
+const HOME_METRICS = [
+  { value: "305%", label: "Increase in first-time\nmajor gifts" },
+  { value: "$4.32M", label: "Realized revenue,\nYear One" },
+  { value: "20×", label: "Return on platform\ninvestment" },
+  { value: "90%", label: "Reduction in gift officer\nonboarding time" },
+];
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 pb-20 bg-[#0A0E1A] text-white">
+
+      {/* ── Hero ── */}
+      <section className="relative min-h-screen flex items-center pt-24 pb-24 bg-[#0A0E1A] text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[#0A0E1A]/80 z-10" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-900/20 via-[#0A0E1A] to-[#0A0E1A] z-10" />
-          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#0A0E1A] to-transparent z-10" />
-          <img 
-            src={`${import.meta.env.BASE_URL}images/hero-mesh.png`}
-            alt="Abstract data mesh" 
-            className="w-full h-full object-cover opacity-30 mix-blend-screen"
+          <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/15 via-[#0A0E1A] to-[#06B6D4]/10" />
+          <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-[#7C3AED]/8 blur-[140px]" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#06B6D4]/8 blur-[120px]" />
+          <div
+            className="absolute inset-0 opacity-[0.035]"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+              backgroundSize: "64px 64px",
+            }}
           />
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-[120px] mix-blend-screen z-10 animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen z-10 animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-          <div className="max-w-4xl">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="max-w-5xl">
             <AnimatedSection>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-[1px] bg-violet-500" />
-                <span className="text-sm tracking-[0.2em] font-semibold text-white/80 uppercase">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-10 h-px bg-white/25" />
+                <span className="text-[11px] tracking-[0.24em] font-bold text-white/40 uppercase">
                   Healthcare philanthropy intelligence
                 </span>
               </div>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.1}>
-              <h1 className="text-6xl sm:text-7xl lg:text-[5.5rem] font-display font-bold text-white leading-[1.05] tracking-tighter mb-8">
-                Intelligence that moves <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4]">people to give.</span>
+              <h1 className="text-[clamp(44px,7vw,88px)] font-bold text-white leading-[0.95] tracking-[-0.04em] uppercase mb-10">
+                Boundless insight.
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4]">
+                  One platform.
+                </span>
               </h1>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.2}>
-              <p className="text-xl sm:text-2xl text-white/60 mb-12 leading-relaxed max-w-3xl font-light">
-                Two purpose-built platforms — Prysm and Aperion — designed to transform how health systems identify, engage, and inspire their most capable philanthropists.
+              <p className="text-xl text-white/55 mb-4 leading-relaxed max-w-2xl font-light">
+                Actionable Insight AI builds purpose-built intelligence software for non-profit health
+                system philanthropy — connecting clinical data to donor outcomes through two
+                integrated platforms: Prysm and Aperion.
+              </p>
+              <p className="text-lg text-white/35 mb-14 leading-relaxed max-w-2xl font-light">
+                From the moment a patient is discharged to the moment a major gift is closed,
+                every step of the grateful patient journey runs on Actionable Insight AI.
               </p>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0 transition-all duration-300">
-                  Explore our platforms
-                </Button>
+              <div className="flex flex-col sm:flex-row gap-5">
+                <Link href="/prysm">
+                  <Button
+                    size="lg"
+                    className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0"
+                  >
+                    Explore our platforms
+                  </Button>
+                </Link>
                 <Link href="/results">
-                  <Button size="lg" variant="ghost" className="rounded-none text-sm tracking-widest uppercase font-semibold px-8 h-14 text-white hover:bg-white/5 hover:text-white group transition-all duration-300">
+                  <Button
+                    size="lg"
+                    variant="ghost"
+                    className="rounded-none text-sm tracking-widest uppercase font-semibold px-8 h-14 text-white hover:bg-white/5 hover:text-white group border border-white/15"
+                  >
                     View client results
                     <ArrowRight className="ml-3 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -61,57 +145,92 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Products Strip */}
-      <section className="bg-white border-y border-[#E8ECF2]">
+      {/* ── Metrics strip ── */}
+      <div className="grid grid-cols-2 md:grid-cols-4 bg-[#F7F8FC] border-b border-[#E8ECF2] divide-x divide-[#E8ECF2]">
+        {HOME_METRICS.map((m, i) => (
+          <AnimatedSection
+            key={i}
+            delay={0.08 * i}
+            className="p-10 lg:p-12 text-center"
+          >
+            <div className="text-[clamp(36px,4vw,56px)] font-bold tracking-[-0.05em] leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] via-[#2563EB] to-[#06B6D4] mb-3">
+              {m.value}
+            </div>
+            <div
+              className="text-[11px] text-[#9AA3B2] uppercase tracking-[0.09em] font-semibold leading-[1.5]"
+              style={{ whiteSpace: "pre-line" }}
+            >
+              {m.label}
+            </div>
+          </AnimatedSection>
+        ))}
+      </div>
+
+      {/* ── Products ── */}
+      <section className="bg-white border-b border-[#E8ECF2]">
         <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#E8ECF2]">
-          {/* Prysm Block */}
           <div className="relative p-12 lg:p-20 group hover:bg-[#F7F8FC] transition-colors duration-500">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#7C3AED] to-[#2563EB]" />
             <AnimatedSection>
               <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
-                PRYSM — PLATFORM 01
+                Prysm — Platform 01
               </div>
-              <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#0A0E1A] mb-6 tracking-tight">
-                GRATEFUL PATIENT INTELLIGENCE
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#0A0E1A] mb-6 tracking-tight uppercase">
+                Grateful Patient Intelligence
               </h2>
-              <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10 min-h-[120px]">
-                Prysm bridges Epic EMR with Blackbaud CRM to automatically surface major gift prospects from clinical encounter data — identifying grateful patients before the window of opportunity closes.
+              <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10 min-h-[96px]">
+                Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically
+                surface major gift prospects from clinical encounter data — identifying grateful
+                patients before the window of opportunity closes.
               </p>
               <div className="flex flex-wrap gap-2 mb-10">
                 {["Epic EMR", "Blackbaud CRM", "Real-time scoring", "HIPAA-compliant"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-[#F7F8FC] border border-[#E8ECF2] text-[#6B7A90] text-xs font-semibold tracking-wider uppercase">
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-[#F7F8FC] border border-[#E8ECF2] text-[#6B7A90] text-xs font-semibold tracking-wider uppercase"
+                  >
                     {tag}
                   </span>
                 ))}
               </div>
-              <Link href="/prysm" className="inline-flex items-center text-[#7C3AED] text-sm font-bold tracking-widest uppercase group/link hover:opacity-80 transition-opacity">
+              <Link
+                href="/prysm"
+                className="inline-flex items-center text-[#7C3AED] text-sm font-bold tracking-widest uppercase group/link hover:opacity-70 transition-opacity"
+              >
                 Explore Prysm
                 <ArrowRight className="ml-2 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </AnimatedSection>
           </div>
 
-          {/* Aperion Block */}
           <div className="relative p-12 lg:p-20 group hover:bg-[#F7F8FC] transition-colors duration-500">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#2563EB] to-[#06B6D4]" />
             <AnimatedSection delay={0.1}>
               <div className="text-[10px] tracking-[0.2em] font-bold text-[#06B6D4] mb-6 uppercase">
-                APERION — PLATFORM 02
+                Aperion — Platform 02
               </div>
-              <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#0A0E1A] mb-6 tracking-tight">
-                AI-AUGMENTED FUNDRAISING
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#0A0E1A] mb-6 tracking-tight uppercase">
+                AI-Augmented Fundraising
               </h2>
-              <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10 min-h-[120px]">
-                Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every conversation count.
+              <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10 min-h-[96px]">
+                Aperion eliminates 75% of administrative burden — replacing it with AI-prepared
+                donor briefings, intelligent opportunity matching, and proposal intelligence that
+                makes every gift officer conversation count.
               </p>
               <div className="flex flex-wrap gap-2 mb-10">
                 {["Donor briefings", "Prospect matching", "300+ opportunities", "20:1 ROI"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-[#F7F8FC] border border-[#E8ECF2] text-[#6B7A90] text-xs font-semibold tracking-wider uppercase">
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-[#F7F8FC] border border-[#E8ECF2] text-[#6B7A90] text-xs font-semibold tracking-wider uppercase"
+                  >
                     {tag}
                   </span>
                 ))}
               </div>
-              <Link href="/aperion" className="inline-flex items-center text-[#06B6D4] text-sm font-bold tracking-widest uppercase group/link hover:opacity-80 transition-opacity">
+              <Link
+                href="/aperion"
+                className="inline-flex items-center text-[#06B6D4] text-sm font-bold tracking-widest uppercase group/link hover:opacity-70 transition-opacity"
+              >
                 Explore Aperion
                 <ArrowRight className="ml-2 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" />
               </Link>
@@ -120,62 +239,234 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Metrics Bar */}
-      <section className="bg-[#F7F8FC] border-b border-[#E8ECF2]">
-        <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#E8ECF2]">
-          {[
-            { value: "305%", label: "Increase in first-time major gifts" },
-            { value: "$4.3M", label: "Realized revenue, Providence South Division" },
-            { value: "20×", label: "ROI by year two, per fundraising team" }
-          ].map((metric, idx) => (
-            <div key={idx} className="p-12 text-center">
-              <AnimatedSection delay={0.1 * idx}>
-                <div className="text-5xl lg:text-7xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] via-[#2563EB] to-[#06B6D4] mb-4">
-                  {metric.value}
-                </div>
-                <div className="text-sm font-semibold tracking-widest uppercase text-[#6B7A90] max-w-[200px] mx-auto">
-                  {metric.label}
-                </div>
-              </AnimatedSection>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Native Integrations */}
-      <section className="py-24 lg:py-32 bg-white">
+      {/* ── Journey ── */}
+      <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl mb-20">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-[#7C3AED]" />
-              <span className="text-xs tracking-[0.2em] font-bold text-[#7C3AED] uppercase">Native Integrations</span>
+            <div className="flex items-center gap-3 mb-7">
+              <div className="w-8 h-px bg-white/20" />
+              <span className="text-[11px] tracking-[0.22em] font-bold text-white/35 uppercase">
+                End-to-end platform
+              </span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
-              BUILT ON THE SYSTEMS YOUR TEAM ALREADY USES.
+            <h2 className="text-[clamp(32px,5vw,56px)] font-bold tracking-[-0.04em] uppercase text-white leading-[0.92] mb-6">
+              From clinical encounter
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4]">
+                to closed gift.
+              </span>
             </h2>
-            <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
-              No rip-and-replace. No parallel data infrastructure. Prysm and Aperion connect natively with the platforms health system philanthropy teams rely on every day.
+            <p className="text-lg text-white/45 font-light leading-relaxed max-w-2xl">
+              Actionable Insight AI covers the entire grateful patient lifecycle — from the first
+              clinical signal to the final philanthropic commitment — in a single connected system.
             </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-[#E8ECF2] bg-[#E8ECF2]">
-            {[
-              { icon: <HeartPulse className="w-8 h-8 text-[#0A0E1A]" />, title: "Epic EMR", desc: "Clinical data source", abbr: "Epic" },
-              { icon: <Database className="w-8 h-8 text-[#0A0E1A]" />, title: "Blackbaud CRM", desc: "Fundraising CRM", abbr: "BB" },
-              { icon: <Activity className="w-8 h-8 text-[#0A0E1A]" />, title: "Salesforce NPSP", desc: "Donor management", abbr: "SF" },
-              { icon: <BrainCircuit className="w-8 h-8 text-[#0A0E1A]" />, title: "Aperion AI Layer", desc: "Intelligence engine", abbr: "AI" }
-            ].map((integration, idx) => (
-              <AnimatedSection key={idx} delay={0.1 * idx} className="bg-white p-10 border-[0.5px] border-[#E8ECF2] hover:bg-[#F7F8FC] transition-colors">
-                <div className="w-16 h-16 bg-[#F7F8FC] border border-[#E8ECF2] flex items-center justify-center mb-8 text-xl font-display font-bold text-[#0A0E1A]">
-                  {integration.abbr}
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/[0.06] border border-white/[0.06]">
+            {JOURNEY_STEPS.map((step, i) => (
+              <AnimatedSection key={i} delay={0.1 * i} className="bg-[#0D1220] p-8 relative">
+                <div
+                  className="absolute top-0 left-0 w-full h-[2px]"
+                  style={{ background: step.color }}
+                />
+                <div
+                  className="text-[11px] font-bold tracking-[0.2em] uppercase mb-5"
+                  style={{ color: step.color }}
+                >
+                  Step {step.step}
                 </div>
-                <h3 className="text-lg font-bold text-[#0A0E1A] mb-2 tracking-tight uppercase">{integration.title}</h3>
-                <p className="text-[#6B7A90] text-sm font-light">{integration.desc}</p>
+                <div className="text-[15px] font-bold text-white uppercase tracking-tight mb-3 leading-snug">
+                  {step.label}
+                </div>
+                <p className="text-[13px] text-white/40 font-light leading-relaxed">{step.desc}</p>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ── The Problem ── */}
+      <section className="py-24 lg:py-32 border-b border-[#E8ECF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-start">
+            <AnimatedSection>
+              <div className="flex items-center gap-3 mb-7">
+                <div className="w-6 h-px bg-[#7C3AED]" />
+                <span className="text-[10px] tracking-[0.22em] font-bold text-[#7C3AED] uppercase">
+                  The problem we solve
+                </span>
+              </div>
+              <h2 className="text-[clamp(28px,4vw,48px)] font-bold tracking-[-0.04em] uppercase text-[#0A0E1A] leading-[0.92] mb-8">
+                The grateful patient opportunity is being lost to operational failure.
+              </h2>
+              <p className="text-lg text-[#6B7A90] font-light leading-relaxed mb-6">
+                Grateful patient philanthropy is the most scalable and mission-aligned fundraising
+                strategy available to health systems — and the traditional model for executing it is
+                broken.
+              </p>
+              <p className="text-base text-[#6B7A90] font-light leading-relaxed mb-10">
+                Every week, thousands of patients leave health systems with genuine gratitude and
+                real philanthropic capacity. Without systematic automation to connect that gratitude
+                to your philanthropy program, the moment disappears. Actionable Insight AI exists to
+                close that gap — permanently.
+              </p>
+              <Link href="/prysm">
+                <Button className="rounded-none text-sm tracking-widest uppercase font-semibold px-8 h-12 bg-[#0A0E1A] text-white hover:bg-[#141828] border-0">
+                  See how Prysm solves it <ArrowRight className="w-4 h-4 ml-3" />
+                </Button>
+              </Link>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.1}>
+              <div className="flex flex-col gap-px bg-[#E8ECF2] border border-[#E8ECF2]">
+                {PROBLEM_POINTS.map((pt, i) => (
+                  <div key={i} className="bg-white px-8 py-7 flex items-start gap-6 group hover:bg-[#F7F8FC] transition-colors">
+                    <div className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-[#7C3AED] mt-0.5">
+                      {pt.num}
+                    </div>
+                    <div>
+                      <div className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-2">
+                        {pt.title}
+                      </div>
+                      <p className="text-sm text-[#6B7A90] font-light leading-relaxed">{pt.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Integrations ── */}
+      <section className="py-24 lg:py-32 bg-white border-b border-[#E8ECF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-3xl mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-6 h-px bg-[#7C3AED]" />
+              <span className="text-[10px] tracking-[0.22em] font-bold text-[#7C3AED] uppercase">
+                Fully integrated platform
+              </span>
+            </div>
+            <h2 className="text-[clamp(28px,4vw,48px)] font-bold tracking-[-0.04em] uppercase text-[#0A0E1A] leading-[0.92] mb-6">
+              Built on the systems your team already uses.
+            </h2>
+            <p className="text-lg text-[#6B7A90] font-light leading-relaxed">
+              No rip-and-replace. No parallel data infrastructure. Prysm and Aperion connect
+              natively with the platforms health system philanthropy teams rely on every day —
+              deploying in 90 days without disrupting existing workflows.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#E8ECF2] border border-[#E8ECF2]">
+            {[
+              { abbr: "Epic", title: "Epic EMR", desc: "FHIR-native clinical data ingestion across all service lines and departments.", color: "#7C3AED" },
+              { abbr: "BB", title: "Blackbaud CRM", desc: "Bi-directional sync with Raiser's Edge NXT and Blackbaud CRM environments.", color: "#2563EB" },
+              { abbr: "SF", title: "Salesforce NPSP", desc: "Native Salesforce integration with full object model and workflow support.", color: "#0891B2" },
+              { abbr: "AI", title: "Aperion AI Layer", desc: "Embedded intelligence engine connecting clinical signals to donor outcomes.", color: "#06B6D4" },
+            ].map((integration, idx) => (
+              <AnimatedSection
+                key={idx}
+                delay={0.1 * idx}
+                className="bg-white p-10 hover:bg-[#F7F8FC] transition-colors group relative"
+              >
+                <div
+                  className="absolute top-0 left-0 w-full h-[2px] opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ background: integration.color }}
+                />
+                <div
+                  className="w-14 h-14 flex items-center justify-center mb-8 text-sm font-bold tracking-wider text-white"
+                  style={{ background: integration.color }}
+                >
+                  {integration.abbr}
+                </div>
+                <h3 className="text-base font-bold text-[#0A0E1A] mb-3 tracking-tight uppercase">
+                  {integration.title}
+                </h3>
+                <p className="text-sm text-[#6B7A90] font-light leading-relaxed">
+                  {integration.desc}
+                </p>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/10 via-transparent to-[#06B6D4]/10" />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <AnimatedSection>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-8 h-px bg-white/20" />
+                <span className="text-[11px] tracking-[0.22em] font-bold text-white/35 uppercase">
+                  Get started
+                </span>
+              </div>
+              <h2 className="text-[clamp(32px,5vw,60px)] font-bold tracking-[-0.04em] uppercase text-white leading-[0.92] mb-8">
+                Let's talk about
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4]">
+                  what's possible.
+                </span>
+              </h2>
+              <p className="text-lg text-white/50 font-light leading-relaxed mb-12 max-w-xl">
+                Schedule a live platform walkthrough. We'll show you exactly how Prysm connects to
+                your Epic environment, what the first 90 days look like, and the outcomes health
+                systems at your scale have already achieved.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0"
+                >
+                  Request a demo <ArrowRight className="w-4 h-4 ml-3" />
+                </Button>
+                <Link href="/results">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-none text-sm tracking-widest uppercase font-semibold px-8 h-14 border-white/20 text-white/60 hover:text-white hover:border-white/40 bg-transparent"
+                  >
+                    View client results
+                  </Button>
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.15} className="border border-white/[0.08] space-y-0">
+              {[
+                { label: "Deployment timeline", value: "90 days to first patient lists" },
+                { label: "EMR integration", value: "Native Epic FHIR — no middleware" },
+                { label: "CRM support", value: "Blackbaud CRM & Salesforce NPSP" },
+                { label: "First-year ROI", value: "20× return on investment (Providence)" },
+                { label: "Onboarding", value: "90% reduction in gift officer ramp time" },
+                { label: "Pipeline growth", value: "10% annual growth in qualified prospects" },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-start justify-between gap-8 px-7 py-5 border-b border-white/[0.06] last:border-0"
+                >
+                  <div className="text-[11px] font-bold tracking-widest uppercase text-white/30">
+                    {item.label}
+                  </div>
+                  <div className="text-sm font-semibold text-white text-right">{item.value}</div>
+                </div>
+              ))}
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
