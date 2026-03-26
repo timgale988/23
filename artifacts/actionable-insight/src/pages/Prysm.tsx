@@ -244,8 +244,9 @@ export default function Prysm() {
                   <stop offset="100%" stopColor="#06B6D4" />
                 </linearGradient>
                 <radialGradient id="coreFill" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#0A0E1A" stopOpacity="0" />
+                  <stop offset="0%"   stopColor="#7C3AED" stopOpacity="0.55" />
+                  <stop offset="55%"  stopColor="#2563EB" stopOpacity="0.3"  />
+                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.1"  />
                 </radialGradient>
               </defs>
 
@@ -278,10 +279,10 @@ export default function Prysm() {
               <line x1="220" y1="407" x2="360" y2="318" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
 
               {/* CENTER CIRCLE — dark island on light background */}
-              <circle cx="500" cy="260" r="178" fill="none" stroke="rgba(124,58,237,0.1)" strokeWidth="1" strokeDasharray="2 14" />
+              <circle cx="500" cy="260" r="178" fill="none" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="2 14" strokeOpacity="0.15" />
               <circle cx="500" cy="260" r="150" fill="#0A0E1A" stroke="url(#ringGrad)" strokeWidth="2" />
-              <circle cx="500" cy="260" r="105" fill="rgba(124,58,237,0.06)" stroke="rgba(124,58,237,0.4)" strokeWidth="1" />
-              <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="rgba(124,58,237,0.8)" strokeWidth="2" />
+              <circle cx="500" cy="260" r="105" fill="rgba(37,99,235,0.05)" stroke="rgba(37,99,235,0.35)" strokeWidth="1" />
+              <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="url(#ringGrad)" strokeWidth="2" />
 
               {/* 8 dots on inner ring */}
               <circle cx="500" cy="155" r="4" fill="#7C3AED" />
@@ -305,7 +306,7 @@ export default function Prysm() {
 
               {/* Center text — white inside the dark circle */}
               <text x="500" y="254" textAnchor="middle" fill="white"               fontSize="21" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-0.8">PRYSM</text>
-              <text x="500" y="272" textAnchor="middle" fill="rgba(167,139,250,0.9)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">PURPOSE BUILT</text>
+              <text x="500" y="272" textAnchor="middle" fill="rgba(103,232,249,0.85)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">PURPOSE BUILT</text>
 
               {/* RIGHT DASHED LINES */}
               <line x1="640" y1="202" x2="780" y2="101" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
