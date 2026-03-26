@@ -298,6 +298,12 @@ export default function Prysm() {
                       <stop offset="85%"  stopColor="#EDE9FE" stopOpacity="0.5" />
                       <stop offset="100%" stopColor="#DDD6FE" stopOpacity="0.7" />
                     </radialGradient>
+                    {/* Violet → blue → cyan gradient spanning full SVG — pills sample positionally */}
+                    <linearGradient id="pillGrad" x1="0" y1="0" x2="560" y2="520" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%"   stopColor="#7C3AED" />
+                      <stop offset="48%"  stopColor="#2563EB" />
+                      <stop offset="100%" stopColor="#06B6D4" />
+                    </linearGradient>
                   </defs>
 
                   {/* Concentric dashed rings */}
@@ -318,19 +324,19 @@ export default function Prysm() {
                     <circle key={i} cx={p.dotR[0]} cy={p.dotR[1]} r="5" fill={PILL_DOT_COLORS[i]} />
                   ))}
 
-                  {/* Capability pill badges */}
+                  {/* Capability pill badges — gradient fill */}
                   {PRYSM_PILLS.map((p, i) => (
                     <g key={i}>
                       <rect
                         x={p.cx - p.w / 2} y={p.cy - 14}
                         width={p.w} height={28} rx="4"
-                        fill="rgba(237,233,254,0.88)"
-                        stroke="rgba(124,58,237,0.22)" strokeWidth="0.8"
+                        fill="url(#pillGrad)"
+                        stroke="none"
                       />
                       <text
                         x={p.cx} y={p.cy + 4.5}
                         textAnchor="middle"
-                        fill="#1E1B4B"
+                        fill="white"
                         fontSize="8" fontWeight="800"
                         fontFamily="Urbanist, system-ui, sans-serif"
                         letterSpacing="1"
