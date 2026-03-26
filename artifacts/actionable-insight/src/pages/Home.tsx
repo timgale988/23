@@ -156,60 +156,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Integrations ── */}
-      <section className="py-24 lg:py-32 bg-white border-b border-[#E8ECF2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-6 h-px bg-[#7C3AED]" />
-              <span className="text-[10px] tracking-[0.22em] font-bold text-[#7C3AED] uppercase">
-                Fully integrated platform
-              </span>
-            </div>
-            <h2 className="text-[clamp(28px,4vw,48px)] font-bold tracking-[-0.04em] uppercase text-[#0A0E1A] leading-[0.92] mb-6">
-              Built on the systems your team already uses.
-            </h2>
-            <p className="text-lg text-[#6B7A90] font-light leading-relaxed">
-              No rip-and-replace. No parallel data infrastructure. Prysm and Aperion connect
-              natively with the platforms health system philanthropy teams rely on every day —
-              deploying in 90 days without disrupting existing workflows.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#E8ECF2] border border-[#E8ECF2]">
-            {[
-              { abbr: "Epic", title: "Epic EMR", desc: "FHIR-native clinical data ingestion across all service lines and departments.", color: "#7C3AED" },
-              { abbr: "BB", title: "Blackbaud CRM", desc: "Bi-directional sync with Raiser's Edge NXT and Blackbaud CRM environments.", color: "#2563EB" },
-              { abbr: "SF", title: "Salesforce NPSP", desc: "Native Salesforce integration with full object model and workflow support.", color: "#0891B2" },
-              { abbr: "AI", title: "Aperion AI Layer", desc: "Embedded intelligence engine connecting clinical signals to donor outcomes.", color: "#06B6D4" },
-            ].map((integration, idx) => (
-              <AnimatedSection
-                key={idx}
-                delay={0.1 * idx}
-                className="bg-white p-10 hover:bg-[#F7F8FC] transition-colors group relative"
-              >
-                <div
-                  className="absolute top-0 left-0 w-full h-[2px] opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ background: integration.color }}
-                />
-                <div
-                  className="w-14 h-14 flex items-center justify-center mb-8 text-sm font-bold tracking-wider text-white"
-                  style={{ background: integration.color }}
-                >
-                  {integration.abbr}
-                </div>
-                <h3 className="text-base font-bold text-[#0A0E1A] mb-3 tracking-tight uppercase">
-                  {integration.title}
-                </h3>
-                <p className="text-sm text-[#6B7A90] font-light leading-relaxed">
-                  {integration.desc}
-                </p>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
       <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/10 via-transparent to-[#06B6D4]/10" />
