@@ -272,14 +272,14 @@ export default function Prysm() {
             <div className="grid lg:grid-cols-[240px_1fr_210px] gap-6 lg:gap-10 items-center">
 
               {/* ── Left: Input cards ── */}
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {PRYSM_INPUTS.map((inp, i) => (
-                  <div key={i} className="bg-white border border-[#E4E5F2] p-4 flex items-center justify-between group hover:border-[#C4B5FD] transition-colors">
+                  <div key={i} className="bg-[#F5F3FF] border border-[#DDD6FE] border-l-[3px] border-l-[#7C3AED] p-4 flex items-center justify-between group hover:bg-[#EDE9FE] transition-colors">
                     <div>
-                      <div className="font-bold text-[#0A0E1A] text-[13px] tracking-wide uppercase mb-0.5">{inp.name}</div>
-                      <div className="text-[11px] text-[#9AA3B2] font-light">{inp.sub}</div>
+                      <div className="font-bold text-[#3B0764] text-[13px] tracking-wide uppercase mb-0.5">{inp.name}</div>
+                      <div className="text-[11px] text-[#7C6FA0] font-light">{inp.sub}</div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#C4B5FD] shrink-0 ml-3 group-hover:text-[#7C3AED] transition-colors" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#7C3AED]/50 shrink-0 ml-3 group-hover:text-[#7C3AED] transition-colors" />
                   </div>
                 ))}
               </div>
@@ -350,19 +350,17 @@ export default function Prysm() {
                 </svg>
               </div>
 
-              {/* ── Right: Output list ── */}
-              <div>
-                <div className="divide-y divide-[#E8ECF2]">
-                  {PRYSM_OUTPUTS.map((out, i) => (
-                    <div key={i} className="py-4 flex items-start justify-between group">
-                      <div>
-                        <div className="font-bold text-[#0A0E1A] text-[13px] tracking-wide uppercase mb-0.5">{out.name}</div>
-                        <div className="text-[11px] text-[#9AA3B2] font-light">{out.sub}</div>
-                      </div>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#A5F3FC] shrink-0 ml-3 mt-0.5 group-hover:text-[#06B6D4] transition-colors" />
+              {/* ── Right: Output cards ── */}
+              <div className="space-y-2.5">
+                {PRYSM_OUTPUTS.map((out, i) => (
+                  <div key={i} className="bg-[#ECFEFF] border border-[#A5F3FC] border-l-[3px] border-l-[#06B6D4] p-4 flex items-start justify-between group hover:bg-[#CFFAFE] transition-colors">
+                    <div>
+                      <div className="font-bold text-[#0E4F5C] text-[13px] tracking-wide uppercase mb-0.5">{out.name}</div>
+                      <div className="text-[11px] text-[#5B9FAD] font-light">{out.sub}</div>
                     </div>
-                  ))}
-                </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#06B6D4]/50 shrink-0 ml-3 mt-0.5 group-hover:text-[#06B6D4] transition-colors" />
+                  </div>
+                ))}
               </div>
 
             </div>
