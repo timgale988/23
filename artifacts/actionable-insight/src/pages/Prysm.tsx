@@ -244,9 +244,14 @@ export default function Prysm() {
                   <stop offset="100%" stopColor="#06B6D4" />
                 </linearGradient>
                 <radialGradient id="coreFill" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"   stopColor="#7C3AED" stopOpacity="0.55" />
-                  <stop offset="55%"  stopColor="#2563EB" stopOpacity="0.3"  />
-                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.1"  />
+                  <stop offset="0%"   stopColor="#7C3AED" stopOpacity="0.12" />
+                  <stop offset="55%"  stopColor="#2563EB" stopOpacity="0.07" />
+                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.03" />
+                </radialGradient>
+                <radialGradient id="mainFill" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"   stopColor="#EDE9FE" stopOpacity="1" />
+                  <stop offset="60%"  stopColor="#EFF6FF" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#ECFEFF" stopOpacity="1" />
                 </radialGradient>
               </defs>
 
@@ -278,11 +283,11 @@ export default function Prysm() {
               <line x1="220" y1="305" x2="354" y2="283" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
               <line x1="220" y1="407" x2="360" y2="318" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
 
-              {/* CENTER CIRCLE — dark island on light background */}
-              <circle cx="500" cy="260" r="178" fill="none" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="2 14" strokeOpacity="0.15" />
-              <circle cx="500" cy="260" r="150" fill="#0A0E1A" stroke="url(#ringGrad)" strokeWidth="2" />
-              <circle cx="500" cy="260" r="105" fill="rgba(37,99,235,0.05)" stroke="rgba(37,99,235,0.35)" strokeWidth="1" />
-              <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="url(#ringGrad)" strokeWidth="2" />
+              {/* CENTER CIRCLE — light palette on light background */}
+              <circle cx="500" cy="260" r="178" fill="none" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="2 14" strokeOpacity="0.25" />
+              <circle cx="500" cy="260" r="150" fill="url(#mainFill)" stroke="url(#ringGrad)" strokeWidth="2" />
+              <circle cx="500" cy="260" r="105" fill="rgba(37,99,235,0.04)" stroke="rgba(37,99,235,0.18)" strokeWidth="1" />
+              <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="url(#ringGrad)" strokeWidth="1.5" />
 
               {/* 8 dots on inner ring */}
               <circle cx="500" cy="155" r="4" fill="#7C3AED" />
@@ -294,19 +299,19 @@ export default function Prysm() {
               <circle cx="395" cy="260" r="4" fill="#2563EB" />
               <circle cx="426" cy="186" r="4" fill="#5B21B6" />
 
-              {/* Capability labels — all anchored middle, positioned inside dark circle */}
-              <text x="500" y="132" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">AI PROSPECT SCORING</text>
-              <text x="578" y="173" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">WEALTH INTELLIGENCE</text>
-              <text x="592" y="264" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">REAL-TIME ANALYTICS</text>
-              <text x="578" y="352" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">HIPAA COMPLIANCE</text>
-              <text x="500" y="390" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CTI OUTREACH</text>
-              <text x="422" y="352" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">DAILY PATIENT LISTS</text>
-              <text x="408" y="264" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">GEOLOCATION</text>
-              <text x="422" y="173" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CLINICIAN REFERRALS</text>
+              {/* Capability labels — dark text on light circle */}
+              <text x="500" y="132" textAnchor="middle" fill="rgba(10,14,26,0.45)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">AI PROSPECT SCORING</text>
+              <text x="578" y="173" textAnchor="middle" fill="rgba(10,14,26,0.45)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">WEALTH INTELLIGENCE</text>
+              <text x="592" y="264" textAnchor="middle" fill="rgba(10,14,26,0.45)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">REAL-TIME ANALYTICS</text>
+              <text x="578" y="352" textAnchor="middle" fill="rgba(10,14,26,0.45)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">HIPAA COMPLIANCE</text>
+              <text x="500" y="390" textAnchor="middle" fill="rgba(10,14,26,0.45)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CTI OUTREACH</text>
+              <text x="422" y="352" textAnchor="middle" fill="rgba(10,14,26,0.45)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">DAILY PATIENT LISTS</text>
+              <text x="408" y="264" textAnchor="middle" fill="rgba(10,14,26,0.45)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">GEOLOCATION</text>
+              <text x="422" y="173" textAnchor="middle" fill="rgba(10,14,26,0.45)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CLINICIAN REFERRALS</text>
 
-              {/* Center text — white inside the dark circle */}
-              <text x="500" y="254" textAnchor="middle" fill="white"               fontSize="21" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-0.8">PRYSM</text>
-              <text x="500" y="272" textAnchor="middle" fill="rgba(103,232,249,0.85)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">PURPOSE BUILT</text>
+              {/* Center text — dark on light circle */}
+              <text x="500" y="254" textAnchor="middle" fill="#0A0E1A" fontSize="21" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-0.8">PRYSM</text>
+              <text x="500" y="272" textAnchor="middle" fill="rgba(37,99,235,0.7)"  fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">PURPOSE BUILT</text>
 
               {/* RIGHT DASHED LINES */}
               <line x1="640" y1="202" x2="780" y2="101" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
