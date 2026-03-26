@@ -300,9 +300,6 @@ export default function Prysm() {
                     </radialGradient>
                   </defs>
 
-                  {/* Outer lavender ring fill */}
-                  <circle cx="280" cy="260" r="215" fill="url(#pgRing)" />
-
                   {/* Concentric dashed rings */}
                   <circle cx="280" cy="260" r="195" fill="none" stroke="rgba(124,58,237,0.2)"  strokeWidth="1"   strokeDasharray="5 9" />
                   <circle cx="280" cy="260" r="148" fill="none" stroke="rgba(124,58,237,0.14)" strokeWidth="0.8" strokeDasharray="4 8" />
