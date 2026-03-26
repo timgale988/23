@@ -30,81 +30,6 @@ const sectorChallenges = [
   },
 ];
 
-const capabilityTiers = [
-  {
-    tier: "Platform Foundation",
-    tierDesc: "The infrastructure layer everything runs on",
-    items: [
-      {
-        icon: "Database" as const,
-        color: "#7C3AED",
-        title: "Unified CRM Ecosystem",
-        desc: "Prysm integrates Epic EMR, Blackbaud CRM, and Salesforce NPSP into a single system of record — giving fundraisers, clinicians, and leadership a unified view of every patient, prospect, and gift relationship. Native connectors. No rip-and-replace. No parallel infrastructure.",
-        stat: "3 systems",
-        statLabel: "unified in one platform",
-        featured: true,
-      },
-    ],
-  },
-  {
-    tier: "Intelligence & Automation",
-    tierDesc: "How the platform thinks and operates",
-    items: [
-      {
-        icon: "Brain" as const,
-        color: "#2563EB",
-        title: "AI-Driven Prospect Scoring",
-        desc: "Machine learning models drawing on Windfall, DonorSearch, Einstein AI, and clinical encounter signals score every patient by philanthropic capacity and engagement likelihood — surfacing the highest-priority prospects automatically.",
-        stat: "200–400%",
-        statLabel: "qualification rate increase",
-        featured: false,
-      },
-      {
-        icon: "Zap" as const,
-        color: "#0284C7",
-        title: "Automation-First Architecture",
-        desc: "Every step of the grateful patient pipeline — identification, assignment, outreach, follow-up, and reporting — runs continuously without manual intervention. Gift officers open Prysm to a prioritized queue, not a to-do list.",
-        stat: "90%",
-        statLabel: "reduction in onboarding time",
-        featured: false,
-      },
-    ],
-  },
-  {
-    tier: "Operational Tools",
-    tierDesc: "Built-in workflows for every team member",
-    items: [
-      {
-        icon: "Phone" as const,
-        color: "#06B6D4",
-        title: "HIPAA-Compliant CTI Calling",
-        desc: "Click-to-dial outreach directly from the platform with full PHI protection, call logging, outcome capture, and compliance audit trails.",
-        stat: null,
-        statLabel: null,
-        featured: false,
-      },
-      {
-        icon: "Users" as const,
-        color: "#7C3AED",
-        title: "Clinician Engagement Workflows",
-        desc: "Structured physician referral workflows make it easy for clinicians to identify and refer grateful patients — with attribution tracking and outcome visibility built in.",
-        stat: null,
-        statLabel: null,
-        featured: false,
-      },
-      {
-        icon: "BarChart3" as const,
-        color: "#2563EB",
-        title: "Real-Time Dashboards & Analytics",
-        desc: "360° views of patient journeys, outreach progress, gift officer activity, and program performance — updated live for every stakeholder.",
-        stat: null,
-        statLabel: null,
-        featured: false,
-      },
-    ],
-  },
-];
-
 const testimonials = [
   {
     quote: "Prysm has completely transformed how we identify and engage grateful patients. We're reaching donors we never would have found through traditional research — and we're reaching them at exactly the right moment in their relationship with our health system.",
@@ -417,6 +342,29 @@ export default function Prysm() {
               </svg>
             </AnimatedSection>
 
+            {/* Capability cards — below the diagram */}
+            <AnimatedSection className="mt-16">
+              <div className="text-[10px] tracking-[0.2em] font-bold text-white/25 uppercase mb-6 text-center">Platform Capabilities</div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/[0.06]">
+                {[
+                  { icon: Brain,    color: "#A78BFA", title: "AI Prospect Scoring",         desc: "Windfall, DonorSearch, Einstein AI, and clinical signals — scored and ranked automatically." },
+                  { icon: Zap,      color: "#60A5FA", title: "Automation-First Workflows",  desc: "Every patient pipeline step runs continuously without manual intervention." },
+                  { icon: Phone,    color: "#38BDF8", title: "HIPAA-Compliant CTI Calling", desc: "Click-to-dial outreach with PHI protection, call logging, and audit trails." },
+                  { icon: Users,    color: "#34D399", title: "Clinician Engagement",        desc: "Structured physician referral workflows with attribution tracking built in." },
+                  { icon: BarChart3,color: "#06B6D4", title: "Real-Time Dashboards",        desc: "360° live views of journeys, activity, and program performance for all stakeholders." },
+                ].map((cap, i) => (
+                  <div key={i} className="bg-white/[0.03] hover:bg-white/[0.06] transition-colors p-6 border border-white/[0.06] group">
+                    <div className="w-8 h-8 flex items-center justify-center mb-5" style={{ border: `1px solid ${cap.color}40` }}>
+                      <cap.icon className="w-3.5 h-3.5" style={{ color: cap.color }} />
+                    </div>
+                    <h4 className="text-xs font-bold text-white uppercase tracking-tight mb-2 leading-snug">{cap.title}</h4>
+                    <p className="text-[11px] text-white/35 font-light leading-relaxed">{cap.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+
+            {/* Stats row */}
             <div className="grid md:grid-cols-3 gap-0 border-t border-white/[0.06] mt-16 pt-16">
               {[
                 { val: "200–400%", label: "Patient qualification rate increase", sub: "vs. manual screening baseline" },
@@ -433,113 +381,6 @@ export default function Prysm() {
 
           </div>
         </section>
-      {/* ── Capabilities ── */}
-      <section className="py-24 lg:py-32 bg-white border-t border-[#E8ECF2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl mb-16">
-            <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
-              Platform Capabilities
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-[#0A0E1A] mb-8 tracking-tighter">
-              A COMPLETE OPERATING SYSTEM FOR HEALTH SYSTEM PHILANTHROPY.
-            </h2>
-            <p className="text-xl text-[#6B7A90] font-light leading-relaxed">
-              Prysm is architected in three layers — a unified data foundation, an intelligence and automation engine built on top of it, and purpose-built tools for every member of your team.
-            </p>
-          </AnimatedSection>
-
-          <div className="space-y-px bg-[#E8ECF2]">
-            {capabilityTiers.map((tier, tierIdx) => {
-              const iconMap: Record<string, React.ElementType> = { Database, Brain, Zap, Phone, Users, BarChart3 };
-              const isFoundation = tierIdx === 0;
-              const isMid = tierIdx === 1;
-              return (
-                <div key={tierIdx}>
-                  {/* Tier label row */}
-                  <div className={`flex items-center gap-4 px-8 py-4 ${isFoundation ? "bg-[#0A0E1A]" : isMid ? "bg-[#0D1120]" : "bg-[#F7F8FC]"}`}>
-                    <div
-                      className="w-px self-stretch"
-                      style={{ background: isFoundation ? "#7C3AED" : isMid ? "#2563EB" : "#E8ECF2" }}
-                    />
-                    <div>
-                      <span className={`text-[10px] font-bold tracking-[0.2em] uppercase ${isFoundation ? "text-[#A78BFA]" : isMid ? "text-[#60A5FA]" : "text-[#6B7A90]"}`}>
-                        {String(tierIdx + 1).padStart(2, "0")} — {tier.tier}
-                      </span>
-                      <span className={`text-[10px] ml-4 uppercase tracking-wider ${isFoundation ? "text-white/25" : isMid ? "text-white/25" : "text-[#9AA3B2]"}`}>
-                        {tier.tierDesc}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Cards row */}
-                  <div className={`grid gap-px bg-[#E8ECF2] ${tier.items.length === 1 ? "grid-cols-1" : tier.items.length === 2 ? "md:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
-                    {tier.items.map((cap, capIdx) => {
-                      const Icon = iconMap[cap.icon];
-                      const dark = isFoundation || isMid;
-                      return (
-                        <AnimatedSection
-                          key={capIdx}
-                          delay={0.05 * capIdx}
-                          className={`relative overflow-hidden group ${dark ? "bg-[#0A0E1A]" : "bg-[#F7F8FC]"} ${isFoundation ? "p-12 lg:p-16" : isMid ? "p-10 lg:p-12" : "p-8 lg:p-10"}`}
-                        >
-                          {dark && (
-                            <>
-                              <div
-                                className="absolute inset-0 opacity-[0.025] pointer-events-none"
-                                style={{
-                                  backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-                                  backgroundSize: "40px 40px",
-                                }}
-                              />
-                              <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-[#7C3AED]/8 blur-[70px] pointer-events-none" />
-                            </>
-                          )}
-                          {!dark && (
-                            <div
-                              className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                              style={{ background: `linear-gradient(90deg, ${cap.color}, transparent)` }}
-                            />
-                          )}
-                          <div className="relative z-10">
-                            <div
-                              className={`flex items-center justify-center shrink-0 mb-6 ${isFoundation ? "w-12 h-12" : "w-10 h-10"}`}
-                              style={{ background: dark ? `${cap.color}22` : "transparent", border: `1px solid ${cap.color}44` }}
-                            >
-                              <Icon className={`${isFoundation ? "w-5 h-5" : "w-4 h-4"}`} style={{ color: cap.color }} />
-                            </div>
-                            <h3
-                              className={`font-display font-bold tracking-tighter mb-3 ${dark ? "text-white" : "text-[#0A0E1A]"} ${isFoundation ? "text-2xl lg:text-3xl" : isMid ? "text-xl lg:text-2xl" : "text-base"}`}
-                            >
-                              {cap.title}
-                            </h3>
-                            <p className={`font-light leading-relaxed ${dark ? "text-white/50" : "text-[#6B7A90]"} ${isFoundation ? "text-base mb-10" : isMid ? "text-sm mb-8" : "text-sm"}`}>
-                              {cap.desc}
-                            </p>
-                            {cap.stat && (
-                              <div className="border-t border-white/[0.08] pt-6 flex items-end gap-3">
-                                <div
-                                  className="font-display font-bold tracking-tighter leading-none text-transparent bg-clip-text"
-                                  style={{
-                                    backgroundImage: `linear-gradient(135deg, ${cap.color}, #06B6D4)`,
-                                    fontSize: isFoundation ? "2.5rem" : "2rem",
-                                  }}
-                                >
-                                  {cap.stat}
-                                </div>
-                                <div className="text-[10px] font-bold uppercase tracking-widest text-white/25 mb-1 leading-tight">{cap.statLabel}</div>
-                              </div>
-                            )}
-                          </div>
-                        </AnimatedSection>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* ── Providence Case Study ── */}
       <section className="py-24 lg:py-32 bg-white border-t border-[#E8ECF2]">
