@@ -299,15 +299,15 @@ export default function Prysm() {
               <circle cx="395" cy="260" r="4" fill="#2563EB" />
               <circle cx="426" cy="186" r="4" fill="#5B21B6" />
 
-              {/* Capability labels — white text, clearly inside dark circle */}
-              <text x="500" y="132" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">AI PROSPECT SCORING</text>
-              <text x="578" y="173" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">WEALTH INTELLIGENCE</text>
-              <text x="592" y="264" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">REAL-TIME ANALYTICS</text>
-              <text x="578" y="352" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">HIPAA COMPLIANCE</text>
-              <text x="500" y="390" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CTI OUTREACH</text>
-              <text x="422" y="352" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">DAILY PATIENT LISTS</text>
-              <text x="408" y="264" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">GEOLOCATION</text>
-              <text x="422" y="173" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.8">CLINICIAN REFERRALS</text>
+              {/* Capability labels — full white, clearly legible inside dark circle */}
+              <text x="500" y="132" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">AI PROSPECT SCORING</text>
+              <text x="575" y="173" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">WEALTH INTELLIGENCE</text>
+              <text x="588" y="264" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">REAL-TIME ANALYTICS</text>
+              <text x="575" y="352" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">HIPAA COMPLIANCE</text>
+              <text x="500" y="392" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">CTI OUTREACH</text>
+              <text x="425" y="352" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">DAILY PATIENT LISTS</text>
+              <text x="412" y="264" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">GEOLOCATION</text>
+              <text x="425" y="173" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">CLINICIAN REFERRALS</text>
 
               {/* Center text */}
               <text x="500" y="254" textAnchor="middle" fill="white"                fontSize="21" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-0.8">PRYSM</text>
