@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prysm Architecture — Charcoal</title>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Urbanist', sans-serif;
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 40px;
+}
+.diagram { width: 100%; max-width: 1160px; }
+.header-strip {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; margin-bottom: 40px;
+  padding-bottom: 20px; border-bottom: 1px solid #E2E6F0;
+}
+.hl { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #7C3AED; display: flex; align-items: center; gap: 10px; }
+.hl::before { content: ''; display: block; width: 24px; height: 2px; background: linear-gradient(90deg,#7C3AED,#2563EB); }
+.hc { font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #0A0E1A; text-align: center; padding: 0 24px; white-space: nowrap; }
+.hr { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #0891B2; display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+.hr::after { content: ''; display: block; width: 24px; height: 2px; background: linear-gradient(90deg,#2563EB,#06B6D4); }
+.concept-tag { text-align: center; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #BEC4D2; margin-bottom: 12px; }
+.grid { display: grid; grid-template-columns: 1fr 500px 1fr; gap: 32px; align-items: center; }
+.col-label { font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 18px; }
+.col-label.in { color: #7C3AED; } .col-label.out { color: #0891B2; }
+.card-stack { display: flex; flex-direction: column; gap: 10px; }
+.nc { background: #FAFBFD; border: 1px solid #E8ECF2; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.nc.inp { border-left: 2px solid #7C3AED; } .nc.out { border-left: 2px solid #0891B2; }
+.nt { font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #0A0E1A; margin-bottom: 3px; }
+.ns { font-size: 12px; color: #8A93A8; font-weight: 300; }
+.na { font-size: 13px; color: #D0D5E4; }
+.orb-wrap { display: flex; align-items: center; justify-content: center; }
+.foot { margin-top: 28px; padding-top: 18px; border-top: 1px solid #E2E6F0; display: flex; justify-content: space-between; align-items: center; }
+.fl { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #BEC4D2; }
+.fr { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #BEC4D2; }
+</style>
+</head>
+<body>
+<div class="diagram">
+  <div class="concept-tag">Charcoal Gradient Callouts</div>
+  <div class="header-strip">
+    <div class="hl">Data Inputs</div>
+    <div class="hc">Prysm — Platform Architecture</div>
+    <div class="hr">Outputs</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="col-label in">Data Inputs</div>
+      <div class="card-stack">
+        <div class="nc inp"><div><div class="nt">Epic EMR</div><div class="ns">FHIR encounter ingestion</div></div><div class="na">→</div></div>
+        <div class="nc inp"><div><div class="nt">Windfall Wealth</div><div class="ns">Net worth &amp; capacity data</div></div><div class="na">→</div></div>
+        <div class="nc inp"><div><div class="nt">DonorSearch</div><div class="ns">Philanthropic history &amp; giving</div></div><div class="na">→</div></div>
+        <div class="nc inp"><div><div class="nt">Clinical Encounters</div><div class="ns">70K+ physician panels</div></div><div class="na">→</div></div>
+      </div>
+    </div>
+    <div class="orb-wrap">
+      <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:500px;">
+        <defs>
+          <!-- CHARCOAL: true dark charcoal, near-black, no blue cast -->
+          <radialGradient id="og" cx="38%" cy="33%" r="68%">
+            <stop offset="0%"   stop-color="#FFFFFF"/>
+            <stop offset="55%"  stop-color="#FAFAFA"/>
+            <stop offset="85%"  stop-color="#F2F2F2"/>
+            <stop offset="100%" stop-color="#EBEBEB"/>
+          </radialGradient>
+          <radialGradient id="hi" cx="38%" cy="33%" r="40%">
+            <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#7C3AED"/>
+            <stop offset="50%"  stop-color="#2563EB"/>
+            <stop offset="100%" stop-color="#06B6D4"/>
+          </linearGradient>
+          <linearGradient id="pv" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#1A1A1A"/>
+            <stop offset="100%" stop-color="#2E2E2E"/>
+          </linearGradient>
+          <linearGradient id="pc" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#222222"/>
+            <stop offset="100%" stop-color="#383838"/>
+          </linearGradient>
+          <filter id="ds"><feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#000" flood-opacity="0.12"/></filter>
+        </defs>
+
+        <circle cx="250" cy="250" r="196" fill="url(#og)" filter="url(#ds)"/>
+        <circle cx="250" cy="250" r="196" fill="url(#hi)"/>
+        <circle cx="250" cy="250" r="195" fill="none" stroke="url(#rg)" stroke-width="1.5" opacity="0.6"/>
+        <circle cx="250" cy="250" r="158" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="1" stroke-dasharray="6 5"/>
+        <circle cx="250" cy="250" r="112" fill="none" stroke="url(#rg)" stroke-width="1.5" opacity="0.5"/>
+
+        <!-- Spokes -->
+        <line x1="250" y1="138" x2="250" y2="58"   stroke="rgba(0,0,0,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="250" cy="138" r="3.5" fill="#7C3AED"/>
+        <line x1="317" y1="165" x2="375" y2="109"  stroke="rgba(0,0,0,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="317" cy="165" r="3.5" fill="#7C3AED"/>
+        <line x1="368" y1="250" x2="440" y2="250"  stroke="rgba(0,0,0,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="368" cy="250" r="3.5" fill="#06B6D4"/>
+        <line x1="317" y1="335" x2="375" y2="391"  stroke="rgba(0,0,0,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="317" cy="335" r="3.5" fill="#06B6D4"/>
+        <line x1="250" y1="362" x2="250" y2="440"  stroke="rgba(0,0,0,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="250" cy="362" r="3.5" fill="#06B6D4"/>
+        <line x1="183" y1="335" x2="125" y2="391"  stroke="rgba(0,0,0,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="183" cy="335" r="3.5" fill="#06B6D4"/>
+        <line x1="132" y1="250" x2="60"  y2="250"  stroke="rgba(0,0,0,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="132" cy="250" r="3.5" fill="#7C3AED"/>
+        <line x1="183" y1="165" x2="125" y2="109"  stroke="rgba(0,0,0,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="183" cy="165" r="3.5" fill="#7C3AED"/>
+
+        <!-- Pills -->
+        <rect x="160" y="42" width="180" height="21" rx="2" fill="url(#pv)"/>
+        <text x="250" y="57" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.13em" fill="#FFFFFF">AI PROSPECT SCORING</text>
+
+        <rect x="322" y="94" width="162" height="21" rx="2" fill="url(#pv)"/>
+        <text x="403" y="109" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.13em" fill="#FFFFFF">WEALTH INTELLIGENCE</text>
+
+        <rect x="382" y="239" width="126" height="21" rx="2" fill="url(#pc)"/>
+        <text x="445" y="254" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.13em" fill="#FFFFFF">REAL-TIME ANALYTICS</text>
+
+        <rect x="322" y="381" width="162" height="21" rx="2" fill="url(#pc)"/>
+        <text x="403" y="396" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.13em" fill="#FFFFFF">HIPAA COMPLIANCE</text>
+
+        <rect x="178" y="430" width="144" height="21" rx="2" fill="url(#pc)"/>
+        <text x="250" y="445" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.13em" fill="#FFFFFF">CTI OUTREACH</text>
+
+        <rect x="16" y="381" width="162" height="21" rx="2" fill="url(#pc)"/>
+        <text x="97" y="396" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.13em" fill="#FFFFFF">DAILY PATIENT LISTS</text>
+
+        <rect x="-6" y="239" width="118" height="21" rx="2" fill="url(#pv)"/>
+        <text x="53" y="254" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.13em" fill="#FFFFFF">GEOLOCATION</text>
+
+        <rect x="16" y="94" width="162" height="21" rx="2" fill="url(#pv)"/>
+        <text x="97" y="109" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.13em" fill="#FFFFFF">CLINICIAN REFERRALS</text>
+
+        <!-- Wordmark -->
+        <text x="250" y="240" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="34" font-weight="700" letter-spacing="0.08em" fill="#0A0E1A">PRYSM</text>
+        <text x="250" y="260" text-anchor="middle" font-family="Urbanist,sans-serif" font-size="9" font-weight="600" letter-spacing="0.28em" fill="rgba(10,14,26,0.35)">PURPOSE BUILT</text>
+      </svg>
+    </div>
+    <div>
+      <div class="col-label out">Outputs</div>
+      <div class="card-stack">
+        <div class="nc out"><div><div class="nt">Blackbaud CRM</div><div class="ns">Qualified prospect push</div></div><div class="na">→</div></div>
+        <div class="nc out"><div><div class="nt">Salesforce NPSP</div><div class="ns">Native SF integration</div></div><div class="na">→</div></div>
+        <div class="nc out"><div><div class="nt">Gift Officer Queue</div><div class="ns">Daily prioritized lists</div></div><div class="na">→</div></div>
+        <div class="nc out"><div><div class="nt">ROI &amp; Analytics</div><div class="ns">Pipeline &amp; gift reporting</div></div><div class="na">→</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="fl">Actionable Insight AI · Prysm Platform</div>
+    <div class="fr">HIPAA Compliant · FHIR R4 · Epic Certified</div>
+  </div>
+</div>
+</body>
+</html>

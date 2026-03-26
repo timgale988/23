@@ -274,91 +274,126 @@ export default function Prysm() {
               {/* ── Left: Input cards ── */}
               <div className="space-y-2.5">
                 {PRYSM_INPUTS.map((inp, i) => (
-                  <div key={i} className="bg-[#F5F3FF] border border-[#DDD6FE] border-l-[3px] border-l-[#7C3AED] p-4 flex items-center justify-between group hover:bg-[#EDE9FE] transition-colors">
+                  <div key={i} className="bg-[#FAFBFD] border border-[#E8ECF2] border-l-[2px] border-l-[#7C3AED] px-5 py-4 flex items-center justify-between gap-3">
                     <div>
-                      <div className="font-bold text-[#3B0764] text-[13px] tracking-wide uppercase mb-0.5">{inp.name}</div>
-                      <div className="text-[11px] text-[#7C6FA0] font-light">{inp.sub}</div>
+                      <div className="font-bold text-[#0A0E1A] text-[12px] tracking-[0.07em] uppercase mb-0.5">{inp.name}</div>
+                      <div className="text-[12px] text-[#8A93A8] font-light">{inp.sub}</div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#7C3AED]/50 shrink-0 ml-3 group-hover:text-[#7C3AED] transition-colors" />
+                    <span className="text-[13px] text-[#D0D5E4] shrink-0">→</span>
                   </div>
                 ))}
               </div>
 
-              {/* ── Center: Circle SVG ── */}
+              {/* ── Center: Circle SVG — Charcoal design ── */}
               <div className="flex items-center justify-center">
                 <svg viewBox="0 0 560 520" className="w-full max-w-xl h-auto" xmlns="http://www.w3.org/2000/svg">
                   <defs>
-                    <radialGradient id="pgCenter" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%"   stopColor="white"   stopOpacity="1" />
-                      <stop offset="75%"  stopColor="#F5F3FF" stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="#EDE9FE" stopOpacity="0.6" />
+                    {/* Circle fill — off-centre highlight for orb depth */}
+                    <radialGradient id="pOG" cx="38%" cy="33%" r="68%">
+                      <stop offset="0%"   stopColor="#FFFFFF" />
+                      <stop offset="55%"  stopColor="#FAFAFA" />
+                      <stop offset="85%"  stopColor="#F2F2F2" />
+                      <stop offset="100%" stopColor="#EBEBEB" />
                     </radialGradient>
-                    <radialGradient id="pgRing" cx="50%" cy="50%" r="50%">
-                      <stop offset="60%"  stopColor="#F5F3FF" stopOpacity="0" />
-                      <stop offset="85%"  stopColor="#EDE9FE" stopOpacity="0.5" />
-                      <stop offset="100%" stopColor="#DDD6FE" stopOpacity="0.7" />
+                    {/* Specular highlight overlay */}
+                    <radialGradient id="pHI" cx="38%" cy="33%" r="40%">
+                      <stop offset="0%"   stopColor="#FFFFFF" stopOpacity="0.9" />
+                      <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
                     </radialGradient>
-                    {/* Violet → blue → cyan gradient spanning full SVG — pills sample positionally */}
-                    <linearGradient id="pillGrad" x1="0" y1="0" x2="560" y2="520" gradientUnits="userSpaceOnUse">
+                    {/* Ring gradient — violet → blue → cyan */}
+                    <linearGradient id="pRG" x1="0" y1="0" x2="560" y2="520" gradientUnits="userSpaceOnUse">
                       <stop offset="0%"   stopColor="#7C3AED" />
-                      <stop offset="48%"  stopColor="#2563EB" />
+                      <stop offset="50%"  stopColor="#2563EB" />
                       <stop offset="100%" stopColor="#06B6D4" />
                     </linearGradient>
+                    {/* Charcoal pill fill — violet side */}
+                    <linearGradient id="pPV" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%"   stopColor="#1A1A1A" />
+                      <stop offset="100%" stopColor="#2E2E2E" />
+                    </linearGradient>
+                    {/* Charcoal pill fill — cyan side */}
+                    <linearGradient id="pPC" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%"   stopColor="#222222" />
+                      <stop offset="100%" stopColor="#383838" />
+                    </linearGradient>
+                    {/* Drop shadow */}
+                    <filter id="pDS" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="8" stdDeviation="18" floodColor="#000000" floodOpacity="0.12" />
+                    </filter>
                   </defs>
 
-                  {/* Concentric dashed rings */}
-                  <circle cx="280" cy="260" r="195" fill="none" stroke="rgba(109,40,217,0.55)"  strokeWidth="1.5" strokeDasharray="5 9" />
-                  <circle cx="280" cy="260" r="148" fill="none" stroke="rgba(109,40,217,0.38)"  strokeWidth="1.2" strokeDasharray="4 8" />
-                  <circle cx="280" cy="260" r="90"  fill="white" stroke="rgba(109,40,217,0.3)"  strokeWidth="1" />
+                  {/* Main orb — light gray fill + drop shadow */}
+                  <circle cx="280" cy="260" r="195" fill="url(#pOG)" filter="url(#pDS)" />
+                  {/* Specular highlight */}
+                  <circle cx="280" cy="260" r="195" fill="url(#pHI)" />
+                  {/* Outer ring stroke — gradient */}
+                  <circle cx="280" cy="260" r="195" fill="none" stroke="url(#pRG)" strokeWidth="1.5" opacity="0.6" />
+                  {/* Middle dashed ring */}
+                  <circle cx="280" cy="260" r="158" fill="none" stroke="rgba(0,0,0,0.12)" strokeWidth="1" strokeDasharray="6 5" />
+                  {/* Inner ring — gradient */}
+                  <circle cx="280" cy="260" r="112" fill="none" stroke="url(#pRG)" strokeWidth="1.5" opacity="0.5" />
 
-                  {/* Dashed radial guide lines from center to each pill */}
-                  {PRYSM_PILLS.map((p, i) => (
-                    <line key={i}
-                      x1="280" y1="260" x2={p.cx} y2={p.cy}
-                      stroke="rgba(109,40,217,0.22)" strokeWidth="0.8" strokeDasharray="3 7"
-                    />
-                  ))}
+                  {/* 8 spokes — from inner ring dot outward to pill */}
+                  <line x1="280" y1="148" x2="280" y2="69"  stroke="rgba(0,0,0,0.18)" strokeWidth="1" strokeDasharray="4 4" />
+                  <line x1="347" y1="175" x2="404" y2="120" stroke="rgba(0,0,0,0.18)" strokeWidth="1" strokeDasharray="4 4" />
+                  <line x1="397" y1="260" x2="469" y2="260" stroke="rgba(0,0,0,0.18)" strokeWidth="1" strokeDasharray="4 4" />
+                  <line x1="347" y1="345" x2="404" y2="400" stroke="rgba(0,0,0,0.18)" strokeWidth="1" strokeDasharray="4 4" />
+                  <line x1="280" y1="371" x2="280" y2="449" stroke="rgba(0,0,0,0.18)" strokeWidth="1" strokeDasharray="4 4" />
+                  <line x1="213" y1="345" x2="156" y2="400" stroke="rgba(0,0,0,0.18)" strokeWidth="1" strokeDasharray="4 4" />
+                  <line x1="163" y1="260" x2="91"  y2="260" stroke="rgba(0,0,0,0.18)" strokeWidth="1" strokeDasharray="4 4" />
+                  <line x1="213" y1="175" x2="156" y2="120" stroke="rgba(0,0,0,0.18)" strokeWidth="1" strokeDasharray="4 4" />
 
-                  {/* 8 colored dots at r=140 */}
-                  {PRYSM_PILLS.map((p, i) => (
-                    <circle key={i} cx={p.dotR[0]} cy={p.dotR[1]} r="5" fill={PILL_DOT_COLORS[i]} />
-                  ))}
+                  {/* 8 dots at inner ring (r=112) */}
+                  <circle cx="280" cy="148" r="3.5" fill="#7C3AED" />
+                  <circle cx="347" cy="175" r="3.5" fill="#7C3AED" />
+                  <circle cx="397" cy="260" r="3.5" fill="#06B6D4" />
+                  <circle cx="347" cy="345" r="3.5" fill="#06B6D4" />
+                  <circle cx="280" cy="371" r="3.5" fill="#06B6D4" />
+                  <circle cx="213" cy="345" r="3.5" fill="#06B6D4" />
+                  <circle cx="163" cy="260" r="3.5" fill="#7C3AED" />
+                  <circle cx="213" cy="175" r="3.5" fill="#7C3AED" />
 
-                  {/* Capability pill badges — gradient fill */}
-                  {PRYSM_PILLS.map((p, i) => (
-                    <g key={i}>
-                      <rect
-                        x={p.cx - p.w / 2} y={p.cy - 14}
-                        width={p.w} height={28} rx="4"
-                        fill="url(#pillGrad)"
-                        stroke="none"
-                      />
-                      <text
-                        x={p.cx} y={p.cy + 4.5}
-                        textAnchor="middle"
-                        fill="white"
-                        fontSize="8" fontWeight="800"
-                        fontFamily="Urbanist, system-ui, sans-serif"
-                        letterSpacing="1"
-                      >{p.label}</text>
-                    </g>
-                  ))}
+                  {/* Charcoal pill badges — outside the orb */}
+                  {/* Top — AI PROSPECT SCORING (pv) */}
+                  <rect x="190" y="53" width="180" height="21" rx="2" fill="url(#pPV)" />
+                  <text x="280" y="68" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.13em" fill="#FFFFFF">AI PROSPECT SCORING</text>
+                  {/* NE — WEALTH INTELLIGENCE (pv) */}
+                  <rect x="351" y="104" width="162" height="21" rx="2" fill="url(#pPV)" />
+                  <text x="432" y="119" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.13em" fill="#FFFFFF">WEALTH INTELLIGENCE</text>
+                  {/* Right — REAL-TIME ANALYTICS (pc) */}
+                  <rect x="411" y="249" width="140" height="21" rx="2" fill="url(#pPC)" />
+                  <text x="481" y="264" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.13em" fill="#FFFFFF">REAL-TIME ANALYTICS</text>
+                  {/* SE — HIPAA COMPLIANCE (pc) */}
+                  <rect x="351" y="389" width="150" height="21" rx="2" fill="url(#pPC)" />
+                  <text x="426" y="404" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.13em" fill="#FFFFFF">HIPAA COMPLIANCE</text>
+                  {/* Bottom — CTI OUTREACH (pc) */}
+                  <rect x="208" y="438" width="144" height="21" rx="2" fill="url(#pPC)" />
+                  <text x="280" y="453" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.13em" fill="#FFFFFF">CTI OUTREACH</text>
+                  {/* SW — DAILY PATIENT LISTS (pc) */}
+                  <rect x="47" y="389" width="162" height="21" rx="2" fill="url(#pPC)" />
+                  <text x="128" y="404" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.13em" fill="#FFFFFF">DAILY PATIENT LISTS</text>
+                  {/* Left — GEOLOCATION (pv) */}
+                  <rect x="25" y="249" width="118" height="21" rx="2" fill="url(#pPV)" />
+                  <text x="84" y="264" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.13em" fill="#FFFFFF">GEOLOCATION</text>
+                  {/* NW — CLINICIAN REFERRALS (pv) */}
+                  <rect x="47" y="104" width="162" height="21" rx="2" fill="url(#pPV)" />
+                  <text x="128" y="119" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.13em" fill="#FFFFFF">CLINICIAN REFERRALS</text>
 
-                  {/* Center text */}
-                  <text x="280" y="254" textAnchor="middle" fill="#0A0E1A" fontSize="26" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-1">PRYSM</text>
-                  <text x="280" y="273" textAnchor="middle" fill="rgba(10,14,26,0.38)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="4">PURPOSE BUILT</text>
+                  {/* Center wordmark */}
+                  <text x="280" y="254" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="34" fontWeight="700" letterSpacing="0.08em" fill="#0A0E1A">PRYSM</text>
+                  <text x="280" y="273" textAnchor="middle" fontFamily="Urbanist,sans-serif" fontSize="9" fontWeight="600" letterSpacing="0.28em" fill="rgba(10,14,26,0.35)">PURPOSE BUILT</text>
                 </svg>
               </div>
 
               {/* ── Right: Output cards ── */}
               <div className="space-y-2.5">
                 {PRYSM_OUTPUTS.map((out, i) => (
-                  <div key={i} className="bg-[#ECFEFF] border border-[#A5F3FC] border-l-[3px] border-l-[#06B6D4] p-4 flex items-start justify-between group hover:bg-[#CFFAFE] transition-colors">
+                  <div key={i} className="bg-[#FAFBFD] border border-[#E8ECF2] border-l-[2px] border-l-[#0891B2] px-5 py-4 flex items-center justify-between gap-3">
                     <div>
-                      <div className="font-bold text-[#0E4F5C] text-[13px] tracking-wide uppercase mb-0.5">{out.name}</div>
-                      <div className="text-[11px] text-[#5B9FAD] font-light">{out.sub}</div>
+                      <div className="font-bold text-[#0A0E1A] text-[12px] tracking-[0.07em] uppercase mb-0.5">{out.name}</div>
+                      <div className="text-[12px] text-[#8A93A8] font-light">{out.sub}</div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#06B6D4]/50 shrink-0 ml-3 mt-0.5 group-hover:text-[#06B6D4] transition-colors" />
+                    <span className="text-[13px] text-[#D0D5E4] shrink-0">→</span>
                   </div>
                 ))}
               </div>
