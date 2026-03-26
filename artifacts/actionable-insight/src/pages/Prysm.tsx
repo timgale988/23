@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ArrowRight, CheckCircle2, Quote, AlertTriangle, Database, Zap, Users, MapPin, BarChart3, Phone, Brain, Shield, Building2, FileSearch, TrendingUp } from "lucide-react";
@@ -115,9 +116,11 @@ export default function Prysm() {
                 <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0">
                   Request a demo
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 border-white/20 text-white/70 hover:text-white hover:border-white/40 bg-transparent">
-                  View case study
-                </Button>
+                <Link href="/results">
+                  <Button size="lg" variant="outline" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 border-white/20 text-white/70 hover:text-white hover:border-white/40 bg-transparent">
+                    View client results
+                  </Button>
+                </Link>
               </div>
             </AnimatedSection>
           </div>
@@ -208,33 +211,23 @@ export default function Prysm() {
             </AnimatedSection>
           </div>
 
-          {/* Big stats */}
-          <div className="grid md:grid-cols-3 gap-16 mt-24 pt-16 border-t border-[#E8ECF2]">
-            <AnimatedSection delay={0.1}>
-              <div className="text-7xl lg:text-8xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] via-[#2563EB] to-[#06B6D4] mb-3 leading-none">
-                305%
+          {/* Results bridge */}
+          <AnimatedSection className="mt-16 pt-16 border-t border-[#E8ECF2]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 bg-[#F7F8FC] border border-[#E8ECF2] p-8">
+              <div>
+                <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] uppercase mb-2">Verified outcomes</div>
+                <p className="text-[#0A0E1A] font-semibold text-base leading-snug max-w-xl">
+                  305% increase in first-time major gifts. $4.32M realized in Year One. 461 qualified prospects from 3,098 screened — across nine Providence hospitals.
+                </p>
               </div>
-              <div className="text-sm font-semibold tracking-widest uppercase text-[#0A0E1A] max-w-sm leading-relaxed border-l-2 border-[#7C3AED] pl-6">
-                Increase in first-time major gifts at Providence South Division in the first year after Prysm deployment — from a program that had previously plateaued.
-              </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.2}>
-              <div className="text-7xl lg:text-8xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] via-[#2563EB] to-[#06B6D4] mb-3 leading-none">
-                $4.3M
-              </div>
-              <div className="text-sm font-semibold tracking-widest uppercase text-[#0A0E1A] max-w-sm leading-relaxed border-l-2 border-[#7C3AED] pl-6">
-                In realized philanthropic revenue attributed directly to Prysm-identified prospects in Year One — delivering a return exceeding 20× the cost of the platform.
-              </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.3}>
-              <div className="text-7xl lg:text-8xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] via-[#2563EB] to-[#06B6D4] mb-3 leading-none">
-                1,233%
-              </div>
-              <div className="text-sm font-semibold tracking-widest uppercase text-[#0A0E1A] max-w-sm leading-relaxed border-l-2 border-[#7C3AED] pl-6">
-                Increase in charitable donations from clinician-referred patients when Prysm's structured referral workflows replace ad hoc or paper-based processes.
-              </div>
-            </AnimatedSection>
-          </div>
+              <Link
+                href="/results"
+                className="shrink-0 inline-flex items-center gap-3 text-[#7C3AED] text-sm font-bold tracking-widest uppercase hover:opacity-70 transition-opacity whitespace-nowrap"
+              >
+                See full results <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -496,33 +489,15 @@ export default function Prysm() {
             </div>
           </AnimatedSection>
 
-          {/* Outcome stats */}
-          <AnimatedSection className="mb-16">
-            <div className="grid grid-cols-2 md:grid-cols-4 border border-[#E8ECF2] divide-x divide-y md:divide-y-0 divide-[#E8ECF2]">
-              {[
-                { num: "305%", label: "Increase in first-time major gifts", context: "Compared to pre-Prysm baseline" },
-                { num: "448%", label: "Increase in overall donor engagement", context: "Across all qualified prospects" },
-                { num: "$6.6B", label: "Combined net worth of qualified patients", context: "461 prospects identified" },
-                { num: "20×+", label: "Return on Prysm platform investment", context: "Year One, South Division" },
-              ].map((stat, i) => (
-                <div key={i} className="p-8 lg:p-10">
-                  <div className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] mb-2 leading-none">
-                    {stat.num}
-                  </div>
-                  <div className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-1">{stat.label}</div>
-                  <div className="text-[11px] text-[#9AA3B2] uppercase tracking-wider">{stat.context}</div>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-
           <AnimatedSection>
             <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-              <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0">
-                Request the full case study <ArrowRight className="w-4 h-4 ml-3" />
-              </Button>
+              <Link href="/results">
+                <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0">
+                  View full results <ArrowRight className="w-4 h-4 ml-3" />
+                </Button>
+              </Link>
               <p className="text-sm text-[#9AA3B2] font-light max-w-md">
-                The full Providence South Division report includes detailed methodology, data inputs, gift officer activity metrics, and a complete breakdown of revenue by prospect tier and service line.
+                The complete Providence South Division data includes pipeline breakdown, qualification rates by ministry, $46.1B in identified wealth, and verified revenue attribution.
               </p>
             </div>
           </AnimatedSection>
