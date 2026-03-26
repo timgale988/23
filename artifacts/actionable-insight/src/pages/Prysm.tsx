@@ -212,7 +212,7 @@ export default function Prysm() {
       </section>
 
       {/* ── How Prysm Works ── */}
-      <section className="py-24 lg:py-32 bg-[#F7F8FC] border-t border-[#E8ECF2]">
+      <section className="py-24 lg:py-32 bg-[#EDEEF6] border-t border-[#E2E3EF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
@@ -230,111 +230,125 @@ export default function Prysm() {
           <AnimatedSection>
             <svg viewBox="0 0 1000 520" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
               <defs>
+                {/* Dashed connector gradients */}
                 <linearGradient id="gradLeft" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="#7C3AED" stopOpacity="0" />
-                  <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.4" />
                 </linearGradient>
                 <linearGradient id="gradRight" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.6" />
+                  <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.4" />
                   <stop offset="100%" stopColor="#06B6D4" stopOpacity="0" />
                 </linearGradient>
+                {/* Gradient for ring stroke and inner core */}
                 <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stopColor="#7C3AED" />
                   <stop offset="50%" stopColor="#2563EB" />
                   <stop offset="100%" stopColor="#06B6D4" />
                 </linearGradient>
-                <radialGradient id="coreFill" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"   stopColor="#7C3AED" stopOpacity="0.12" />
-                  <stop offset="55%"  stopColor="#2563EB" stopOpacity="0.07" />
-                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.03" />
+                {/* Outer lavender fill — light ring area where labels sit */}
+                <radialGradient id="outerFill" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"   stopColor="#EDE9FE" stopOpacity="0" />
+                  <stop offset="55%"  stopColor="#EDE9FE" stopOpacity="0.35" />
+                  <stop offset="85%"  stopColor="#DDD6FE" stopOpacity="0.55" />
+                  <stop offset="100%" stopColor="#C4B5FD" stopOpacity="0.45" />
                 </radialGradient>
-                <radialGradient id="mainFill" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"   stopColor="#EDE9FE" stopOpacity="1" />
-                  <stop offset="60%"  stopColor="#EFF6FF" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#ECFEFF" stopOpacity="1" />
+                {/* Subtle inner glow inside dark circle */}
+                <radialGradient id="coreFill" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"   stopColor="#7C3AED" stopOpacity="0.15" />
+                  <stop offset="55%"  stopColor="#2563EB" stopOpacity="0.08" />
+                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.04" />
                 </radialGradient>
               </defs>
 
-              {/* Column labels */}
-              <text x="115" y="28" textAnchor="middle" fill="rgba(124,58,237,0.55)" fontSize="8.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">DATA INPUTS</text>
-              <text x="885" y="28" textAnchor="middle" fill="rgba(8,145,178,0.55)"  fontSize="8.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">OUTPUTS</text>
-              <text x="500" y="16" textAnchor="middle" fill="rgba(10,14,26,0.18)"   fontSize="7"   fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">INTELLIGENTLY ORCHESTRATED HEALTHCARE PHILANTHROPY</text>
+              {/* Column headers */}
+              <text x="115" y="28" textAnchor="middle" fill="rgba(124,58,237,0.65)" fontSize="8.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">DATA INPUTS</text>
+              <text x="885" y="28" textAnchor="middle" fill="rgba(6,182,212,0.65)"  fontSize="8.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">OUTPUTS</text>
 
-              {/* LEFT INPUT CARDS */}
-              <rect x="10" y="72"  width="210" height="58" rx="0" fill="white" stroke="rgba(124,58,237,0.22)" strokeWidth="1" />
-              <text x="115" y="97"  textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">EPIC EMR</text>
-              <text x="115" y="116" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">FHIR encounter ingestion</text>
+              {/* ── LEFT INPUT CARDS with violet left-border accent ── */}
+              <rect x="10" y="72"  width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
+              <rect x="10" y="72"  width="3"   height="58" rx="0" fill="#7C3AED" />
+              <text x="120" y="97"  textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">EPIC EMR</text>
+              <text x="120" y="116" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">FHIR encounter ingestion</text>
 
-              <rect x="10" y="174" width="210" height="58" rx="0" fill="white" stroke="rgba(124,58,237,0.22)" strokeWidth="1" />
-              <text x="115" y="199" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">WINDFALL WEALTH</text>
-              <text x="115" y="218" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Net worth &amp; capacity data</text>
+              <rect x="10" y="174" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
+              <rect x="10" y="174" width="3"   height="58" rx="0" fill="#7C3AED" />
+              <text x="120" y="199" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">WINDFALL WEALTH</text>
+              <text x="120" y="218" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Net worth &amp; capacity data</text>
 
-              <rect x="10" y="276" width="210" height="58" rx="0" fill="white" stroke="rgba(124,58,237,0.22)" strokeWidth="1" />
-              <text x="115" y="301" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">DONORSEARCH</text>
-              <text x="115" y="320" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Philanthropic history &amp; giving</text>
+              <rect x="10" y="276" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
+              <rect x="10" y="276" width="3"   height="58" rx="0" fill="#7C3AED" />
+              <text x="120" y="301" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">DONORSEARCH</text>
+              <text x="120" y="320" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Philanthropic history &amp; giving</text>
 
-              <rect x="10" y="378" width="210" height="58" rx="0" fill="white" stroke="rgba(124,58,237,0.22)" strokeWidth="1" />
-              <text x="115" y="403" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">CLINICAL ENCOUNTERS</text>
-              <text x="115" y="422" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">70K+ physician panels</text>
+              <rect x="10" y="378" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
+              <rect x="10" y="378" width="3"   height="58" rx="0" fill="#7C3AED" />
+              <text x="120" y="403" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">CLINICAL ENCOUNTERS</text>
+              <text x="120" y="422" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">70K+ physician panels</text>
 
-              {/* LEFT DASHED LINES */}
-              <line x1="220" y1="101" x2="360" y2="202" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
-              <line x1="220" y1="203" x2="354" y2="237" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
-              <line x1="220" y1="305" x2="354" y2="283" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
-              <line x1="220" y1="407" x2="360" y2="318" stroke="url(#gradLeft)" strokeWidth="1.5" strokeDasharray="5 5" />
+              {/* ── RIGHT OUTPUT CARDS with cyan right-border accent ── */}
+              <rect x="780" y="72"  width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
+              <rect x="987" y="72"  width="3"   height="58" rx="0" fill="#06B6D4" />
+              <text x="880" y="97"  textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">BLACKBAUD CRM</text>
+              <text x="880" y="116" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Qualified prospect push</text>
 
-              {/* CENTER CIRCLE — deliberate dark island on light section background */}
-              <circle cx="500" cy="260" r="178" fill="none" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="2 14" strokeOpacity="0.2" />
-              <circle cx="500" cy="260" r="150" fill="#0A0E1A" stroke="url(#ringGrad)" strokeWidth="2" />
-              <circle cx="500" cy="260" r="105" fill="rgba(37,99,235,0.05)" stroke="rgba(37,99,235,0.28)" strokeWidth="1" />
-              <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="url(#ringGrad)" strokeWidth="2" />
+              <rect x="780" y="174" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
+              <rect x="987" y="174" width="3"   height="58" rx="0" fill="#06B6D4" />
+              <text x="880" y="199" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">SALESFORCE NPSP</text>
+              <text x="880" y="218" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Native SF integration</text>
 
-              {/* 8 dots on inner ring */}
-              <circle cx="500" cy="155" r="4" fill="#7C3AED" />
-              <circle cx="574" cy="186" r="4" fill="#5B21B6" />
-              <circle cx="605" cy="260" r="4" fill="#2563EB" />
-              <circle cx="574" cy="334" r="4" fill="#0284C7" />
-              <circle cx="500" cy="365" r="4" fill="#06B6D4" />
-              <circle cx="426" cy="334" r="4" fill="#0284C7" />
-              <circle cx="395" cy="260" r="4" fill="#2563EB" />
-              <circle cx="426" cy="186" r="4" fill="#5B21B6" />
+              <rect x="780" y="276" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
+              <rect x="987" y="276" width="3"   height="58" rx="0" fill="#06B6D4" />
+              <text x="880" y="301" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">GIFT OFFICER QUEUE</text>
+              <text x="880" y="320" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Daily prioritized lists</text>
 
-              {/* Capability labels — full white, clearly legible inside dark circle */}
-              <text x="500" y="132" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">AI PROSPECT SCORING</text>
-              <text x="575" y="173" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">WEALTH INTELLIGENCE</text>
-              <text x="588" y="264" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">REAL-TIME ANALYTICS</text>
-              <text x="575" y="352" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">HIPAA COMPLIANCE</text>
-              <text x="500" y="392" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">CTI OUTREACH</text>
-              <text x="425" y="352" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">DAILY PATIENT LISTS</text>
-              <text x="412" y="264" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">GEOLOCATION</text>
-              <text x="425" y="173" textAnchor="middle" fill="white" fontSize="8" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">CLINICIAN REFERRALS</text>
+              <rect x="780" y="378" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
+              <rect x="987" y="378" width="3"   height="58" rx="0" fill="#06B6D4" />
+              <text x="880" y="403" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">ROI &amp; ANALYTICS</text>
+              <text x="880" y="422" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Pipeline &amp; gift reporting</text>
 
-              {/* Center text */}
-              <text x="500" y="254" textAnchor="middle" fill="white"                fontSize="21" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-0.8">PRYSM</text>
-              <text x="500" y="272" textAnchor="middle" fill="rgba(103,232,249,0.85)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="3.5">PURPOSE BUILT</text>
+              {/* ── DASHED CONNECTORS ── */}
+              <line x1="220" y1="101" x2="370" y2="196" stroke="url(#gradLeft)" strokeWidth="1.2" strokeDasharray="4 6" />
+              <line x1="220" y1="203" x2="357" y2="236" stroke="url(#gradLeft)" strokeWidth="1.2" strokeDasharray="4 6" />
+              <line x1="220" y1="305" x2="357" y2="284" stroke="url(#gradLeft)" strokeWidth="1.2" strokeDasharray="4 6" />
+              <line x1="220" y1="407" x2="370" y2="324" stroke="url(#gradLeft)" strokeWidth="1.2" strokeDasharray="4 6" />
 
-              {/* RIGHT DASHED LINES */}
-              <line x1="640" y1="202" x2="780" y2="101" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
-              <line x1="646" y1="237" x2="780" y2="203" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
-              <line x1="646" y1="283" x2="780" y2="305" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
-              <line x1="640" y1="318" x2="780" y2="407" stroke="url(#gradRight)" strokeWidth="1.5" strokeDasharray="5 5" />
+              <line x1="630" y1="196" x2="780" y2="101" stroke="url(#gradRight)" strokeWidth="1.2" strokeDasharray="4 6" />
+              <line x1="643" y1="236" x2="780" y2="203" stroke="url(#gradRight)" strokeWidth="1.2" strokeDasharray="4 6" />
+              <line x1="643" y1="284" x2="780" y2="305" stroke="url(#gradRight)" strokeWidth="1.2" strokeDasharray="4 6" />
+              <line x1="630" y1="324" x2="780" y2="407" stroke="url(#gradRight)" strokeWidth="1.2" strokeDasharray="4 6" />
 
-              {/* RIGHT OUTPUT CARDS */}
-              <rect x="780" y="72"  width="210" height="58" rx="0" fill="white" stroke="rgba(8,145,178,0.25)" strokeWidth="1" />
-              <text x="885" y="97"  textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">BLACKBAUD CRM</text>
-              <text x="885" y="116" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Qualified prospect push</text>
+              {/* ── OUTER LAVENDER CIRCLE — light ring where labels live ── */}
+              <circle cx="500" cy="260" r="205" fill="url(#outerFill)" stroke="rgba(167,139,250,0.3)" strokeWidth="1" />
 
-              <rect x="780" y="174" width="210" height="58" rx="0" fill="white" stroke="rgba(8,145,178,0.25)" strokeWidth="1" />
-              <text x="885" y="199" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">SALESFORCE NPSP</text>
-              <text x="885" y="218" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Native SF integration</text>
+              {/* ── DARK INNER CIRCLE — the focal core ── */}
+              <circle cx="500" cy="260" r="150" fill="#0B0F1C" stroke="url(#ringGrad)" strokeWidth="2" />
+              {/* Inner rings for depth */}
+              <circle cx="500" cy="260" r="105" fill="rgba(37,99,235,0.04)" stroke="rgba(37,99,235,0.2)" strokeWidth="0.8" />
+              <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="url(#ringGrad)" strokeWidth="1.5" />
 
-              <rect x="780" y="276" width="210" height="58" rx="0" fill="white" stroke="rgba(8,145,178,0.25)" strokeWidth="1" />
-              <text x="885" y="301" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">GIFT OFFICER QUEUE</text>
-              <text x="885" y="320" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Daily prioritized lists</text>
+              {/* ── 8 DOTS — on the dark/light boundary at r=153 ── */}
+              <circle cx="500" cy="107" r="4.5" fill="#7C3AED" />
+              <circle cx="608" cy="152" r="4.5" fill="#5B21B6" />
+              <circle cx="653" cy="260" r="4.5" fill="#2563EB" />
+              <circle cx="608" cy="368" r="4.5" fill="#0891B2" />
+              <circle cx="500" cy="413" r="4.5" fill="#06B6D4" />
+              <circle cx="392" cy="368" r="4.5" fill="#0891B2" />
+              <circle cx="347" cy="260" r="4.5" fill="#2563EB" />
+              <circle cx="392" cy="152" r="4.5" fill="#5B21B6" />
 
-              <rect x="780" y="378" width="210" height="58" rx="0" fill="white" stroke="rgba(8,145,178,0.25)" strokeWidth="1" />
-              <text x="885" y="403" textAnchor="middle" fill="rgba(10,14,26,0.85)"  fontSize="10.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.5">ROI &amp; ANALYTICS</text>
-              <text x="885" y="422" textAnchor="middle" fill="rgba(107,122,144,0.8)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Pipeline &amp; gift reporting</text>
+              {/* ── CAPABILITY LABELS — dark navy on light lavender ring, fully legible ── */}
+              <text x="500" y="94"  textAnchor="middle" fill="rgba(10,14,26,0.72)" fontSize="7.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.2">AI PROSPECT SCORING</text>
+              <text x="618" y="139" textAnchor="middle" fill="rgba(10,14,26,0.72)" fontSize="7.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.2">WEALTH INTELLIGENCE</text>
+              <text x="661" y="264" textAnchor="middle" fill="rgba(10,14,26,0.72)" fontSize="7.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.2">REAL-TIME ANALYTICS</text>
+              <text x="618" y="383" textAnchor="middle" fill="rgba(10,14,26,0.72)" fontSize="7.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.2">HIPAA COMPLIANCE</text>
+              <text x="500" y="430" textAnchor="middle" fill="rgba(10,14,26,0.72)" fontSize="7.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.2">CTI OUTREACH</text>
+              <text x="382" y="383" textAnchor="middle" fill="rgba(10,14,26,0.72)" fontSize="7.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.2">DAILY PATIENT LISTS</text>
+              <text x="339" y="264" textAnchor="middle" fill="rgba(10,14,26,0.72)" fontSize="7.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.2">GEOLOCATION</text>
+              <text x="382" y="139" textAnchor="middle" fill="rgba(10,14,26,0.72)" fontSize="7.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.2">CLINICIAN REFERRALS</text>
+
+              {/* ── CENTER TEXT inside dark core ── */}
+              <text x="500" y="254" textAnchor="middle" fill="white"                 fontSize="22" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-1">PRYSM</text>
+              <text x="500" y="273" textAnchor="middle" fill="rgba(103,232,249,0.85)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="4">PURPOSE BUILT</text>
 
             </svg>
           </AnimatedSection>
