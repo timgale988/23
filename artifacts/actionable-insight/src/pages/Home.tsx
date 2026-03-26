@@ -89,12 +89,12 @@ export default function Home() {
           <div className="relative p-12 lg:p-20 group hover:bg-[#F7F8FC] transition-colors duration-500">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#7C3AED] to-[#2563EB]" />
             <AnimatedSection>
-              <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-6 uppercase">
-                Prysm — Platform 01
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#0A0E1A] mb-6 tracking-tight uppercase">
-                Grateful Patient Intelligence
+              <h2 className="text-5xl lg:text-6xl font-bold text-[#0A0E1A] mb-3 tracking-tight uppercase">
+                Prysm
               </h2>
+              <div className="text-base font-semibold text-[#7C3AED] mb-6 uppercase tracking-widest">
+                Grateful Patient Intelligence
+              </div>
               <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10 min-h-[96px]">
                 Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically
                 surface major gift prospects from clinical encounter data — identifying grateful
@@ -123,12 +123,12 @@ export default function Home() {
           <div className="relative p-12 lg:p-20 group hover:bg-[#F7F8FC] transition-colors duration-500">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#2563EB] to-[#06B6D4]" />
             <AnimatedSection delay={0.1}>
-              <div className="text-[10px] tracking-[0.2em] font-bold text-[#06B6D4] mb-6 uppercase">
-                Aperion — Platform 02
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#0A0E1A] mb-6 tracking-tight uppercase">
-                AI-Augmented Fundraising
+              <h2 className="text-5xl lg:text-6xl font-bold text-[#0A0E1A] mb-3 tracking-tight uppercase">
+                Aperion
               </h2>
+              <div className="text-base font-semibold text-[#06B6D4] mb-6 uppercase tracking-widest">
+                AI-Augmented Fundraising
+              </div>
               <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10 min-h-[96px]">
                 Aperion eliminates 75% of administrative burden — replacing it with AI-prepared
                 donor briefings, intelligent opportunity matching, and proposal intelligence that
