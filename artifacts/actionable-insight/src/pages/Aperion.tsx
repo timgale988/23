@@ -56,6 +56,31 @@ const OUTPUTS = [
   { label: "PIPELINE SCORES", sub: "Real-time readiness signals" },
 ];
 
+const NETWORK_NODES = [
+  {x:95,y:65},{x:285,y:40},{x:455,y:115},{x:630,y:60},{x:800,y:100},{x:970,y:45},{x:1145,y:85},{x:1310,y:55},{x:1420,y:130},
+  {x:70,y:220},{x:225,y:185},{x:395,y:250},{x:575,y:210},{x:745,y:255},{x:920,y:185},{x:1090,y:235},{x:1280,y:200},{x:1430,y:270},
+  {x:145,y:370},{x:335,y:340},{x:510,y:400},{x:695,y:360},{x:860,y:335},{x:1040,y:390},{x:1225,y:355},{x:1400,y:395},
+  {x:55,y:510},{x:240,y:490},{x:450,y:545},{x:660,y:505},{x:840,y:480},{x:1060,y:535},{x:1290,y:500},{x:1440,y:560},
+];
+
+const NETWORK_LINES = [
+  {x1:95,y1:65,x2:285,y2:40},{x1:285,y1:40,x2:455,y2:115},{x1:455,y1:115,x2:630,y2:60},{x1:630,y1:60,x2:800,y2:100},
+  {x1:800,y1:100,x2:970,y2:45},{x1:970,y1:45,x2:1145,y2:85},{x1:1145,y1:85,x2:1310,y2:55},{x1:1310,y1:55,x2:1420,y2:130},
+  {x1:70,y1:220,x2:225,y2:185},{x1:225,y1:185,x2:395,y2:250},{x1:395,y1:250,x2:575,y2:210},{x1:575,y1:210,x2:745,y2:255},
+  {x1:745,y1:255,x2:920,y2:185},{x1:920,y1:185,x2:1090,y2:235},{x1:1090,y1:235,x2:1280,y2:200},{x1:1280,y1:200,x2:1430,y2:270},
+  {x1:95,y1:65,x2:70,y2:220},{x1:285,y1:40,x2:225,y2:185},{x1:455,y1:115,x2:395,y2:250},{x1:630,y1:60,x2:575,y2:210},
+  {x1:800,y1:100,x2:745,y2:255},{x1:970,y1:45,x2:920,y2:185},{x1:1145,y1:85,x2:1090,y2:235},{x1:1310,y1:55,x2:1280,y2:200},
+  {x1:145,y1:370,x2:335,y2:340},{x1:335,y1:340,x2:510,y2:400},{x1:510,y1:400,x2:695,y2:360},{x1:695,y1:360,x2:860,y2:335},
+  {x1:860,y1:335,x2:1040,y2:390},{x1:1040,y1:390,x2:1225,y2:355},{x1:1225,y1:355,x2:1400,y2:395},
+  {x1:70,y1:220,x2:145,y2:370},{x1:225,y1:185,x2:335,y2:340},{x1:395,y1:250,x2:510,y2:400},{x1:575,y1:210,x2:695,y2:360},
+  {x1:745,y1:255,x2:860,y2:335},{x1:920,y1:185,x2:1040,y2:390},{x1:1090,y1:235,x2:1225,y2:355},{x1:1280,y1:200,x2:1400,y2:395},
+  {x1:55,y1:510,x2:240,y2:490},{x1:240,y1:490,x2:450,y2:545},{x1:450,y1:545,x2:660,y2:505},{x1:660,y1:505,x2:840,y2:480},
+  {x1:840,y1:480,x2:1060,y2:535},{x1:1060,y1:535,x2:1290,y2:500},
+  {x1:145,y1:370,x2:240,y2:490},{x1:335,y1:340,x2:240,y2:490},{x1:510,y1:400,x2:450,y2:545},{x1:695,y1:360,x2:660,y2:505},
+  {x1:860,y1:335,x2:840,y2:480},{x1:1040,y1:390,x2:1060,y2:535},{x1:1225,y1:355,x2:1290,y2:500},
+  {x1:285,y1:40,x2:395,y2:250},{x1:630,y1:60,x2:745,y2:255},{x1:920,y1:185,x2:1040,y2:390},
+];
+
 const ENGINE_ITEMS = [
   "Natural language generation",
   "Donor intent modeling",
@@ -69,35 +94,82 @@ export default function Aperion() {
     <div className="overflow-hidden bg-white">
 
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 bg-[#0A0E1A] text-white overflow-hidden">
+      <section
+        className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 text-white overflow-hidden"
+        style={{ background: "linear-gradient(150deg, #16294A 0%, #102038 45%, #0A1828 100%)" }}
+      >
+        {/* Layer 1 — Future technology network */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-900/25 via-[#0A0E1A] to-[#0A0E1A]" />
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[140px]" />
-          <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px]" />
+          <svg className="w-full h-full" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            {NETWORK_LINES.map((l, i) => (
+              <line
+                key={i}
+                x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
+                stroke={i % 5 === 0 ? "rgba(37,99,235,0.2)" : "rgba(6,182,212,0.12)"}
+                strokeWidth={i % 5 === 0 ? "0.9" : "0.6"}
+              />
+            ))}
+            {NETWORK_NODES.map((n, i) => (
+              <g key={i}>
+                {i % 6 === 0 && (
+                  <circle cx={n.x} cy={n.y} r="7" fill="none"
+                    stroke={i % 12 === 0 ? "rgba(37,99,235,0.18)" : "rgba(6,182,212,0.14)"}
+                    strokeWidth="1" />
+                )}
+                <circle
+                  cx={n.x} cy={n.y}
+                  r={i % 7 === 0 ? 3.5 : i % 3 === 0 ? 2.5 : 1.8}
+                  fill={i % 3 === 0 ? "rgba(37,99,235,0.5)" : "rgba(6,182,212,0.35)"}
+                />
+              </g>
+            ))}
+          </svg>
         </div>
+
+        {/* Layer 2 — Semi-transparent primary gradient overlay */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{ background: "radial-gradient(ellipse 70% 70% at 85% 15%, rgba(6,182,212,0.14) 0%, transparent 65%)", opacity: 0.9 }}
+        />
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{ background: "radial-gradient(ellipse 55% 55% at 15% 75%, rgba(37,99,235,0.1) 0%, transparent 60%)", opacity: 0.85 }}
+        />
+        {/* Left-side gradient pull for text legibility */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{ background: "linear-gradient(90deg, rgba(16,32,56,0.7) 0%, rgba(16,32,56,0.3) 50%, transparent 100%)" }}
+        />
+        {/* Bottom fade into next section */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-40 z-[2]"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(10,24,40,0.85))" }}
+        />
+
+        {/* Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
             <AnimatedSection>
-              <div className="inline-block px-4 py-2 bg-[#06B6D4]/15 border border-[#06B6D4]/25 text-[#06B6D4] text-xs font-bold tracking-[0.2em] uppercase mb-8">
+              <div className="inline-block px-4 py-2 bg-[#06B6D4]/15 border border-[#06B6D4]/25 text-[#67E8F9] text-xs font-bold tracking-[0.2em] uppercase mb-8">
                 Platform 02 — Aperion
               </div>
               <h1 className="text-5xl lg:text-[5.5rem] font-display font-bold text-white leading-[1.05] tracking-tighter mb-8 uppercase">
                 Every gift officer's{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60A5FA] to-[#67E8F9]">
                   unfair advantage.
                 </span>
               </h1>
-              <p className="text-xl sm:text-2xl text-white/60 mb-6 leading-relaxed max-w-3xl font-light">
+              <p className="text-xl sm:text-2xl text-white/70 mb-6 leading-relaxed max-w-3xl font-light">
                 Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every conversation count.
               </p>
-              <p className="text-base text-white/35 mb-12 max-w-2xl font-light tracking-wide">
+              <p className="text-base text-white/40 mb-12 max-w-2xl font-light tracking-wide">
                 Built for Blackbaud CRM and Salesforce NPSP. Works inside the tools your team already uses. No new dashboard. No training curve.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0">
                   Request a demo
                 </Button>
-                <Button size="lg" variant="ghost" className="rounded-none text-sm tracking-widest uppercase font-semibold px-8 h-14 text-white hover:bg-white/5 hover:text-white group border border-white/10">
+                <Button size="lg" variant="ghost" className="rounded-none text-sm tracking-widest uppercase font-semibold px-8 h-14 text-white hover:bg-white/5 hover:text-white group border border-white/15">
                   View case study
                   <ArrowRight className="ml-3 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </Button>
