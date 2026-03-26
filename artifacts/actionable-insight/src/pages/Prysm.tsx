@@ -2,6 +2,33 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ArrowRight, CheckCircle2, Quote, AlertTriangle, Database, Zap, Users, MapPin, BarChart3, Phone, Brain, Shield, Building2, FileSearch, TrendingUp } from "lucide-react";
 
+const PRYSM_INPUTS = [
+  { name: "Epic EMR", sub: "FHIR encounter ingestion" },
+  { name: "Windfall Wealth", sub: "Net worth & capacity data" },
+  { name: "DonorSearch", sub: "Philanthropic history & giving" },
+  { name: "Clinical Encounters", sub: "70K+ physician panels" },
+];
+
+const PRYSM_OUTPUTS = [
+  { name: "Blackbaud CRM", sub: "Qualified prospect push" },
+  { name: "Salesforce NPSP", sub: "Native SF integration" },
+  { name: "Gift Officer Queue", sub: "Daily prioritized lists" },
+  { name: "ROI & Analytics", sub: "Pipeline & gift reporting" },
+];
+
+// Pill badge positions: cx, cy are the center of each pill on the ring (r=195, center 280,260)
+const PRYSM_PILLS = [
+  { label: "AI PROSPECT SCORING",  cx: 280, cy: 65,  w: 158, dotR: [280, 120] },
+  { label: "WEALTH INTELLIGENCE",  cx: 418, cy: 122, w: 148, dotR: [379, 161] },
+  { label: "REAL-TIME ANALYTICS",  cx: 475, cy: 260, w: 154, dotR: [420, 260] },
+  { label: "HIPAA COMPLIANCE",     cx: 418, cy: 398, w: 133, dotR: [379, 359] },
+  { label: "CTI OUTREACH",         cx: 280, cy: 455, w: 108, dotR: [280, 400] },
+  { label: "DAILY PATIENT LISTS",  cx: 142, cy: 398, w: 148, dotR: [181, 359] },
+  { label: "GEO-LOCATION",         cx: 85,  cy: 260, w: 103, dotR: [140, 260] },
+  { label: "CLINICIAN REFERRALS",  cx: 142, cy: 122, w: 150, dotR: [181, 161] },
+];
+const PILL_DOT_COLORS = ["#7C3AED","#5B21B6","#2563EB","#0891B2","#06B6D4","#0891B2","#2563EB","#5B21B6"];
+
 const outcomeStats = [
   { value: "305%", label: "Increase in first-time major gifts", sub: "Providence South Division" },
   { value: "$4.3M", label: "Realized philanthropic revenue", sub: "First year, Providence" },
@@ -212,7 +239,7 @@ export default function Prysm() {
       </section>
 
       {/* ── How Prysm Works ── */}
-      <section className="py-24 lg:py-32 bg-[#EDEEF6] border-t border-[#E2E3EF]">
+      <section className="py-24 lg:py-32 bg-white border-t border-[#E8ECF2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
@@ -228,129 +255,114 @@ export default function Prysm() {
           </AnimatedSection>
 
           <AnimatedSection>
-            <svg viewBox="0 0 1000 520" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                {/* Dashed connector gradients */}
-                <linearGradient id="gradLeft" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#7C3AED" stopOpacity="0" />
-                  <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.4" />
-                </linearGradient>
-                <linearGradient id="gradRight" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0" />
-                </linearGradient>
-                {/* Gradient for ring stroke and inner core */}
-                <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#7C3AED" />
-                  <stop offset="50%" stopColor="#2563EB" />
-                  <stop offset="100%" stopColor="#06B6D4" />
-                </linearGradient>
-                {/* Outer lavender fill — light ring area where labels sit */}
-                <radialGradient id="outerFill" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"   stopColor="#EDE9FE" stopOpacity="0" />
-                  <stop offset="55%"  stopColor="#EDE9FE" stopOpacity="0.35" />
-                  <stop offset="85%"  stopColor="#DDD6FE" stopOpacity="0.55" />
-                  <stop offset="100%" stopColor="#C4B5FD" stopOpacity="0.45" />
-                </radialGradient>
-                {/* Subtle inner glow inside dark circle */}
-                <radialGradient id="coreFill" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"   stopColor="#7C3AED" stopOpacity="0.15" />
-                  <stop offset="55%"  stopColor="#2563EB" stopOpacity="0.08" />
-                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.04" />
-                </radialGradient>
-              </defs>
+            {/* Top column labels */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-px bg-[#7C3AED]" />
+                <span className="text-[10px] font-bold tracking-[0.22em] text-[#7C3AED] uppercase">Data Inputs</span>
+              </div>
+              <span className="text-[10px] font-bold tracking-[0.18em] text-[#0A0E1A]/25 uppercase hidden lg:block">Prysm — Platform Architecture</span>
+              <div className="flex items-center gap-3">
+                <span className="text-[10px] font-bold tracking-[0.22em] text-[#06B6D4] uppercase">Outputs</span>
+                <div className="w-8 h-px bg-[#06B6D4]" />
+              </div>
+            </div>
 
-              {/* Column headers */}
-              <text x="115" y="28" textAnchor="middle" fill="rgba(124,58,237,0.65)" fontSize="8.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">DATA INPUTS</text>
-              <text x="885" y="28" textAnchor="middle" fill="rgba(6,182,212,0.65)"  fontSize="8.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">OUTPUTS</text>
+            {/* 3-column layout */}
+            <div className="grid lg:grid-cols-[240px_1fr_210px] gap-6 lg:gap-10 items-center">
 
-              {/* ── LEFT INPUT CARDS with violet left-border accent ── */}
-              <rect x="10" y="72"  width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
-              <rect x="10" y="72"  width="3"   height="58" rx="0" fill="#7C3AED" />
-              <text x="120" y="97"  textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">EPIC EMR</text>
-              <text x="120" y="116" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">FHIR encounter ingestion</text>
+              {/* ── Left: Input cards ── */}
+              <div className="space-y-3">
+                {PRYSM_INPUTS.map((inp, i) => (
+                  <div key={i} className="bg-white border border-[#E4E5F2] p-4 flex items-center justify-between group hover:border-[#C4B5FD] transition-colors">
+                    <div>
+                      <div className="font-bold text-[#0A0E1A] text-[13px] tracking-wide uppercase mb-0.5">{inp.name}</div>
+                      <div className="text-[11px] text-[#9AA3B2] font-light">{inp.sub}</div>
+                    </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#C4B5FD] shrink-0 ml-3 group-hover:text-[#7C3AED] transition-colors" />
+                  </div>
+                ))}
+              </div>
 
-              <rect x="10" y="174" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
-              <rect x="10" y="174" width="3"   height="58" rx="0" fill="#7C3AED" />
-              <text x="120" y="199" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">WINDFALL WEALTH</text>
-              <text x="120" y="218" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Net worth &amp; capacity data</text>
+              {/* ── Center: Circle SVG ── */}
+              <div className="flex items-center justify-center">
+                <svg viewBox="0 0 560 520" className="w-full max-w-xl h-auto" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="pgCenter" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%"   stopColor="white"   stopOpacity="1" />
+                      <stop offset="75%"  stopColor="#F5F3FF" stopOpacity="0.9" />
+                      <stop offset="100%" stopColor="#EDE9FE" stopOpacity="0.6" />
+                    </radialGradient>
+                    <radialGradient id="pgRing" cx="50%" cy="50%" r="50%">
+                      <stop offset="60%"  stopColor="#F5F3FF" stopOpacity="0" />
+                      <stop offset="85%"  stopColor="#EDE9FE" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#DDD6FE" stopOpacity="0.7" />
+                    </radialGradient>
+                  </defs>
 
-              <rect x="10" y="276" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
-              <rect x="10" y="276" width="3"   height="58" rx="0" fill="#7C3AED" />
-              <text x="120" y="301" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">DONORSEARCH</text>
-              <text x="120" y="320" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Philanthropic history &amp; giving</text>
+                  {/* Outer lavender ring fill */}
+                  <circle cx="280" cy="260" r="215" fill="url(#pgRing)" />
 
-              <rect x="10" y="378" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
-              <rect x="10" y="378" width="3"   height="58" rx="0" fill="#7C3AED" />
-              <text x="120" y="403" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">CLINICAL ENCOUNTERS</text>
-              <text x="120" y="422" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">70K+ physician panels</text>
+                  {/* Concentric dashed rings */}
+                  <circle cx="280" cy="260" r="195" fill="none" stroke="rgba(124,58,237,0.2)"  strokeWidth="1"   strokeDasharray="5 9" />
+                  <circle cx="280" cy="260" r="148" fill="none" stroke="rgba(124,58,237,0.14)" strokeWidth="0.8" strokeDasharray="4 8" />
+                  <circle cx="280" cy="260" r="90"  fill="url(#pgCenter)" stroke="rgba(124,58,237,0.12)" strokeWidth="0.8" />
 
-              {/* ── RIGHT OUTPUT CARDS with cyan right-border accent ── */}
-              <rect x="780" y="72"  width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
-              <rect x="987" y="72"  width="3"   height="58" rx="0" fill="#06B6D4" />
-              <text x="880" y="97"  textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">BLACKBAUD CRM</text>
-              <text x="880" y="116" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Qualified prospect push</text>
+                  {/* Dashed radial guide lines from center to each pill */}
+                  {PRYSM_PILLS.map((p, i) => (
+                    <line key={i}
+                      x1="280" y1="260" x2={p.cx} y2={p.cy}
+                      stroke="rgba(124,58,237,0.1)" strokeWidth="0.7" strokeDasharray="3 7"
+                    />
+                  ))}
 
-              <rect x="780" y="174" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
-              <rect x="987" y="174" width="3"   height="58" rx="0" fill="#06B6D4" />
-              <text x="880" y="199" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">SALESFORCE NPSP</text>
-              <text x="880" y="218" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Native SF integration</text>
+                  {/* 8 colored dots at r=140 */}
+                  {PRYSM_PILLS.map((p, i) => (
+                    <circle key={i} cx={p.dotR[0]} cy={p.dotR[1]} r="5" fill={PILL_DOT_COLORS[i]} />
+                  ))}
 
-              <rect x="780" y="276" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
-              <rect x="987" y="276" width="3"   height="58" rx="0" fill="#06B6D4" />
-              <text x="880" y="301" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">GIFT OFFICER QUEUE</text>
-              <text x="880" y="320" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Daily prioritized lists</text>
+                  {/* Capability pill badges */}
+                  {PRYSM_PILLS.map((p, i) => (
+                    <g key={i}>
+                      <rect
+                        x={p.cx - p.w / 2} y={p.cy - 14}
+                        width={p.w} height={28} rx="4"
+                        fill="rgba(237,233,254,0.88)"
+                        stroke="rgba(124,58,237,0.22)" strokeWidth="0.8"
+                      />
+                      <text
+                        x={p.cx} y={p.cy + 4.5}
+                        textAnchor="middle"
+                        fill="#1E1B4B"
+                        fontSize="8" fontWeight="800"
+                        fontFamily="Urbanist, system-ui, sans-serif"
+                        letterSpacing="1"
+                      >{p.label}</text>
+                    </g>
+                  ))}
 
-              <rect x="780" y="378" width="210" height="58" rx="0" fill="white" stroke="#E2E3EF" strokeWidth="1" />
-              <rect x="987" y="378" width="3"   height="58" rx="0" fill="#06B6D4" />
-              <text x="880" y="403" textAnchor="middle" fill="rgba(10,14,26,0.88)"  fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">ROI &amp; ANALYTICS</text>
-              <text x="880" y="422" textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">Pipeline &amp; gift reporting</text>
+                  {/* Center text */}
+                  <text x="280" y="254" textAnchor="middle" fill="#0A0E1A" fontSize="26" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-1">PRYSM</text>
+                  <text x="280" y="273" textAnchor="middle" fill="rgba(10,14,26,0.38)" fontSize="7.5" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="4">PURPOSE BUILT</text>
+                </svg>
+              </div>
 
-              {/* ── DASHED CONNECTORS ── */}
-              <line x1="220" y1="101" x2="370" y2="196" stroke="url(#gradLeft)" strokeWidth="1.2" strokeDasharray="4 6" />
-              <line x1="220" y1="203" x2="357" y2="236" stroke="url(#gradLeft)" strokeWidth="1.2" strokeDasharray="4 6" />
-              <line x1="220" y1="305" x2="357" y2="284" stroke="url(#gradLeft)" strokeWidth="1.2" strokeDasharray="4 6" />
-              <line x1="220" y1="407" x2="370" y2="324" stroke="url(#gradLeft)" strokeWidth="1.2" strokeDasharray="4 6" />
+              {/* ── Right: Output list ── */}
+              <div>
+                <div className="divide-y divide-[#E8ECF2]">
+                  {PRYSM_OUTPUTS.map((out, i) => (
+                    <div key={i} className="py-4 flex items-start justify-between group">
+                      <div>
+                        <div className="font-bold text-[#0A0E1A] text-[13px] tracking-wide uppercase mb-0.5">{out.name}</div>
+                        <div className="text-[11px] text-[#9AA3B2] font-light">{out.sub}</div>
+                      </div>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#A5F3FC] shrink-0 ml-3 mt-0.5 group-hover:text-[#06B6D4] transition-colors" />
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-              <line x1="630" y1="196" x2="780" y2="101" stroke="url(#gradRight)" strokeWidth="1.2" strokeDasharray="4 6" />
-              <line x1="643" y1="236" x2="780" y2="203" stroke="url(#gradRight)" strokeWidth="1.2" strokeDasharray="4 6" />
-              <line x1="643" y1="284" x2="780" y2="305" stroke="url(#gradRight)" strokeWidth="1.2" strokeDasharray="4 6" />
-              <line x1="630" y1="324" x2="780" y2="407" stroke="url(#gradRight)" strokeWidth="1.2" strokeDasharray="4 6" />
-
-              {/* ── OUTER LAVENDER CIRCLE — light ring where labels live ── */}
-              <circle cx="500" cy="260" r="205" fill="url(#outerFill)" stroke="rgba(167,139,250,0.3)" strokeWidth="1" />
-
-              {/* ── DARK INNER CIRCLE — the focal core ── */}
-              <circle cx="500" cy="260" r="150" fill="#0B0F1C" stroke="url(#ringGrad)" strokeWidth="2" />
-              {/* Inner rings for depth */}
-              <circle cx="500" cy="260" r="105" fill="rgba(37,99,235,0.04)" stroke="rgba(37,99,235,0.2)" strokeWidth="0.8" />
-              <circle cx="500" cy="260" r="62"  fill="url(#coreFill)" stroke="url(#ringGrad)" strokeWidth="1.5" />
-
-              {/* ── 8 DOTS — on the dark/light boundary at r=153 ── */}
-              <circle cx="500" cy="107" r="4.5" fill="#7C3AED" />
-              <circle cx="608" cy="152" r="4.5" fill="#5B21B6" />
-              <circle cx="653" cy="260" r="4.5" fill="#2563EB" />
-              <circle cx="608" cy="368" r="4.5" fill="#0891B2" />
-              <circle cx="500" cy="413" r="4.5" fill="#06B6D4" />
-              <circle cx="392" cy="368" r="4.5" fill="#0891B2" />
-              <circle cx="347" cy="260" r="4.5" fill="#2563EB" />
-              <circle cx="392" cy="152" r="4.5" fill="#5B21B6" />
-
-              {/* ── CAPABILITY LABELS — dark navy on light lavender ring, fully legible ── */}
-              <text x="500" y="96"  textAnchor="middle" fill="#0A0E1A" fontSize="10" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">AI PROSPECT SCORING</text>
-              <text x="618" y="141" textAnchor="middle" fill="#0A0E1A" fontSize="10" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">WEALTH INTELLIGENCE</text>
-              <text x="664" y="265" textAnchor="middle" fill="#0A0E1A" fontSize="10" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">REAL-TIME ANALYTICS</text>
-              <text x="618" y="385" textAnchor="middle" fill="#0A0E1A" fontSize="10" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">HIPAA COMPLIANCE</text>
-              <text x="500" y="432" textAnchor="middle" fill="#0A0E1A" fontSize="10" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">CTI OUTREACH</text>
-              <text x="382" y="385" textAnchor="middle" fill="#0A0E1A" fontSize="10" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">DAILY PATIENT LISTS</text>
-              <text x="336" y="265" textAnchor="middle" fill="#0A0E1A" fontSize="10" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">GEOLOCATION</text>
-              <text x="382" y="141" textAnchor="middle" fill="#0A0E1A" fontSize="10" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="1.5">CLINICIAN REFERRALS</text>
-
-              {/* ── CENTER TEXT inside dark core ── */}
-              <text x="500" y="254" textAnchor="middle" fill="white"                 fontSize="22" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-1">PRYSM</text>
-              <text x="500" y="273" textAnchor="middle" fill="rgba(103,232,249,0.85)" fontSize="7"  fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="4">PURPOSE BUILT</text>
-
-            </svg>
+            </div>
           </AnimatedSection>
 
           {/* Capability cards */}
