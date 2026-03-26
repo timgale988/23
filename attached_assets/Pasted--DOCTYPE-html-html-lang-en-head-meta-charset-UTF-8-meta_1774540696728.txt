@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Actionable Insight AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Urbanist', sans-serif;
+  background: #fff;
+  color: #0A0E1A;
+  line-height: 1.6;
+}
+:root {
+  --dark: #0A0E1A;
+  --dark-mid: #141828;
+  --white: #ffffff;
+  --cream: #F7F8FC;
+  --border: #E8ECF2;
+  --muted: #6B7A90;
+  --muted-light: #9AA3B2;
+  --violet: #7C3AED;
+  --blue: #2563EB;
+  --cyan: #06B6D4;
+  --grad: linear-gradient(90deg, #7C3AED, #2563EB, #06B6D4);
+}
+
+/* ── Hero ── */
+.about-hero {
+background: var(–dark);
+padding: 96px 60px 80px;
+position: relative;
+overflow: hidden;
+}
+.hero-grid-bg {
+position: absolute; inset: 0; opacity: .04;
+background-image:
+linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
+background-size: 64px 64px;
+}
+.hero-accent {
+position: absolute; top: -60px; right: -40px;
+width: 480px; height: 480px;
+background: linear-gradient(135deg, #7C3AED, #2563EB, #06B6D4);
+opacity: .1; border-radius: 50%; filter: blur(90px);
+}
+.hero-inner { position: relative; z-index: 2; }
+.hero-eyebrow {
+display: flex; align-items: center; gap: 12px;
+font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+font-weight: 700; color: rgba(255,255,255,.35); margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+content: ‘’; display: block; width: 32px; height: 1px;
+background: rgba(255,255,255,.2);
+}
+.hero-h1 {
+font-size: 72px; font-weight: 700; letter-spacing: -.04em;
+text-transform: uppercase; color: #fff; line-height: .9;
+margin-bottom: 28px; max-width: 760px;
+}
+.grad-text {
+background: var(–grad);
+-webkit-background-clip: text; -webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.hero-sub {
+font-size: 17px; color: rgba(255,255,255,.5); line-height: 1.75;
+font-weight: 300; max-width: 560px;
+}
+
+/* ── Mission / Vision ── */
+.mv-section {
+display: grid;
+grid-template-columns: 1fr 1fr;
+border-bottom: 1px solid var(–border);
+}
+.mv-block {
+padding: 80px 60px;
+position: relative;
+}
+.mv-block:first-child {
+border-right: 1px solid var(–border);
+}
+.mv-block::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 3px;
+}
+.mv-block.mission::before { background: var(–grad); }
+.mv-block.vision::before  { background: linear-gradient(90deg, #2563EB, #06B6D4); }
+
+.mv-tag {
+font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+font-weight: 700; margin-bottom: 24px;
+display: flex; align-items: center; gap: 10px;
+}
+.mv-block.mission .mv-tag { color: var(–violet); }
+.mv-block.vision  .mv-tag { color: var(–cyan); }
+.mv-tag::before {
+content: ‘’; display: block; width: 20px; height: 1px;
+}
+.mv-block.mission .mv-tag::before { background: var(–violet); }
+.mv-block.vision  .mv-tag::before { background: var(–cyan); }
+
+.mv-statement {
+font-size: 32px; font-weight: 700; letter-spacing: -.025em;
+color: var(–dark); line-height: 1.18; margin-bottom: 28px;
+}
+.mv-statement em {
+font-style: normal;
+background: var(–grad);
+-webkit-background-clip: text; -webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.mv-body {
+font-size: 16px; color: var(–muted); line-height: 1.75; font-weight: 300;
+}
+
+/* ── Story ── */
+.story-section {
+padding: 96px 60px;
+border-bottom: 1px solid var(–border);
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: start;
+}
+.story-left {}
+.story-eyebrow {
+display: flex; align-items: center; gap: 12px;
+font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+font-weight: 700; color: var(–violet); margin-bottom: 24px;
+}
+.story-eyebrow::before {
+content: ‘’; display: block; width: 24px; height: 1px;
+background: var(–violet);
+}
+.story-h2 {
+font-size: 48px; font-weight: 700; letter-spacing: -.04em;
+text-transform: uppercase; color: var(–dark); line-height: .92;
+margin-bottom: 32px;
+}
+.story-body {
+font-size: 16px; color: var(–muted); line-height: 1.8; font-weight: 300;
+}
+.story-body p + p { margin-top: 20px; }
+
+.story-right {}
+.timeline {
+display: flex; flex-direction: column; gap: 0;
+border-left: 1px solid var(–border);
+padding-left: 32px;
+margin-top: 8px;
+}
+.timeline-item {
+padding-bottom: 36px;
+position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot {
+position: absolute;
+left: -40px; top: 4px;
+width: 9px; height: 9px;
+border-radius: 50%;
+background: var(–grad);
+/* fallback single color */
+background: var(–violet);
+}
+.timeline-item:nth-child(2) .timeline-dot { background: #4F46E5; }
+.timeline-item:nth-child(3) .timeline-dot { background: var(–blue); }
+.timeline-item:nth-child(4) .timeline-dot { background: var(–cyan); }
+
+.timeline-date {
+font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+font-weight: 700; color: var(–muted-light); margin-bottom: 6px;
+}
+.timeline-title {
+font-size: 16px; font-weight: 700; letter-spacing: -.01em;
+color: var(–dark); margin-bottom: 8px;
+}
+.timeline-desc {
+font-size: 14px; color: var(–muted); line-height: 1.65; font-weight: 300;
+}
+
+/* ── What we build ── */
+.build-section {
+padding: 96px 60px;
+background: var(–cream);
+border-bottom: 1px solid var(–border);
+}
+.build-eyebrow {
+display: flex; align-items: center; gap: 12px;
+font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+font-weight: 700; color: var(–violet); margin-bottom: 24px;
+}
+.build-eyebrow::before {
+content: ‘’; display: block; width: 24px; height: 1px;
+background: var(–violet);
+}
+.build-h2 {
+font-size: 48px; font-weight: 700; letter-spacing: -.04em;
+text-transform: uppercase; color: var(–dark); line-height: .92;
+margin-bottom: 56px;
+}
+.platforms-grid {
+display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+background: var(–border); border: 1px solid var(–border);
+}
+.platform-card {
+background: #fff;
+padding: 48px 48px;
+position: relative;
+}
+.platform-card::before {
+content: ‘’;
+position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.platform-card.prysm::before  { background: linear-gradient(90deg, #7C3AED, #2563EB); }
+.platform-card.aperion::before { background: linear-gradient(90deg, #2563EB, #06B6D4); }
+.platform-tag {
+font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+font-weight: 700; margin-bottom: 14px;
+}
+.platform-card.prysm  .platform-tag { color: var(–violet); }
+.platform-card.aperion .platform-tag { color: var(–cyan); }
+.platform-name {
+font-size: 36px; font-weight: 700; letter-spacing: -.03em;
+text-transform: uppercase; color: var(–dark); line-height: .93;
+margin-bottom: 16px;
+}
+.platform-desc {
+font-size: 15px; color: var(–muted); line-height: 1.72;
+font-weight: 300; margin-bottom: 32px;
+}
+.platform-scope {
+font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+font-weight: 700; color: var(–muted-light);
+display: flex; align-items: center; gap: 8px;
+}
+.platform-scope::before {
+content: ‘’; display: block; width: 16px; height: 1px;
+background: var(–muted-light);
+}
+
+/* ── Values ── */
+.values-section {
+padding: 96px 60px;
+background: var(–dark);
+border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.values-eyebrow {
+display: flex; align-items: center; gap: 12px;
+font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+font-weight: 700; color: rgba(255,255,255,.3); margin-bottom: 24px;
+}
+.values-eyebrow::before {
+content: ‘’; display: block; width: 24px; height: 1px;
+background: rgba(255,255,255,.2);
+}
+.values-h2 {
+font-size: 48px; font-weight: 700; letter-spacing: -.04em;
+text-transform: uppercase; color: #fff; line-height: .92;
+margin-bottom: 56px;
+}
+.values-grid {
+display: grid; grid-template-columns: repeat(3, 1fr);
+gap: 2px; background: rgba(255,255,255,.06);
+border: 1px solid rgba(255,255,255,.06);
+}
+.value-card {
+background: var(–dark-mid);
+padding: 44px 36px;
+}
+.value-num {
+font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+font-weight: 700; color: var(–violet); margin-bottom: 16px;
+}
+.value-title {
+font-size: 18px; font-weight: 700; letter-spacing: -.01em;
+text-transform: uppercase; color: #fff; margin-bottom: 12px;
+line-height: 1.1;
+}
+.value-desc {
+font-size: 14px; color: rgba(255,255,255,.45);
+line-height: 1.7; font-weight: 300;
+}
+
+/* ── Grad strip ── */
+.grad-strip { height: 3px; background: var(–grad); }
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+
+<div class="about-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">About Actionable Insight AI</div>
+    <h1 class="hero-h1">Built for the<br>mission.<br><span class="grad-text">Proven in practice.</span></h1>
+    <p class="hero-sub">We build the platforms that free fundraisers from administrative work — and give them the intelligence to spend their time where it matters most: with donors.</p>
+  </div>
+</div>
+
+<!-- MISSION + VISION -->
+
+<div class="mv-section">
+
+  <div class="mv-block mission">
+    <div class="mv-tag">Our mission</div>
+    <div class="mv-statement">Eliminate the work that<br>keeps fundraisers from<br><em>the work that matters.</em></div>
+    <p class="mv-body">Fundraisers are hired for their ability to build relationships, inspire generosity, and connect donors to causes that move them. Instead, they spend the majority of their working hours on research, data entry, CRM administration, and meeting preparation — tasks that technology should handle, but historically hasn't.<br><br>Actionable Insight AI builds platforms that transfer that burden from people to software. Our mission is to give every fundraiser — in health systems and across the broader nonprofit sector — the intelligence infrastructure they need to spend 85% of their time where they create the most value: in the room with donors.</p>
+  </div>
+
+  <div class="mv-block vision">
+    <div class="mv-tag">Our vision</div>
+    <div class="mv-statement">A world where every<br>fundraiser spends 85% of<br>their time <em>building relationships.</em></div>
+    <p class="mv-body">The talent and retention crisis in development offices is not a compensation problem. It is an experience problem. The best fundraising professionals leave the sector because the role they were promised — strategic, relationship-driven, meaningful — is buried under administrative work that no one entered the profession to do.<br><br>We envision a nonprofit sector where intelligent platforms handle the data layer completely, and where fundraisers operate as philanthropic counselors: fully briefed, deeply connected, and free to do the work only humans can do. That is what Prysm and Aperion are built to make possible.</p>
+  </div>
+
+</div>
+
+<!-- STORY -->
+
+<div class="story-section">
+
+  <div class="story-left">
+    <div class="story-eyebrow">Our story</div>
+    <h2 class="story-h2">Built from<br>the inside out.</h2>
+    <div class="story-body">
+      <p>Actionable Insight AI was not built by technologists who discovered philanthropy. It was built by practitioners who understood the problem from the inside — and spent years developing the solution before bringing it to market.</p>
+      <p>The company's roots are in healthcare philanthropy, where the intersection of clinical data and major gift fundraising presented a specific, solvable problem: health systems were sitting on the most powerful source of philanthropic intelligence available — patient gratitude — and had no systematic way to act on it.</p>
+      <p>Prysm was the answer to that problem. Developed and refined through real deployments at academic medical centers and major health systems, it became the foundation for what Actionable Insight AI is today: a platform company that builds intelligent infrastructure for fundraising organizations that are serious about performance.</p>
+      <p>With the launch of Aperion, that mission expanded beyond healthcare. The same administrative burden that plagues health system development offices exists everywhere in the nonprofit sector — and the same AI-driven solution applies. Actionable Insight AI now serves both markets simultaneously, with purpose-built platforms for each.</p>
+    </div>
+  </div>
+
+  <div class="story-right">
+    <div class="timeline">
+
+```
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">Foundation</div>
+    <div class="timeline-title">Rutgers Health — Platform Origins</div>
+    <div class="timeline-desc">The core Prysm methodology was developed and validated at Rutgers Health, establishing the foundational framework for connecting Epic clinical data with philanthropic identification at scale.</div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">Formation</div>
+    <div class="timeline-title">Actionable Insight AI Founded</div>
+    <div class="timeline-desc">Partnership formation brought the Prysm platform under the Actionable Insight AI umbrella — combining deep domain expertise in healthcare philanthropy with a technology-first operating model.</div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">Scale</div>
+    <div class="timeline-title">Providence Health — South Division</div>
+    <div class="timeline-desc">Prysm deployed across nine Providence Health California ministries, generating 3,098 identified prospects, 461 qualified major giving opportunities, and $4.32M in realized philanthropic revenue.</div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">Expansion</div>
+    <div class="timeline-title">Aperion — Broader Nonprofit</div>
+    <div class="timeline-desc">Launch of Aperion extends the Actionable Insight AI mission into the broader nonprofit sector — bringing AI-augmented fundraising intelligence to development offices beyond health systems.</div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+</div>
+
+<!-- WHAT WE BUILD -->
+
+<div class="build-section">
+  <div class="build-eyebrow">What we build</div>
+  <h2 class="build-h2">Two platforms.<br>One mission.</h2>
+  <div class="platforms-grid">
+    <div class="platform-card prysm">
+      <div class="platform-tag">Prysm</div>
+      <div class="platform-name">Grateful Patient<br>Intelligence</div>
+      <p class="platform-desc">Purpose-built for health system philanthropy. Prysm connects Epic EMR with Blackbaud CRM to automatically surface major gift prospects from clinical encounter data — compliantly, in real time, and at the moment patient gratitude is highest.</p>
+      <div class="platform-scope">Healthcare philanthropy</div>
+    </div>
+    <div class="platform-card aperion">
+      <div class="platform-tag">Aperion</div>
+      <div class="platform-name">AI-Augmented<br>Fundraising</div>
+      <p class="platform-desc">Built for the broader nonprofit sector. Aperion replaces 75% of a fundraiser's administrative burden with AI-generated donor briefings, intelligent opportunity matching, and proposal intelligence — so development professionals counsel donors, not spreadsheets.</p>
+      <div class="platform-scope">Nonprofit sector</div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+
+<div class="values-section">
+  <div class="values-eyebrow">What we believe</div>
+  <h2 class="values-h2">The principles that<br>shape the work.</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <div class="value-title">The relationship is irreplaceable</div>
+      <div class="value-desc">Technology should make the fundraiser more effective — never replace them. The moment of generosity happens between two humans. Our platforms exist to make that moment as informed and meaningful as possible.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <div class="value-title">Purpose-built beats adapted</div>
+      <div class="value-desc">Prysm was built for health system philanthropy. Aperion was built for nonprofit fundraising. The specificity is the advantage. General platforms adjusted for the sector are not the same as platforms designed for it from the ground up.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <div class="value-title">Outcomes over outputs</div>
+      <div class="value-desc">We measure our work in realized revenue, qualified prospects, and fundraiser effectiveness — not platform utilization, feature releases, or API calls. If the number that matters to our clients isn't moving, nothing else we report means anything.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">04</div>
+      <div class="value-title">Compliance by design</div>
+      <div class="value-desc">In health systems, HIPAA compliance is not a feature — it is foundational architecture. Every data flow, integration, and access control is designed with PHI protection as a first principle, not a retrofit.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">05</div>
+      <div class="value-title">Operational support included</div>
+      <div class="value-desc">Our platforms are delivered with playbooks, onboarding, training, and ongoing client success built in. The technology is the platform — the partnership is how it works. We do not separate them.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">06</div>
+      <div class="value-title">Talent deserves better tools</div>
+      <div class="value-desc">The retention crisis in development offices is a design problem. Fundraising professionals leave the sector because the role doesn't match the promise. We build the tools that close that gap — and give the profession back its dignity.</div>
+    </div>
+  </div>
+</div>
+
+<div class="grad-strip"></div>
+
+</body>
+</html>

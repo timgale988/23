@@ -23,6 +23,7 @@ export function Navbar() {
     { name: "Prysm", path: "/prysm" },
     { name: "Aperion", path: "/aperion" },
     { name: "Results", path: "/results" },
+    { name: "About", path: "/about" },
   ];
 
   return (
