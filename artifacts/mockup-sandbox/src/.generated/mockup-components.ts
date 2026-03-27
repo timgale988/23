@@ -2,12 +2,28 @@
 type ModuleMap = Record<string, () => Promise<Record<string, unknown>>>;
 export const modules: ModuleMap = {
   "./components/mockups/image-samples/HeroNewPhoto.tsx": () => import("../components/mockups/image-samples/HeroNewPhoto.tsx"),
+  "./components/mockups/image-samples/SS1SplitBleed.tsx": () => import("../components/mockups/image-samples/SS1SplitBleed.tsx"),
+  "./components/mockups/image-samples/SS2CalloutOverlay.tsx": () => import("../components/mockups/image-samples/SS2CalloutOverlay.tsx"),
+  "./components/mockups/image-samples/SS3PipelineGallery.tsx": () => import("../components/mockups/image-samples/SS3PipelineGallery.tsx"),
+  "./components/mockups/image-samples/SS4EvidenceWall.tsx": () => import("../components/mockups/image-samples/SS4EvidenceWall.tsx"),
+  "./components/mockups/image-samples/ScreenshotPanel.tsx": () => import("../components/mockups/image-samples/ScreenshotPanel.tsx"),
+  "./components/mockups/home-variations/ProofLed.tsx": () => import("../components/mockups/home-variations/ProofLed.tsx"),
   "./components/mockups/prysm-diagram/CommandCenter.tsx": () => import("../components/mockups/prysm-diagram/CommandCenter.tsx"),
   "./components/mockups/prysm-diagram/FlowDiagram.tsx": () => import("../components/mockups/prysm-diagram/FlowDiagram.tsx"),
   "./components/mockups/prysm-diagram/FlowDiagramV2.tsx": () => import("../components/mockups/prysm-diagram/FlowDiagramV2.tsx"),
   "./components/mockups/prysm-diagram/FlowDiagramV3.tsx": () => import("../components/mockups/prysm-diagram/FlowDiagramV3.tsx"),
   "./components/mockups/prysm-diagram/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram/MinimalGrid.tsx"),
+  "./components/mockups/prysm-diagram/PolishDepth.tsx": () => import("../components/mockups/prysm-diagram/PolishDepth.tsx"),
+  "./components/mockups/prysm-diagram/PolishStructural.tsx": () => import("../components/mockups/prysm-diagram/PolishStructural.tsx"),
+  "./components/mockups/prysm-diagram/VibeCorpSchematic.tsx": () => import("../components/mockups/prysm-diagram/VibeCorpSchematic.tsx"),
+  "./components/mockups/prysm-diagram/VibeTelemetry.tsx": () => import("../components/mockups/prysm-diagram/VibeTelemetry.tsx"),
+  "./components/mockups/prysm-diagram/VibeWarmHuman.tsx": () => import("../components/mockups/prysm-diagram/VibeWarmHuman.tsx"),
   "./components/mockups/prysm-diagram-copy-UTzES3C1/CommandCenter.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/CommandCenter.tsx"),
   "./components/mockups/prysm-diagram-copy-UTzES3C1/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/MinimalGrid.tsx"),
-  "./components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx")
+  "./components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx"),
+  "./components/mockups/prysm-diagram-copy-WtNnPkvP/CommandCenter.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/CommandCenter.tsx"),
+  "./components/mockups/prysm-diagram-copy-WtNnPkvP/FlowDiagram.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/FlowDiagram.tsx"),
+  "./components/mockups/prysm-diagram-copy-WtNnPkvP/FlowDiagramV2.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/FlowDiagramV2.tsx"),
+  "./components/mockups/prysm-diagram-copy-WtNnPkvP/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/MinimalGrid.tsx"),
+  "./components/mockups/prysm-diagram-copy-WtNnPkvP/PrysmDiagramCopyWtNnPkvP.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/PrysmDiagramCopyWtNnPkvP.tsx")
 };
