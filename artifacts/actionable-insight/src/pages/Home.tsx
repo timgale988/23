@@ -95,93 +95,102 @@ export default function Home() {
               </AnimatedSection>
             </div>
 
-            {/* Right — Browser mockup */}
+            {/* Right — Hero image */}
             <AnimatedSection delay={0.1} className="flex-1 w-full min-w-0">
               <div className="relative">
                 <div
-                  className="absolute -inset-6 rounded-3xl opacity-15"
-                  style={{ background: "linear-gradient(135deg,#7C3AED,#06B6D4)", filter: "blur(40px)" }}
+                  className="absolute -inset-6 rounded-3xl opacity-20"
+                  style={{ background: "linear-gradient(135deg,#7C3AED,#06B6D4)", filter: "blur(48px)" }}
                 />
                 <div
-                  className="relative rounded-2xl border overflow-hidden"
-                  style={{
-                    borderColor: "#E5E7EB",
-                    boxShadow: "0 32px 80px rgba(10,14,26,0.10), 0 4px 16px rgba(10,14,26,0.05)",
-                  }}
+                  className="relative rounded-2xl overflow-hidden"
+                  style={{ boxShadow: "0 32px 80px rgba(10,14,26,0.18), 0 4px 16px rgba(10,14,26,0.08)" }}
                 >
-                  {/* Browser chrome */}
-                  <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 bg-gray-50">
+                  {/* Browser chrome bar */}
+                  <div className="flex items-center gap-2 px-4 py-3 bg-[#0A0E1A]">
                     <div className="flex gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-red-400" />
                       <div className="w-3 h-3 rounded-full bg-yellow-400" />
                       <div className="w-3 h-3 rounded-full bg-green-400" />
                     </div>
-                    <div className="flex-1 mx-4 px-3 py-1 rounded-md bg-white border border-gray-200 text-xs text-gray-400 flex items-center gap-1.5">
+                    <div className="flex-1 mx-4 px-3 py-1 rounded-md bg-white/10 border border-white/10 text-xs text-white/40 flex items-center gap-1.5">
                       <div className="w-2 h-2 rounded-full bg-green-400" />
-                      app.actionableinsight.com/prysm
+                      app.actionableinsight.com
                     </div>
                   </div>
-                  {/* Dashboard content */}
-                  <div className="bg-[#060A14] p-5">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <div className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-0.5">Prysm</div>
-                        <div className="text-white font-bold">Prospect Intelligence Feed</div>
-                      </div>
-                      <div
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold"
-                        style={{ background: "rgba(124,58,237,0.15)", color: "#A78BFA", border: "1px solid rgba(124,58,237,0.25)" }}
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-                        Live · Epic Synced
-                      </div>
-                    </div>
 
-                    <div className="grid grid-cols-3 gap-3 mb-4">
-                      {[
-                        { label: "New Prospects", value: "84", delta: "+12 today", color: "#7C3AED" },
-                        { label: "Ready for Outreach", value: "31", delta: "48hr window", color: "#06B6D4" },
-                        { label: "Avg Score", value: "91", delta: "↑ trending", color: "#2563EB" },
-                      ].map((s) => (
-                        <div key={s.label} className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08]">
-                          <div className="text-white/40 text-xs mb-1">{s.label}</div>
-                          <div className="text-white font-black text-2xl leading-none mb-1">{s.value}</div>
-                          <div className="text-xs font-semibold" style={{ color: s.color }}>{s.delta}</div>
+                  {/* Image with overlaid UI */}
+                  <div className="relative">
+                    <img
+                      src="/images/hero-mesh.png"
+                      alt="Actionable Insight — connected intelligence platform"
+                      className="w-full object-cover"
+                      style={{ height: "360px", objectPosition: "center" }}
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{ background: "linear-gradient(to bottom, rgba(6,10,20,0.25) 0%, rgba(6,10,20,0.72) 100%)" }}
+                    />
+                    <div className="absolute inset-0 flex flex-col justify-end p-5">
+                      <div className="flex items-center justify-between mb-4">
+                        <div>
+                          <div className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-0.5">Prysm</div>
+                          <div className="text-white font-bold text-sm">Prospect Intelligence Feed</div>
                         </div>
-                      ))}
-                    </div>
+                        <div
+                          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest"
+                          style={{ background: "rgba(124,58,237,0.25)", color: "#C4B5FD", border: "1px solid rgba(124,58,237,0.3)" }}
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                          Live · Epic Synced
+                        </div>
+                      </div>
 
-                    <div className="space-y-2">
-                      {[
-                        { name: "Margaret W.", dept: "Cardiac ICU", cap: "$500K+", tag: "Priority", tagColor: "#A78BFA", tagBg: "rgba(124,58,237,0.2)" },
-                        { name: "Robert T.", dept: "Orthopedic Surgery", cap: "$250K", tag: "Outreach", tagColor: "#67E8F9", tagBg: "rgba(6,182,212,0.15)" },
-                        { name: "Linda H.", dept: "Cancer Center", cap: "$100K", tag: "Qualify", tagColor: "#93C5FD", tagBg: "rgba(37,99,235,0.15)" },
-                      ].map((p) => (
-                        <div key={p.name} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                          <div
-                            className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
-                            style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)" }}
-                          >
-                            {p.name[0]}
+                      <div className="grid grid-cols-3 gap-2.5 mb-3">
+                        {[
+                          { label: "New Prospects", value: "84", delta: "+12 today", color: "#A78BFA" },
+                          { label: "Ready for Outreach", value: "31", delta: "48hr window", color: "#67E8F9" },
+                          { label: "Avg Score", value: "91", delta: "↑ trending", color: "#93C5FD" },
+                        ].map((s) => (
+                          <div key={s.label} className="p-3 rounded-xl backdrop-blur-sm bg-white/[0.09] border border-white/[0.12]">
+                            <div className="text-white/50 text-[10px] mb-1">{s.label}</div>
+                            <div className="text-white font-black text-2xl leading-none mb-1">{s.value}</div>
+                            <div className="text-[10px] font-semibold" style={{ color: s.delta.startsWith("+") || s.delta.includes("↑") ? s.color : "rgba(255,255,255,0.4)" }}>{s.delta}</div>
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="text-white font-semibold text-sm">{p.name}</div>
-                            <div className="text-white/35 text-xs truncate">{p.dept}</div>
+                        ))}
+                      </div>
+
+                      <div className="space-y-1.5">
+                        {[
+                          { name: "Margaret W.", dept: "Cardiac ICU", cap: "$500K+", tag: "Priority", tagColor: "#C4B5FD", tagBg: "rgba(124,58,237,0.28)" },
+                          { name: "Robert T.", dept: "Orthopedic Surgery", cap: "$250K", tag: "Outreach", tagColor: "#67E8F9", tagBg: "rgba(6,182,212,0.22)" },
+                        ].map((p) => (
+                          <div key={p.name} className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl backdrop-blur-sm bg-white/[0.06] border border-white/[0.09]">
+                            <div
+                              className="w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0"
+                              style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)" }}
+                            >
+                              {p.name[0]}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="text-white font-semibold text-xs">{p.name}</div>
+                              <div className="text-white/35 text-[10px] truncate">{p.dept}</div>
+                            </div>
+                            <div className="text-white font-bold text-xs flex-shrink-0">{p.cap}</div>
+                            <div className="px-2 py-0.5 rounded-md text-[10px] font-bold flex-shrink-0" style={{ background: p.tagBg, color: p.tagColor }}>
+                              {p.tag}
+                            </div>
                           </div>
-                          <div className="text-white font-bold text-sm flex-shrink-0">{p.cap}</div>
-                          <div className="px-2 py-1 rounded-lg text-xs font-bold flex-shrink-0" style={{ background: p.tagBg, color: p.tagColor }}>
-                            {p.tag}
-                          </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Floating stat card */}
+                {/* Floating ROI card */}
                 <div
-                  className="absolute -bottom-4 -right-4 px-5 py-4 rounded-2xl border shadow-xl bg-white"
-                  style={{ borderColor: "#E5E7EB", boxShadow: "0 12px 32px rgba(10,14,26,0.10)" }}
+                  className="absolute -bottom-4 -right-4 px-5 py-4 rounded-2xl shadow-xl bg-white"
+                  style={{ border: "1px solid #E5E7EB", boxShadow: "0 12px 32px rgba(10,14,26,0.12)" }}
                 >
                   <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Year-One ROI</div>
                   <div

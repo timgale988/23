@@ -131,61 +131,69 @@ export default function Aperion() {
               </AnimatedSection>
             </div>
 
-            {/* Right — AI activity feed */}
+            {/* Right — Aperion image hero */}
             <AnimatedSection delay={0.1} className="flex-1 w-full min-w-0">
               <div className="relative">
                 <div
-                  className="absolute -inset-6 rounded-3xl opacity-10"
-                  style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", filter: "blur(40px)" }}
+                  className="absolute -inset-6 rounded-3xl opacity-18"
+                  style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", filter: "blur(48px)" }}
                 />
                 <div
-                  className="relative bg-white rounded-2xl border border-gray-200 overflow-hidden"
-                  style={{ boxShadow: "0 24px 60px rgba(10,14,26,0.08)" }}
+                  className="relative rounded-2xl overflow-hidden"
+                  style={{ boxShadow: "0 32px 80px rgba(10,14,26,0.22)" }}
                 >
-                  <div className="bg-gray-50 border-b border-gray-200 px-5 py-4 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-0.5">Aperion Intelligence</div>
-                      <div className="text-[#0A0E1A] font-bold text-sm">Today's AI Actions</div>
-                    </div>
-                    <div
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold"
-                      style={{ background: "rgba(6,182,212,0.08)", color: "#0891B2", border: "1px solid rgba(6,182,212,0.2)" }}
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
-                      Live
-                    </div>
-                  </div>
-
-                  <div className="divide-y divide-gray-100">
-                    {[
-                      { icon: "✦", color: "#2563EB", bg: "rgba(37,99,235,0.07)", title: "Donor Briefing Generated", body: "Full profile for Margaret Chen — net worth $4.2M, philanthropic history, 3 alignment opportunities", time: "Just now" },
-                      { icon: "◈", color: "#06B6D4", bg: "rgba(6,182,212,0.07)", title: "Opportunity Match Found", body: "Children's Wing Campaign aligns with Holloway family's pediatric giving history", time: "4 min ago" },
-                      { icon: "◇", color: "#7C3AED", bg: "rgba(124,58,237,0.07)", title: "Proposal Draft Ready", body: "First draft of $500K gift proposal for Weston endowment — ready for your review", time: "12 min ago" },
-                      { icon: "○", color: "#0891B2", bg: "rgba(8,145,178,0.07)", title: "Pipeline Score Updated", body: "James D. moved to 'Ready to Close' — capacity model updated, 94% likelihood", time: "1 hr ago" },
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-start gap-3.5 px-5 py-4 hover:bg-gray-50 transition-colors">
-                        <div
-                          className="w-8 h-8 rounded-lg flex items-center justify-center text-sm flex-shrink-0 mt-0.5"
-                          style={{ background: item.bg, color: item.color }}
-                        >
-                          {item.icon}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between gap-2 mb-0.5">
-                            <div className="text-[#0A0E1A] font-semibold text-sm truncate">{item.title}</div>
-                            <div className="text-gray-400 text-xs flex-shrink-0">{item.time}</div>
-                          </div>
-                          <div className="text-gray-400 text-xs leading-snug">{item.body}</div>
-                        </div>
+                  <img
+                    src="/images/aperion-abstract.png"
+                    alt="Aperion — AI-augmented fundraising intelligence"
+                    className="w-full object-cover"
+                    style={{ height: "460px", objectPosition: "center" }}
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: "linear-gradient(to bottom, rgba(6,10,20,0.05) 0%, rgba(6,10,20,0.78) 65%, rgba(6,10,20,0.93) 100%)" }}
+                  />
+                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                        <span className="text-cyan-300 text-xs font-bold uppercase tracking-widest">Aperion Intelligence · Live</span>
                       </div>
-                    ))}
-                  </div>
+                      <div className="text-white/30 text-[10px] font-semibold">24 actions today</div>
+                    </div>
 
-                  <div className="px-5 py-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
-                    <span className="text-xs text-gray-400">24 actions completed today</span>
-                    <button className="text-xs font-bold text-cyan-600 hover:text-cyan-700 transition-colors flex items-center gap-1">
-                      View all <ArrowRight className="w-3 h-3" />
-                    </button>
+                    <div className="space-y-2.5">
+                      {[
+                        { icon: "✦", title: "Donor Briefing Generated", body: "Full profile for Margaret Chen — net worth $4.2M, philanthropic history, 3 alignment opportunities", time: "Just now", color: "#93C5FD" },
+                        { icon: "◈", title: "Opportunity Match Found", body: "Children's Wing Campaign aligns with Holloway family's pediatric giving history", time: "4 min ago", color: "#67E8F9" },
+                        { icon: "◇", title: "Proposal Draft Ready", body: "First draft of $500K gift proposal for Weston endowment — ready for your review", time: "12 min ago", color: "#C4B5FD" },
+                        { icon: "○", title: "Pipeline Score Updated", body: "James D. moved to 'Ready to Close' — 94% likelihood score", time: "1 hr ago", color: "#67E8F9" },
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 p-3.5 rounded-xl backdrop-blur-sm bg-white/[0.08] border border-white/[0.11]">
+                          <div className="text-base flex-shrink-0 mt-0.5 leading-none" style={{ color: item.color }}>{item.icon}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start justify-between gap-2 mb-0.5">
+                              <div className="text-white font-semibold text-xs leading-snug">{item.title}</div>
+                              <div className="text-white/30 text-[10px] flex-shrink-0 mt-0.5">{item.time}</div>
+                            </div>
+                            <div className="text-white/45 text-[10px] leading-snug">{item.body}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating badge */}
+                <div
+                  className="absolute -bottom-4 -right-4 px-5 py-4 rounded-2xl shadow-xl bg-white"
+                  style={{ border: "1px solid #E5E7EB", boxShadow: "0 12px 32px rgba(10,14,26,0.12)" }}
+                >
+                  <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Admin Eliminated</div>
+                  <div
+                    className="text-3xl font-black leading-none"
+                    style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                  >
+                    75%
                   </div>
                 </div>
               </div>

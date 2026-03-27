@@ -135,49 +135,76 @@ export default function Prysm() {
               </AnimatedSection>
             </div>
 
-            {/* Right — Platform architecture card */}
+            {/* Right — Prysm image hero */}
             <AnimatedSection delay={0.1} className="flex-1 w-full min-w-0">
-              <div
-                className="bg-[#060A14] rounded-2xl p-6 border border-white/10"
-                style={{ boxShadow: "0 32px 80px rgba(10,14,26,0.12)" }}
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <div className="text-white/40 text-xs font-bold uppercase tracking-widest">Platform Intelligence</div>
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-violet-500/15 border border-violet-500/25">
-                    <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-                    <span className="text-violet-300 text-xs font-semibold">Epic Connected</span>
+              <div className="relative">
+                <div
+                  className="absolute -inset-6 rounded-3xl opacity-20"
+                  style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)", filter: "blur(48px)" }}
+                />
+                <div
+                  className="relative rounded-2xl overflow-hidden"
+                  style={{ boxShadow: "0 32px 80px rgba(10,14,26,0.22)" }}
+                >
+                  <img
+                    src="/images/prysm-abstract.png"
+                    alt="Prysm — grateful patient intelligence"
+                    className="w-full object-cover"
+                    style={{ height: "460px", objectPosition: "center" }}
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: "linear-gradient(to bottom, rgba(6,10,20,0.08) 0%, rgba(6,10,20,0.80) 70%, rgba(6,10,20,0.92) 100%)" }}
+                  />
+                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <div className="flex items-center gap-2 mb-5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                      <span className="text-violet-300 text-xs font-bold uppercase tracking-widest">Epic Connected · Live</span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3 mb-4">
+                      {[
+                        { label: "Prospects This Month", value: "1,284", color: "#A78BFA" },
+                        { label: "Ready for Outreach", value: "247", color: "#67E8F9" },
+                        { label: "Avg Capacity Score", value: "93.1", color: "#93C5FD" },
+                        { label: "Qualified MG (YTD)", value: "461", color: "#A78BFA" },
+                      ].map((s) => (
+                        <div key={s.label} className="p-3.5 rounded-xl backdrop-blur-sm bg-white/[0.09] border border-white/[0.13]">
+                          <div className="text-white/45 text-[10px] mb-1.5">{s.label}</div>
+                          <div className="text-white font-black text-xl leading-none mb-2" style={{ letterSpacing: "-0.03em" }}>{s.value}</div>
+                          <div className="h-0.5 rounded-full w-3/4" style={{ background: s.color }} />
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="space-y-2 pt-4 border-t border-white/[0.08]">
+                      {[
+                        { label: "Margaret W. · Cardiac ICU", score: 97, cap: "$500K+" },
+                        { label: "Robert T. · Orthopedic Surgery", score: 94, cap: "$250K" },
+                        { label: "Linda H. · Cancer Center", score: 89, cap: "$100K" },
+                      ].map((p) => (
+                        <div key={p.label} className="flex items-center justify-between gap-3 text-xs">
+                          <div className="text-white/60 flex-1 truncate">{p.label}</div>
+                          <div className="text-white/35 flex-shrink-0">Score {p.score}</div>
+                          <div className="text-white font-bold flex-shrink-0">{p.cap}</div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 mb-5">
-                  {[
-                    { label: "Prospects This Month", value: "1,284", color: "#7C3AED" },
-                    { label: "Ready for Outreach", value: "247", color: "#06B6D4" },
-                    { label: "Avg Capacity Score", value: "93.1", color: "#2563EB" },
-                    { label: "Qualified MG (YTD)", value: "461", color: "#7C3AED" },
-                  ].map((s) => (
-                    <div key={s.label} className="p-4 rounded-xl bg-white/[0.04] border border-white/[0.07]">
-                      <div className="text-white/35 text-xs mb-2">{s.label}</div>
-                      <div className="text-white font-black text-2xl leading-none" style={{ letterSpacing: "-0.03em" }}>{s.value}</div>
-                      <div className="mt-2 h-1 rounded-full" style={{ background: `${s.color}40` }}>
-                        <div className="h-full rounded-full w-3/4" style={{ background: s.color }} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="border-t border-white/[0.06] pt-4 space-y-2.5">
-                  {[
-                    { label: "Margaret W. · Cardiac ICU", score: 97, cap: "$500K+", status: "Priority" },
-                    { label: "Robert T. · Orthopedic Surgery", score: 94, cap: "$250K", status: "Outreach" },
-                    { label: "Linda H. · Cancer Center", score: 89, cap: "$100K", status: "Qualify" },
-                  ].map((p) => (
-                    <div key={p.label} className="flex items-center justify-between gap-3 text-xs">
-                      <div className="text-white/60 flex-1 truncate">{p.label}</div>
-                      <div className="text-white/40 flex-shrink-0">Score {p.score}</div>
-                      <div className="text-white font-bold flex-shrink-0">{p.cap}</div>
-                    </div>
-                  ))}
+                {/* Floating badge */}
+                <div
+                  className="absolute -bottom-4 -right-4 px-5 py-4 rounded-2xl shadow-xl bg-white"
+                  style={{ border: "1px solid #E5E7EB", boxShadow: "0 12px 32px rgba(10,14,26,0.12)" }}
+                >
+                  <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">MG Gift Increase</div>
+                  <div
+                    className="text-3xl font-black leading-none"
+                    style={{ background: "linear-gradient(90deg,#7C3AED,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                  >
+                    305%
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
