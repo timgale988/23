@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         {/* Image — right half, bleeds to edge */}
-        <div className="absolute inset-y-0 right-0 w-[48%] z-[1] hidden lg:block">
+        <div className="absolute inset-y-0 right-0 w-[48%] z-[1] hidden md:block">
           <img
             src={`${import.meta.env.BASE_URL}images/person-phone.png`}
             alt="Healthcare philanthropist reviewing patient intelligence on phone"
@@ -41,7 +41,7 @@ export default function Home() {
 
         {/* Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-28 pb-24">
-          <div className="max-w-[52%] lg:max-w-[48%]">
+          <div className="max-w-full md:max-w-[48%]">
             <AnimatedSection>
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-10 h-px bg-white/25" />
