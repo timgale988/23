@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { ArrowRight, Brain, Zap, Phone, Users, BarChart3, Quote, AlertTriangle, Shield } from "lucide-react";
+import { ArrowRight, Brain, Zap, Phone, Users, BarChart3, Quote, AlertTriangle, Shield, ChevronRight, Activity, CheckCircle2 } from "lucide-react";
 
 const PRYSM_INPUTS = [
   { name: "Epic EMR", sub: "FHIR encounter ingestion" },
@@ -62,6 +63,11 @@ const testimonials = [
 ];
 
 export default function Prysm() {
+  const [discharges, setDischarges] = useState(50000);
+  const grateful = Math.round(discharges * 0.23);
+  const qualified = Math.round(grateful * 0.11);
+  const calcValue = Math.round(qualified * 18500);
+
   return (
     <div className="overflow-hidden bg-white">
 
