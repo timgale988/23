@@ -26,14 +26,14 @@ export function HeroV1ProductHub() {
             style={{ background: "linear-gradient(135deg, #1E0A3C 0%, #3730A3 100%)" }}
           >
             {/* Image Band */}
-            <div className="h-[180px] w-full relative overflow-hidden shrink-0">
+            <div className="h-[200px] w-full relative overflow-hidden shrink-0">
               <img 
-                src="/__mockup/images/hero-dandelion.png" 
-                alt="Prysm Intelligence"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-overlay"
-                style={{ objectPosition: "center 18%" }}
+                src="/__mockup/images/dash-growth.jpeg" 
+                alt="Prysm Intelligence Dashboard"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style={{ objectPosition: "center 15%", filter: "saturate(1.1) brightness(0.88) contrast(1.05)" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2C1F75] to-transparent mix-blend-multiply"></div>
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,10,60,0.25) 0%, rgba(44,31,117,0.85) 100%)" }} />
               <div className="absolute top-6 left-8">
                 <span className="text-xs font-bold tracking-[0.2em] text-violet-200 uppercase bg-black/20 backdrop-blur-md px-3 py-1 rounded-full border border-violet-500/30">
                   Platform 01
@@ -77,14 +77,14 @@ export function HeroV1ProductHub() {
             style={{ background: "linear-gradient(135deg, #0C4A6E 0%, #0891B2 100%)" }}
           >
             {/* Image Band */}
-            <div className="h-[180px] w-full relative overflow-hidden shrink-0">
+            <div className="h-[200px] w-full relative overflow-hidden shrink-0">
               <img 
-                src="/__mockup/images/hero-balloon-orange.png" 
-                alt="Aperion Platform"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 mix-blend-overlay"
-                style={{ objectPosition: "center 49%" }}
+                src="/__mockup/images/dash-finance.jpeg" 
+                alt="Aperion Platform Dashboard"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style={{ objectPosition: "center 30%", filter: "saturate(1.1) brightness(0.85) contrast(1.05)" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A6282] to-transparent mix-blend-multiply"></div>
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(12,74,110,0.2) 0%, rgba(10,98,130,0.88) 100%)" }} />
               <div className="absolute top-6 left-8">
                 <span className="text-xs font-bold tracking-[0.2em] text-cyan-100 uppercase bg-black/20 backdrop-blur-md px-3 py-1 rounded-full border border-cyan-500/30">
                   Platform 02

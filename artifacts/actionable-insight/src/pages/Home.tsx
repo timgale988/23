@@ -131,7 +131,7 @@ export default function Home() {
       </section>
 
       {/* ── Products ── */}
-      <section className="py-20 lg:py-28 border-b border-gray-100">
+      <section className="py-20 lg:py-28 border-b border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection className="mb-14">
             <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-4">Our Platforms</p>
@@ -153,92 +153,151 @@ export default function Home() {
             </h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
+                num: "01",
                 name: "Prysm",
                 sub: "Grateful Patient Intelligence",
                 href: "/prysm",
                 color: "#7C3AED",
                 gradFrom: "#7C3AED",
                 gradTo: "#2563EB",
+                shadowColor: "rgba(124,58,237,0.18)",
                 img: "/images/dash-purple.jpeg",
-                imgPos: "center 25%",
-                desc: "Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically surface major gift prospects from clinical encounter data — identifying grateful patients before the window of opportunity closes.",
+                imgPos: "center 18%",
+                desc: "Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically surface major gift prospects from clinical encounter data — identifying grateful patients before the window closes.",
                 stat: "305%",
                 statLabel: "More first-time major gifts",
+                tags: ["Epic Native", "Real-Time Scoring", "HIPAA Compliant"],
               },
               {
+                num: "02",
                 name: "Aperion",
                 sub: "AI-Augmented Fundraising",
                 href: "/aperion",
-                color: "#06B6D4",
+                color: "#0891B2",
                 gradFrom: "#2563EB",
                 gradTo: "#06B6D4",
+                shadowColor: "rgba(6,182,212,0.15)",
                 img: "/images/dash-donut.jpeg",
-                imgPos: "center 35%",
-                desc: "Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every gift officer conversation count.",
+                imgPos: "center 28%",
+                desc: "Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every conversation count.",
                 stat: "75%",
                 statLabel: "Admin time eliminated",
+                tags: ["AI Briefings", "Nonprofit-First", "Blackbaud Native"],
               },
             ].map((p, i) => (
               <AnimatedSection key={p.name} delay={i * 0.08}>
-                <div
-                  className="group relative bg-white border border-gray-200 rounded-2xl hover:border-gray-300 hover:shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col"
-                  style={{ overflow: "hidden" }}
-                >
-                  {/* Card image header */}
-                  <div className="relative flex-shrink-0" style={{ height: "200px" }}>
-                    <img
-                      src={p.img}
-                      alt={p.name}
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: p.imgPos }}
-                    />
+                <Link href={p.href}>
+                  <div
+                    className="group relative bg-white rounded-2xl transition-all duration-300 cursor-pointer h-full flex flex-col"
+                    style={{
+                      overflow: "hidden",
+                      border: "1px solid #E5E7EB",
+                      boxShadow: "0 4px 16px rgba(10,14,26,0.06)",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 56px ${p.shadowColor}, 0 4px 16px rgba(10,14,26,0.06)`;
+                      (e.currentTarget as HTMLDivElement).style.borderColor = p.gradFrom + "44";
+                      (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 16px rgba(10,14,26,0.06)";
+                      (e.currentTarget as HTMLDivElement).style.borderColor = "#E5E7EB";
+                      (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                    }}
+                  >
+                    {/* Colored top accent bar */}
                     <div
-                      className="absolute inset-0"
-                      style={{ background: `linear-gradient(to bottom, rgba(10,14,26,0.08) 0%, rgba(10,14,26,0.45) 100%)` }}
-                    />
-                    <div className="absolute bottom-4 left-5">
-                      <div
-                        className="inline-block text-sm font-black uppercase tracking-widest px-4 py-1.5 rounded-full"
-                        style={{ background: `linear-gradient(90deg,${p.gradFrom},${p.gradTo})`, color: "#fff", letterSpacing: "0.12em" }}
-                      >
-                        {p.name}
-                      </div>
-                    </div>
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-0.5"
+                      className="absolute top-0 left-0 right-0 h-1 z-10"
                       style={{ background: `linear-gradient(90deg, ${p.gradFrom}, ${p.gradTo})` }}
                     />
-                  </div>
 
-                  {/* Card content */}
-                  <div className="flex flex-col flex-1 p-8 lg:p-10">
-                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">{p.sub}</div>
-                    <p className="text-gray-500 text-base leading-relaxed mb-8 flex-1">{p.desc}</p>
-                    <div className="flex items-end justify-between">
-                      <Link href={p.href}>
+                    {/* Dashboard image — taller, sharper */}
+                    <div className="relative flex-shrink-0" style={{ height: "270px" }}>
+                      <img
+                        src={p.img}
+                        alt={p.name}
+                        className="w-full h-full object-cover"
+                        style={{
+                          objectPosition: p.imgPos,
+                          filter: "contrast(1.09) saturate(1.14) brightness(1.02)",
+                        }}
+                      />
+                      {/* Light vignette — much lighter than before so dashboard is visible */}
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: `linear-gradient(to bottom, transparent 55%, rgba(255,255,255,0.92) 100%)` }}
+                      />
+                      {/* Platform number badge — top left */}
+                      <div className="absolute top-4 left-4 z-10">
                         <div
-                          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all hover:gap-3"
+                          className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full"
+                          style={{ background: `linear-gradient(90deg,${p.gradFrom},${p.gradTo})`, color: "#fff", letterSpacing: "0.14em" }}
+                        >
+                          Platform {p.num} — {p.name}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card content */}
+                    <div className="flex flex-col flex-1 px-8 pb-8 pt-5">
+                      {/* Platform sub-label */}
+                      <div
+                        className="text-xs font-bold uppercase tracking-widest mb-3"
+                        style={{ color: p.color }}
+                      >
+                        {p.sub}
+                      </div>
+
+                      <p className="text-gray-500 text-[15px] leading-relaxed mb-5 flex-1">{p.desc}</p>
+
+                      {/* Feature tags */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {p.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[11px] font-semibold px-2.5 py-1 rounded-md"
+                            style={{
+                              background: `${p.gradFrom}10`,
+                              color: p.color,
+                              border: `1px solid ${p.gradFrom}22`,
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Bottom row: CTA + stat */}
+                      <div className="flex items-end justify-between border-t border-gray-100 pt-5">
+                        <div
+                          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all"
                           style={{ color: p.color }}
                         >
                           Explore {p.name}
                           <ArrowRight className="w-4 h-4" />
                         </div>
-                      </Link>
-                      <div className="text-right">
-                        <div
-                          className="text-3xl font-black leading-none"
-                          style={{ background: `linear-gradient(90deg, ${p.gradFrom}, ${p.gradTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-                        >
-                          {p.stat}
+                        <div className="text-right">
+                          <div
+                            className="font-black leading-none"
+                            style={{
+                              fontSize: "clamp(28px,3vw,38px)",
+                              background: `linear-gradient(90deg, ${p.gradFrom}, ${p.gradTo})`,
+                              WebkitBackgroundClip: "text",
+                              WebkitTextFillColor: "transparent",
+                              letterSpacing: "-0.03em",
+                            }}
+                          >
+                            {p.stat}
+                          </div>
+                          <div className="text-xs text-gray-400 mt-1 max-w-[120px] leading-snug text-right">{p.statLabel}</div>
                         </div>
-                        <div className="text-xs text-gray-400 mt-1">{p.statLabel}</div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
