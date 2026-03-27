@@ -115,14 +115,34 @@ export function PrysmSignalMap() {
         {/* RIGHT COLUMN */}
         <div
           className="flex-1 relative flex flex-col items-center justify-center p-6 lg:p-8 min-h-[500px] lg:min-h-0"
-          style={{ background: "#F0F0F0" }}
+          style={{ background: "#EFEFEF" }}
         >
+          {/* Background texture image — desaturated, very low opacity */}
+          <img
+            src="/__mockup/images/prysm-digital-interface.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+            style={{
+              opacity: 0.09,
+              filter: "saturate(0) contrast(1.15) brightness(0.9)",
+              objectPosition: "center 35%",
+            }}
+          />
+          {/* Radial vignette — fades image toward edges, preserving diagram legibility */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 72% 65% at 52% 50%, transparent 0%, rgba(239,239,239,0.72) 55%, #EFEFEF 85%)",
+            }}
+          />
           {/* Subtle grid */}
           <div
-            className="absolute inset-0 opacity-[0.045] pointer-events-none"
+            className="absolute inset-0 opacity-[0.032] pointer-events-none"
             style={{
               backgroundImage:
-                "linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)",
+                "linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px)",
               backgroundSize: "32px 32px",
             }}
           />
