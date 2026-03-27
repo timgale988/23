@@ -162,6 +162,8 @@ export default function Home() {
                 color: "#7C3AED",
                 gradFrom: "#7C3AED",
                 gradTo: "#2563EB",
+                img: "/images/hero-tech-ai.png",
+                imgPos: "center 55%",
                 desc: "Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically surface major gift prospects from clinical encounter data — identifying grateful patients before the window of opportunity closes.",
                 stat: "305%",
                 statLabel: "More first-time major gifts",
@@ -173,6 +175,8 @@ export default function Home() {
                 color: "#06B6D4",
                 gradFrom: "#2563EB",
                 gradTo: "#06B6D4",
+                img: "/images/hero-dandelion.png",
+                imgPos: "center 18%",
                 desc: "Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every gift officer conversation count.",
                 stat: "75%",
                 statLabel: "Admin time eliminated",
@@ -180,49 +184,107 @@ export default function Home() {
             ].map((p, i) => (
               <AnimatedSection key={p.name} delay={i * 0.08}>
                 <div
-                  className="group relative bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 hover:border-gray-300 hover:shadow-lg transition-all duration-300 cursor-pointer h-full"
+                  className="group relative bg-white border border-gray-200 rounded-2xl hover:border-gray-300 hover:shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col"
                   style={{ overflow: "hidden" }}
                 >
-                  <div
-                    className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
-                    style={{ background: `linear-gradient(90deg, ${p.gradFrom}, ${p.gradTo})` }}
-                  />
-                  <div className="mb-2">
+                  {/* Card image header */}
+                  <div className="relative flex-shrink-0" style={{ height: "200px" }}>
+                    <img
+                      src={p.img}
+                      alt={p.name}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: p.imgPos }}
+                    />
                     <div
-                      className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
-                      style={{ background: `${p.color}12`, color: p.color }}
-                    >
-                      {p.name}
+                      className="absolute inset-0"
+                      style={{ background: `linear-gradient(to bottom, rgba(10,14,26,0.08) 0%, rgba(10,14,26,0.45) 100%)` }}
+                    />
+                    <div className="absolute bottom-4 left-5">
+                      <div
+                        className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                        style={{ background: "rgba(255,255,255,0.15)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}
+                      >
+                        {p.name}
+                      </div>
                     </div>
-                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">{p.sub}</div>
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-0.5"
+                      style={{ background: `linear-gradient(90deg, ${p.gradFrom}, ${p.gradTo})` }}
+                    />
                   </div>
 
-                  <p className="text-gray-500 text-base leading-relaxed mb-8">{p.desc}</p>
-
-                  <div className="flex items-end justify-between mt-auto">
-                    <Link href={p.href}>
-                      <div
-                        className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all hover:gap-3"
-                        style={{ color: p.color }}
-                      >
-                        Explore {p.name}
-                        <ArrowRight className="w-4 h-4" />
+                  {/* Card content */}
+                  <div className="flex flex-col flex-1 p-8 lg:p-10">
+                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">{p.sub}</div>
+                    <p className="text-gray-500 text-base leading-relaxed mb-8 flex-1">{p.desc}</p>
+                    <div className="flex items-end justify-between">
+                      <Link href={p.href}>
+                        <div
+                          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all hover:gap-3"
+                          style={{ color: p.color }}
+                        >
+                          Explore {p.name}
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
+                      </Link>
+                      <div className="text-right">
+                        <div
+                          className="text-3xl font-black leading-none"
+                          style={{ background: `linear-gradient(90deg, ${p.gradFrom}, ${p.gradTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                        >
+                          {p.stat}
+                        </div>
+                        <div className="text-xs text-gray-400 mt-1">{p.statLabel}</div>
                       </div>
-                    </Link>
-                    <div className="text-right">
-                      <div
-                        className="text-3xl font-black leading-none"
-                        style={{ background: `linear-gradient(90deg, ${p.gradFrom}, ${p.gradTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-                      >
-                        {p.stat}
-                      </div>
-                      <div className="text-xs text-gray-400 mt-1">{p.statLabel}</div>
                     </div>
                   </div>
                 </div>
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Section Break 1 — Painting ── */}
+      <section className="relative overflow-hidden" style={{ height: "300px" }}>
+        <img
+          src="/images/hero-painting.png"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 38%" }}
+        />
+        <div className="absolute inset-0" style={{ background: "rgba(10,14,26,0.52)" }} />
+        <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
+          <AnimatedSection>
+            <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">Actionable Insight</p>
+            <blockquote
+              className="text-white font-black uppercase leading-[0.94] max-w-3xl"
+              style={{ fontSize: "clamp(22px,3.5vw,42px)", letterSpacing: "-0.04em" }}
+            >
+              Built for the moment when{" "}
+              <span
+                className="italic"
+                style={{
+                  background: "linear-gradient(90deg,#7C3AED,#2563EB,#06B6D4)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                gratitude
+              </span>{" "}
+              can become{" "}
+              <span
+                className="italic"
+                style={{
+                  background: "linear-gradient(90deg,#2563EB,#06B6D4)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                generosity.
+              </span>
+            </blockquote>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -272,6 +334,24 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── Section Break 2 — Balloon Sunset ── */}
+      <section className="relative overflow-hidden" style={{ height: "260px" }}>
+        <img
+          src="/images/hero-balloon-sunset.png"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 25%" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, rgba(124,58,237,0.55), rgba(6,182,212,0.45))" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "rgba(10,14,26,0.28)" }}
+        />
       </section>
 
       {/* ── CTA ── */}
