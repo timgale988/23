@@ -9,13 +9,14 @@ export default function Home() {
     <div className="overflow-hidden">
 
       {/* ── Hero ── */}
-      <section className="relative min-h-screen flex items-center pt-24 pb-24 bg-[#0A0E1A] text-white overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center bg-[#0A0E1A] text-white overflow-hidden">
+        {/* Background atmosphere */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/15 via-[#0A0E1A] to-[#06B6D4]/10" />
-          <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-[#7C3AED]/8 blur-[140px]" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#06B6D4]/8 blur-[120px]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/12 via-[#0A0E1A] to-[#06B6D4]/8" />
+          <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-[#7C3AED]/6 blur-[140px]" />
+          <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-[#06B6D4]/6 blur-[120px]" />
           <div
-            className="absolute inset-0 opacity-[0.035]"
+            className="absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage:
                 "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
@@ -24,8 +25,23 @@ export default function Home() {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="max-w-5xl">
+        {/* Image — right half, bleeds to edge */}
+        <div className="absolute inset-y-0 right-0 w-[48%] z-[1] hidden lg:block">
+          <img
+            src={`${import.meta.env.BASE_URL}images/person-phone.png`}
+            alt="Healthcare philanthropist reviewing patient intelligence on phone"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Fade left edge into dark bg */}
+          <div className="absolute inset-y-0 left-0 w-[35%] bg-gradient-to-r from-[#0A0E1A] to-transparent" />
+          {/* Subtle top/bottom fade */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0A0E1A] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0A0E1A] to-transparent" />
+        </div>
+
+        {/* Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-28 pb-24">
+          <div className="max-w-[52%] lg:max-w-[48%]">
             <AnimatedSection>
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-10 h-px bg-white/25" />
@@ -36,7 +52,7 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-              <h1 className="text-[clamp(44px,7vw,88px)] font-bold text-white leading-[0.95] tracking-[-0.04em] uppercase mb-10">
+              <h1 className="text-[clamp(40px,5.5vw,80px)] font-bold text-white leading-[0.95] tracking-[-0.04em] uppercase mb-8">
                 Boundless insight.
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4]">
@@ -46,14 +62,10 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <p className="text-xl text-white/55 mb-4 leading-relaxed max-w-2xl font-light">
+              <p className="text-lg text-white/55 mb-12 leading-relaxed max-w-xl font-light">
                 Actionable Insight AI builds purpose-built intelligence software for non-profit health
                 system philanthropy — connecting clinical data to donor outcomes through two
                 integrated platforms: Prysm and Aperion.
-              </p>
-              <p className="text-lg text-white/35 mb-14 leading-relaxed max-w-2xl font-light">
-                From the moment a patient is discharged to the moment a major gift is closed,
-                every step of the grateful patient journey runs on Actionable Insight AI.
               </p>
             </AnimatedSection>
 
@@ -95,21 +107,11 @@ export default function Home() {
               <div className="text-base font-semibold text-[#7C3AED] mb-6 uppercase tracking-widest">
                 Grateful Patient Intelligence
               </div>
-              <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10 min-h-[96px]">
+              <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10">
                 Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically
                 surface major gift prospects from clinical encounter data — identifying grateful
                 patients before the window of opportunity closes.
               </p>
-              <div className="flex flex-wrap gap-2 mb-10">
-                {["Epic EMR", "Blackbaud CRM", "Real-time scoring", "HIPAA-compliant"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-[#F7F8FC] border border-[#E8ECF2] text-[#6B7A90] text-xs font-semibold tracking-wider uppercase"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
               <Link
                 href="/prysm"
                 className="inline-flex items-center text-[#7C3AED] text-sm font-bold tracking-widest uppercase group/link hover:opacity-70 transition-opacity"
@@ -129,21 +131,11 @@ export default function Home() {
               <div className="text-base font-semibold text-[#06B6D4] mb-6 uppercase tracking-widest">
                 AI-Augmented Fundraising
               </div>
-              <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10 min-h-[96px]">
+              <p className="text-[#6B7A90] font-light text-lg leading-relaxed mb-10">
                 Aperion eliminates 75% of administrative burden — replacing it with AI-prepared
                 donor briefings, intelligent opportunity matching, and proposal intelligence that
                 makes every gift officer conversation count.
               </p>
-              <div className="flex flex-wrap gap-2 mb-10">
-                {["Donor briefings", "Prospect matching", "300+ opportunities", "20:1 ROI"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-[#F7F8FC] border border-[#E8ECF2] text-[#6B7A90] text-xs font-semibold tracking-wider uppercase"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
               <Link
                 href="/aperion"
                 className="inline-flex items-center text-[#06B6D4] text-sm font-bold tracking-widest uppercase group/link hover:opacity-70 transition-opacity"
@@ -211,10 +203,8 @@ export default function Home() {
               {[
                 { label: "Deployment timeline", value: "90 days to first patient lists" },
                 { label: "EMR integration", value: "Native Epic FHIR — no middleware" },
-                { label: "CRM support", value: "Blackbaud CRM & Salesforce NPSP" },
                 { label: "First-year ROI", value: "20× return on investment (Providence)" },
-                { label: "Onboarding", value: "90% reduction in gift officer ramp time" },
-                { label: "Pipeline growth", value: "10% annual growth in qualified prospects" },
+                { label: "Pipeline growth", value: "36× growth in 12 months" },
               ].map((item, i) => (
                 <div
                   key={i}
