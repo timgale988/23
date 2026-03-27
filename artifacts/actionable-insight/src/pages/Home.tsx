@@ -36,10 +36,10 @@ export default function Home() {
 
         {/* Photo fill */}
         <img
-          src={`${import.meta.env.BASE_URL}images/person-phone.png`}
+          src={`${import.meta.env.BASE_URL}images/hero-woman.png`}
           alt="Healthcare philanthropist reviewing patient intelligence"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 15%" }}
+          style={{ objectPosition: "center 20%" }}
         />
 
         {/* Dark gradient rising from bottom — text stays legible */}
