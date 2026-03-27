@@ -48,6 +48,35 @@ Every package extends `tsconfig.base.json` which sets `composite: true`. The roo
 - `pnpm run build` — runs `typecheck` first, then recursively runs `build` in all packages that define it
 - `pnpm run typecheck` — runs `tsc --build --emitDeclarationOnly` using project references
 
+## Actionable Insight AI — Frontend Site
+
+Lives in `artifacts/actionable-insight/`. React + Vite + Tailwind + Wouter + Framer Motion.
+
+### Theme (current — clean white)
+- Pure white backgrounds (`#FFFFFF`) with `bg-gray-50` alternating sections
+- Dark navy (`#0A0E1A`) reserved for CTA sections only (page bottoms)
+- Violet/Indigo/Cyan gradient accents (`#7C3AED → #2563EB → #06B6D4`)
+- Bold uppercase Urbanist headlines, `-0.04em` letter-spacing
+- Rounded corners (`rounded-xl` / `rounded-2xl`) throughout
+- Clean white Navbar with gradient "Book a Demo" pill button + animated active underline
+
+### Pages
+- `src/pages/Home.tsx` — split hero with browser chrome mockup, product cards, stats, CTA
+- `src/pages/Prysm.tsx` — split hero, challenge, SVG platform diagram, outcomes, testimonials
+- `src/pages/Aperion.tsx` — split hero with AI feed card, SVG diagram, capabilities
+- `src/pages/Results.tsx` — metrics bar, Providence case study, growth chart (dark section), hospital benchmarks
+- `src/pages/About.tsx` — mission/vision split, story + timeline, values grid
+
+### Layout Components
+- `src/components/layout/Navbar.tsx` — white bg, sticky, gradient CTA, animated active indicator
+- `src/components/layout/Footer.tsx` — dark navy, 4-column
+
+### Dark Theme Backup
+All original dark-theme pages preserved at `src/pages/dark/`
+(Home, Prysm, Aperion, Results, About, Navbar, Footer)
+
+---
+
 ## Packages
 
 ### `artifacts/api-server` (`@workspace/api-server`)
