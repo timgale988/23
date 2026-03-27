@@ -95,23 +95,138 @@ export default function Home() {
               </AnimatedSection>
             </div>
 
-            {/* Right — Hero image */}
+            {/* Right — Prysm dashboard mockup */}
             <AnimatedSection delay={0.1} className="flex-1 w-full min-w-0">
               <div className="relative">
+
+                {/* Background glow */}
                 <div
-                  className="absolute -inset-6 rounded-3xl opacity-20"
-                  style={{ background: "linear-gradient(135deg,#7C3AED,#06B6D4)", filter: "blur(48px)" }}
+                  className="absolute -inset-6 rounded-3xl opacity-20 pointer-events-none"
+                  style={{ background: "linear-gradient(135deg,#7C3AED,#06B6D4)", filter: "blur(40px)" }}
                 />
-                <img
-                  src="/images/hero-balloon-orange.png"
-                  alt="Actionable Insight — hope, warmth and human connection"
-                  className="relative w-full object-cover rounded-2xl"
+
+                {/* Browser chrome wrapper */}
+                <div
+                  className="relative rounded-2xl border overflow-hidden"
                   style={{
-                    height: "420px",
-                    objectPosition: "center 49%",
-                    boxShadow: "0 32px 80px rgba(10,14,26,0.18), 0 4px 16px rgba(10,14,26,0.08)",
+                    borderColor: "#E5E7EB",
+                    boxShadow: "0 32px 80px rgba(10,14,26,0.12), 0 4px 16px rgba(10,14,26,0.06)",
                   }}
-                />
+                >
+                  {/* Chrome bar */}
+                  <div
+                    className="flex items-center gap-2 px-4 py-3 border-b"
+                    style={{ background: "#F9FAFB", borderColor: "#E5E7EB" }}
+                  >
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-400" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                      <div className="w-3 h-3 rounded-full bg-green-400" />
+                    </div>
+                    <div
+                      className="flex-1 mx-4 px-3 py-1 rounded-md text-xs font-medium text-gray-400 flex items-center gap-1.5"
+                      style={{ background: "white", border: "1px solid #E5E7EB" }}
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <circle cx="5" cy="5" r="4" stroke="#9CA3AF" strokeWidth="1" />
+                        <path d="M3.5 5L4.5 6L6.5 4" stroke="#9CA3AF" strokeWidth="1" strokeLinecap="round" />
+                      </svg>
+                      app.actionableinsight.com/prysm/dashboard
+                    </div>
+                  </div>
+
+                  {/* Dashboard body */}
+                  <div className="bg-[#060A14] p-5">
+                    {/* Header row */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <div className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-0.5">Prysm Dashboard</div>
+                        <div className="text-white font-bold text-base">Prospect Intelligence Feed</div>
+                      </div>
+                      <div
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-lg"
+                        style={{ background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.25)" }}
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                        <span className="text-violet-300 text-xs font-semibold">Live · Epic Synced</span>
+                      </div>
+                    </div>
+
+                    {/* KPI strip */}
+                    <div className="grid grid-cols-3 gap-3 mb-4">
+                      {[
+                        { label: "New Prospects",      value: "84", delta: "+12 today",        color: "#7C3AED" },
+                        { label: "Ready for Outreach", value: "31", delta: "In 48hr window",   color: "#06B6D4" },
+                        { label: "Avg Capacity Score", value: "91", delta: "↑ vs last month",  color: "#2563EB" },
+                      ].map((s) => (
+                        <div
+                          key={s.label}
+                          className="p-3 rounded-xl"
+                          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+                        >
+                          <div className="text-white/40 text-xs mb-1">{s.label}</div>
+                          <div className="font-black text-2xl text-white leading-none mb-1">{s.value}</div>
+                          <div className="text-xs font-medium" style={{ color: s.color }}>{s.delta}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Prospect rows */}
+                    <div className="space-y-2">
+                      {[
+                        { name: "Margaret W.", dept: "Cardiac ICU",        score: 97, capacity: "$500K+", tag: "Priority" },
+                        { name: "Robert T.",   dept: "Orthopedic Surgery", score: 94, capacity: "$250K",  tag: "Outreach" },
+                        { name: "Linda H.",    dept: "Cancer Center",      score: 89, capacity: "$100K",  tag: "Qualify" },
+                      ].map((p) => (
+                        <div
+                          key={p.name}
+                          className="flex items-center gap-3 p-3 rounded-xl"
+                          style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
+                        >
+                          <div
+                            className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+                            style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)" }}
+                          >
+                            {p.name[0]}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="text-white font-semibold text-sm">{p.name}</div>
+                            <div className="text-white/35 text-xs truncate">{p.dept}</div>
+                          </div>
+                          <div className="text-right flex-shrink-0">
+                            <div className="text-white font-bold text-sm">{p.capacity}</div>
+                            <div className="text-white/35 text-xs">Score {p.score}</div>
+                          </div>
+                          <div
+                            className="px-2 py-1 rounded-lg text-xs font-bold flex-shrink-0"
+                            style={{
+                              background: p.tag === "Priority" ? "rgba(124,58,237,0.2)" : p.tag === "Outreach" ? "rgba(6,182,212,0.15)" : "rgba(37,99,235,0.15)",
+                              color:      p.tag === "Priority" ? "#A78BFA"              : p.tag === "Outreach" ? "#67E8F9"              : "#93C5FD",
+                            }}
+                          >
+                            {p.tag}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating ROI badge */}
+                <div
+                  className="absolute -bottom-3 -right-3 p-4 rounded-2xl border shadow-xl"
+                  style={{ background: "white", borderColor: "#E5E7EB", boxShadow: "0 12px 32px rgba(10,14,26,0.12)" }}
+                >
+                  <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Year-One ROI</div>
+                  <div
+                    className="text-3xl font-black leading-none"
+                    style={{ background: "linear-gradient(90deg,#7C3AED,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                  >
+                    20×
+                  </div>
+                  <div className="text-xs text-gray-400 mt-0.5">Average return</div>
+                </div>
+
               </div>
             </AnimatedSection>
           </div>
