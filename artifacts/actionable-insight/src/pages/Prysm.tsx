@@ -143,12 +143,12 @@ export default function Prysm() {
                   style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)", filter: "blur(48px)" }}
                 />
                 <img
-                  src="/images/prysm-dashboard-light.png"
+                  src="/images/dash-admin-ui.jpeg"
                   alt="Prysm — grateful patient intelligence dashboard"
                   className="relative w-full object-cover rounded-2xl"
                   style={{
                     height: "460px",
-                    objectPosition: "center 29%",
+                    objectPosition: "center 30%",
                     boxShadow: "0 32px 80px rgba(10,14,26,0.22)",
                   }}
                 />

@@ -139,12 +139,12 @@ export default function Aperion() {
                   style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", filter: "blur(48px)" }}
                 />
                 <img
-                  src="/images/hero-dandelion.png"
-                  alt="Aperion — aspiration, generosity and human impact"
+                  src="/images/dash-finance.jpeg"
+                  alt="Aperion — AI-augmented fundraising intelligence"
                   className="relative w-full object-cover rounded-2xl"
                   style={{
                     height: "460px",
-                    objectPosition: "center 18%",
+                    objectPosition: "center 35%",
                     boxShadow: "0 32px 80px rgba(10,14,26,0.22)",
                   }}
                 />
