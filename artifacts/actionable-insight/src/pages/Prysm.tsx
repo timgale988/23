@@ -141,23 +141,122 @@ export default function Prysm() {
               </AnimatedSection>
             </div>
 
-            {/* Right — Prysm image */}
+            {/* Right — Signal Map diagram */}
             <AnimatedSection delay={0.1} className="flex-1 w-full min-w-0">
-              <div className="relative">
+              <div className="relative flex flex-col items-center">
+
+                {/* Background radial glow */}
                 <div
-                  className="absolute -inset-6 rounded-3xl opacity-20"
-                  style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)", filter: "blur(48px)" }}
+                  className="absolute inset-0 pointer-events-none rounded-3xl"
+                  style={{ background: "radial-gradient(ellipse at 45% 48%, rgba(124,58,237,0.07) 0%, transparent 65%)" }}
                 />
-                <img
-                  src="/images/dash-growth.jpeg"
-                  alt="Prysm — grateful patient intelligence dashboard"
-                  className="relative w-full object-cover rounded-2xl"
-                  style={{
-                    height: "460px",
-                    objectPosition: "center 20%",
-                    boxShadow: "0 32px 80px rgba(10,14,26,0.22)",
-                  }}
-                />
+
+                {/* KPI strip */}
+                <div className="relative z-10 flex items-center gap-3 mb-4 w-full justify-center flex-wrap">
+                  {[
+                    { value: "93.1",   label: "Avg AI Score",      color: "#7C3AED" },
+                    { value: "305%",   label: "More Major Gifts",   color: "#0891B2" },
+                    { value: "$4.32M", label: "Year 1 Revenue",     color: "#059669" },
+                  ].map((s) => (
+                    <div
+                      key={s.label}
+                      className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl border border-gray-100 bg-white shadow-sm"
+                    >
+                      <span className="text-base font-black" style={{ color: s.color }}>{s.value}</span>
+                      <span className="text-[11px] font-semibold text-gray-400 leading-tight">{s.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* SVG network diagram */}
+                <div className="relative w-full z-10" style={{ height: "430px" }}>
+                  <svg viewBox="0 0 600 430" className="w-full h-full overflow-visible">
+                    <defs>
+                      <linearGradient id="prysmHubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#7C3AED" />
+                        <stop offset="100%" stopColor="#2563EB" />
+                      </linearGradient>
+                      <filter id="prysmNodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="3" stdDeviation="5" floodOpacity="0.09" floodColor="#0F172A" />
+                      </filter>
+                    </defs>
+
+                    {/* Category labels */}
+                    <text x="90" y="22" fill="#CBD5E1" fontSize="9" fontWeight="800" letterSpacing="3" textAnchor="middle">DATA INPUTS</text>
+                    <text x="510" y="22" fill="#CBD5E1" fontSize="9" fontWeight="800" letterSpacing="3" textAnchor="middle">DELIVERY LAYER</text>
+
+                    {/* Connection lines — inputs */}
+                    <path d="M 175 72 C 240 72, 255 215, 300 215"  fill="none" stroke="rgba(124,58,237,0.28)" strokeWidth="2" />
+                    <path d="M 175 152 C 240 152, 255 215, 300 215" fill="none" stroke="rgba(124,58,237,0.28)" strokeWidth="2" />
+                    <path d="M 175 228 C 240 228, 255 215, 300 215" fill="none" stroke="rgba(124,58,237,0.28)" strokeWidth="2" />
+                    <path d="M 175 305 C 240 305, 255 215, 300 215" fill="none" stroke="rgba(124,58,237,0.28)" strokeWidth="2" />
+
+                    {/* Connection lines — outputs */}
+                    <path d="M 300 215 C 355 215, 370 72, 425 72"   fill="none" stroke="rgba(6,182,212,0.28)" strokeWidth="2" />
+                    <path d="M 300 215 C 355 215, 370 152, 425 152"  fill="none" stroke="rgba(6,182,212,0.28)" strokeWidth="2" />
+                    <path d="M 300 215 C 355 215, 370 228, 425 228"  fill="none" stroke="rgba(6,182,212,0.28)" strokeWidth="2" />
+                    <path d="M 300 215 C 355 215, 370 305, 425 305"  fill="none" stroke="rgba(6,182,212,0.28)" strokeWidth="2" />
+
+                    {/* Data packets */}
+                    <circle cx="215" cy="108" r="4" fill="#7C3AED" opacity="0.6" />
+                    <circle cx="238" cy="186" r="4" fill="#7C3AED" opacity="0.6" />
+                    <circle cx="370" cy="100" r="4" fill="#06B6D4" opacity="0.6" />
+                    <circle cx="358" cy="232" r="4" fill="#06B6D4" opacity="0.6" />
+
+                    {/* Input nodes */}
+                    {[
+                      { y: 46,  label: "EPIC EMR",       sub: "FHIR Integration" },
+                      { y: 126, label: "WINDFALL",        sub: "Wealth Screening" },
+                      { y: 202, label: "DONORSEARCH",     sub: "Giving History" },
+                      { y: 279, label: "70K+ PHYSICIANS", sub: "Physician Panels" },
+                    ].map(({ y, label, sub }) => (
+                      <g key={label} transform={`translate(5, ${y})`} filter="url(#prysmNodeShadow)">
+                        <rect width="170" height="48" rx="10" fill="white" stroke="rgba(124,58,237,0.18)" strokeWidth="1.5" />
+                        <circle cx="20" cy="24" r="13" fill="rgba(124,58,237,0.08)" />
+                        <circle cx="20" cy="24" r="5"  fill="#7C3AED" />
+                        <text x="40" y="20" fill="#0A0E1A" fontSize="12" fontWeight="700">{label}</text>
+                        <text x="40" y="35" fill="#94A3B8" fontSize="10" fontWeight="500">{sub}</text>
+                      </g>
+                    ))}
+
+                    {/* Output nodes */}
+                    {[
+                      { y: 46,  label: "BLACKBAUD CRM",  sub: "Prospect Push" },
+                      { y: 126, label: "SALESFORCE NPSP", sub: "Native Integration" },
+                      { y: 202, label: "GIFT OFFICERS",   sub: "Daily Queue" },
+                      { y: 279, label: "ROI ANALYTICS",   sub: "Live Reports" },
+                    ].map(({ y, label, sub }) => (
+                      <g key={label} transform={`translate(425, ${y})`} filter="url(#prysmNodeShadow)">
+                        <rect width="170" height="48" rx="10" fill="white" stroke="rgba(6,182,212,0.18)" strokeWidth="1.5" />
+                        <circle cx="150" cy="24" r="13" fill="rgba(6,182,212,0.08)" />
+                        <circle cx="150" cy="24" r="5"  fill="#06B6D4" />
+                        <text x="136" y="20" fill="#0A0E1A" fontSize="12" fontWeight="700" textAnchor="end">{label}</text>
+                        <text x="136" y="35" fill="#94A3B8" fontSize="10" fontWeight="500" textAnchor="end">{sub}</text>
+                      </g>
+                    ))}
+
+                    {/* Central hub */}
+                    <circle cx="300" cy="215" r="105" fill="none" stroke="rgba(124,58,237,0.12)" strokeWidth="1" strokeDasharray="4 6" />
+                    <circle cx="300" cy="215" r="82"  fill="url(#prysmHubGrad)" stroke="white" strokeWidth="5" filter="url(#prysmNodeShadow)" />
+                    <text x="300" y="210" textAnchor="middle" fill="white" fontSize="21" fontWeight="900" letterSpacing="2.5">PRYSM</text>
+                    <text x="300" y="229" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="11" fontWeight="600" letterSpacing="2">AI ENGINE</text>
+                  </svg>
+                </div>
+
+                {/* Metric pills */}
+                <div className="relative z-10 flex items-center gap-2.5 mt-2 justify-center flex-wrap">
+                  {[
+                    { dot: "#3B82F6", text: "12,847 encounters" },
+                    { dot: "#7C3AED", text: "1,422 qualified" },
+                    { dot: "#06B6D4", text: "47 ready today" },
+                  ].map(({ dot, text }) => (
+                    <div key={text} className="bg-gray-50 border border-gray-200 rounded-full px-3.5 py-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-gray-500 shadow-sm whitespace-nowrap">
+                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: dot }} />
+                      {text}
+                    </div>
+                  ))}
+                </div>
+
               </div>
             </AnimatedSection>
           </div>
