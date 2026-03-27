@@ -213,34 +213,32 @@ export function PrysmSignalMap() {
                 </g>
               ))}
 
-              {/* FLOATING METRIC CHIPS */}
+              {/* OUTCOME METRIC CHIPS — grouped below hub, no overlap */}
               {[
-                { x: 192, y: 148, text: "93.1 avg score" },
-                { x: 308, y: 156, text: "3.05× more gifts" },
-                { x: 185, y: 290, text: "$285K avg capacity" },
-              ].map(({ x, y, text }) => (
-                <g key={text} transform={`translate(${x}, ${y})`} filter="url(#smShadowMono)">
-                  <rect
-                    width={text.length * 6.6 + 16}
-                    height="22"
-                    rx="5"
-                    fill="#FFFFFF"
-                    stroke="#DCDCDC"
-                    strokeWidth="1"
-                  />
-                  <text
-                    x={(text.length * 6.6 + 16) / 2}
-                    y="15"
-                    textAnchor="middle"
-                    fill="#333333"
-                    fontSize="10"
-                    fontWeight="700"
-                    fontFamily="Urbanist, sans-serif"
-                  >
-                    {text}
-                  </text>
-                </g>
-              ))}
+                "93.1 avg score",
+                "3.05× more gifts",
+                "$285K avg capacity",
+              ].map((text, idx) => {
+                const w = text.length * 6.6 + 20;
+                const x = 290 - w / 2;
+                const y = 336 + idx * 27;
+                return (
+                  <g key={text} transform={`translate(${x}, ${y})`} filter="url(#smShadowMono)">
+                    <rect width={w} height="22" rx="5" fill="#FFFFFF" stroke="#DCDCDC" strokeWidth="1" />
+                    <text
+                      x={w / 2}
+                      y="15"
+                      textAnchor="middle"
+                      fill="#333333"
+                      fontSize="10"
+                      fontWeight="700"
+                      fontFamily="Urbanist, sans-serif"
+                    >
+                      {text}
+                    </text>
+                  </g>
+                );
+              })}
             </svg>
           </div>
 
