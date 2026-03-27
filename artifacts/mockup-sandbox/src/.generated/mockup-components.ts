@@ -21,12 +21,12 @@ export const modules: ModuleMap = {
   "./components/mockups/prysm-diagram/VibeCorpSchematic.tsx": () => import("../components/mockups/prysm-diagram/VibeCorpSchematic.tsx"),
   "./components/mockups/prysm-diagram/VibeTelemetry.tsx": () => import("../components/mockups/prysm-diagram/VibeTelemetry.tsx"),
   "./components/mockups/prysm-diagram/VibeWarmHuman.tsx": () => import("../components/mockups/prysm-diagram/VibeWarmHuman.tsx"),
+  "./components/mockups/prysm-diagram-copy-UTzES3C1/CommandCenter.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/CommandCenter.tsx"),
+  "./components/mockups/prysm-diagram-copy-UTzES3C1/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/MinimalGrid.tsx"),
+  "./components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx"),
   "./components/mockups/prysm-diagram-copy-WtNnPkvP/CommandCenter.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/CommandCenter.tsx"),
   "./components/mockups/prysm-diagram-copy-WtNnPkvP/FlowDiagram.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/FlowDiagram.tsx"),
   "./components/mockups/prysm-diagram-copy-WtNnPkvP/FlowDiagramV2.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/FlowDiagramV2.tsx"),
   "./components/mockups/prysm-diagram-copy-WtNnPkvP/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/MinimalGrid.tsx"),
-  "./components/mockups/prysm-diagram-copy-WtNnPkvP/PrysmDiagramCopyWtNnPkvP.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/PrysmDiagramCopyWtNnPkvP.tsx"),
-  "./components/mockups/prysm-diagram-copy-UTzES3C1/CommandCenter.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/CommandCenter.tsx"),
-  "./components/mockups/prysm-diagram-copy-UTzES3C1/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/MinimalGrid.tsx"),
-  "./components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx")
+  "./components/mockups/prysm-diagram-copy-WtNnPkvP/PrysmDiagramCopyWtNnPkvP.tsx": () => import("../components/mockups/prysm-diagram-copy-WtNnPkvP/PrysmDiagramCopyWtNnPkvP.tsx")
 };
