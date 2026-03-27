@@ -76,8 +76,8 @@ export default function Aperion() {
             <div className="flex-1 max-w-[560px]">
               <AnimatedSection>
                 <div
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-7"
-                  style={{ background: "rgba(6,182,212,0.07)", color: "#0891B2", border: "1px solid rgba(6,182,212,0.2)" }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-7"
+                  style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)", color: "#fff", letterSpacing: "0.12em" }}
                 >
                   Platform 02 — Aperion
                 </div>

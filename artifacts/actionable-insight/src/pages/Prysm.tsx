@@ -74,8 +74,8 @@ export default function Prysm() {
             <div className="flex-1 max-w-[560px]">
               <AnimatedSection>
                 <div
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-7"
-                  style={{ background: "rgba(124,58,237,0.07)", color: "#7C3AED", border: "1px solid rgba(124,58,237,0.18)" }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-7"
+                  style={{ background: "linear-gradient(90deg,#7C3AED,#2563EB)", color: "#fff", letterSpacing: "0.12em" }}
                 >
                   Platform 01 — Prysm
                 </div>

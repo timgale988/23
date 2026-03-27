@@ -201,8 +201,8 @@ export default function Home() {
                     />
                     <div className="absolute bottom-4 left-5">
                       <div
-                        className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                        style={{ background: "rgba(255,255,255,0.15)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}
+                        className="inline-block text-sm font-black uppercase tracking-widest px-4 py-1.5 rounded-full"
+                        style={{ background: `linear-gradient(90deg,${p.gradFrom},${p.gradTo})`, color: "#fff", letterSpacing: "0.12em" }}
                       >
                         {p.name}
                       </div>
