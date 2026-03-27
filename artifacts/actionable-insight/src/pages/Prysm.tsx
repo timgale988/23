@@ -359,66 +359,6 @@ export default function Prysm() {
         </div>
       </section>
 
-      {/* ── 5. Case Study ── */}
-      <section className="py-20 lg:py-28 bg-white border-b border-[#E8ECF2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <AnimatedSection className="mb-12 max-w-2xl">
-            <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] mb-5 uppercase">
-              Case Study — Providence Health &amp; Services, South Division
-            </div>
-            <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-[#0A0E1A] tracking-tight uppercase leading-[1.0] mb-5">
-              3,098 patients screened. 461 qualified. $4.32M raised in Year One.
-            </h2>
-            <p className="text-lg text-[#6B7A90] font-light leading-relaxed">
-              Providence South Division had a mature grateful patient program — but was constrained by manual processes and siloed data. They deployed Prysm to replace ad hoc workflows with automated, data-driven identification. The Year One results exceeded every internal projection.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection className="mb-10">
-            <div className="grid md:grid-cols-3 gap-px bg-[#E8ECF2]">
-              <div className="bg-[#F7F8FC] p-10">
-                <div className="text-[10px] tracking-[0.2em] font-bold text-[#6B7A90] uppercase mb-5">Step 1 — Input</div>
-                <div className="text-6xl font-bold text-[#0A0E1A] tracking-tighter mb-3 leading-none">3,098</div>
-                <div className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-4">Clinical encounters screened</div>
-                <p className="text-sm text-[#6B7A90] font-light leading-relaxed">
-                  Prysm ingested Epic encounter data across all hospitals and clinics. Every patient was automatically scored against Windfall wealth data and DonorSearch philanthropic history. No manual research required.
-                </p>
-              </div>
-              <div className="bg-white p-10 border-l-4 border-[#7C3AED]">
-                <div className="text-[10px] tracking-[0.2em] font-bold text-[#7C3AED] uppercase mb-5">Step 2 — Qualified</div>
-                <div className="text-6xl font-bold tracking-tighter mb-3 leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#7C3AED] to-[#2563EB]">461</div>
-                <div className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-4">Major gift prospects identified</div>
-                <p className="text-sm text-[#6B7A90] font-light leading-relaxed">
-                  Of 3,098 screened, 461 met the major gift threshold — a 14.9% qualification rate. Those 461 had a combined identifiable net worth of $6.6 billion. Before Prysm, most of these patients would never have been identified.
-                </p>
-              </div>
-              <div className="bg-[#0A0E1A] p-10">
-                <div className="text-[10px] tracking-[0.2em] font-bold text-[#06B6D4] uppercase mb-5">Step 3 — Revenue</div>
-                <div className="text-6xl font-bold tracking-tighter mb-3 leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#2563EB] to-[#06B6D4]">$4.32M</div>
-                <div className="text-sm font-bold text-white uppercase tracking-tight mb-4">Realized in Year One</div>
-                <p className="text-sm text-white/50 font-light leading-relaxed">
-                  Gift officers engaged qualified prospects through Prysm's automated outreach and CTI-integrated workflows. First-year revenue of $4.32M delivered a 20× return on investment, with pipeline growth compounding into Year Two.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-5">
-              <Link href="/results">
-                <Button size="lg" className="rounded-none text-sm tracking-widest uppercase font-semibold px-10 h-14 bg-gradient-to-r from-[#7C3AED] via-[#2563EB] to-[#06B6D4] text-white hover:opacity-90 border-0">
-                  View full results <ArrowRight className="w-4 h-4 ml-3" />
-                </Button>
-              </Link>
-              <p className="text-sm text-[#9AA3B2] font-light max-w-md">
-                Full data includes pipeline breakdown, qualification rates by ministry, $46.1B in identified wealth, and verified revenue attribution.
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* ── 6. Testimonials ── */}
       <section className="py-20 lg:py-28 bg-[#F7F8FC] border-b border-[#E8ECF2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
