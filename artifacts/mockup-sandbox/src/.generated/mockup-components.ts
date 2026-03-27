@@ -4,5 +4,10 @@ export const modules: ModuleMap = {
   "./components/mockups/image-samples/HeroNewPhoto.tsx": () => import("../components/mockups/image-samples/HeroNewPhoto.tsx"),
   "./components/mockups/prysm-diagram/CommandCenter.tsx": () => import("../components/mockups/prysm-diagram/CommandCenter.tsx"),
   "./components/mockups/prysm-diagram/FlowDiagram.tsx": () => import("../components/mockups/prysm-diagram/FlowDiagram.tsx"),
-  "./components/mockups/prysm-diagram/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram/MinimalGrid.tsx")
+  "./components/mockups/prysm-diagram/FlowDiagramV2.tsx": () => import("../components/mockups/prysm-diagram/FlowDiagramV2.tsx"),
+  "./components/mockups/prysm-diagram/FlowDiagramV3.tsx": () => import("../components/mockups/prysm-diagram/FlowDiagramV3.tsx"),
+  "./components/mockups/prysm-diagram/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram/MinimalGrid.tsx"),
+  "./components/mockups/prysm-diagram-copy-UTzES3C1/CommandCenter.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/CommandCenter.tsx"),
+  "./components/mockups/prysm-diagram-copy-UTzES3C1/MinimalGrid.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/MinimalGrid.tsx"),
+  "./components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx": () => import("../components/mockups/prysm-diagram-copy-UTzES3C1/PrysmDiagramCopyUTzES3C1.tsx")
 };

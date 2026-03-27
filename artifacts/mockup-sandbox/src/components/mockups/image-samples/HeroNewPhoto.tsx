@@ -49,7 +49,8 @@ export function HeroNewPhoto() {
           className="font-black uppercase leading-none text-white"
           style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)" }}
         >
-          TURNING<br />
+          TURNING
+          <br />
           GRATITUDE INTO{" "}
           <span
             style={{
@@ -111,7 +112,8 @@ export function HeroNewPhoto() {
               key={label}
               className="px-6 py-5"
               style={{
-                borderRight: i < 2 ? "1px solid rgba(255,255,255,0.08)" : "none",
+                borderRight:
+                  i < 2 ? "1px solid rgba(255,255,255,0.08)" : "none",
               }}
             >
               <div
@@ -121,8 +123,8 @@ export function HeroNewPhoto() {
                     i === 0
                       ? "linear-gradient(90deg, #7C3AED, #2563EB)"
                       : i === 1
-                      ? "linear-gradient(90deg, #2563EB, #06B6D4)"
-                      : "linear-gradient(90deg, #06B6D4, #7C3AED)",
+                        ? "linear-gradient(90deg, #2563EB, #06B6D4)"
+                        : "linear-gradient(90deg, #06B6D4, #7C3AED)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
