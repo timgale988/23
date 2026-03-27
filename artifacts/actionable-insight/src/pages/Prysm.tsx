@@ -143,12 +143,12 @@ export default function Prysm() {
                   style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)", filter: "blur(48px)" }}
                 />
                 <img
-                  src="/images/prysm-abstract.png"
-                  alt="Prysm — grateful patient intelligence"
+                  src="/images/hero-tech-ai.png"
+                  alt="Prysm — connecting people through grateful patient intelligence"
                   className="relative w-full object-cover rounded-2xl"
                   style={{
                     height: "460px",
-                    objectPosition: "center",
+                    objectPosition: "center 60%",
                     boxShadow: "0 32px 80px rgba(10,14,26,0.22)",
                   }}
                 />

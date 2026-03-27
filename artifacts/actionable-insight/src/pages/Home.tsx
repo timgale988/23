@@ -103,12 +103,12 @@ export default function Home() {
                   style={{ background: "linear-gradient(135deg,#7C3AED,#06B6D4)", filter: "blur(48px)" }}
                 />
                 <img
-                  src="/images/hero-mesh.png"
-                  alt="Actionable Insight — connected intelligence platform"
+                  src="/images/hero-balloon-orange.png"
+                  alt="Actionable Insight — hope, warmth and human connection"
                   className="relative w-full object-cover rounded-2xl"
                   style={{
                     height: "420px",
-                    objectPosition: "center",
+                    objectPosition: "center 49%",
                     boxShadow: "0 32px 80px rgba(10,14,26,0.18), 0 4px 16px rgba(10,14,26,0.08)",
                   }}
                 />
