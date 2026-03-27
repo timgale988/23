@@ -20,10 +20,10 @@ export function HeroV1ProductHub() {
         {/* Product Cards */}
         <div className="flex flex-col lg:flex-row gap-6 md:gap-8 justify-center items-stretch mb-20">
           
-          {/* PRYSM Card */}
+          {/* PRYSM Card — jet black */}
           <div 
             className="group relative flex-1 flex flex-col rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-full lg:max-w-[500px] min-h-[520px]"
-            style={{ background: "linear-gradient(135deg, #1E0A3C 0%, #3730A3 100%)" }}
+            style={{ background: "linear-gradient(160deg, #08080F 0%, #0F0F1E 100%)" }}
           >
             {/* Image Band */}
             <div className="h-[200px] w-full relative overflow-hidden shrink-0">
@@ -31,11 +31,11 @@ export function HeroV1ProductHub() {
                 src="/__mockup/images/dash-growth.jpeg" 
                 alt="Prysm Intelligence Dashboard"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{ objectPosition: "center 15%", filter: "saturate(1.1) brightness(0.88) contrast(1.05)" }}
+                style={{ objectPosition: "center 15%", filter: "saturate(0.9) brightness(0.7) contrast(1.1)" }}
               />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,10,60,0.25) 0%, rgba(44,31,117,0.85) 100%)" }} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(8,8,15,0.15) 0%, rgba(8,8,15,0.92) 100%)" }} />
               <div className="absolute top-6 left-8">
-                <span className="text-xs font-bold tracking-[0.2em] text-violet-200 uppercase bg-black/20 backdrop-blur-md px-3 py-1 rounded-full border border-violet-500/30">
+                <span className="text-xs font-bold tracking-[0.2em] text-white/60 uppercase bg-white/5 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
                   Platform 01
                 </span>
               </div>
@@ -44,7 +44,7 @@ export function HeroV1ProductHub() {
             {/* Content */}
             <div className="flex flex-col flex-1 p-8 text-white relative z-10">
               <h2 className="text-4xl font-black tracking-tight mb-3">PRYSM</h2>
-              <p className="text-violet-100 text-base mb-8 leading-relaxed font-medium">
+              <p className="text-white/50 text-base mb-8 leading-relaxed font-medium">
                 Epic-native grateful patient intelligence for complex health systems.
               </p>
 
@@ -52,29 +52,29 @@ export function HeroV1ProductHub() {
               <div className="grid grid-cols-3 gap-4 mb-auto pt-2">
                 <div>
                   <div className="text-2xl font-bold text-white">1,284</div>
-                  <div className="text-[10px] text-violet-300 font-bold uppercase tracking-wider mt-1">Prospects/Mo</div>
+                  <div className="text-[10px] text-white/35 font-bold uppercase tracking-wider mt-1">Prospects/Mo</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">93.1</div>
-                  <div className="text-[10px] text-violet-300 font-bold uppercase tracking-wider mt-1">Avg Score</div>
+                  <div className="text-[10px] text-white/35 font-bold uppercase tracking-wider mt-1">Avg Score</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white text-[#06B6D4]">305%</div>
-                  <div className="text-[10px] text-violet-300 font-bold uppercase tracking-wider mt-1">MG Increase</div>
+                  <div className="text-2xl font-bold" style={{ color: "#7C3AED" }}>305%</div>
+                  <div className="text-[10px] text-white/35 font-bold uppercase tracking-wider mt-1">MG Increase</div>
                 </div>
               </div>
 
               {/* Action */}
-              <a href="#" className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-xl border-2 border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 transition-colors text-white font-bold text-lg group/btn">
+              <a href="#" className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-xl border border-white/10 hover:border-white/25 bg-white/5 hover:bg-white/8 transition-colors text-white font-bold text-lg group/btn">
                 Explore Prysm <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
 
-          {/* APERION Card */}
+          {/* APERION Card — steel blue gradient */}
           <div 
             className="group relative flex-1 flex flex-col rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-full lg:max-w-[500px] min-h-[520px]"
-            style={{ background: "linear-gradient(135deg, #0C4A6E 0%, #0891B2 100%)" }}
+            style={{ background: "linear-gradient(160deg, #1E3A5F 0%, #2563EB 100%)" }}
           >
             {/* Image Band */}
             <div className="h-[200px] w-full relative overflow-hidden shrink-0">
@@ -82,11 +82,11 @@ export function HeroV1ProductHub() {
                 src="/__mockup/images/dash-finance.jpeg" 
                 alt="Aperion Platform Dashboard"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{ objectPosition: "center 30%", filter: "saturate(1.1) brightness(0.85) contrast(1.05)" }}
+                style={{ objectPosition: "center 30%", filter: "saturate(1.05) brightness(0.82) contrast(1.05)" }}
               />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(12,74,110,0.2) 0%, rgba(10,98,130,0.88) 100%)" }} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,58,95,0.15) 0%, rgba(37,99,235,0.88) 100%)" }} />
               <div className="absolute top-6 left-8">
-                <span className="text-xs font-bold tracking-[0.2em] text-cyan-100 uppercase bg-black/20 backdrop-blur-md px-3 py-1 rounded-full border border-cyan-500/30">
+                <span className="text-xs font-bold tracking-[0.2em] text-blue-100/80 uppercase bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
                   Platform 02
                 </span>
               </div>
@@ -95,7 +95,7 @@ export function HeroV1ProductHub() {
             {/* Content */}
             <div className="flex flex-col flex-1 p-8 text-white relative z-10">
               <h2 className="text-4xl font-black tracking-tight mb-3">APERION</h2>
-              <p className="text-cyan-100 text-base mb-8 leading-relaxed font-medium">
+              <p className="text-blue-100/70 text-base mb-8 leading-relaxed font-medium">
                 AI-powered fundraising automation and insights for agile nonprofits.
               </p>
 
@@ -103,20 +103,20 @@ export function HeroV1ProductHub() {
               <div className="grid grid-cols-3 gap-4 mb-auto pt-2">
                 <div>
                   <div className="text-2xl font-bold text-white">75%</div>
-                  <div className="text-[10px] text-cyan-200 font-bold uppercase tracking-wider mt-1">Less Admin</div>
+                  <div className="text-[10px] text-blue-200/60 font-bold uppercase tracking-wider mt-1">Less Admin</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white text-[#7C3AED]">20x</div>
-                  <div className="text-[10px] text-cyan-200 font-bold uppercase tracking-wider mt-1">ROI</div>
+                  <div className="text-2xl font-bold text-white">20x</div>
+                  <div className="text-[10px] text-blue-200/60 font-bold uppercase tracking-wider mt-1">ROI</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">47</div>
-                  <div className="text-[10px] text-cyan-200 font-bold uppercase tracking-wider mt-1">Briefs/Wk</div>
+                  <div className="text-[10px] text-blue-200/60 font-bold uppercase tracking-wider mt-1">Briefs/Wk</div>
                 </div>
               </div>
 
               {/* Action */}
-              <a href="#" className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-xl border-2 border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 transition-colors text-white font-bold text-lg group/btn">
+              <a href="#" className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-xl border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/15 transition-colors text-white font-bold text-lg group/btn">
                 Explore Aperion <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
               </a>
             </div>
