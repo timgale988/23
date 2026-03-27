@@ -124,17 +124,24 @@ export function PrysmSignalMap() {
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
             style={{
-              opacity: 0.22,
-              filter: "saturate(0.45) contrast(1.1) brightness(0.95)",
+              opacity: 0.42,
+              filter: "contrast(1.05) brightness(1.0)",
               objectPosition: "center 35%",
             }}
           />
-          {/* Radial vignette — gentle fade toward edges only */}
+          {/* Soft white wash — keeps diagram readable without killing the color */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "rgba(240,240,240,0.38)",
+            }}
+          />
+          {/* Edge vignette only — doesn't touch the center */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse 90% 85% at 52% 50%, transparent 30%, rgba(239,239,239,0.55) 70%, #EFEFEF 95%)",
+                "radial-gradient(ellipse 95% 90% at 52% 50%, transparent 45%, rgba(239,239,239,0.45) 78%, #EFEFEF 100%)",
             }}
           />
           {/* Subtle grid */}
