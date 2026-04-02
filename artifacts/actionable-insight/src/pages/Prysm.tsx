@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ArrowRight, Brain, Zap, Phone, Users, BarChart3, Quote, AlertTriangle, Shield, ChevronRight, Activity, CheckCircle2, Stethoscope, Lock, Circle, Mic, ShieldCheck } from "lucide-react";
+import { RadarHero } from "@/components/RadarHero";
 
 const WAVEFORM = [18, 32, 24, 44, 28, 52, 20, 40, 36, 56, 24, 42, 30, 50, 22, 46, 34, 54, 26, 44, 20, 38, 48, 30, 52, 22, 40, 28, 56, 24];
 
@@ -80,7 +81,8 @@ export default function Prysm() {
     <div className="overflow-hidden bg-white">
 
       {/* ── Hero ── */}
-      <section className="border-b border-gray-100 py-20 lg:py-28">
+      <RadarHero />
+      <section className="border-b border-gray-100 py-20 lg:py-28 hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-start gap-16">
 
