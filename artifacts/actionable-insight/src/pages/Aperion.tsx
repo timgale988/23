@@ -1,5 +1,6 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ArrowRight, Brain, Zap, FileText, BarChart3, Workflow, CheckCircle2, Quote } from "lucide-react";
+import { AperionHero } from "@/components/AperionHero";
 
 const CAPABILITIES = [
   {
@@ -68,7 +69,8 @@ export default function Aperion() {
     <div className="overflow-hidden bg-white">
 
       {/* ── Hero ── */}
-      <section className="border-b border-gray-100 py-20 lg:py-28">
+      <AperionHero />
+      <section className="border-b border-gray-100 py-20 lg:py-28 hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-start gap-16">
 
