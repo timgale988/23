@@ -19,9 +19,10 @@ const PIPELINE = [
 export function AperionHero() {
   return (
     <>
-      {/* ── Dark hero section ── */}
-      <section className="relative overflow-hidden" style={{ minHeight: "72vh" }}>
+      {/* ── Hero section ── */}
+      <section className="relative overflow-hidden">
 
+        {/* Background image — spans full section height */}
         <img
           src="/hero-doctor-ai.webp"
           alt=""
@@ -30,87 +31,88 @@ export function AperionHero() {
           style={{ filter: "hue-rotate(200deg) saturate(0.8)" }}
         />
 
-        {/* Full-coverage left-to-right: dark navy → medium blue */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(90deg, rgba(4,8,40,0.99) 0%, rgba(8,20,72,0.99) 30%, rgba(14,44,130,0.98) 65%, rgba(10,34,108,0.97) 100%)" }}
-        />
-        {/* Radial blue glow — left anchor */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 12% 50%, rgba(20,60,180,0.18) 0%, transparent 50%)" }}
-        />
-        {/* Bottom veil */}
-        <div
-          className="absolute inset-x-0 bottom-0 pointer-events-none"
-          style={{ height: "40%", background: "linear-gradient(to top, rgba(2,5,28,0.99) 0%, rgba(6,18,62,0.88) 60%, transparent 100%)" }}
-        />
+        {/* ── Solid dark content panel ── */}
+        <div className="relative z-10" style={{ background: "#04081E" }}>
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col justify-center" style={{ minHeight: "72vh" }}>
-          <div className="max-w-[620px] py-24">
-            <AnimatedSection>
-              <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-8"
-                style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)", color: "#fff", letterSpacing: "0.12em" }}
-              >
-                Platform 02 — Aperion
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.08}>
-              <h1
-                className="font-black uppercase leading-[0.92] text-white mb-8"
-                style={{ fontSize: "clamp(48px,6vw,80px)", letterSpacing: "-0.04em" }}
-              >
-                Every Gift
-                <br />Officer's
-                <br />
-                <span style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4,#38BDF8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  Unfair Advantage.
-                </span>
-              </h1>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.14}>
-              <p className="text-lg leading-relaxed mb-4 max-w-[500px]" style={{ color: "rgba(255,255,255,0.65)" }}>
-                Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor
-                briefings, intelligent opportunity matching, and proposal intelligence that makes every
-                conversation count.
-              </p>
-              <p className="text-sm leading-relaxed mb-10 max-w-[500px]" style={{ color: "rgba(255,255,255,0.35)" }}>
-                Built for Blackbaud CRM and Salesforce NPSP. Works inside the tools your team already uses.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.18}>
-              <div className="flex flex-wrap gap-3 mb-10">
-                <button
-                  className="px-8 py-4 rounded-xl text-white font-bold text-[15px] transition-all hover:scale-105"
-                  style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", boxShadow: "0 8px 24px rgba(6,182,212,0.4)" }}
-                >
-                  Request a Demo
-                </button>
-                <button
-                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-[15px] transition-all hover:bg-white/10"
-                  style={{ border: "1.5px solid rgba(255,255,255,0.22)", color: "rgba(255,255,255,0.85)" }}
-                >
-                  View Case Study <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-              <div className="flex flex-wrap gap-5">
-                {[
-                  { icon: <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />,  label: "Blackbaud CRM" },
-                  { icon: <Brain        className="w-3.5 h-3.5 text-cyan-400" />,  label: "AI Briefings" },
-                  { icon: <Zap          className="w-3.5 h-3.5 text-sky-400" />,   label: "75% Admin Saved" },
-                ].map(({ icon, label }) => (
-                  <div key={label} className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "rgba(255,255,255,0.5)" }}>
-                    {icon} {label}
+              {/* LEFT — badge + headline */}
+              <div className="flex-1">
+                <AnimatedSection>
+                  <div
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-8"
+                    style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)", color: "#fff", letterSpacing: "0.12em" }}
+                  >
+                    Platform 02 — Aperion
                   </div>
-                ))}
+                </AnimatedSection>
+                <AnimatedSection delay={0.08}>
+                  <h1
+                    className="font-black uppercase leading-[0.92] text-white"
+                    style={{ fontSize: "clamp(44px,5.5vw,76px)", letterSpacing: "-0.04em" }}
+                  >
+                    Every Gift<br />Officer's<br />
+                    <span style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4,#38BDF8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                      Unfair Advantage.
+                    </span>
+                  </h1>
+                </AnimatedSection>
               </div>
-            </AnimatedSection>
+
+              {/* RIGHT — description + CTAs + badges */}
+              <AnimatedSection delay={0.14} className="flex flex-col gap-6" style={{ maxWidth: 480 }}>
+                <div>
+                  <p className="text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.65)" }}>
+                    Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor
+                    briefings, intelligent opportunity matching, and proposal intelligence that makes every
+                    conversation count.
+                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.35)" }}>
+                    Built for Blackbaud CRM and Salesforce NPSP. Works inside the tools your team already uses.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    className="px-8 py-4 rounded-xl text-white font-bold text-[15px] transition-all hover:scale-105"
+                    style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", boxShadow: "0 8px 24px rgba(6,182,212,0.4)" }}
+                  >
+                    Request a Demo
+                  </button>
+                  <button
+                    className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-[15px] transition-all hover:bg-white/10"
+                    style={{ border: "1.5px solid rgba(255,255,255,0.22)", color: "rgba(255,255,255,0.85)" }}
+                  >
+                    View Case Study <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+                <div className="flex flex-wrap gap-5">
+                  {[
+                    { icon: <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />,  label: "Blackbaud CRM" },
+                    { icon: <Brain        className="w-3.5 h-3.5 text-cyan-400" />,  label: "AI Briefings" },
+                    { icon: <Zap          className="w-3.5 h-3.5 text-sky-400" />,   label: "75% Admin Saved" },
+                  ].map(({ icon, label }) => (
+                    <div key={label} className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "rgba(255,255,255,0.5)" }}>
+                      {icon} {label}
+                    </div>
+                  ))}
+                </div>
+              </AnimatedSection>
+
+            </div>
           </div>
+          {/* Gradient fade — dark panel dissolves into image below */}
+          <div style={{ height: 96, background: "linear-gradient(to bottom, #04081E 0%, rgba(4,8,30,0) 100%)" }} />
         </div>
+
+        {/* ── Image reveal zone ── */}
+        <div className="relative" style={{ height: 300 }}>
+          {/* Subtle vignette at bottom edge */}
+          <div
+            className="absolute inset-x-0 bottom-0 pointer-events-none"
+            style={{ height: "60%", background: "linear-gradient(to top, rgba(4,8,30,0.55) 0%, rgba(4,8,30,0) 100%)" }}
+          />
+        </div>
+
       </section>
 
       {/* ── Section divider ── */}
