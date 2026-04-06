@@ -330,87 +330,57 @@ export default function Aperion() {
       {/* ── Capabilities ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection className="mb-14 max-w-3xl">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-5">Platform Capabilities</p>
+            <h2
+              className="font-black uppercase text-[#0A0E1A] leading-[0.95] mb-5"
+              style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
+            >
+              Five capabilities. One outcome: more closed gifts.
+            </h2>
+            <p className="text-gray-500 text-lg leading-relaxed">
+              Each module eliminates a specific category of administrative friction — together they transform
+              how your team operates.
+            </p>
+          </AnimatedSection>
 
-          {/* Section header + ROI callout */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-            <AnimatedSection className="max-w-2xl">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-5">Platform Capabilities</p>
-              <h2
-                className="font-black uppercase text-[#0A0E1A] leading-[0.95]"
-                style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
-              >
-                Five capabilities.<br />One outcome: more closed gifts.
-              </h2>
-            </AnimatedSection>
-            <AnimatedSection delay={0.1} className="flex-shrink-0">
-              <div className="rounded-2xl px-8 py-6 text-center" style={{ background: "#04081E", minWidth: "200px" }}>
-                <p className="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-2">Net Result</p>
-                <div
-                  className="font-black leading-none mb-1"
-                  style={{ fontSize: "clamp(40px,5vw,60px)", background: "linear-gradient(90deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.05em" }}
-                >
-                  20:1
-                </div>
-                <p className="text-white/40 text-xs uppercase tracking-widest">ROI · Year Two</p>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          {/* Numbered capability stack */}
-          <div className="divide-y divide-gray-100">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             {CAPABILITIES.map((cap, i) => (
               <AnimatedSection key={i} delay={0.07 * i}>
-                <div className="group flex items-start gap-6 lg:gap-10 py-8 lg:py-10 transition-colors hover:bg-gray-50 -mx-6 lg:-mx-8 px-6 lg:px-8 rounded-xl">
-
-                  {/* Index number */}
+                <div
+                  className="h-full flex flex-col rounded-2xl p-8 border border-gray-200"
+                  style={{ borderTopColor: cap.color, borderTopWidth: "3px" }}
+                >
                   <div
-                    className="flex-shrink-0 font-black leading-none select-none"
-                    style={{
-                      fontSize: "clamp(32px,4vw,52px)",
-                      letterSpacing: "-0.05em",
-                      background: `linear-gradient(135deg, ${cap.color}55, ${cap.color}22)`,
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      minWidth: "60px",
-                      paddingTop: "2px",
-                    }}
+                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-6"
+                    style={{ background: `${cap.color}12`, color: cap.color }}
                   >
-                    {String(i + 1).padStart(2, "0")}
+                    {cap.icon}
                   </div>
-
-                  {/* Left color bar */}
-                  <div
-                    className="flex-shrink-0 rounded-full mt-1"
-                    style={{ width: "3px", height: "100%", minHeight: "60px", background: cap.color, opacity: 0.7 }}
-                  />
-
-                  {/* Icon + content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                        style={{ background: `${cap.color}12`, color: cap.color }}
-                      >
-                        {cap.icon}
-                      </div>
-                      <h3
-                        className="font-black uppercase text-[#0A0E1A] tracking-tight leading-none"
-                        style={{ fontSize: "clamp(14px,1.4vw,18px)", letterSpacing: "-0.02em" }}
-                      >
-                        {cap.title}
-                      </h3>
-                    </div>
-                    <p className="text-gray-400 text-sm leading-relaxed max-w-2xl">{cap.desc}</p>
-                  </div>
-
-                  {/* Included badge */}
-                  <div className="flex-shrink-0 hidden md:flex items-center gap-1.5 self-center">
-                    <CheckCircle2 className="w-3.5 h-3.5" style={{ color: cap.color }} />
-                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: cap.color }}>Included</span>
+                  <h3 className="text-sm font-black text-[#0A0E1A] uppercase tracking-tight mb-3">{cap.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed flex-1">{cap.desc}</p>
+                  <div className="mt-6 pt-5 border-t border-gray-100 flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" style={{ color: cap.color }} />
+                    <span className="text-[11px] font-bold uppercase tracking-widest" style={{ color: cap.color }}>Included in Aperion</span>
                   </div>
                 </div>
               </AnimatedSection>
             ))}
+
+            {/* ROI card */}
+            <AnimatedSection delay={0.35}>
+              <div className="h-full rounded-2xl p-8 flex flex-col" style={{ background: "#04081E" }}>
+                <p className="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-5">Net Result</p>
+                <div
+                  className="font-black leading-none mb-3"
+                  style={{ fontSize: "clamp(44px,5vw,64px)", background: "linear-gradient(90deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.05em" }}
+                >
+                  20:1
+                </div>
+                <p className="text-white/50 text-sm leading-relaxed flex-1">ROI by year two, for every dollar invested in Aperion.</p>
+                <div className="mt-6 pt-5 border-t border-white/10 text-[11px] font-bold text-white/20 uppercase tracking-widest">Measured outcome</div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
