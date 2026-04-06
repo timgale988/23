@@ -371,18 +371,21 @@ export default function Aperion() {
             {CAPABILITIES.map((cap, i) => (
               <AnimatedSection key={i} delay={0.07 * i}>
                 <div
-                  className="h-full flex flex-col rounded-2xl p-8 border border-gray-200 relative overflow-hidden"
-                  style={{ borderTopColor: cap.color, borderTopWidth: "3px" }}
+                  className="h-full flex flex-col rounded-2xl p-8 border relative overflow-hidden"
+                  style={{
+                    background: `linear-gradient(150deg, ${cap.color}18 0%, #ffffff 55%)`,
+                    borderColor: `${cap.color}30`,
+                  }}
                 >
                   <span
                     className="absolute top-4 right-5 font-black text-[64px] leading-none select-none pointer-events-none"
-                    style={{ color: `${cap.color}08`, letterSpacing: "-0.06em" }}
+                    style={{ color: `${cap.color}14`, letterSpacing: "-0.06em" }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center mb-6 relative z-10"
-                    style={{ background: `${cap.color}12`, color: cap.color }}
+                    style={{ background: `linear-gradient(135deg, ${cap.color}22, ${cap.color}10)`, color: cap.color }}
                   >
                     {cap.icon}
                   </div>
