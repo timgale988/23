@@ -332,32 +332,41 @@ export default function Aperion() {
       <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #06B6D4, #2563EB)" }} />
 
       {/* ── Capabilities ── */}
-      <section className="py-20 lg:py-28 border-b border-gray-100 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <AnimatedSection className="mb-14 max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-widest mb-5 text-cyan-500">
-              Platform Capabilities
-            </p>
-            <h2
-              className="font-black uppercase text-[#0A0E1A] leading-[0.95] mb-5"
-              style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
-            >
-              Five capabilities. One outcome:{" "}
-              <span
-                style={{
-                  background: "linear-gradient(90deg, #2563EB, #06B6D4)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
+      <section className="border-b border-gray-100 bg-white">
+        <AnimatedSection>
+          <div
+            className="px-6 lg:px-8 py-16 lg:py-20 relative overflow-hidden"
+            style={{ background: "#04081E" }}
+          >
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
+            <div className="max-w-7xl mx-auto relative z-10">
+              <p className="text-xs font-bold uppercase tracking-widest mb-5 text-cyan-400">
+                Platform Capabilities
+              </p>
+              <h2
+                className="font-black uppercase text-white leading-[0.95] mb-5 max-w-3xl"
+                style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
               >
-                more closed gifts.
-              </span>
-            </h2>
-            <p className="text-gray-500 text-lg leading-relaxed">
-              Each module eliminates a specific category of administrative friction — together they transform
-              how your team operates.
-            </p>
-          </AnimatedSection>
+                Five capabilities. One outcome:{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #2563EB, #06B6D4)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  more closed gifts.
+                </span>
+              </h2>
+              <p className="text-white/50 text-lg leading-relaxed max-w-3xl">
+                Each module eliminates a specific category of administrative friction — together they transform
+                how your team operates.
+              </p>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 lg:pt-20 pb-20 lg:pb-28">
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {CAPABILITIES.map((cap, i) => (
