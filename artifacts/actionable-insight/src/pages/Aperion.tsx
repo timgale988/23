@@ -246,8 +246,6 @@ export default function Aperion() {
         </div>
       </section>
 
-      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #2563EB, #06B6D4)" }} />
-
       {/* ── How Aperion Works ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -328,8 +326,6 @@ export default function Aperion() {
           </AnimatedSection>
         </div>
       </section>
-
-      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #06B6D4, #2563EB)" }} />
 
       {/* ── Capabilities ── */}
       <section className="border-b border-gray-100 bg-white">
@@ -417,8 +413,6 @@ export default function Aperion() {
           </div>
         </div>
       </section>
-
-      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #2563EB, #06B6D4)" }} />
 
       {/* ── Impact ── */}
       <section className="py-20 lg:py-24 border-b border-gray-100 bg-gray-50">
