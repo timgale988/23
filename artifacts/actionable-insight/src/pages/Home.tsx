@@ -130,6 +130,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #7C3AED, #2563EB, #06B6D4)" }} />
+
       {/* ── Products ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -344,6 +346,8 @@ export default function Home() {
           </AnimatedSection>
         </div>
       </section>
+
+      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #06B6D4, #2563EB, #7C3AED)" }} />
 
       {/* ── Stats ── */}
       <section className="py-20 lg:py-24 border-b border-gray-100">

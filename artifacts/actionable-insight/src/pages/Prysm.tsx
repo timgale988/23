@@ -358,6 +358,8 @@ export default function Prysm() {
         </div>
       </section>
 
+      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #7C3AED, #6366F1, #06B6D4)" }} />
+
       {/* ── The Challenge ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -398,14 +400,20 @@ export default function Prysm() {
                   <span className="text-xs font-bold uppercase tracking-widest text-gray-500">Why Traditional Programs Fail</span>
                 </div>
                 {sectorChallenges.map((c, i) => (
-                  <div key={i} className="px-6 py-5 border-b border-gray-100 last:border-0 bg-white flex items-start gap-4 hover:bg-gray-50 transition-colors">
+                  <div key={i} className="px-6 py-6 border-b border-gray-100 last:border-0 bg-white flex items-start gap-4 hover:bg-gray-50 transition-colors relative overflow-hidden">
+                    <span
+                      className="absolute top-3 right-4 font-black text-[48px] leading-none select-none pointer-events-none"
+                      style={{ color: `${c.color}06`, letterSpacing: "-0.06em" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     <div
-                      className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-0.5"
+                      className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-0.5 relative z-10"
                       style={{ background: `${c.color}12` }}
                     >
                       <c.icon className="w-4 h-4" style={{ color: c.color }} />
                     </div>
-                    <div>
+                    <div className="relative z-10">
                       <h4 className="text-xs font-bold text-[#0A0E1A] uppercase tracking-tight mb-1.5">{c.title}</h4>
                       <p className="text-xs text-gray-400 leading-relaxed">{c.desc}</p>
                     </div>
@@ -416,6 +424,8 @@ export default function Prysm() {
           </div>
         </div>
       </section>
+
+      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #06B6D4, #6366F1, #7C3AED)" }} />
 
       {/* ── How Prysm Works ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-white">
@@ -526,17 +536,23 @@ export default function Prysm() {
           {/* Capabilities grid */}
           <AnimatedSection className="mt-14">
             <p className="text-xs font-bold text-gray-300 uppercase tracking-widest text-center mb-5">Platform Capabilities</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
               {capabilities.map((cap, i) => (
-                <div key={i} className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-300 hover:shadow-md transition-all">
+                <div key={i} className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-300 transition-all relative overflow-hidden" style={{ borderTopColor: cap.color, borderTopWidth: "3px" }}>
+                  <span
+                    className="absolute top-2 right-3 font-black text-[48px] leading-none select-none pointer-events-none"
+                    style={{ color: `${cap.color}08`, letterSpacing: "-0.06em" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center mb-4"
+                    className="w-9 h-9 rounded-lg flex items-center justify-center mb-4 relative z-10"
                     style={{ background: `${cap.color}12` }}
                   >
                     <cap.icon className="w-4 h-4" style={{ color: cap.color }} />
                   </div>
-                  <h4 className="text-xs font-bold text-[#0A0E1A] uppercase tracking-tight mb-2">{cap.title}</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">{cap.desc}</p>
+                  <h4 className="text-xs font-bold text-[#0A0E1A] uppercase tracking-tight mb-2 relative z-10">{cap.title}</h4>
+                  <p className="text-xs text-gray-400 leading-relaxed relative z-10">{cap.desc}</p>
                 </div>
               ))}
             </div>
@@ -562,6 +578,8 @@ export default function Prysm() {
           </div>
         </div>
       </section>
+
+      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #7C3AED, #06B6D4)" }} />
 
       {/* ── Platform in Action ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-white">

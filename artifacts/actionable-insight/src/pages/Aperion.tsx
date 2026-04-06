@@ -246,6 +246,8 @@ export default function Aperion() {
         </div>
       </section>
 
+      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #2563EB, #06B6D4)" }} />
+
       {/* ── How Aperion Works ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -327,6 +329,8 @@ export default function Aperion() {
         </div>
       </section>
 
+      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #06B6D4, #2563EB)" }} />
+
       {/* ── Capabilities ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -344,22 +348,28 @@ export default function Aperion() {
             </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {CAPABILITIES.map((cap, i) => (
               <AnimatedSection key={i} delay={0.07 * i}>
                 <div
-                  className="h-full flex flex-col rounded-2xl p-8 border border-gray-200"
+                  className="h-full flex flex-col rounded-2xl p-8 border border-gray-200 relative overflow-hidden"
                   style={{ borderTopColor: cap.color, borderTopWidth: "3px" }}
                 >
+                  <span
+                    className="absolute top-4 right-5 font-black text-[64px] leading-none select-none pointer-events-none"
+                    style={{ color: `${cap.color}08`, letterSpacing: "-0.06em" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-6"
+                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-6 relative z-10"
                     style={{ background: `${cap.color}12`, color: cap.color }}
                   >
                     {cap.icon}
                   </div>
-                  <h3 className="text-sm font-black text-[#0A0E1A] uppercase tracking-tight mb-3">{cap.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed flex-1">{cap.desc}</p>
-                  <div className="mt-6 pt-5 border-t border-gray-100 flex items-center gap-2">
+                  <h3 className="text-sm font-black text-[#0A0E1A] uppercase tracking-tight mb-3 relative z-10">{cap.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed flex-1 relative z-10">{cap.desc}</p>
+                  <div className="mt-6 pt-5 border-t border-gray-100 flex items-center gap-2 relative z-10">
                     <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" style={{ color: cap.color }} />
                     <span className="text-[11px] font-bold uppercase tracking-widest" style={{ color: cap.color }}>Included in Aperion</span>
                   </div>
@@ -385,6 +395,8 @@ export default function Aperion() {
         </div>
       </section>
 
+      <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #2563EB, #06B6D4)" }} />
+
       {/* ── Impact ── */}
       <section className="py-20 lg:py-24 border-b border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -398,22 +410,25 @@ export default function Aperion() {
             </h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { stat: "75%",  label: "Admin Time Eliminated",  desc: "Gift officers reclaim the majority of their week for relationship-building." },
               { stat: "3×",   label: "Meaningful Touchpoints", desc: "Aperion users average 3× more high-quality donor interactions per month." },
               { stat: "300+", label: "Opportunity Library",    desc: "Pre-built funding opportunities matched intelligently to each donor's interests." },
               { stat: "20:1", label: "ROI by Year Two",        desc: "For every dollar invested in Aperion, programs return twenty in philanthropic revenue." },
             ].map((item, i) => (
-              <AnimatedSection key={i} delay={0.1 * i} className="bg-white border border-gray-200 rounded-2xl p-8">
+              <AnimatedSection key={i} delay={0.1 * i} className="bg-white border border-gray-200 rounded-2xl p-8 relative overflow-hidden">
+                <span className="absolute top-3 right-4 font-black text-[56px] leading-none text-gray-100/60 select-none pointer-events-none" style={{ letterSpacing: "-0.06em" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <div
-                  className="font-black text-[clamp(36px,4vw,52px)] leading-none mb-5"
+                  className="font-black text-[clamp(36px,4vw,52px)] leading-none mb-5 relative z-10"
                   style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.05em" }}
                 >
                   {item.stat}
                 </div>
-                <div className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-3">{item.label}</div>
-                <p className="text-xs text-gray-400 leading-relaxed">{item.desc}</p>
+                <div className="text-sm font-bold text-[#0A0E1A] uppercase tracking-tight mb-3 relative z-10">{item.label}</div>
+                <p className="text-xs text-gray-400 leading-relaxed relative z-10">{item.desc}</p>
               </AnimatedSection>
             ))}
           </div>
