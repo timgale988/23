@@ -1,173 +1,139 @@
-import { Plug, Sparkles, Handshake, ChevronRight, ArrowRight } from "lucide-react";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+const QUESTIONS = [
+  "Are your gift officers spending more than half their week on admin — not donors?",
+  "Are you missing grateful patient opportunities buried in your CRM?",
+  "Does proposal preparation take days when it should take minutes?",
+];
 
 export function AperionHero() {
   return (
     <div
-      className="min-h-screen w-full flex flex-col font-sans text-white overflow-hidden"
-      style={{ backgroundColor: "#03081A" }}
+      className="min-h-screen bg-[#03081A] text-white font-sans flex flex-col relative overflow-hidden"
+      style={{ selection: "none" }}
     >
-      {/* TOP STRIP — Badge + Headline */}
-      <AnimatedSection className="w-full flex flex-col justify-center items-center px-6 pt-16 pb-8 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium tracking-wide text-gray-300 mb-6 uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-          Platform 02 — Aperion
-        </div>
+      {/* Background glow effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-cyan-900/20 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-blue-900/20 blur-[100px] rounded-full pointer-events-none" />
 
-        <h1
-          className="font-bold tracking-tight leading-tight mb-4 max-w-4xl"
-          style={{ fontSize: "clamp(36px,4vw,56px)" }}
-        >
-          Here's{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-            exactly
-          </span>{" "}
-          how Aperion works.
-        </h1>
-
-        <p className="text-gray-400 text-lg sm:text-xl max-w-2xl">
-          Three steps from CRM data to closed gift — all automated.
-        </p>
-      </AnimatedSection>
-
-      {/* NUMBERED STEPS */}
-      <AnimatedSection
-        delay={0.1}
-        className="w-full flex items-center justify-center px-4 sm:px-8 py-8"
-      >
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-
-          {/* STEP 01 */}
-          <div
-            className="relative overflow-hidden border rounded-2xl p-7 flex flex-col transition-transform hover:-translate-y-1 duration-300 group"
-            style={{ backgroundColor: "#0D1117", borderColor: "rgba(255,255,255,0.08)" }}
-          >
-            <div className="absolute top-4 right-4 font-black leading-none text-white/[0.04] select-none pointer-events-none group-hover:text-white/[0.08] transition-colors"
-              style={{ fontSize: 80 }}>
-              01
-            </div>
-
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/20"
-              style={{ backgroundColor: "rgba(6,182,212,0.08)" }}>
-              <Plug className="w-6 h-6 text-cyan-400" />
-            </div>
-
-            <h3 className="text-xl font-semibold text-white mb-3 z-10">
-              Sync with Blackbaud CRM or Salesforce NPSP
-            </h3>
-
-            <p className="text-gray-400 leading-relaxed mb-8 flex-grow z-10">
-              Aperion connects to your existing CRM in minutes — no migration, no IT project.
-              Patient and donor data flows in automatically.
-            </p>
-
-            <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-gray-300 bg-white/5 border border-white/10 rounded-md px-3 py-1.5 w-fit z-10">
-              <span className="text-cyan-400">✓</span> Zero setup time
-            </div>
-          </div>
-
-          {/* STEP 02 */}
-          <div
-            className="relative overflow-hidden border rounded-2xl p-7 flex flex-col transition-transform hover:-translate-y-1 duration-300 group"
-            style={{ backgroundColor: "#0D1117", borderColor: "rgba(255,255,255,0.08)" }}
-          >
-            <div className="absolute top-4 right-4 font-black leading-none text-white/[0.04] select-none pointer-events-none group-hover:text-white/[0.08] transition-colors"
-              style={{ fontSize: 80 }}>
-              02
-            </div>
-
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-blue-500/20"
-              style={{ backgroundColor: "rgba(59,130,246,0.08)" }}>
-              <Sparkles className="w-6 h-6 text-blue-400" />
-            </div>
-
-            <h3 className="text-xl font-semibold text-white mb-3 z-10">
-              AI prepares every briefing before every meeting
-            </h3>
-
-            <p className="text-gray-400 leading-relaxed mb-8 flex-grow z-10">
-              Before each donor conversation, Aperion assembles a complete briefing — capacity
-              signals, prior giving history, relationship notes, and a suggested ask — from your
-              library of 300+ entries.
-            </p>
-
-            <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-gray-300 bg-white/5 border border-white/10 rounded-md px-3 py-1.5 w-fit z-10">
-              <span className="text-blue-400">⬡</span> AI-Generated · Ready in seconds
-            </div>
-          </div>
-
-          {/* STEP 03 */}
-          <div
-            className="relative overflow-hidden border rounded-2xl p-7 flex flex-col transition-transform hover:-translate-y-1 duration-300 group"
-            style={{ backgroundColor: "#0D1117", borderColor: "rgba(255,255,255,0.08)" }}
-          >
-            <div className="absolute top-4 right-4 font-black leading-none text-white/[0.04] select-none pointer-events-none group-hover:text-white/[0.08] transition-colors"
-              style={{ fontSize: 80 }}>
-              03
-            </div>
-
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20"
-              style={{ backgroundColor: "rgba(16,185,129,0.08)" }}>
-              <Handshake className="w-6 h-6 text-emerald-400" />
-            </div>
-
-            <h3 className="text-xl font-semibold text-white mb-3 z-10">
-              Gift officers arrive prepared — and close more
-            </h3>
-
-            <p className="text-gray-400 leading-relaxed mb-8 flex-grow z-10">
-              With briefings done automatically, gift officers spend their time on relationships.
-              Average teams see 3× touchpoints and 20:1 ROI within one fundraising cycle.
-            </p>
-
-            <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-gray-300 bg-white/5 border border-white/10 rounded-md px-3 py-1.5 w-fit z-10">
-              <span className="text-emerald-400 text-lg leading-none">⚡</span> 20:1 ROI · 3× touchpoints
-            </div>
-          </div>
-
-        </div>
-      </AnimatedSection>
-
-      {/* BOTTOM CTA STRIP */}
-      <div
-        className="w-full relative overflow-hidden"
-        style={{ backgroundColor: "#04081E", borderTop: "1px solid rgba(255,255,255,0.05)" }}
-      >
-        <AnimatedSection delay={0.18} className="flex flex-col items-center justify-center px-6 py-16">
-          {/* Glow */}
-          <div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full pointer-events-none"
-            style={{ background: "rgba(37,99,235,0.10)", filter: "blur(120px)" }}
-          />
-
-          <h2
-            className="font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-400 relative z-10"
-            style={{ fontSize: "clamp(28px,3vw,44px)" }}
-          >
-            Every Gift Officer's Unfair Advantage.
-          </h2>
-
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 relative z-10">
-            <button
-              className="px-8 py-3.5 rounded-full text-white font-medium transition-all flex items-center gap-2 group"
-              style={{ background: "linear-gradient(135deg, #2563EB, #06B6D4)" }}
-            >
-              Request a Demo
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            <button className="px-8 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all flex items-center gap-2">
-              View Case Study
-              <ChevronRight className="w-4 h-4 text-gray-400" />
-            </button>
-          </div>
-
-          <p className="text-gray-500 text-sm font-medium relative z-10">
-            Built for Blackbaud CRM and Salesforce NPSP
+      {/* TOP SECTION — Diagnostic Questions */}
+      <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full pt-24 pb-16 z-10">
+        <div className="max-w-4xl">
+          <p className="text-gray-400 uppercase tracking-[0.2em] text-sm font-semibold mb-12">
+            A Question for Gift Officers
           </p>
-        </AnimatedSection>
+
+          <div className="space-y-7 mb-12">
+            {QUESTIONS.map((question, i) => (
+              <div
+                key={i}
+                className="pl-6 border-l-2 border-cyan-400 py-1 hover:border-cyan-300 transition-colors duration-300 group"
+              >
+                <h3
+                  className="font-medium leading-snug text-gray-100 group-hover:text-white transition-colors duration-300"
+                  style={{ fontSize: "clamp(18px,2vw,26px)" }}
+                >
+                  {question}
+                </h3>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
+            If you answered yes to any of these, your gift officers are operating at a fraction of
+            their potential.
+          </p>
+        </div>
       </div>
 
+      {/* PIVOT DIVIDER — "Aperion Changes This" */}
+      <div className="relative w-full flex items-center justify-center py-8 z-10">
+        <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+        <div className="bg-[#03081A] px-6 relative z-10">
+          <span className="uppercase tracking-widest text-xs font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-500">
+            Aperion Changes This
+          </span>
+        </div>
+      </div>
+
+      {/* BOTTOM SECTION — Answer + CTA */}
+      <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full pb-24 pt-12 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+
+          {/* LEFT — Platform pitch */}
+          <div className="lg:col-span-7 space-y-8">
+            <Badge
+              variant="outline"
+              className="border-gray-800 text-gray-300 bg-gray-900/50 rounded-full px-4 py-1.5 text-xs tracking-wider"
+            >
+              PLATFORM 02 — APERION
+            </Badge>
+
+            <h2
+              className="font-semibold leading-[1.1] tracking-tight"
+              style={{ fontSize: "clamp(36px,4vw,56px)" }}
+            >
+              Every Gift Officer's <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+                Unfair Advantage.
+              </span>
+            </h2>
+
+            <p className="text-gray-400 text-xl leading-relaxed max-w-xl">
+              Aperion eliminates 75% of administrative burden — AI-prepared briefings, intelligent
+              opportunity matching, and proposal intelligence.
+            </p>
+
+            <div className="flex flex-wrap gap-6 pt-4 text-sm font-medium text-gray-300">
+              <div className="flex items-center gap-2">
+                <span className="text-cyan-400">✓</span> Blackbaud CRM
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-400">⬡</span> AI Briefings
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-yellow-400">⚡</span> 75% Admin Saved
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT — CTAs + Micro-stats */}
+          <div className="lg:col-span-5 flex flex-col space-y-4">
+            <Button
+              size="lg"
+              className="w-full h-14 text-lg bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white border-0 shadow-[0_0_30px_-5px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_-5px_rgba(6,182,212,0.6)] transition-all duration-300"
+            >
+              Request a Demo
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="lg"
+              className="w-full h-14 text-lg text-gray-300 hover:text-white hover:bg-white/5 border border-gray-800 transition-colors"
+            >
+              View Case Study →
+            </Button>
+
+            {/* Micro-stats */}
+            <div className="grid grid-cols-3 gap-4 pt-8 mt-4 border-t border-gray-800/60">
+              <div className="flex flex-col gap-1">
+                <span className="text-2xl font-semibold text-white">75%</span>
+                <span className="text-xs text-gray-500 uppercase tracking-wider">Admin reduced</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="text-2xl font-semibold text-white">20:1</span>
+                <span className="text-xs text-gray-500 uppercase tracking-wider">ROI</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="text-2xl font-semibold text-white">3×</span>
+                <span className="text-xs text-gray-500 uppercase tracking-wider">Touchpoints</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   );
 }
