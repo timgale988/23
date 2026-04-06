@@ -1,10 +1,11 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -13,6 +14,14 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Prysm", path: "/prysm" },
+    { name: "Aperion", path: "/aperion" },
+    { name: "Results", path: "/results" },
+    { name: "About", path: "/about" },
+  ];
 
   return (
     <header
@@ -23,7 +32,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 py-4">
-          <Link href="/aperion" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             <div
               className="w-8 h-8 rounded-lg flex-shrink-0"
               style={{ background: "linear-gradient(135deg, #7C3AED, #06B6D4)" }}
@@ -36,6 +45,31 @@ export function Navbar() {
             </span>
           </Link>
 
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                className={cn(
+                  "relative px-4 py-2 rounded-lg text-sm font-semibold transition-all",
+                  location === link.path
+                    ? "text-[#0A0E1A] bg-gray-100"
+                    : "text-gray-500 hover:text-[#0A0E1A] hover:bg-gray-50"
+                )}
+              >
+                {link.name}
+                {location === link.path && (
+                  <motion.div
+                    layoutId="nav-underline"
+                    className="absolute bottom-1 left-4 right-4 h-0.5 rounded-full"
+                    style={{ background: "linear-gradient(90deg,#7C3AED,#06B6D4)" }}
+                    transition={{ type: "spring", bounce: 0.25, duration: 0.4 }}
+                  />
+                )}
+              </Link>
+            ))}
+          </nav>
+
           <div className="hidden md:flex items-center gap-3">
             <a href="#" className="text-sm font-semibold text-gray-500 hover:text-[#0A0E1A] px-3 py-2 transition-colors">
               Sign In
@@ -43,8 +77,8 @@ export function Navbar() {
             <button
               className="px-5 py-2.5 rounded-xl text-white text-sm font-bold transition-all hover:opacity-90 hover:shadow-md"
               style={{
-                background: "linear-gradient(135deg,#2563EB,#06B6D4)",
-                boxShadow: "0 2px 12px rgba(6,182,212,0.3)",
+                background: "linear-gradient(135deg,#7C3AED,#2563EB)",
+                boxShadow: "0 2px 12px rgba(124,58,237,0.3)",
               }}
             >
               Book a Demo
@@ -68,14 +102,31 @@ export function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
           >
-            <div className="px-6 pt-3 pb-6">
-              <button
-                className="w-full py-3 rounded-xl text-white text-sm font-bold"
-                style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)" }}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Book a Demo
-              </button>
+            <div className="px-6 pt-3 pb-6 space-y-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "block px-4 py-3 rounded-lg text-sm font-semibold transition-colors",
+                    location === link.path
+                      ? "bg-gray-100 text-[#0A0E1A]"
+                      : "text-gray-500 hover:bg-gray-50 hover:text-[#0A0E1A]"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <div className="pt-3">
+                <button
+                  className="w-full py-3 rounded-xl text-white text-sm font-bold"
+                  style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)" }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Book a Demo
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

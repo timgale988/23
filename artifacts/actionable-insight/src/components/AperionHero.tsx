@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, Brain, Zap } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
@@ -94,12 +95,14 @@ export function AperionHero() {
                 >
                   Request a Demo
                 </button>
-                <button
-                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-[15px] transition-all hover:bg-white/10"
-                  style={{ border: "1.5px solid rgba(255,255,255,0.22)", color: "rgba(255,255,255,0.85)" }}
-                >
-                  View Case Study <ArrowRight className="w-4 h-4" />
-                </button>
+                <Link href="/results">
+                  <button
+                    className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-[15px] transition-all hover:bg-white/10"
+                    style={{ border: "1.5px solid rgba(255,255,255,0.22)", color: "rgba(255,255,255,0.85)" }}
+                  >
+                    View Case Study <ArrowRight className="w-4 h-4" />
+                  </button>
+                </Link>
               </div>
               <div className="flex flex-wrap gap-5">
                 {[
