@@ -130,9 +130,9 @@ export function AperionHero() {
 
             {/* Briefing card */}
             <AnimatedSection delay={0.08} className="flex-1">
-              <div className="bg-white rounded-2xl p-6 flex flex-col gap-4" style={{ border: "1.5px solid rgba(124,58,237,0.35)", boxShadow: "0 4px 24px rgba(124,58,237,0.10)" }}>
+              <div className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: "#F5F3FF", border: "1.5px solid #C4B5FD" }}>
 
-                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1.5px solid #E5E7EB" }}>
+                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1.5px solid #DDD6FE" }}>
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0"
                     style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)" }}
@@ -147,7 +147,7 @@ export function AperionHero() {
                   </div>
                   <div
                     className="ml-auto text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1.5"
-                    style={{ background: "rgba(124,58,237,0.12)", color: "#5B21B6", border: "1.5px solid rgba(124,58,237,0.40)" }}
+                    style={{ background: "#EDE9FE", color: "#5B21B6", border: "1.5px solid #C4B5FD" }}
                   >
                     <span className="w-2 h-2 rounded-full inline-block animate-pulse" style={{ background: "#7C3AED" }} />
                     AI Briefing Ready
@@ -168,7 +168,7 @@ export function AperionHero() {
                   </div>
                 ))}
 
-                <div className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest text-gray-500" style={{ borderTop: "1.5px solid #E5E7EB" }}>
+                <div className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest text-gray-500" style={{ borderTop: "1.5px solid #DDD6FE" }}>
                   Generated in 1.4s · Aperion AI
                 </div>
               </div>
@@ -184,8 +184,8 @@ export function AperionHero() {
                 ].map(({ value, label, color }) => (
                   <div
                     key={label}
-                    className="flex flex-col gap-1 px-3 py-4 rounded-xl bg-white"
-                    style={{ border: "1.5px solid rgba(124,58,237,0.30)", boxShadow: "0 2px 10px rgba(124,58,237,0.08)" }}
+                    className="flex flex-col gap-1 px-3 py-4 rounded-xl"
+                    style={{ background: "#F5F3FF", border: "1.5px solid #C4B5FD" }}
                   >
                     <span className="text-xl font-black" style={{ color }}>{value}</span>
                     <span className="text-[9px] font-bold uppercase tracking-wide text-gray-600">{label}</span>
@@ -193,7 +193,7 @@ export function AperionHero() {
                 ))}
               </div>
 
-              <div className="rounded-xl p-4 flex flex-col gap-3 bg-white" style={{ border: "1.5px solid #D1D5DB", boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
+              <div className="rounded-xl p-4 flex flex-col gap-3" style={{ background: "#F9FAFB", border: "1.5px solid #D1D5DB" }}>
                 <div className="text-[10px] font-black uppercase tracking-widest mb-1 text-gray-700">
                   Gift Pipeline — Active
                 </div>
@@ -218,8 +218,8 @@ export function AperionHero() {
                 {["Blackbaud CRM", "Salesforce NPSP"].map((crm) => (
                   <div
                     key={crm}
-                    className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg bg-gray-100 text-gray-600"
-                    style={{ border: "1.5px solid #D1D5DB" }}
+                    className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg"
+                    style={{ background: "#EDE9FE", color: "#5B21B6", border: "1.5px solid #C4B5FD" }}
                   >
                     {crm}
                   </div>
