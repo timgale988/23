@@ -113,8 +113,11 @@ export function AperionHero() {
         </div>
       </section>
 
+      {/* ── Section divider ── */}
+      <div style={{ height: "2px", background: "#E5E7EB" }} />
+
       {/* ── Dark visualization section ── */}
-      <section style={{ background: "#0A0E1A", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+      <section style={{ background: "#0A0E1A" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
 
           {/* Divider header */}
