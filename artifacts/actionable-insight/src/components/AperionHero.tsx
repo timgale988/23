@@ -1,206 +1,173 @@
-import { ArrowRight, Check, Hexagon, Zap } from "lucide-react";
+import { Plug, Sparkles, Handshake, ChevronRight, ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 export function AperionHero() {
   return (
     <div
-      className="flex flex-col lg:flex-row w-full text-white font-sans overflow-hidden"
-      style={{ minHeight: "100svh" }}
+      className="min-h-screen w-full flex flex-col font-sans text-white overflow-hidden"
+      style={{ backgroundColor: "#03081A" }}
     >
-      {/* LEFT COLUMN — Data */}
-      <div
-        className="w-full lg:w-[42%] flex flex-col justify-between relative"
-        style={{ backgroundColor: "#03071A", padding: "clamp(40px,6vw,80px)" }}
-      >
-        <AnimatedSection className="flex-1 flex flex-col justify-center">
-          <div style={{ marginTop: "clamp(32px,5vw,0px)" }} />
-          {/* Giant number */}
-          <div style={{ marginBottom: 8, marginLeft: "clamp(-8px,-1vw,-16px)" }}>
-            <span
-              className="font-bold leading-none tracking-tighter"
-              style={{
-                fontSize: "clamp(110px,16vw,220px)",
-                background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              75%
-            </span>
-          </div>
-
-          <div
-            className="font-semibold uppercase"
-            style={{
-              fontSize: "0.72rem",
-              letterSpacing: "0.16em",
-              color: "#6B7280",
-              marginBottom: "clamp(40px,6vw,80px)",
-            }}
-          >
-            of administrative time eliminated
-          </div>
-
-          <div
-            className="w-full"
-            style={{ height: 1, background: "rgba(255,255,255,0.10)", marginBottom: "clamp(40px,6vw,64px)" }}
-          />
-
-          <div className="flex flex-col" style={{ gap: "clamp(32px,4vw,40px)" }}>
-            <div>
-              <div
-                className="font-light tracking-tight"
-                style={{ fontSize: "clamp(32px,4vw,48px)", marginBottom: 6 }}
-              >
-                20:1 ROI
-              </div>
-              <div
-                className="uppercase font-medium"
-                style={{ fontSize: "0.72rem", letterSpacing: "0.12em", color: "#6B7280" }}
-              >
-                Average first-year return
-              </div>
-            </div>
-
-            <div>
-              <div
-                className="font-light tracking-tight"
-                style={{ fontSize: "clamp(32px,4vw,48px)", marginBottom: 6 }}
-              >
-                3× touchpoints
-              </div>
-              <div
-                className="uppercase font-medium"
-                style={{ fontSize: "0.72rem", letterSpacing: "0.12em", color: "#6B7280" }}
-              >
-                Increase in donor engagement
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Badge footer */}
-        <div style={{ marginTop: "clamp(48px,6vw,80px)" }}>
-          <span
-            className="font-mono uppercase tracking-widest"
-            style={{ fontSize: "0.62rem", color: "#4B5563" }}
-          >
-            Platform 02 — Aperion
-          </span>
+      {/* TOP STRIP — Badge + Headline */}
+      <AnimatedSection className="w-full flex flex-col justify-center items-center px-6 pt-16 pb-8 text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium tracking-wide text-gray-300 mb-6 uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+          Platform 02 — Aperion
         </div>
 
-        {/* Vertical rule (desktop) */}
-        <div
-          className="hidden lg:block absolute right-0 top-0 bottom-0"
-          style={{ width: 1, background: "rgba(255,255,255,0.08)" }}
-        />
-      </div>
+        <h1
+          className="font-bold tracking-tight leading-tight mb-4 max-w-4xl"
+          style={{ fontSize: "clamp(36px,4vw,56px)" }}
+        >
+          Here's{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+            exactly
+          </span>{" "}
+          how Aperion works.
+        </h1>
 
-      {/* RIGHT COLUMN — Story */}
-      <div
-        className="w-full lg:w-[58%] flex flex-col justify-center"
-        style={{
-          backgroundColor: "#04081E",
-          padding: "clamp(40px,6vw,112px)",
-        }}
+        <p className="text-gray-400 text-lg sm:text-xl max-w-2xl">
+          Three steps from CRM data to closed gift — all automated.
+        </p>
+      </AnimatedSection>
+
+      {/* NUMBERED STEPS */}
+      <AnimatedSection
+        delay={0.1}
+        className="w-full flex items-center justify-center px-4 sm:px-8 py-8"
       >
-        <AnimatedSection delay={0.08}>
-          <div style={{ maxWidth: 560 }}>
-            {/* Badge */}
-            <div
-              className="inline-flex items-center font-mono tracking-wide"
-              style={{
-                borderRadius: 9999,
-                border: "1px solid rgba(59,130,246,0.2)",
-                background: "rgba(59,130,246,0.08)",
-                padding: "4px 12px",
-                fontSize: "0.7rem",
-                color: "#60A5FA",
-                marginBottom: 32,
-              }}
-            >
-              PLATFORM 02 — APERION
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          {/* STEP 01 */}
+          <div
+            className="relative overflow-hidden border rounded-2xl p-7 flex flex-col transition-transform hover:-translate-y-1 duration-300 group"
+            style={{ backgroundColor: "#0D1117", borderColor: "rgba(255,255,255,0.08)" }}
+          >
+            <div className="absolute top-4 right-4 font-black leading-none text-white/[0.04] select-none pointer-events-none group-hover:text-white/[0.08] transition-colors"
+              style={{ fontSize: 80 }}>
+              01
             </div>
 
-            {/* Headline */}
-            <h1
-              className="font-medium tracking-tight leading-[1.05]"
-              style={{ fontSize: "clamp(36px,4vw,58px)", marginBottom: 24 }}
-            >
-              Every Gift Officer's{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Unfair Advantage.
-              </span>
-            </h1>
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/20"
+              style={{ backgroundColor: "rgba(6,182,212,0.08)" }}>
+              <Plug className="w-6 h-6 text-cyan-400" />
+            </div>
 
-            {/* Description */}
-            <p
-              className="font-light leading-relaxed"
-              style={{ fontSize: "clamp(16px,1.5vw,20px)", color: "#9CA3AF", marginBottom: 48 }}
-            >
-              Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor
-              briefings, intelligent opportunity matching, and proposal intelligence.
+            <h3 className="text-xl font-semibold text-white mb-3 z-10">
+              Sync with Blackbaud CRM or Salesforce NPSP
+            </h3>
+
+            <p className="text-gray-400 leading-relaxed mb-8 flex-grow z-10">
+              Aperion connects to your existing CRM in minutes — no migration, no IT project.
+              Patient and donor data flows in automatically.
             </p>
 
-            {/* CTAs */}
-            <div
-              className="flex flex-col sm:flex-row items-start sm:items-center"
-              style={{ gap: 16, marginBottom: 80 }}
-            >
-              <button
-                className="font-medium tracking-wide transition-opacity hover:opacity-90"
-                style={{
-                  padding: "16px 32px",
-                  borderRadius: 9999,
-                  background: "linear-gradient(135deg, #2563EB, #06B6D4)",
-                  color: "#fff",
-                  fontSize: "0.875rem",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                Request a Demo
-              </button>
-              <button
-                className="flex items-center gap-2 font-medium tracking-wide transition-colors hover:bg-white/5"
-                style={{
-                  padding: "16px 32px",
-                  borderRadius: 9999,
-                  color: "#fff",
-                  fontSize: "0.875rem",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                View Case Study <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Feature tags */}
-            <div className="flex flex-wrap items-center" style={{ gap: "8px 32px" }}>
-              <span className="flex items-center gap-2 text-sm font-medium" style={{ color: "#9CA3AF" }}>
-                <Check className="w-4 h-4" style={{ color: "#34D399" }} />
-                Blackbaud CRM
-              </span>
-              <span className="flex items-center gap-2 text-sm font-medium" style={{ color: "#9CA3AF" }}>
-                <Hexagon className="w-4 h-4" style={{ color: "#60A5FA" }} />
-                AI Briefings
-              </span>
-              <span className="flex items-center gap-2 text-sm font-medium" style={{ color: "#9CA3AF" }}>
-                <Zap className="w-4 h-4" style={{ color: "#FBBF24" }} />
-                75% Admin Saved
-              </span>
+            <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-gray-300 bg-white/5 border border-white/10 rounded-md px-3 py-1.5 w-fit z-10">
+              <span className="text-cyan-400">✓</span> Zero setup time
             </div>
           </div>
+
+          {/* STEP 02 */}
+          <div
+            className="relative overflow-hidden border rounded-2xl p-7 flex flex-col transition-transform hover:-translate-y-1 duration-300 group"
+            style={{ backgroundColor: "#0D1117", borderColor: "rgba(255,255,255,0.08)" }}
+          >
+            <div className="absolute top-4 right-4 font-black leading-none text-white/[0.04] select-none pointer-events-none group-hover:text-white/[0.08] transition-colors"
+              style={{ fontSize: 80 }}>
+              02
+            </div>
+
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-blue-500/20"
+              style={{ backgroundColor: "rgba(59,130,246,0.08)" }}>
+              <Sparkles className="w-6 h-6 text-blue-400" />
+            </div>
+
+            <h3 className="text-xl font-semibold text-white mb-3 z-10">
+              AI prepares every briefing before every meeting
+            </h3>
+
+            <p className="text-gray-400 leading-relaxed mb-8 flex-grow z-10">
+              Before each donor conversation, Aperion assembles a complete briefing — capacity
+              signals, prior giving history, relationship notes, and a suggested ask — from your
+              library of 300+ entries.
+            </p>
+
+            <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-gray-300 bg-white/5 border border-white/10 rounded-md px-3 py-1.5 w-fit z-10">
+              <span className="text-blue-400">⬡</span> AI-Generated · Ready in seconds
+            </div>
+          </div>
+
+          {/* STEP 03 */}
+          <div
+            className="relative overflow-hidden border rounded-2xl p-7 flex flex-col transition-transform hover:-translate-y-1 duration-300 group"
+            style={{ backgroundColor: "#0D1117", borderColor: "rgba(255,255,255,0.08)" }}
+          >
+            <div className="absolute top-4 right-4 font-black leading-none text-white/[0.04] select-none pointer-events-none group-hover:text-white/[0.08] transition-colors"
+              style={{ fontSize: 80 }}>
+              03
+            </div>
+
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20"
+              style={{ backgroundColor: "rgba(16,185,129,0.08)" }}>
+              <Handshake className="w-6 h-6 text-emerald-400" />
+            </div>
+
+            <h3 className="text-xl font-semibold text-white mb-3 z-10">
+              Gift officers arrive prepared — and close more
+            </h3>
+
+            <p className="text-gray-400 leading-relaxed mb-8 flex-grow z-10">
+              With briefings done automatically, gift officers spend their time on relationships.
+              Average teams see 3× touchpoints and 20:1 ROI within one fundraising cycle.
+            </p>
+
+            <div className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-gray-300 bg-white/5 border border-white/10 rounded-md px-3 py-1.5 w-fit z-10">
+              <span className="text-emerald-400 text-lg leading-none">⚡</span> 20:1 ROI · 3× touchpoints
+            </div>
+          </div>
+
+        </div>
+      </AnimatedSection>
+
+      {/* BOTTOM CTA STRIP */}
+      <div
+        className="w-full relative overflow-hidden"
+        style={{ backgroundColor: "#04081E", borderTop: "1px solid rgba(255,255,255,0.05)" }}
+      >
+        <AnimatedSection delay={0.18} className="flex flex-col items-center justify-center px-6 py-16">
+          {/* Glow */}
+          <div
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full pointer-events-none"
+            style={{ background: "rgba(37,99,235,0.10)", filter: "blur(120px)" }}
+          />
+
+          <h2
+            className="font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-400 relative z-10"
+            style={{ fontSize: "clamp(28px,3vw,44px)" }}
+          >
+            Every Gift Officer's Unfair Advantage.
+          </h2>
+
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 relative z-10">
+            <button
+              className="px-8 py-3.5 rounded-full text-white font-medium transition-all flex items-center gap-2 group"
+              style={{ background: "linear-gradient(135deg, #2563EB, #06B6D4)" }}
+            >
+              Request a Demo
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            <button className="px-8 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all flex items-center gap-2">
+              View Case Study
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+            </button>
+          </div>
+
+          <p className="text-gray-500 text-sm font-medium relative z-10">
+            Built for Blackbaud CRM and Salesforce NPSP
+          </p>
         </AnimatedSection>
       </div>
+
     </div>
   );
 }
