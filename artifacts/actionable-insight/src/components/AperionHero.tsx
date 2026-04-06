@@ -2,30 +2,29 @@ import { Check, Hexagon, Zap, ArrowRight } from "lucide-react";
 
 export function AperionHero() {
   return (
-    <section className="w-full flex flex-col font-sans text-slate-300 relative" style={{ minHeight: "100svh" }}>
+    <section className="w-full flex flex-col font-sans text-slate-300">
 
-      {/* Background image — full bleed, right-anchored so the doctor's hand is visible */}
-      <img
-        src="/images/hero-doctor-aperion.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        style={{ objectPosition: "65% center" }}
-      />
-      {/* Top-dark → bottom-transparent vertical gradient */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, #04081E 0%, rgba(4,8,30,0.88) 25%, rgba(4,8,30,0.55) 55%, rgba(4,8,30,0.15) 100%)",
-        }}
-      />
+      {/* ── ROW 1: Badge + Headline | Stats — has background image ── */}
+      <div className="relative overflow-hidden w-full px-6 py-16 md:py-24 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end" style={{ minHeight: "55vh" }}>
 
-      {/* ── ROW 1: Badge + Headline | Stats ── */}
-      <div
-        className="relative z-10 w-full px-6 py-16 md:py-24 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end flex-1"
-      >
+        {/* Background image — scoped to Row 1 only */}
+        <img
+          src="/images/hero-doctor-aperion.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+          style={{ objectPosition: "60% center" }}
+        />
+        {/* Top-dark → bottom-transparent vertical gradient over the image */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(to bottom, #04081E 0%, rgba(4,8,30,0.85) 30%, rgba(4,8,30,0.50) 65%, rgba(4,8,30,0.10) 100%)",
+          }}
+        />
+
         {/* LEFT: Badge & Headline */}
-        <div className="lg:col-span-7 flex flex-col items-start justify-end h-full">
+        <div className="relative z-10 lg:col-span-7 flex flex-col items-start justify-end h-full">
           <div className="flex items-center gap-3 mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
             <span className="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase">
@@ -49,7 +48,7 @@ export function AperionHero() {
         </div>
 
         {/* RIGHT: 2×2 Stats */}
-        <div className="lg:col-span-5 flex justify-start lg:justify-end pb-2">
+        <div className="relative z-10 lg:col-span-5 flex justify-start lg:justify-end pb-2">
           <div
             className="grid grid-cols-2 gap-x-12 gap-y-10 w-full max-w-md pl-8 lg:pl-12"
             style={{ borderLeft: "1px solid rgba(255,255,255,0.10)" }}
@@ -72,11 +71,12 @@ export function AperionHero() {
       </div>
 
       {/* ── HORIZONTAL RULE ── */}
-      <div className="relative z-10 w-full" style={{ height: 1, background: "rgba(255,255,255,0.10)" }} />
+      <div className="w-full" style={{ height: 1, background: "rgba(255,255,255,0.10)", backgroundColor: "#04081E" }} />
 
-      {/* ── ROW 2: Description + Tags | CTAs ── */}
+      {/* ── ROW 2: Description + Tags | CTAs — solid dark background, no image ── */}
       <div
-        className="relative z-10 w-full px-6 py-16 md:py-20 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-12 flex-1"
+        className="w-full px-6 py-16 md:py-20 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-12"
+        style={{ backgroundColor: "#04081E" }}
       >
         {/* LEFT: Description & Tags */}
         <div className="lg:col-span-7 flex flex-col justify-between pr-0 lg:pr-12">
@@ -85,7 +85,7 @@ export function AperionHero() {
             briefings, intelligent opportunity matching, and proposal intelligence.
           </p>
 
-          <div className="flex flex-wrap items-center gap-6 mt-auto">
+          <div className="flex flex-wrap items-center gap-6 mt-auto pt-10 lg:pt-0">
             <div className="flex items-center gap-2 text-sm font-medium text-slate-300">
               <Check className="w-4 h-4 text-emerald-400" />
               Blackbaud CRM
@@ -109,10 +109,7 @@ export function AperionHero() {
           <div className="max-w-sm w-full">
             <button
               className="w-full group relative px-8 py-5 text-white font-medium text-lg overflow-hidden transition-all mb-4 flex items-center justify-between"
-              style={{
-                background: "linear-gradient(90deg, #2563EB, #06B6D4)",
-                borderRadius: 0,
-              }}
+              style={{ background: "linear-gradient(90deg, #2563EB, #06B6D4)", borderRadius: 0 }}
             >
               <span className="relative z-10">Request a Demo</span>
               <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -137,6 +134,7 @@ export function AperionHero() {
           </div>
         </div>
       </div>
+
     </section>
   );
 }
