@@ -1,276 +1,220 @@
-import { ArrowRight, CheckCircle2, Brain, Zap } from "lucide-react";
+import { ArrowRight, Bot, Zap, BrainCircuit, BarChart3, Clock, TrendingUp } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-
-const BRIEFING_LINES = [
-  { label: "Giving History",    value: "$2.4M lifetime · Major gifts program since 2018", color: "#7C3AED" },
-  { label: "Wealth Capacity",   value: "Est. $14.2M · Top 3% of portfolio",               color: "#6366F1" },
-  { label: "Interest Alignment",value: "Pediatric oncology · Research endowment 94% fit",  color: "#8B5CF6" },
-  { label: "Recommended Ask",   value: "$500K — Endowed Research Chair in Pediatric Care", color: "#7C3AED" },
-];
-
-const PIPELINE = [
-  { label: "Research", count: 142, color: "#7C3AED" },
-  { label: "Briefed",  count: 87,  color: "#6366F1" },
-  { label: "Meeting",  count: 34,  color: "#8B5CF6" },
-  { label: "Proposal", count: 18,  color: "#A78BFA" },
-  { label: "Closed",   count: 9,   color: "#C4B5FD" },
-];
 
 export function AperionHero() {
   return (
-    <>
-      {/* ── Hero section ── */}
-      <section className="relative overflow-hidden">
+    <section className="min-h-[90vh] flex flex-col w-full text-slate-50 font-sans" style={{ background: "#040814" }}>
 
-        {/* Background image — spans full section height */}
-        <img
-          src="/hero-doctor-ai.webp"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
-          style={{ filter: "hue-rotate(200deg) saturate(0.8)" }}
+      {/* BAND 1: Monumental Header (~40%) */}
+      <div className="flex-none pt-24 pb-16 px-6 md:px-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: "rgba(59,130,246,0.10)", filter: "blur(120px)" }}
         />
 
-        {/* ── Solid dark content panel ── */}
-        <div className="relative z-10" style={{ background: "#04081E" }}>
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
-            <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
-
-              {/* LEFT — badge + headline */}
-              <div className="flex-1">
-                <AnimatedSection>
-                  <div
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-8"
-                    style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)", color: "#fff", letterSpacing: "0.12em" }}
-                  >
-                    Platform 02 — Aperion
-                  </div>
-                </AnimatedSection>
-                <AnimatedSection delay={0.08}>
-                  <h1
-                    className="font-black uppercase leading-[0.92] text-white"
-                    style={{ fontSize: "clamp(44px,5.5vw,76px)", letterSpacing: "-0.04em" }}
-                  >
-                    Every Gift<br />Officer's<br />
-                    <span style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4,#38BDF8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                      Unfair Advantage.
-                    </span>
-                  </h1>
-                </AnimatedSection>
-              </div>
-
-              {/* RIGHT — description + CTAs + badges */}
-              <AnimatedSection delay={0.14} className="flex flex-col gap-6" style={{ maxWidth: 480 }}>
-                <div>
-                  <p className="text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.65)" }}>
-                    Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor
-                    briefings, intelligent opportunity matching, and proposal intelligence that makes every
-                    conversation count.
-                  </p>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.35)" }}>
-                    Built for Blackbaud CRM and Salesforce NPSP. Works inside the tools your team already uses.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <button
-                    className="px-8 py-4 rounded-xl text-white font-bold text-[15px] transition-all hover:scale-105"
-                    style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", boxShadow: "0 8px 24px rgba(6,182,212,0.4)" }}
-                  >
-                    Request a Demo
-                  </button>
-                  <button
-                    className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-[15px] transition-all hover:bg-white/10"
-                    style={{ border: "1.5px solid rgba(255,255,255,0.22)", color: "rgba(255,255,255,0.85)" }}
-                  >
-                    View Case Study <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-5">
-                  {[
-                    { icon: <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />,  label: "Blackbaud CRM" },
-                    { icon: <Brain        className="w-3.5 h-3.5 text-cyan-400" />,  label: "AI Briefings" },
-                    { icon: <Zap          className="w-3.5 h-3.5 text-sky-400" />,   label: "75% Admin Saved" },
-                  ].map(({ icon, label }) => (
-                    <div key={label} className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "rgba(255,255,255,0.5)" }}>
-                      {icon} {label}
-                    </div>
-                  ))}
-                </div>
-              </AnimatedSection>
-
-            </div>
-          </div>
-          {/* Gradient fade — dark panel dissolves into image below */}
-          <div style={{ height: 96, background: "linear-gradient(to bottom, #04081E 0%, rgba(4,8,30,0) 100%)" }} />
-        </div>
-
-        {/* ── Image reveal zone ── */}
-        <div className="relative" style={{ height: 300 }}>
-          {/* Subtle vignette at bottom edge */}
+        <AnimatedSection className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
           <div
-            className="absolute inset-x-0 bottom-0 pointer-events-none"
-            style={{ height: "60%", background: "linear-gradient(to top, rgba(4,8,30,0.55) 0%, rgba(4,8,30,0) 100%)" }}
-          />
-        </div>
-
-      </section>
-
-      {/* ── Section divider ── */}
-      <div style={{ height: "8px", background: "#E5E7EB" }} />
-
-      {/* ── Stats bar ── */}
-      <section style={{ background: "#F9FAFB", borderBottom: "1px solid #E5E7EB" }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { value: "75%",  label: "Admin Time Eliminated\nPer Gift Officer" },
-              { value: "300+", label: "Pre-Built Opportunity\nLibrary Entries" },
-              { value: "20:1", label: "ROI by Year Two,\nPer Program" },
-              { value: "3×",   label: "Increase in Meaningful\nDonor Touchpoints" },
-            ].map(({ value, label }) => (
-              <div
-                key={value}
-                className="flex flex-col items-center text-center px-6 py-7 rounded-xl"
-                style={{ background: "#FFFFFF", border: "1px solid #E5E7EB" }}
-              >
-                <span className="text-4xl font-black mb-3" style={{ color: "#2563EB" }}>{value}</span>
-                <span className="text-[10px] font-bold uppercase tracking-widest leading-relaxed" style={{ color: "#6B7280", whiteSpace: "pre-line" }}>{label}</span>
-              </div>
-            ))}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium tracking-widest mb-8"
+            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)", color: "#60A5FA" }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#3B82F6" }} />
+            PLATFORM 02 — APERION
           </div>
-        </div>
-      </section>
 
-      {/* ── Dark visualization section ── */}
-      <section style={{ background: "#0A0E1A" }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
-
-          {/* Divider header */}
-          <AnimatedSection className="flex items-center gap-4 mb-10">
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(34,211,238,0.5))" }} />
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "#22D3EE" }}>
-              AI Intelligence Engine — Live
+          <h1
+            className="font-medium tracking-tight mb-8 leading-[1.1]"
+            style={{ fontSize: "clamp(42px, 7vw, 96px)" }}
+          >
+            Every Gift Officer's{" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg, #60A5FA, #67E8F9)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Unfair Advantage.
             </span>
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(34,211,238,0.5), transparent)" }} />
+          </h1>
+
+          <p className="text-lg md:text-xl max-w-3xl leading-relaxed" style={{ color: "#94A3B8" }}>
+            Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor
+            briefings, intelligent opportunity matching, and proposal intelligence.
+          </p>
+        </AnimatedSection>
+      </div>
+
+      {/* BAND 2: Feature Triptych (~60%) */}
+      <div className="flex-1 flex flex-col">
+
+        {/* 3-Column Grid */}
+        <div
+          className="flex-1 grid grid-cols-1 md:grid-cols-3"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
+        >
+          {/* Column 1 — AI Briefings */}
+          <AnimatedSection
+            delay={0.05}
+            className="p-8 md:p-12 lg:p-16 flex flex-col justify-between relative overflow-hidden group"
+            style={{
+              background: "#060C1E",
+              borderRight: "1px solid rgba(255,255,255,0.05)",
+            }}
+          >
+            <div
+              className="absolute top-0 right-0 p-8 pointer-events-none"
+              style={{ opacity: 0.05, transform: "translate(16px, -16px)" }}
+            >
+              <Bot size={120} />
+            </div>
+
+            <div>
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-8"
+                style={{
+                  background: "rgba(59,130,246,0.10)",
+                  border: "1px solid rgba(59,130,246,0.20)",
+                  color: "#60A5FA",
+                }}
+              >
+                <Bot className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-medium mb-4 text-white">AI Briefings</h3>
+              <p className="leading-relaxed mb-8" style={{ color: "#94A3B8" }}>
+                Instantly synthesize years of engagement history, wealth screening, and philanthropic
+                data into actionable pre-meeting intelligence.
+              </p>
+            </div>
+
+            <div className="mt-auto inline-flex items-baseline gap-2">
+              <span className="text-3xl font-medium text-white">75%</span>
+              <span className="text-sm uppercase tracking-wider" style={{ color: "#94A3B8" }}>Admin Time Saved</span>
+            </div>
           </AnimatedSection>
 
-          <div className="flex flex-col lg:flex-row items-start gap-8">
+          {/* Column 2 — Opportunity Matching */}
+          <AnimatedSection
+            delay={0.10}
+            className="p-8 md:p-12 lg:p-16 flex flex-col justify-between relative overflow-hidden group"
+            style={{
+              background: "#08101F",
+              borderRight: "1px solid rgba(255,255,255,0.05)",
+            }}
+          >
+            <div
+              className="absolute top-0 right-0 p-8 pointer-events-none"
+              style={{ opacity: 0.05, transform: "translate(16px, -16px)" }}
+            >
+              <Zap size={120} />
+            </div>
 
-            {/* Briefing card */}
-            <AnimatedSection delay={0.08} className="flex-1">
-              <div className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: "#0D1117", border: "1px solid rgba(255,255,255,0.08)" }}>
-
-                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0"
-                    style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)" }}
-                  >
-                    M
-                  </div>
-                  <div>
-                    <div className="font-black text-sm leading-tight text-white">Margaret A. Holloway</div>
-                    <div className="text-[11px] font-semibold" style={{ color: "#6B7280" }}>
-                      Trustee Emeritus · Children's Hospital Foundation
-                    </div>
-                  </div>
-                  <div
-                    className="ml-auto text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1.5"
-                    style={{ background: "rgba(34,211,238,0.10)", color: "#22D3EE", border: "1px solid rgba(34,211,238,0.25)" }}
-                  >
-                    <span className="w-2 h-2 rounded-full inline-block animate-pulse" style={{ background: "#22D3EE" }} />
-                    AI Briefing Ready
-                  </div>
-                </div>
-
-                {BRIEFING_LINES.map(({ label, value }, i) => {
-                  const accentColors = ["#22D3EE", "#60A5FA", "#818CF8", "#38BDF8"];
-                  const c = accentColors[i % accentColors.length];
-                  return (
-                    <div
-                      key={label}
-                      className="flex items-start gap-3"
-                      style={{ animation: `fadeSlideIn 0.4s ease both`, animationDelay: `${0.3 + i * 0.12}s` }}
-                    >
-                      <div className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={{ background: c }} />
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: c }}>{label}</div>
-                        <div className="text-[12px] font-semibold leading-snug" style={{ color: "#D1D5DB" }}>{value}</div>
-                      </div>
-                    </div>
-                  );
-                })}
-
-                <div className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", color: "#6B7280" }}>
-                  Generated in 1.4s · Aperion AI
-                </div>
+            <div>
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-8"
+                style={{
+                  background: "rgba(6,182,212,0.10)",
+                  border: "1px solid rgba(6,182,212,0.20)",
+                  color: "#22D3EE",
+                }}
+              >
+                <Zap className="w-6 h-6" />
               </div>
-            </AnimatedSection>
+              <h3 className="text-2xl font-medium mb-4 text-white">Opportunity Matching</h3>
+              <p className="leading-relaxed mb-8" style={{ color: "#94A3B8" }}>
+                Identify hidden giving capacity and surface the exact right moment to ask, based on
+                predictive behavioral models.
+              </p>
+            </div>
 
-            {/* Stats + pipeline */}
-            <AnimatedSection delay={0.14} className="flex flex-col gap-5" style={{ minWidth: 280 }}>
-              <div className="grid grid-cols-3 gap-3">
-                {[
-                  { value: "75%",  label: "Admin Saved",       color: "#60A5FA" },
-                  { value: "3×",   label: "Donor Touchpoints", color: "#22D3EE" },
-                  { value: "20:1", label: "ROI by Year Two",   color: "#60A5FA" },
-                ].map(({ value, label, color }) => (
-                  <div
-                    key={label}
-                    className="flex flex-col gap-1 px-3 py-4 rounded-xl"
-                    style={{ background: "#0D1117", border: "1px solid rgba(255,255,255,0.08)" }}
-                  >
-                    <span className="text-xl font-black" style={{ color }}>{value}</span>
-                    <span className="text-[9px] font-bold uppercase tracking-wide" style={{ color: "#6B7280" }}>{label}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="mt-auto inline-flex items-baseline gap-2">
+              <span className="text-3xl font-medium text-white">3×</span>
+              <span className="text-sm uppercase tracking-wider" style={{ color: "#94A3B8" }}>Meaningful Touchpoints</span>
+            </div>
+          </AnimatedSection>
 
-              <div className="rounded-xl p-4 flex flex-col gap-3" style={{ background: "#0D1117", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: "#22D3EE" }}>
-                  Gift Pipeline — Active
-                </div>
-                {PIPELINE.map(({ label, count, color }) => {
-                  const pct = Math.round((count / 142) * 100);
-                  return (
-                    <div key={label} className="flex items-center gap-3">
-                      <div className="text-[10px] font-bold uppercase tracking-wider w-16 flex-shrink-0" style={{ color: "#6B7280" }}>{label}</div>
-                      <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
-                        <div
-                          className="h-full rounded-full"
-                          style={{ width: `${pct}%`, background: color, animation: "barGrow 1s ease both", animationDelay: "0.5s" }}
-                        />
-                      </div>
-                      <div className="text-[10px] font-black w-6 text-right flex-shrink-0" style={{ color: "#9CA3AF" }}>{count}</div>
-                    </div>
-                  );
-                })}
-              </div>
+          {/* Column 3 — Proposal Intelligence */}
+          <AnimatedSection
+            delay={0.15}
+            className="p-8 md:p-12 lg:p-16 flex flex-col justify-between relative overflow-hidden group"
+            style={{ background: "#0A0F28" }}
+          >
+            <div
+              className="absolute top-0 right-0 p-8 pointer-events-none"
+              style={{ opacity: 0.05, transform: "translate(16px, -16px)" }}
+            >
+              <BrainCircuit size={120} />
+            </div>
 
-              <div className="flex gap-2">
-                {["Blackbaud CRM", "Salesforce NPSP"].map((crm) => (
-                  <div
-                    key={crm}
-                    className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg"
-                    style={{ background: "#0D1117", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.10)" }}
-                  >
-                    {crm}
-                  </div>
-                ))}
+            <div>
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-8"
+                style={{
+                  background: "rgba(99,102,241,0.10)",
+                  border: "1px solid rgba(99,102,241,0.20)",
+                  color: "#818CF8",
+                }}
+              >
+                <BrainCircuit className="w-6 h-6" />
               </div>
-            </AnimatedSection>
-          </div>
+              <h3 className="text-2xl font-medium mb-4 text-white">Proposal Intelligence</h3>
+              <p className="leading-relaxed mb-8" style={{ color: "#94A3B8" }}>
+                Draft highly personalized, multi-million dollar proposals that align donor passions
+                with institutional priorities in minutes.
+              </p>
+            </div>
+
+            <div className="mt-auto inline-flex items-baseline gap-2">
+              <span className="text-3xl font-medium text-white">20:1</span>
+              <span className="text-sm uppercase tracking-wider" style={{ color: "#94A3B8" }}>Average ROI</span>
+            </div>
+          </AnimatedSection>
         </div>
-      </section>
 
-      <style>{`
-        @keyframes fadeSlideIn {
-          from { opacity: 0; transform: translateY(6px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes barGrow {
-          from { width: 0; }
-        }
-      `}</style>
-    </>
+        {/* Footer CTAs */}
+        <AnimatedSection
+          delay={0.20}
+          className="py-12 px-6 flex flex-col items-center justify-center gap-8"
+          style={{ background: "#040814", borderTop: "1px solid rgba(255,255,255,0.05)" }}
+        >
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <button
+              className="h-14 px-8 rounded-full text-white font-medium text-lg transition-all hover:scale-105"
+              style={{
+                background: "linear-gradient(135deg, #2563EB, #06B6D4)",
+                boxShadow: "0 0 30px -5px rgba(59,130,246,0.4)",
+                border: "none",
+              }}
+            >
+              Request a Demo
+            </button>
+            <button
+              className="flex items-center gap-2 h-14 px-8 rounded-full font-medium text-lg transition-all hover:bg-white/5 group"
+              style={{ color: "#CBD5E1", background: "transparent", border: "none" }}
+            >
+              View Case Study
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm" style={{ color: "#64748B" }}>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              <span>75% admin time</span>
+            </div>
+            <div className="w-1 h-1 rounded-full hidden sm:block" style={{ background: "#334155" }} />
+            <div className="flex items-center gap-2">
+              <TrendingUp className="w-4 h-4" />
+              <span>20:1 ROI</span>
+            </div>
+            <div className="w-1 h-1 rounded-full hidden sm:block" style={{ background: "#334155" }} />
+            <div className="flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" />
+              <span>3× touchpoints</span>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
   );
 }
