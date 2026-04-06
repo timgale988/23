@@ -164,8 +164,6 @@ export default function Home() {
                 gradFrom: "#7C3AED",
                 gradTo: "#2563EB",
                 shadowColor: "rgba(124,58,237,0.18)",
-                img: "/images/prysm-dashboard-dark.png",
-                imgPos: "center 18%",
                 desc: "Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically surface major gift prospects from clinical encounter data — identifying grateful patients before the window closes.",
                 stat: "305%",
                 statLabel: "More first-time major gifts",
@@ -180,8 +178,6 @@ export default function Home() {
                 gradFrom: "#2563EB",
                 gradTo: "#06B6D4",
                 shadowColor: "rgba(6,182,212,0.15)",
-                img: "/images/dash-admin-ui.jpeg",
-                imgPos: "center 22%",
                 desc: "Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every conversation count.",
                 stat: "75%",
                 statLabel: "Admin time eliminated",
@@ -195,15 +191,12 @@ export default function Home() {
                     style={{
                       overflow: "hidden",
                       border: "1px solid #E5E7EB",
-                      boxShadow: "0 4px 16px rgba(10,14,26,0.06)",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 56px ${p.shadowColor}, 0 4px 16px rgba(10,14,26,0.06)`;
                       (e.currentTarget as HTMLDivElement).style.borderColor = p.gradFrom + "44";
                       (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 16px rgba(10,14,26,0.06)";
                       (e.currentTarget as HTMLDivElement).style.borderColor = "#E5E7EB";
                       (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                     }}
@@ -214,35 +207,17 @@ export default function Home() {
                       style={{ background: `linear-gradient(90deg, ${p.gradFrom}, ${p.gradTo})` }}
                     />
 
-                    {/* Dashboard image — taller, sharper */}
-                    <div className="relative flex-shrink-0" style={{ height: "270px" }}>
-                      <img
-                        src={p.img}
-                        alt={p.name}
-                        className="w-full h-full object-cover"
-                        style={{
-                          objectPosition: p.imgPos,
-                          filter: "contrast(1.09) saturate(1.14) brightness(1.02)",
-                        }}
-                      />
-                      {/* Light vignette — much lighter than before so dashboard is visible */}
-                      <div
-                        className="absolute inset-0"
-                        style={{ background: `linear-gradient(to bottom, transparent 55%, rgba(255,255,255,0.92) 100%)` }}
-                      />
-                      {/* Platform number badge — top left */}
-                      <div className="absolute top-4 left-4 z-10">
+                    {/* Card content */}
+                    <div className="flex flex-col flex-1 px-8 pb-8 pt-10">
+                      {/* Platform badge */}
+                      <div className="mb-5">
                         <div
-                          className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full"
+                          className="inline-flex text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full"
                           style={{ background: `linear-gradient(90deg,${p.gradFrom},${p.gradTo})`, color: "#fff", letterSpacing: "0.14em" }}
                         >
                           Platform {p.num} — {p.name}
                         </div>
                       </div>
-                    </div>
-
-                    {/* Card content */}
-                    <div className="flex flex-col flex-1 px-8 pb-8 pt-5">
                       {/* Platform sub-label */}
                       <div
                         className="text-xs font-bold uppercase tracking-widest mb-3"
