@@ -178,32 +178,41 @@ export default function Aperion() {
       </section>
 
       {/* ── Problem ── */}
-      <section className="py-20 lg:py-28 border-b border-gray-100 bg-white">
+      <section
+        className="py-20 lg:py-28 border-b"
+        style={{
+          background: "linear-gradient(135deg, #04081E 0%, #080F2E 60%, #060D28 100%)",
+          borderColor: "rgba(255,255,255,0.08)",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">The Problem</p>
+              <p className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-6">The Problem</p>
               <h2
-                className="font-black uppercase text-[#0A0E1A] leading-[0.95] mb-7"
+                className="font-black uppercase text-white leading-[0.95] mb-7"
                 style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
               >
                 Gift officers are drowning in admin. Not building relationships.
               </h2>
-              <p className="text-gray-500 text-lg leading-relaxed mb-5">
+              <p className="text-slate-400 text-lg leading-relaxed mb-5">
                 The average gift officer spends 75% of their time on research, data entry, proposal writing,
                 and meeting prep — leaving only 25% for actual donor relationships.
               </p>
-              <p className="text-gray-500 text-lg leading-relaxed">
+              <p className="text-slate-400 text-lg leading-relaxed">
                 Aperion inverts that ratio. It handles the preparation, the follow-up, and the paperwork —
                 so your team can spend 75% of their time doing what only humans can do.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.15}>
-              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
+              <div
+                className="rounded-2xl p-8"
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.10)" }}
+              >
                 <div className="flex items-start gap-4 mb-8">
                   <Quote className="w-7 h-7 text-cyan-400 shrink-0 mt-1" />
-                  <blockquote className="text-xl font-black text-[#0A0E1A] tracking-tight leading-snug uppercase">
+                  <blockquote className="text-xl font-black text-white tracking-tight leading-snug uppercase">
                     "Every gift officer deserves to spend their time on relationships, not research."
                   </blockquote>
                 </div>
@@ -212,9 +221,13 @@ export default function Aperion() {
                     { before: "75%", after: "25%", label: "Admin Work" },
                     { before: "25%", after: "75%", label: "Donor Time" },
                   ].map((row, i) => (
-                    <div key={i} className="bg-white border border-gray-200 rounded-xl p-5 text-center">
+                    <div
+                      key={i}
+                      className="rounded-xl p-5 text-center"
+                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+                    >
                       <div className="flex items-center justify-center gap-2 mb-2">
-                        <span className="text-xl font-black text-gray-200 line-through">{row.before}</span>
+                        <span className="text-xl font-black text-slate-600 line-through">{row.before}</span>
                         <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
                         <span
                           className="text-xl font-black"
@@ -223,7 +236,7 @@ export default function Aperion() {
                           {row.after}
                         </span>
                       </div>
-                      <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">{row.label}</div>
+                      <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">{row.label}</div>
                     </div>
                   ))}
                 </div>
