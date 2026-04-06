@@ -103,12 +103,12 @@ export default function Home() {
                   style={{ background: "linear-gradient(135deg,#7C3AED,#06B6D4)", filter: "blur(48px)" }}
                 />
                 <img
-                  src="/images/hero-tech-ai.png"
+                  src="/images/hero-doctor-ai.webp"
                   alt="Actionable Insight — AI-powered healthcare philanthropy intelligence"
                   className="relative w-full object-cover rounded-2xl"
                   style={{
                     height: "420px",
-                    objectPosition: "center 30%",
+                    objectPosition: "center 35%",
                     boxShadow: "0 32px 80px rgba(10,14,26,0.18), 0 4px 16px rgba(10,14,26,0.08)",
                   }}
                 />
@@ -304,15 +304,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Section Break 1 — Painting ── */}
+      {/* ── Section Break 1 — Fiber Data ── */}
       <section className="relative overflow-hidden" style={{ height: "300px" }}>
         <img
-          src="/images/hero-painting.png"
+          src="/images/hero-fiber-data.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 38%" }}
+          style={{ objectPosition: "center 40%" }}
         />
-        <div className="absolute inset-0" style={{ background: "rgba(10,14,26,0.52)" }} />
+        <div className="absolute inset-0" style={{ background: "rgba(10,14,26,0.62)" }} />
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
           <AnimatedSection>
             <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">Actionable Insight</p>
@@ -395,21 +395,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Section Break 2 — Balloon Sunset ── */}
+      {/* ── Section Break 2 — Data Speed ── */}
       <section className="relative overflow-hidden" style={{ height: "260px" }}>
         <img
-          src="/images/hero-balloon-sunset.png"
+          src="/images/hero-data-speed.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 25%" }}
+          style={{ objectPosition: "center 40%" }}
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(124,58,237,0.55), rgba(6,182,212,0.45))" }}
+          style={{ background: "linear-gradient(to right, rgba(124,58,237,0.6), rgba(6,182,212,0.5))" }}
         />
         <div
           className="absolute inset-0"
-          style={{ background: "rgba(10,14,26,0.28)" }}
+          style={{ background: "rgba(10,14,26,0.35)" }}
         />
       </section>
 
