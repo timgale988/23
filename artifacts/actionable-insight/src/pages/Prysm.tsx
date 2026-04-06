@@ -563,78 +563,47 @@ export default function Prysm() {
       {/* ── Platform in Action ── */}
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <AnimatedSection>
-              <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-5">Platform in Action</p>
-              <h2
-                className="font-black uppercase text-[#0A0E1A] leading-[0.95] mb-6"
-                style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
-              >
-                What your gift officers see every morning.
-              </h2>
-              <p className="text-gray-500 text-lg leading-relaxed mb-6">
-                Prysm delivers a daily prioritized patient list directly into your gift officers'
-                workflow — complete with clinical context, wealth signals, and recommended next actions.
-                No manual research. No spreadsheets.
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                Each record shows encounter history, AI prospect score, capacity estimate, physician
-                referral status, and outreach history — everything needed to make a confident first call.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full" style={{ background: "#7C3AED" }} />
-                  <span className="text-xs font-semibold text-gray-400">Real-time patient scoring</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full" style={{ background: "#2563EB" }} />
-                  <span className="text-xs font-semibold text-gray-400">Epic-native data</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full" style={{ background: "#06B6D4" }} />
-                  <span className="text-xs font-semibold text-gray-400">CRM push-ready</span>
-                </div>
+          <AnimatedSection>
+            <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-5">Platform in Action</p>
+            <h2
+              className="font-black uppercase text-[#0A0E1A] leading-[0.95] mb-6"
+              style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
+            >
+              What your gift officers see every morning.
+            </h2>
+            <p className="text-gray-500 text-lg leading-relaxed mb-6 max-w-2xl">
+              Prysm delivers a daily prioritized patient list directly into your gift officers'
+              workflow — complete with clinical context, wealth signals, and recommended next actions.
+              No manual research. No spreadsheets.
+            </p>
+            <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-2xl">
+              Each record shows encounter history, AI prospect score, capacity estimate, physician
+              referral status, and outreach history — everything needed to make a confident first call.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full" style={{ background: "#7C3AED" }} />
+                <span className="text-xs font-semibold text-gray-400">Real-time patient scoring</span>
               </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.1}>
-              <div className="relative">
-                <div
-                  className="absolute -inset-4 rounded-3xl opacity-15"
-                  style={{ background: "linear-gradient(135deg,#7C3AED,#2563EB)", filter: "blur(40px)" }}
-                />
-                <img
-                  src="/images/prysm-analytics.png"
-                  alt="Prysm analytics dashboard showing prospect scoring and pipeline"
-                  className="relative w-full object-cover rounded-2xl"
-                  style={{
-                    height: "420px",
-                    objectPosition: "center 30%",
-                    boxShadow: "0 24px 64px rgba(10,14,26,0.18), 0 4px 12px rgba(10,14,26,0.08)",
-                  }}
-                />
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full" style={{ background: "#2563EB" }} />
+                <span className="text-xs font-semibold text-gray-400">Epic-native data</span>
               </div>
-            </AnimatedSection>
-          </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full" style={{ background: "#06B6D4" }} />
+                <span className="text-xs font-semibold text-gray-400">CRM push-ready</span>
+              </div>
+            </div>
+          </AnimatedSection>
 
-          {/* Second screenshot — full width treatment */}
+          {/* Revenue Intelligence callout — replaced full-width image banner */}
           <AnimatedSection className="mt-14">
-            <div className="relative overflow-hidden rounded-2xl" style={{ boxShadow: "0 32px 80px rgba(10,14,26,0.16)" }}>
-              <img
-                src="/images/prysm-dashboard-dark.png"
-                alt="Prysm dark analytics dashboard with revenue metrics"
-                className="w-full object-cover"
-                style={{
-                  height: "380px",
-                  objectPosition: "center 31%",
-                }}
-              />
-              <div
-                className="absolute inset-0 rounded-2xl"
-                style={{ background: "linear-gradient(to right, rgba(10,14,26,0.7) 0%, rgba(10,14,26,0.1) 50%, rgba(10,14,26,0) 100%)" }}
-              />
-              <div className="absolute inset-0 flex items-center px-10 lg:px-14">
-                <div className="max-w-sm">
+            <div
+              className="rounded-2xl px-10 py-12 lg:px-14"
+              style={{ background: "#0A0E1A" }}
+            >
+              <div className="grid lg:grid-cols-3 gap-8 items-center">
+                <div className="lg:col-span-2">
                   <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">Revenue Intelligence</p>
                   <p
                     className="font-black uppercase text-white leading-[0.95] mb-4"
@@ -642,9 +611,27 @@ export default function Prysm() {
                   >
                     $4.32M realized in Year One at Providence.
                   </p>
-                  <p className="text-white/55 text-sm leading-relaxed">
+                  <p className="text-white/55 text-sm leading-relaxed max-w-lg">
                     461 qualified prospects identified from 3,098 patients screened — across nine hospitals, fully automated.
                   </p>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { value: "461", label: "Qualified Prospects" },
+                    { value: "3,098", label: "Patients Screened" },
+                    { value: "14.9%", label: "Qualification Rate" },
+                    { value: "9", label: "Hospitals" },
+                  ].map((s) => (
+                    <div key={s.label} className="rounded-xl p-4 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                      <div
+                        className="font-black text-xl leading-none mb-1"
+                        style={{ background: "linear-gradient(135deg,#7C3AED,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                      >
+                        {s.value}
+                      </div>
+                      <div className="text-[10px] font-semibold text-white/40 uppercase tracking-wider leading-snug">{s.label}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
