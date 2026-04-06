@@ -119,20 +119,20 @@ export function AperionHero() {
 
           {/* Divider header */}
           <AnimatedSection className="flex items-center gap-4 mb-10">
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.25))" }} />
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "rgba(124,58,237,0.5)" }}>
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, #7C3AED)" }} />
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "#6D28D9" }}>
               AI Intelligence Engine — Live
             </span>
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(124,58,237,0.25), transparent)" }} />
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, #7C3AED, transparent)" }} />
           </AnimatedSection>
 
           <div className="flex flex-col lg:flex-row items-start gap-8">
 
             {/* Briefing card */}
             <AnimatedSection delay={0.08} className="flex-1">
-              <div className="bg-white rounded-2xl p-6 flex flex-col gap-4 shadow-sm" style={{ border: "1px solid rgba(124,58,237,0.15)" }}>
+              <div className="bg-white rounded-2xl p-6 flex flex-col gap-4" style={{ border: "1.5px solid rgba(124,58,237,0.35)", boxShadow: "0 4px 24px rgba(124,58,237,0.10)" }}>
 
-                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid #F3F4F6" }}>
+                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1.5px solid #E5E7EB" }}>
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0"
                     style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)" }}
@@ -141,15 +141,15 @@ export function AperionHero() {
                   </div>
                   <div>
                     <div className="font-black text-sm leading-tight text-gray-900">Margaret A. Holloway</div>
-                    <div className="text-[11px] font-semibold text-gray-400">
+                    <div className="text-[11px] font-semibold text-gray-500">
                       Trustee Emeritus · Children's Hospital Foundation
                     </div>
                   </div>
                   <div
-                    className="ml-auto text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1"
-                    style={{ background: "rgba(124,58,237,0.08)", color: "#7C3AED", border: "1px solid rgba(124,58,237,0.2)" }}
+                    className="ml-auto text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1.5"
+                    style={{ background: "rgba(124,58,237,0.12)", color: "#5B21B6", border: "1.5px solid rgba(124,58,237,0.40)" }}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style={{ background: "#7C3AED" }} />
+                    <span className="w-2 h-2 rounded-full inline-block animate-pulse" style={{ background: "#7C3AED" }} />
                     AI Briefing Ready
                   </div>
                 </div>
@@ -160,15 +160,15 @@ export function AperionHero() {
                     className="flex items-start gap-3"
                     style={{ animation: `fadeSlideIn 0.4s ease both`, animationDelay: `${0.3 + i * 0.12}s` }}
                   >
-                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: color }} />
+                    <div className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={{ background: color }} />
                     <div className="flex-1 min-w-0">
                       <div className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color }}>{label}</div>
-                      <div className="text-[12px] font-semibold leading-snug text-gray-700">{value}</div>
+                      <div className="text-[12px] font-semibold leading-snug text-gray-800">{value}</div>
                     </div>
                   </div>
                 ))}
 
-                <div className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest text-gray-300" style={{ borderTop: "1px solid #F3F4F6" }}>
+                <div className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest text-gray-500" style={{ borderTop: "1.5px solid #E5E7EB" }}>
                   Generated in 1.4s · Aperion AI
                 </div>
               </div>
@@ -178,37 +178,37 @@ export function AperionHero() {
             <AnimatedSection delay={0.14} className="flex flex-col gap-5" style={{ minWidth: 280 }}>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { value: "75%",  label: "Admin Saved",       color: "#7C3AED" },
-                  { value: "3×",   label: "Donor Touchpoints", color: "#6366F1" },
-                  { value: "20:1", label: "ROI by Year Two",   color: "#8B5CF6" },
+                  { value: "75%",  label: "Admin Saved",       color: "#6D28D9" },
+                  { value: "3×",   label: "Donor Touchpoints", color: "#4F46E5" },
+                  { value: "20:1", label: "ROI by Year Two",   color: "#7C3AED" },
                 ].map(({ value, label, color }) => (
                   <div
                     key={label}
-                    className="flex flex-col gap-1 px-3 py-4 rounded-xl bg-white shadow-sm"
-                    style={{ border: "1px solid rgba(124,58,237,0.12)" }}
+                    className="flex flex-col gap-1 px-3 py-4 rounded-xl bg-white"
+                    style={{ border: "1.5px solid rgba(124,58,237,0.30)", boxShadow: "0 2px 10px rgba(124,58,237,0.08)" }}
                   >
                     <span className="text-xl font-black" style={{ color }}>{value}</span>
-                    <span className="text-[9px] font-bold uppercase tracking-wide text-gray-400">{label}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-wide text-gray-600">{label}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="rounded-xl p-4 flex flex-col gap-3 bg-white shadow-sm" style={{ border: "1px solid #E5E7EB" }}>
-                <div className="text-[10px] font-black uppercase tracking-widest mb-1 text-gray-400">
+              <div className="rounded-xl p-4 flex flex-col gap-3 bg-white" style={{ border: "1.5px solid #D1D5DB", boxShadow: "0 2px 10px rgba(0,0,0,0.06)" }}>
+                <div className="text-[10px] font-black uppercase tracking-widest mb-1 text-gray-700">
                   Gift Pipeline — Active
                 </div>
                 {PIPELINE.map(({ label, count, color }) => {
                   const pct = Math.round((count / 142) * 100);
                   return (
                     <div key={label} className="flex items-center gap-3">
-                      <div className="text-[10px] font-bold uppercase tracking-wider w-16 flex-shrink-0 text-gray-400">{label}</div>
-                      <div className="flex-1 h-1.5 rounded-full overflow-hidden bg-gray-100">
+                      <div className="text-[10px] font-bold uppercase tracking-wider w-16 flex-shrink-0 text-gray-600">{label}</div>
+                      <div className="flex-1 h-2 rounded-full overflow-hidden bg-gray-200">
                         <div
                           className="h-full rounded-full"
                           style={{ width: `${pct}%`, background: color, animation: "barGrow 1s ease both", animationDelay: "0.5s" }}
                         />
                       </div>
-                      <div className="text-[10px] font-black w-6 text-right flex-shrink-0 text-gray-500">{count}</div>
+                      <div className="text-[10px] font-black w-6 text-right flex-shrink-0 text-gray-700">{count}</div>
                     </div>
                   );
                 })}
@@ -218,8 +218,8 @@ export function AperionHero() {
                 {["Blackbaud CRM", "Salesforce NPSP"].map((crm) => (
                   <div
                     key={crm}
-                    className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg bg-gray-50 text-gray-400"
-                    style={{ border: "1px solid #E5E7EB" }}
+                    className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg bg-gray-100 text-gray-600"
+                    style={{ border: "1.5px solid #D1D5DB" }}
                   >
                     {crm}
                   </div>
