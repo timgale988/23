@@ -116,6 +116,29 @@ export function AperionHero() {
       {/* ── Section divider ── */}
       <div style={{ height: "8px", background: "#E5E7EB" }} />
 
+      {/* ── Stats bar ── */}
+      <section style={{ background: "#F9FAFB", borderBottom: "1px solid #E5E7EB" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { value: "75%",  label: "Admin Time Eliminated\nPer Gift Officer" },
+              { value: "300+", label: "Pre-Built Opportunity\nLibrary Entries" },
+              { value: "20:1", label: "ROI by Year Two,\nPer Program" },
+              { value: "3×",   label: "Increase in Meaningful\nDonor Touchpoints" },
+            ].map(({ value, label }) => (
+              <div
+                key={value}
+                className="flex flex-col items-center text-center px-6 py-7 rounded-xl"
+                style={{ background: "#FFFFFF", border: "1px solid #E5E7EB" }}
+              >
+                <span className="text-4xl font-black mb-3" style={{ color: "#2563EB" }}>{value}</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest leading-relaxed" style={{ color: "#6B7280", whiteSpace: "pre-line" }}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Dark visualization section ── */}
       <section style={{ background: "#0A0E1A" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
