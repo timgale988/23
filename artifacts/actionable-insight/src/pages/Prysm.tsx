@@ -27,10 +27,10 @@ const PRYSM_OUTPUTS = [
 ];
 
 const sectorChallenges = [
-  { title: "Siloed systems and manual workflows", desc: "EMRs, spreadsheets, and donor databases that don't talk to each other. Identifying a single grateful patient requires days of manual cross-referencing." },
-  { title: "Outdated operating models", desc: "Reactive workflows, paper referral forms, and manual wealth screening cannot support the volume or precision required for major gift success." },
-  { title: "Low confidence in data and metrics", desc: "Without a unified system of record, gift officers cannot prioritize outreach, measure program health, or demonstrate ROI to leadership." },
-  { title: "Staff burnout and unsustainable inefficiency", desc: "Gift officers spend the majority of their time on administrative work rather than building donor relationships. Onboarding takes months. Attrition is high." },
+  { icon: Zap,           color: "#7C3AED", title: "Siloed systems and manual workflows", desc: "EMRs, spreadsheets, and donor databases that don't talk to each other. Identifying a single grateful patient requires days of manual cross-referencing." },
+  { icon: AlertTriangle, color: "#2563EB", title: "Outdated operating models", desc: "Reactive workflows, paper referral forms, and manual wealth screening cannot support the volume or precision required for major gift success." },
+  { icon: BarChart3,     color: "#0284C7", title: "Low confidence in data and metrics", desc: "Without a unified system of record, gift officers cannot prioritize outreach, measure program health, or demonstrate ROI to leadership." },
+  { icon: Users,         color: "#06B6D4", title: "Staff burnout and unsustainable inefficiency", desc: "Gift officers spend the majority of their time on administrative work rather than building donor relationships. Onboarding takes months. Attrition is high." },
 ];
 
 const capabilities = [
@@ -399,8 +399,11 @@ export default function Prysm() {
                 </div>
                 {sectorChallenges.map((c, i) => (
                   <div key={i} className="px-6 py-5 border-b border-gray-100 last:border-0 bg-white flex items-start gap-4 hover:bg-gray-50 transition-colors">
-                    <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center mt-0.5">
-                      <span className="text-[10px] font-bold text-gray-400">0{i + 1}</span>
+                    <div
+                      className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-0.5"
+                      style={{ background: `${c.color}12` }}
+                    >
+                      <c.icon className="w-4 h-4" style={{ color: c.color }} />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-[#0A0E1A] uppercase tracking-tight mb-1.5">{c.title}</h4>

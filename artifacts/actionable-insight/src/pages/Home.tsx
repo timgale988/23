@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, CalendarCheck, Database, Activity, Brain, Heart, TrendingUp, Plug } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const INTEGRATIONS = ["Epic EMR", "Blackbaud CRM", "Salesforce NPSP", "Windfall", "DonorSearch"];
@@ -82,13 +82,13 @@ export default function Home() {
 
                 <div className="flex flex-wrap gap-5">
                   {[
-                    { icon: "⚡", label: "Epic & Blackbaud Native" },
-                    { icon: "🔒", label: "HIPAA Compliant" },
-                    { icon: "◎", label: "Live in 30 Days" },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-center gap-1.5">
-                      <span>{item.icon}</span>
-                      <span className="text-xs font-semibold text-gray-400">{item.label}</span>
+                    { Icon: Database,      label: "Epic & Blackbaud Native" },
+                    { Icon: ShieldCheck,   label: "HIPAA Compliant" },
+                    { Icon: CalendarCheck, label: "Live in 30 Days" },
+                  ].map(({ Icon, label }) => (
+                    <div key={label} className="flex items-center gap-1.5">
+                      <Icon className="w-3.5 h-3.5 text-violet-400" />
+                      <span className="text-xs font-semibold text-gray-400">{label}</span>
                     </div>
                   ))}
                 </div>
@@ -169,7 +169,7 @@ export default function Home() {
                 desc: "Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically surface major gift prospects from clinical encounter data — identifying grateful patients before the window closes.",
                 stat: "305%",
                 statLabel: "More first-time major gifts",
-                tags: ["Epic Native", "Real-Time Scoring", "HIPAA Compliant"],
+                tags: [{ label: "Epic Native", Icon: Database }, { label: "Real-Time Scoring", Icon: Activity }, { label: "HIPAA Compliant", Icon: ShieldCheck }],
               },
               {
                 num: "02",
@@ -185,7 +185,7 @@ export default function Home() {
                 desc: "Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every conversation count.",
                 stat: "75%",
                 statLabel: "Admin time eliminated",
-                tags: ["AI Briefings", "Nonprofit-First", "Blackbaud Native"],
+                tags: [{ label: "AI Briefings", Icon: Brain }, { label: "Nonprofit-First", Icon: Heart }, { label: "Blackbaud Native", Icon: Database }],
               },
             ].map((p, i) => (
               <AnimatedSection key={p.name} delay={i * 0.08}>
@@ -232,17 +232,18 @@ export default function Home() {
 
                       {/* Feature tags */}
                       <div className="flex flex-wrap gap-2 mb-6">
-                        {p.tags.map((tag) => (
+                        {p.tags.map(({ label, Icon }) => (
                           <span
-                            key={tag}
-                            className="text-[11px] font-semibold px-2.5 py-1 rounded-md"
+                            key={label}
+                            className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-md"
                             style={{
                               background: `${p.gradFrom}10`,
                               color: p.color,
                               border: `1px solid ${p.gradFrom}22`,
                             }}
                           >
-                            {tag}
+                            <Icon className="w-3 h-3 flex-shrink-0" />
+                            {label}
                           </span>
                         ))}
                       </div>
@@ -333,8 +334,9 @@ export default function Home() {
               {INTEGRATIONS.map((name) => (
                 <div
                   key={name}
-                  className="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-bold text-gray-600 shadow-sm"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-bold text-gray-600"
                 >
+                  <Plug className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
                   {name}
                 </div>
               ))}
@@ -349,21 +351,24 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100 rounded-2xl overflow-hidden">
             {[
               { value: "$4.32M", label: "Realized Revenue, Year One" },
-              { value: "461", label: "Qualified Major Gift Prospects" },
-              { value: "305%", label: "Increase in First-Time Major Gifts" },
-              { value: "20×", label: "Average ROI on Investment" },
+              { value: "461",    label: "Qualified Major Gift Prospects" },
+              { value: "305%",   label: "Increase in First-Time Major Gifts" },
+              { value: "20×",    label: "Average ROI on Investment" },
             ].map((s, i) => (
               <AnimatedSection key={i} delay={i * 0.07} className="bg-white p-8 lg:p-10 text-center">
-                <div
-                  className="font-black text-[clamp(32px,4vw,52px)] leading-none mb-2"
-                  style={{
-                    background: "linear-gradient(135deg,#7C3AED,#2563EB,#06B6D4)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    letterSpacing: "-0.04em",
-                  }}
-                >
-                  {s.value}
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <div
+                    className="font-black text-[clamp(32px,4vw,52px)] leading-none"
+                    style={{
+                      background: "linear-gradient(135deg,#7C3AED,#2563EB,#06B6D4)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      letterSpacing: "-0.04em",
+                    }}
+                  >
+                    {s.value}
+                  </div>
+                  <TrendingUp className="w-5 h-5 text-emerald-400 flex-shrink-0 self-center" />
                 </div>
                 <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider leading-snug">{s.label}</div>
               </AnimatedSection>
