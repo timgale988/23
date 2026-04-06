@@ -247,40 +247,50 @@ export default function Aperion() {
       </section>
 
       {/* ── Human Moment ── */}
-      <section className="relative overflow-hidden border-b border-gray-100" style={{ height: "360px" }}>
-        <img
-          src="/images/aperion-officer-desk.jpg"
-          alt="Gift officer using Aperion to prepare for a donor meeting"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 25%" }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(4,8,30,0.80) 0%, rgba(4,8,30,0.40) 55%, rgba(4,8,30,0.10) 100%)" }}
-        />
-        <div className="relative z-10 h-full flex items-center px-8 lg:px-20">
-          <AnimatedSection className="max-w-lg">
-            <p className="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-4">Built for Gift Officers</p>
-            <blockquote
-              className="font-black uppercase text-white leading-[0.95] mb-5"
-              style={{ fontSize: "clamp(22px,3vw,38px)", letterSpacing: "-0.04em" }}
-            >
-              More time with donors.
-              <br />
-              <span
-                style={{
-                  background: "linear-gradient(90deg,#2563EB,#06B6D4)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
+      <section
+        className="border-b py-20 lg:py-24"
+        style={{ background: "linear-gradient(135deg,#04081E 0%,#060D28 100%)", borderColor: "rgba(255,255,255,0.08)" }}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <AnimatedSection>
+              <p className="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-5">Built for Gift Officers</p>
+              <blockquote
+                className="font-black uppercase text-white leading-[0.95] mb-6"
+                style={{ fontSize: "clamp(28px,3.5vw,46px)", letterSpacing: "-0.04em" }}
               >
-                Less time on paperwork.
-              </span>
-            </blockquote>
-            <p className="text-white/55 text-sm leading-relaxed max-w-sm">
-              Aperion gives every gift officer the preparation, context, and follow-through of a full research team — without the overhead.
-            </p>
-          </AnimatedSection>
+                More time with donors.
+                <br />
+                <span
+                  style={{
+                    background: "linear-gradient(90deg,#2563EB,#06B6D4)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  Less time on paperwork.
+                </span>
+              </blockquote>
+              <p className="text-white/55 text-lg leading-relaxed max-w-md">
+                Aperion gives every gift officer the preparation, context, and follow-through of a full research team — without the overhead.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.12}>
+              <div className="relative rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+                <img
+                  src="/images/aperion-officer-desk.jpg"
+                  alt="Gift officer using Aperion to prepare for a donor meeting"
+                  className="w-full object-cover"
+                  style={{ height: "320px", objectPosition: "center 22%" }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "linear-gradient(to top, rgba(4,8,30,0.55) 0%, transparent 60%)" }}
+                />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
