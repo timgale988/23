@@ -103,12 +103,12 @@ export default function Home() {
                   style={{ background: "linear-gradient(135deg,#7C3AED,#06B6D4)", filter: "blur(48px)" }}
                 />
                 <img
-                  src="/images/hero-balloon-orange.png"
-                  alt="Actionable Insight — hope, warmth and human connection"
+                  src="/images/hero-tech-ai.png"
+                  alt="Actionable Insight — AI-powered healthcare philanthropy intelligence"
                   className="relative w-full object-cover rounded-2xl"
                   style={{
                     height: "420px",
-                    objectPosition: "center 49%",
+                    objectPosition: "center 30%",
                     boxShadow: "0 32px 80px rgba(10,14,26,0.18), 0 4px 16px rgba(10,14,26,0.08)",
                   }}
                 />
@@ -164,7 +164,7 @@ export default function Home() {
                 gradFrom: "#7C3AED",
                 gradTo: "#2563EB",
                 shadowColor: "rgba(124,58,237,0.18)",
-                img: "/images/dash-purple.jpeg",
+                img: "/images/prysm-dashboard-dark.png",
                 imgPos: "center 18%",
                 desc: "Prysm bridges Epic EMR with Blackbaud CRM and Salesforce NPSP to automatically surface major gift prospects from clinical encounter data — identifying grateful patients before the window closes.",
                 stat: "305%",
@@ -180,8 +180,8 @@ export default function Home() {
                 gradFrom: "#2563EB",
                 gradTo: "#06B6D4",
                 shadowColor: "rgba(6,182,212,0.15)",
-                img: "/images/dash-donut.jpeg",
-                imgPos: "center 28%",
+                img: "/images/dash-admin-ui.jpeg",
+                imgPos: "center 22%",
                 desc: "Aperion eliminates 75% of administrative burden — replacing it with AI-prepared donor briefings, intelligent opportunity matching, and proposal intelligence that makes every conversation count.",
                 stat: "75%",
                 statLabel: "Admin time eliminated",
