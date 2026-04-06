@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DollarSign, ArrowRight, AlertTriangle, TrendingUp } from "lucide-react";
+import { DollarSign, ArrowRight, BarChart2, TrendingUp } from "lucide-react";
 
 // Concept U — "The Sunk Cost Reframe"
 // Design hypothesis: CFO/VP Finance framing. Instead of showing capacity gained,
@@ -27,8 +27,8 @@ export function ConceptU() {
       {/* Top bar */}
       <div className="w-full px-10 py-6 flex items-center justify-between border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
         <div className="flex items-center gap-2">
-          <AlertTriangle className="w-4 h-4 text-amber-400" />
-          <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">Admin Cost Audit</span>
+          <BarChart2 className="w-4 h-4 text-blue-400" />
+          <span className="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase">Admin Cost Audit</span>
         </div>
         <span className="text-xs text-slate-500 uppercase tracking-widest">Platform 02 — Aperion</span>
       </div>
@@ -39,7 +39,7 @@ export function ConceptU() {
         <div>
           <h1 className="font-bold text-white leading-[1.05] mb-6" style={{ fontSize: "clamp(36px,4vw,54px)", letterSpacing: "-0.03em" }}>
             You're paying your team<br />
-            <span style={{ color: "#FCA5A5" }}>to do a computer's job.</span>
+            <span style={{ background: "linear-gradient(90deg,#60A5FA,#22D3EE)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>to do a computer's job.</span>
           </h1>
           <p className="text-slate-400 text-lg leading-relaxed mb-10">
             75% of every gift officer's salary goes to research, data entry, and prep work.
@@ -57,7 +57,7 @@ export function ConceptU() {
                 type="range" min={1} max={50} value={officers}
                 onChange={e => setOfficers(Number(e.target.value))}
                 className="w-full h-1 rounded-full appearance-none cursor-pointer"
-                style={{ background: `linear-gradient(to right, #F59E0B ${(officers / 50) * 100}%, #1E293B ${(officers / 50) * 100}%)` }}
+                style={{ background: `linear-gradient(to right, #2563EB ${(officers / 50) * 100}%, #1E293B ${(officers / 50) * 100}%)` }}
               />
               <div className="flex justify-between text-xs text-slate-600 mt-1"><span>1</span><span>50</span></div>
             </div>
@@ -71,7 +71,7 @@ export function ConceptU() {
                 type="range" min={50000} max={200000} step={5000} value={avgSalary}
                 onChange={e => setAvgSalary(Number(e.target.value))}
                 className="w-full h-1 rounded-full appearance-none cursor-pointer"
-                style={{ background: `linear-gradient(to right, #F59E0B ${((avgSalary - 50000) / 150000) * 100}%, #1E293B ${((avgSalary - 50000) / 150000) * 100}%)` }}
+                style={{ background: `linear-gradient(to right, #06B6D4 ${((avgSalary - 50000) / 150000) * 100}%, #1E293B ${((avgSalary - 50000) / 150000) * 100}%)` }}
               />
               <div className="flex justify-between text-xs text-slate-600 mt-1"><span>$50K</span><span>$200K</span></div>
             </div>
@@ -113,7 +113,7 @@ export function ConceptU() {
           </div>
 
           <button className="w-full py-4 rounded-xl font-semibold text-white flex items-center justify-center gap-2 transition-all"
-            style={{ background: "linear-gradient(90deg, #F59E0B, #EF4444)" }}>
+            style={{ background: "linear-gradient(90deg, #2563EB, #06B6D4)" }}>
             <DollarSign className="w-4 h-4" />
             Get Full Cost Analysis
             <ArrowRight className="w-4 h-4" />
