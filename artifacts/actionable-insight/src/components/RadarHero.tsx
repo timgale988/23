@@ -24,25 +24,20 @@ export function RadarHero() {
       />
 
       {/* ── Gradient overlays ── */}
-      {/* Base violet-to-indigo wash over the image */}
+      {/* Full-coverage left-to-right: dark violet → medium indigo */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(135deg, rgba(76,29,149,0.92) 0%, rgba(37,99,235,0.78) 45%, rgba(6,182,212,0.30) 80%, transparent 100%)" }}
-      />
-      {/* Directional veil for text legibility */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(100deg, rgba(30,10,80,0.55) 0%, rgba(15,30,90,0.35) 38%, transparent 65%)" }}
+        style={{ background: "linear-gradient(90deg, rgba(45,20,100,0.97) 0%, rgba(55,30,130,0.93) 30%, rgba(37,99,235,0.82) 65%, rgba(30,80,180,0.72) 100%)" }}
       />
       {/* Radial purple glow — left anchor */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 15% 55%, rgba(124,58,237,0.30) 0%, transparent 55%)" }}
+        style={{ background: "radial-gradient(ellipse at 12% 50%, rgba(124,58,237,0.28) 0%, transparent 50%)" }}
       />
       {/* Bottom veil — deep indigo base for radar section */}
       <div
         className="absolute inset-x-0 bottom-0 pointer-events-none"
-        style={{ height: "55%", background: "linear-gradient(to top, rgba(15,23,74,0.96) 0%, rgba(30,58,138,0.65) 50%, transparent 100%)" }}
+        style={{ height: "55%", background: "linear-gradient(to top, rgba(15,23,74,0.97) 0%, rgba(25,45,120,0.70) 50%, transparent 100%)" }}
       />
 
       {/* ── Content ── */}

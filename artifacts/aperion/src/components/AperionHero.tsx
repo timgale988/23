@@ -30,25 +30,20 @@ export function AperionHero() {
           style={{ filter: "hue-rotate(200deg) saturate(0.8)" }}
         />
 
-        {/* Base blue-to-cyan wash */}
+        {/* Full-coverage left-to-right: dark navy → medium blue */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(135deg, rgba(30,58,138,0.94) 0%, rgba(37,99,235,0.78) 40%, rgba(6,182,212,0.35) 75%, transparent 100%)" }}
-        />
-        {/* Directional legibility veil */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(100deg, rgba(10,20,80,0.55) 0%, rgba(15,40,100,0.30) 40%, transparent 65%)" }}
+          style={{ background: "linear-gradient(90deg, rgba(15,30,100,0.97) 0%, rgba(25,55,140,0.93) 30%, rgba(37,99,235,0.82) 65%, rgba(28,80,190,0.72) 100%)" }}
         />
         {/* Radial blue glow — left anchor */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 15% 55%, rgba(37,99,235,0.28) 0%, transparent 55%)" }}
+          style={{ background: "radial-gradient(ellipse at 12% 50%, rgba(37,99,235,0.25) 0%, transparent 50%)" }}
         />
         {/* Bottom veil */}
         <div
           className="absolute inset-x-0 bottom-0 pointer-events-none"
-          style={{ height: "40%", background: "linear-gradient(to top, rgba(15,30,100,0.95) 0%, rgba(30,58,138,0.50) 60%, transparent 100%)" }}
+          style={{ height: "40%", background: "linear-gradient(to top, rgba(10,20,80,0.97) 0%, rgba(20,45,130,0.60) 60%, transparent 100%)" }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col justify-center" style={{ minHeight: "72vh" }}>
