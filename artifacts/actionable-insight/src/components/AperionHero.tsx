@@ -113,62 +113,66 @@ export function AperionHero() {
         </div>
       </section>
 
-      {/* ── Light visualization section ── */}
-      <section className="bg-white border-b border-gray-100">
+      {/* ── Dark visualization section ── */}
+      <section style={{ background: "#0A0E1A", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
 
           {/* Divider header */}
           <AnimatedSection className="flex items-center gap-4 mb-10">
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, #7C3AED)" }} />
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "#6D28D9" }}>
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(34,211,238,0.5))" }} />
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "#22D3EE" }}>
               AI Intelligence Engine — Live
             </span>
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, #7C3AED, transparent)" }} />
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(34,211,238,0.5), transparent)" }} />
           </AnimatedSection>
 
           <div className="flex flex-col lg:flex-row items-start gap-8">
 
             {/* Briefing card */}
             <AnimatedSection delay={0.08} className="flex-1">
-              <div className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: "#F5F3FF", border: "1.5px solid #C4B5FD" }}>
+              <div className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: "#0D1117", border: "1px solid rgba(255,255,255,0.08)" }}>
 
-                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1.5px solid #DDD6FE" }}>
+                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0"
-                    style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)" }}
+                    style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)" }}
                   >
                     M
                   </div>
                   <div>
-                    <div className="font-black text-sm leading-tight text-gray-900">Margaret A. Holloway</div>
-                    <div className="text-[11px] font-semibold text-gray-500">
+                    <div className="font-black text-sm leading-tight text-white">Margaret A. Holloway</div>
+                    <div className="text-[11px] font-semibold" style={{ color: "#6B7280" }}>
                       Trustee Emeritus · Children's Hospital Foundation
                     </div>
                   </div>
                   <div
                     className="ml-auto text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1.5"
-                    style={{ background: "#EDE9FE", color: "#5B21B6", border: "1.5px solid #C4B5FD" }}
+                    style={{ background: "rgba(34,211,238,0.10)", color: "#22D3EE", border: "1px solid rgba(34,211,238,0.25)" }}
                   >
-                    <span className="w-2 h-2 rounded-full inline-block animate-pulse" style={{ background: "#7C3AED" }} />
+                    <span className="w-2 h-2 rounded-full inline-block animate-pulse" style={{ background: "#22D3EE" }} />
                     AI Briefing Ready
                   </div>
                 </div>
 
-                {BRIEFING_LINES.map(({ label, value, color }, i) => (
-                  <div
-                    key={label}
-                    className="flex items-start gap-3"
-                    style={{ animation: `fadeSlideIn 0.4s ease both`, animationDelay: `${0.3 + i * 0.12}s` }}
-                  >
-                    <div className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={{ background: color }} />
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color }}>{label}</div>
-                      <div className="text-[12px] font-semibold leading-snug text-gray-800">{value}</div>
+                {BRIEFING_LINES.map(({ label, value }, i) => {
+                  const accentColors = ["#22D3EE", "#60A5FA", "#818CF8", "#38BDF8"];
+                  const c = accentColors[i % accentColors.length];
+                  return (
+                    <div
+                      key={label}
+                      className="flex items-start gap-3"
+                      style={{ animation: `fadeSlideIn 0.4s ease both`, animationDelay: `${0.3 + i * 0.12}s` }}
+                    >
+                      <div className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={{ background: c }} />
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: c }}>{label}</div>
+                        <div className="text-[12px] font-semibold leading-snug" style={{ color: "#D1D5DB" }}>{value}</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
 
-                <div className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest text-gray-500" style={{ borderTop: "1.5px solid #DDD6FE" }}>
+                <div className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", color: "#6B7280" }}>
                   Generated in 1.4s · Aperion AI
                 </div>
               </div>
@@ -178,37 +182,37 @@ export function AperionHero() {
             <AnimatedSection delay={0.14} className="flex flex-col gap-5" style={{ minWidth: 280 }}>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { value: "75%",  label: "Admin Saved",       color: "#6D28D9" },
-                  { value: "3×",   label: "Donor Touchpoints", color: "#4F46E5" },
-                  { value: "20:1", label: "ROI by Year Two",   color: "#7C3AED" },
+                  { value: "75%",  label: "Admin Saved",       color: "#60A5FA" },
+                  { value: "3×",   label: "Donor Touchpoints", color: "#22D3EE" },
+                  { value: "20:1", label: "ROI by Year Two",   color: "#60A5FA" },
                 ].map(({ value, label, color }) => (
                   <div
                     key={label}
                     className="flex flex-col gap-1 px-3 py-4 rounded-xl"
-                    style={{ background: "#F5F3FF", border: "1.5px solid #C4B5FD" }}
+                    style={{ background: "#0D1117", border: "1px solid rgba(255,255,255,0.08)" }}
                   >
                     <span className="text-xl font-black" style={{ color }}>{value}</span>
-                    <span className="text-[9px] font-bold uppercase tracking-wide text-gray-600">{label}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-wide" style={{ color: "#6B7280" }}>{label}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="rounded-xl p-4 flex flex-col gap-3" style={{ background: "#F9FAFB", border: "1.5px solid #D1D5DB" }}>
-                <div className="text-[10px] font-black uppercase tracking-widest mb-1 text-gray-700">
+              <div className="rounded-xl p-4 flex flex-col gap-3" style={{ background: "#0D1117", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <div className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: "#22D3EE" }}>
                   Gift Pipeline — Active
                 </div>
                 {PIPELINE.map(({ label, count, color }) => {
                   const pct = Math.round((count / 142) * 100);
                   return (
                     <div key={label} className="flex items-center gap-3">
-                      <div className="text-[10px] font-bold uppercase tracking-wider w-16 flex-shrink-0 text-gray-600">{label}</div>
-                      <div className="flex-1 h-2 rounded-full overflow-hidden bg-gray-200">
+                      <div className="text-[10px] font-bold uppercase tracking-wider w-16 flex-shrink-0" style={{ color: "#6B7280" }}>{label}</div>
+                      <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
                         <div
                           className="h-full rounded-full"
                           style={{ width: `${pct}%`, background: color, animation: "barGrow 1s ease both", animationDelay: "0.5s" }}
                         />
                       </div>
-                      <div className="text-[10px] font-black w-6 text-right flex-shrink-0 text-gray-700">{count}</div>
+                      <div className="text-[10px] font-black w-6 text-right flex-shrink-0" style={{ color: "#9CA3AF" }}>{count}</div>
                     </div>
                   );
                 })}
@@ -219,7 +223,7 @@ export function AperionHero() {
                   <div
                     key={crm}
                     className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg"
-                    style={{ background: "#EDE9FE", color: "#5B21B6", border: "1.5px solid #C4B5FD" }}
+                    style={{ background: "#0D1117", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.10)" }}
                   >
                     {crm}
                   </div>
