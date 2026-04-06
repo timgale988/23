@@ -336,15 +336,18 @@ export default function Aperion() {
         <AnimatedSection>
           <div
             className="px-6 lg:px-8 py-16 lg:py-20 relative overflow-hidden"
-            style={{ background: "#04081E" }}
+            style={{ background: "linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 40%, #DBEAFE 70%, #ECFEFF 100%)" }}
           >
-            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
+            <div className="absolute inset-0 opacity-[0.45]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(99,102,241,0.15) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
             <div className="max-w-7xl mx-auto relative z-10">
-              <p className="text-xs font-bold uppercase tracking-widest mb-5 text-cyan-400">
+              <p
+                className="text-xs font-bold uppercase tracking-widest mb-5"
+                style={{ background: "linear-gradient(90deg, #2563EB, #06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+              >
                 Platform Capabilities
               </p>
               <h2
-                className="font-black uppercase text-white leading-[0.95] mb-5 max-w-3xl"
+                className="font-black uppercase text-[#0A0E1A] leading-[0.95] mb-5 max-w-3xl"
                 style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
               >
                 Five capabilities. One outcome:{" "}
@@ -358,7 +361,7 @@ export default function Aperion() {
                   more closed gifts.
                 </span>
               </h2>
-              <p className="text-white/50 text-lg leading-relaxed max-w-3xl">
+              <p className="text-gray-500 text-lg leading-relaxed max-w-3xl">
                 Each module eliminates a specific category of administrative friction — together they transform
                 how your team operates.
               </p>
