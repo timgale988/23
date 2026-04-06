@@ -5,7 +5,7 @@ const BRIEFING_LINES = [
   { label: "Giving History",    value: "$2.4M lifetime · Major gifts program since 2018", color: "#7C3AED" },
   { label: "Wealth Capacity",   value: "Est. $14.2M · Top 3% of portfolio",               color: "#6366F1" },
   { label: "Interest Alignment",value: "Pediatric oncology · Research endowment 94% fit",  color: "#8B5CF6" },
-  { label: "Recommended Ask",   value: "$500K — Endowed Research Chair in Pediatric Care", color: "#A78BFA" },
+  { label: "Recommended Ask",   value: "$500K — Endowed Research Chair in Pediatric Care", color: "#7C3AED" },
 ];
 
 const PIPELINE = [
@@ -18,40 +18,33 @@ const PIPELINE = [
 
 export function AperionHero() {
   return (
-    <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
+    <>
+      {/* ── Dark hero section ── */}
+      <section className="relative overflow-hidden" style={{ minHeight: "72vh" }}>
 
-      {/* ── Background image ── */}
-      <img
-        src="/hero-doctor-ai.webp"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
-        style={{ filter: "hue-rotate(200deg) saturate(0.8)" }}
-      />
+        <img
+          src="/hero-doctor-ai.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
+          style={{ filter: "hue-rotate(200deg) saturate(0.8)" }}
+        />
 
-      {/* ── Gradient overlays ── */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "linear-gradient(100deg, rgba(10,14,26,0.97) 0%, rgba(10,14,26,0.84) 38%, rgba(10,14,26,0.45) 62%, rgba(10,14,26,0.2) 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(6,182,212,0.06) 0%, transparent 60%)" }}
-      />
-      <div
-        className="absolute inset-x-0 bottom-0 pointer-events-none"
-        style={{ height: "55%", background: "linear-gradient(to top, rgba(10,14,26,0.96) 0%, rgba(10,14,26,0.72) 50%, transparent 100%)" }}
-      />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "linear-gradient(100deg, rgba(10,14,26,0.97) 0%, rgba(10,14,26,0.84) 38%, rgba(10,14,26,0.45) 62%, rgba(10,14,26,0.2) 100%)" }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(6,182,212,0.06) 0%, transparent 60%)" }}
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 pointer-events-none"
+          style={{ height: "40%", background: "linear-gradient(to top, rgba(10,14,26,0.98) 0%, transparent 100%)" }}
+        />
 
-      {/* ── Content ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col" style={{ minHeight: "90vh" }}>
-
-        {/* ── Row 1: Text ── */}
-        <div className="flex flex-col lg:flex-row items-start gap-12 pt-24 pb-10 flex-1">
-
-          <div className="flex-1 max-w-[620px]">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col justify-center" style={{ minHeight: "72vh" }}>
+          <div className="max-w-[620px] py-24">
             <AnimatedSection>
               <div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-8"
@@ -114,33 +107,29 @@ export function AperionHero() {
               </div>
             </AnimatedSection>
           </div>
-
-          {/* Right — empty, shows bg */}
-          <div className="flex-1 hidden lg:block" />
         </div>
+      </section>
 
-        {/* ── Row 2: AI Briefing visualization — moved down ── */}
-        <AnimatedSection delay={0.22} className="pb-16">
-          <div className="flex flex-col items-center">
+      {/* ── Light visualization section ── */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
 
-            {/* Divider */}
-            <div className="flex items-center gap-4 mb-8 w-full max-w-5xl">
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(124,58,237,0), rgba(124,58,237,0.35))" }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "rgba(167,139,250,0.6)" }}>
-                AI Intelligence Engine — Live
-              </span>
-              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(124,58,237,0.35), rgba(124,58,237,0))" }} />
-            </div>
+          {/* Divider header */}
+          <AnimatedSection className="flex items-center gap-4 mb-10">
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.25))" }} />
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "rgba(124,58,237,0.5)" }}>
+              AI Intelligence Engine — Live
+            </span>
+            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(124,58,237,0.25), transparent)" }} />
+          </AnimatedSection>
 
-            <div className="flex flex-col lg:flex-row items-start gap-8 w-full max-w-5xl">
+          <div className="flex flex-col lg:flex-row items-start gap-8">
 
-              {/* Left: animated briefing card */}
-              <div
-                className="flex-1 rounded-2xl p-6 flex flex-col gap-4"
-                style={{ background: "rgba(124,58,237,0.07)", border: "1px solid rgba(124,58,237,0.2)", backdropFilter: "blur(12px)" }}
-              >
-                {/* Prospect header */}
-                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid rgba(124,58,237,0.12)" }}>
+            {/* Briefing card */}
+            <AnimatedSection delay={0.08} className="flex-1">
+              <div className="bg-white rounded-2xl p-6 flex flex-col gap-4 shadow-sm" style={{ border: "1px solid rgba(124,58,237,0.15)" }}>
+
+                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid #F3F4F6" }}>
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0"
                     style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)" }}
@@ -148,106 +137,95 @@ export function AperionHero() {
                     M
                   </div>
                   <div>
-                    <div className="text-white font-black text-sm leading-tight">Margaret A. Holloway</div>
-                    <div className="text-[11px] font-semibold" style={{ color: "rgba(255,255,255,0.35)" }}>
+                    <div className="font-black text-sm leading-tight text-gray-900">Margaret A. Holloway</div>
+                    <div className="text-[11px] font-semibold text-gray-400">
                       Trustee Emeritus · Children's Hospital Foundation
                     </div>
                   </div>
                   <div
                     className="ml-auto text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1"
-                    style={{ background: "rgba(124,58,237,0.18)", color: "#A78BFA", border: "1px solid rgba(124,58,237,0.3)" }}
+                    style={{ background: "rgba(124,58,237,0.08)", color: "#7C3AED", border: "1px solid rgba(124,58,237,0.2)" }}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style={{ background: "#A78BFA" }} />
+                    <span className="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style={{ background: "#7C3AED" }} />
                     AI Briefing Ready
                   </div>
                 </div>
 
-                {/* Briefing rows */}
                 {BRIEFING_LINES.map(({ label, value, color }, i) => (
                   <div
                     key={label}
                     className="flex items-start gap-3"
-                    style={{ animation: `fadeSlideIn 0.4s ease both`, animationDelay: `${0.6 + i * 0.15}s` }}
+                    style={{ animation: `fadeSlideIn 0.4s ease both`, animationDelay: `${0.3 + i * 0.12}s` }}
                   >
                     <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: color }} />
                     <div className="flex-1 min-w-0">
-                      <div className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: `${color}cc` }}>{label}</div>
-                      <div className="text-[12px] font-semibold leading-snug" style={{ color: "rgba(255,255,255,0.7)" }}>{value}</div>
+                      <div className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color }}>{label}</div>
+                      <div className="text-[12px] font-semibold leading-snug text-gray-700">{value}</div>
                     </div>
                   </div>
                 ))}
 
-                <div
-                  className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest"
-                  style={{ borderTop: "1px solid rgba(124,58,237,0.12)", color: "rgba(167,139,250,0.3)" }}
-                >
+                <div className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest text-gray-300" style={{ borderTop: "1px solid #F3F4F6" }}>
                   Generated in 1.4s · Aperion AI
                 </div>
               </div>
+            </AnimatedSection>
 
-              {/* Right: stats + pipeline */}
-              <div className="flex flex-col gap-5" style={{ minWidth: 280 }}>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { value: "75%",  label: "Admin Saved",        color: "#7C3AED" },
-                    { value: "3×",   label: "Donor Touchpoints",  color: "#6366F1" },
-                    { value: "20:1", label: "ROI by Year Two",    color: "#8B5CF6" },
-                  ].map(({ value, label, color }) => (
-                    <div
-                      key={label}
-                      className="flex flex-col gap-1 px-3 py-3 rounded-xl"
-                      style={{ background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.18)" }}
-                    >
-                      <span className="text-lg font-black" style={{ color }}>{value}</span>
-                      <span className="text-[9px] font-bold uppercase tracking-wide" style={{ color: "rgba(255,255,255,0.35)" }}>{label}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Pipeline */}
-                <div
-                  className="rounded-xl p-4 flex flex-col gap-3"
-                  style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.15)" }}
-                >
-                  <div className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: "rgba(167,139,250,0.45)" }}>
-                    Gift Pipeline — Active
+            {/* Stats + pipeline */}
+            <AnimatedSection delay={0.14} className="flex flex-col gap-5" style={{ minWidth: 280 }}>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { value: "75%",  label: "Admin Saved",       color: "#7C3AED" },
+                  { value: "3×",   label: "Donor Touchpoints", color: "#6366F1" },
+                  { value: "20:1", label: "ROI by Year Two",   color: "#8B5CF6" },
+                ].map(({ value, label, color }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col gap-1 px-3 py-4 rounded-xl bg-white shadow-sm"
+                    style={{ border: "1px solid rgba(124,58,237,0.12)" }}
+                  >
+                    <span className="text-xl font-black" style={{ color }}>{value}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-wide text-gray-400">{label}</span>
                   </div>
-                  {PIPELINE.map(({ label, count, color }) => {
-                    const pct = Math.round((count / 142) * 100);
-                    return (
-                      <div key={label} className="flex items-center gap-3">
-                        <div className="text-[10px] font-bold uppercase tracking-wider w-16 flex-shrink-0" style={{ color: "rgba(255,255,255,0.45)" }}>{label}</div>
-                        <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
-                          <div
-                            className="h-full rounded-full"
-                            style={{ width: `${pct}%`, background: color, animation: "barGrow 1s ease both", animationDelay: "0.8s" }}
-                          />
-                        </div>
-                        <div className="text-[10px] font-black w-6 text-right flex-shrink-0" style={{ color: "rgba(255,255,255,0.55)" }}>{count}</div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* CRM badges */}
-                <div className="flex gap-2">
-                  {["Blackbaud CRM", "Salesforce NPSP"].map((crm) => (
-                    <div
-                      key={crm}
-                      className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg"
-                      style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.15)", color: "rgba(167,139,250,0.4)" }}
-                    >
-                      {crm}
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
-            </div>
+
+              <div className="rounded-xl p-4 flex flex-col gap-3 bg-white shadow-sm" style={{ border: "1px solid #E5E7EB" }}>
+                <div className="text-[10px] font-black uppercase tracking-widest mb-1 text-gray-400">
+                  Gift Pipeline — Active
+                </div>
+                {PIPELINE.map(({ label, count, color }) => {
+                  const pct = Math.round((count / 142) * 100);
+                  return (
+                    <div key={label} className="flex items-center gap-3">
+                      <div className="text-[10px] font-bold uppercase tracking-wider w-16 flex-shrink-0 text-gray-400">{label}</div>
+                      <div className="flex-1 h-1.5 rounded-full overflow-hidden bg-gray-100">
+                        <div
+                          className="h-full rounded-full"
+                          style={{ width: `${pct}%`, background: color, animation: "barGrow 1s ease both", animationDelay: "0.5s" }}
+                        />
+                      </div>
+                      <div className="text-[10px] font-black w-6 text-right flex-shrink-0 text-gray-500">{count}</div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="flex gap-2">
+                {["Blackbaud CRM", "Salesforce NPSP"].map((crm) => (
+                  <div
+                    key={crm}
+                    className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg bg-gray-50 text-gray-400"
+                    style={{ border: "1px solid #E5E7EB" }}
+                  >
+                    {crm}
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
           </div>
-        </AnimatedSection>
-      </div>
+        </div>
+      </section>
 
       <style>{`
         @keyframes fadeSlideIn {
@@ -258,6 +236,6 @@ export function AperionHero() {
           from { width: 0; }
         }
       `}</style>
-    </section>
+    </>
   );
 }
