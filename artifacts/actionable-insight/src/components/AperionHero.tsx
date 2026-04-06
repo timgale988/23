@@ -12,17 +12,12 @@ export function AperionHero() {
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
         style={{ objectPosition: "65% center" }}
       />
-      {/* Left-dark → right-transparent gradient: text on left stays readable, image reveals on right */}
+      {/* Top-dark → bottom-transparent vertical gradient */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(to right, #04081E 38%, rgba(4,8,30,0.82) 52%, rgba(4,8,30,0.45) 70%, rgba(4,8,30,0.15) 100%)",
+          background: "linear-gradient(to bottom, #04081E 0%, rgba(4,8,30,0.88) 25%, rgba(4,8,30,0.55) 55%, rgba(4,8,30,0.15) 100%)",
         }}
-      />
-      {/* Bottom fade so the horizontal rule reads cleanly */}
-      <div
-        className="absolute bottom-0 left-0 right-0 pointer-events-none"
-        style={{ height: "30%", background: "linear-gradient(to top, #04081E 0%, transparent 100%)" }}
       />
 
       {/* ── ROW 1: Badge + Headline | Stats ── */}
