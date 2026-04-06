@@ -33,17 +33,17 @@ export function AperionHero() {
         {/* Full-coverage left-to-right: dark navy → medium blue */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(90deg, rgba(15,30,100,0.97) 0%, rgba(25,55,140,0.93) 30%, rgba(37,99,235,0.82) 65%, rgba(28,80,190,0.72) 100%)" }}
+          style={{ background: "linear-gradient(90deg, rgba(4,8,40,0.99) 0%, rgba(8,20,72,0.99) 30%, rgba(14,44,130,0.98) 65%, rgba(10,34,108,0.97) 100%)" }}
         />
         {/* Radial blue glow — left anchor */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 12% 50%, rgba(37,99,235,0.25) 0%, transparent 50%)" }}
+          style={{ background: "radial-gradient(ellipse at 12% 50%, rgba(20,60,180,0.18) 0%, transparent 50%)" }}
         />
         {/* Bottom veil */}
         <div
           className="absolute inset-x-0 bottom-0 pointer-events-none"
-          style={{ height: "40%", background: "linear-gradient(to top, rgba(10,20,80,0.97) 0%, rgba(20,45,130,0.60) 60%, transparent 100%)" }}
+          style={{ height: "40%", background: "linear-gradient(to top, rgba(2,5,28,0.99) 0%, rgba(6,18,62,0.88) 60%, transparent 100%)" }}
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col justify-center" style={{ minHeight: "72vh" }}>
