@@ -4,24 +4,25 @@ export function AperionHero() {
   return (
     <section className="w-full flex flex-col font-sans text-slate-300 relative" style={{ minHeight: "100svh" }}>
 
-      {/* Background image — shared across both rows */}
+      {/* Background image — full bleed, right-anchored so the doctor's hand is visible */}
       <img
-        src="/images/hero-tech-ai.png"
+        src="/images/hero-doctor-aperion.png"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
-        style={{ opacity: 0.22 }}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style={{ objectPosition: "65% center" }}
       />
-      {/* Dark base so image reads as tinted, not washed out */}
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: "#04081E", opacity: 0.78 }} />
-      {/* Subtle radial highlight — top-left glow anchors the headline */}
+      {/* Left-dark → right-transparent gradient: text on left stays readable, image reveals on right */}
       <div
-        className="absolute pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          top: "-10%", left: "-5%",
-          width: "65%", height: "75%",
-          background: "radial-gradient(ellipse at top left, rgba(37,99,235,0.18) 0%, transparent 65%)",
+          background: "linear-gradient(to right, #04081E 38%, rgba(4,8,30,0.82) 52%, rgba(4,8,30,0.45) 70%, rgba(4,8,30,0.15) 100%)",
         }}
+      />
+      {/* Bottom fade so the horizontal rule reads cleanly */}
+      <div
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{ height: "30%", background: "linear-gradient(to top, #04081E 0%, transparent 100%)" }}
       />
 
       {/* ── ROW 1: Badge + Headline | Stats ── */}
