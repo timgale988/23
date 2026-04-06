@@ -114,7 +114,7 @@ export function AperionHero() {
       </section>
 
       {/* ── Section divider ── */}
-      <div style={{ height: "2px", background: "#E5E7EB" }} />
+      <div style={{ height: "8px", background: "#E5E7EB" }} />
 
       {/* ── Dark visualization section ── */}
       <section style={{ background: "#0A0E1A" }}>
