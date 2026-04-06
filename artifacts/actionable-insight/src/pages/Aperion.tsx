@@ -335,17 +335,23 @@ export default function Aperion() {
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection className="mb-14 max-w-3xl">
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-5"
-              style={{ background: "linear-gradient(90deg, #2563EB, #06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-            >
+            <p className="text-xs font-bold uppercase tracking-widest mb-5 text-cyan-500">
               Platform Capabilities
             </p>
             <h2
-              className="font-black uppercase leading-[0.95] mb-5"
-              style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em", background: "linear-gradient(135deg, #0A0E1A 40%, #2563EB 80%, #06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+              className="font-black uppercase text-[#0A0E1A] leading-[0.95] mb-5"
+              style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
             >
-              Five capabilities. One outcome: more closed gifts.
+              Five capabilities. One outcome:{" "}
+              <span
+                style={{
+                  background: "linear-gradient(90deg, #2563EB, #06B6D4)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                more closed gifts.
+              </span>
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed">
               Each module eliminates a specific category of administrative friction — together they transform
