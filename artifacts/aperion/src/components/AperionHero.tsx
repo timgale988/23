@@ -22,7 +22,7 @@ export function AperionHero() {
 
       {/* ── Background image ── */}
       <img
-        src="/hero-doctor-ai.webp"
+        src="/aperion/hero-doctor-ai.webp"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
@@ -115,15 +115,13 @@ export function AperionHero() {
             </AnimatedSection>
           </div>
 
-          {/* Right — empty, shows bg */}
           <div className="flex-1 hidden lg:block" />
         </div>
 
-        {/* ── Row 2: AI Briefing visualization — moved down ── */}
+        {/* ── Row 2: AI Briefing visualization ── */}
         <AnimatedSection delay={0.22} className="pb-16">
           <div className="flex flex-col items-center">
 
-            {/* Divider */}
             <div className="flex items-center gap-4 mb-8 w-full max-w-5xl">
               <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.1)" }} />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -134,12 +132,11 @@ export function AperionHero() {
 
             <div className="flex flex-col lg:flex-row items-start gap-8 w-full max-w-5xl">
 
-              {/* Left: animated briefing card */}
+              {/* Briefing card */}
               <div
                 className="flex-1 rounded-2xl p-6 flex flex-col gap-4"
                 style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", backdropFilter: "blur(12px)" }}
               >
-                {/* Prospect header */}
                 <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0"
@@ -162,7 +159,6 @@ export function AperionHero() {
                   </div>
                 </div>
 
-                {/* Briefing rows */}
                 {BRIEFING_LINES.map(({ label, value, color }, i) => (
                   <div
                     key={label}
@@ -185,10 +181,8 @@ export function AperionHero() {
                 </div>
               </div>
 
-              {/* Right: stats + pipeline */}
+              {/* Stats + pipeline */}
               <div className="flex flex-col gap-5" style={{ minWidth: 280 }}>
-
-                {/* Stats */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
                     { value: "75%",  label: "Admin Saved",        color: "#2563EB" },
@@ -206,7 +200,6 @@ export function AperionHero() {
                   ))}
                 </div>
 
-                {/* Pipeline */}
                 <div
                   className="rounded-xl p-4 flex flex-col gap-3"
                   style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
@@ -231,7 +224,6 @@ export function AperionHero() {
                   })}
                 </div>
 
-                {/* CRM badges */}
                 <div className="flex gap-2">
                   {["Blackbaud CRM", "Salesforce NPSP"].map((crm) => (
                     <div
