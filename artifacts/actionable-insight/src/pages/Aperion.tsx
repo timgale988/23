@@ -336,7 +336,7 @@ export default function Aperion() {
         <AnimatedSection>
           <div
             className="px-6 lg:px-8 py-16 lg:py-20 relative overflow-hidden"
-            style={{ background: "linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 40%, #DBEAFE 70%, #ECFEFF 100%)" }}
+            style={{ background: "linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 40%, #ECECEF 70%, #F3F4F6 100%)" }}
           >
             <div className="absolute inset-0 opacity-[0.45]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(99,102,241,0.15) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
             <div className="max-w-7xl mx-auto relative z-10">
