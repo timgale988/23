@@ -6,31 +6,31 @@ const CAPABILITIES = [
   {
     icon: <Brain className="w-5 h-5" />,
     title: "AI Donor Briefings",
-    color: "#2563EB",
+    color: "#7C3AED",
     desc: "Before every meeting, Aperion auto-generates a comprehensive donor briefing — giving history, capacity estimate, interest alignment, recent news, and recommended ask — in seconds, not hours.",
   },
   {
     icon: <Zap className="w-5 h-5" />,
     title: "Opportunity Matching",
-    color: "#0891B2",
+    color: "#6366F1",
     desc: "300+ curated funding opportunities — from capital campaigns to endowments to annual funds — are scored and ranked against each donor's interests, capacity, and relationship stage.",
   },
   {
     icon: <FileText className="w-5 h-5" />,
     title: "Proposal Intelligence",
-    color: "#06B6D4",
+    color: "#8B5CF6",
     desc: "Aperion drafts outcome-aligned proposals, stewardship letters, and follow-up communications in your organization's voice — reducing writing time from days to minutes.",
   },
   {
     icon: <BarChart3 className="w-5 h-5" />,
     title: "Pipeline Scoring",
-    color: "#0E7490",
+    color: "#7C3AED",
     desc: "Real-time likelihood-to-give scores across your entire portfolio — surfacing which donors are ready to move, which are cooling, and where gift officers should focus today.",
   },
   {
     icon: <Workflow className="w-5 h-5" />,
     title: "Admin Automation",
-    color: "#2563EB",
+    color: "#6366F1",
     desc: "Post-meeting summaries, email drafts, CRM updates, and follow-up scheduling — handled automatically so gift officers spend their time on conversations, not paperwork.",
   },
 ];
@@ -84,7 +84,7 @@ export default function Aperion() {
               </a>
               <button
                 className="px-5 py-2.5 rounded-xl text-white text-sm font-bold transition-all hover:opacity-90 hover:shadow-md"
-                style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", boxShadow: "0 2px 12px rgba(6,182,212,0.3)" }}
+                style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)", boxShadow: "0 2px 12px rgba(124,58,237,0.3)" }}
               >
                 Book a Demo
               </button>
@@ -106,7 +106,7 @@ export default function Aperion() {
               <AnimatedSection key={i} delay={0.08 * i} className="bg-white border border-gray-200 rounded-xl p-6 text-center">
                 <div
                   className="font-black text-[clamp(32px,4vw,48px)] leading-none mb-2"
-                  style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.04em" }}
+                  style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.04em" }}
                 >
                   {s.value}
                 </div>
@@ -144,7 +144,7 @@ export default function Aperion() {
             <AnimatedSection delay={0.15}>
               <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
                 <div className="flex items-start gap-4 mb-8">
-                  <Quote className="w-7 h-7 text-cyan-400 shrink-0 mt-1" />
+                  <Quote className="w-7 h-7 text-violet-400 shrink-0 mt-1" />
                   <blockquote className="text-xl font-black text-[#0A0E1A] tracking-tight leading-snug uppercase">
                     "Every gift officer deserves to spend their time on relationships, not research."
                   </blockquote>
@@ -157,10 +157,10 @@ export default function Aperion() {
                     <div key={i} className="bg-white border border-gray-200 rounded-xl p-5 text-center">
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="text-xl font-black text-gray-200 line-through">{row.before}</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
+                        <ArrowRight className="w-3.5 h-3.5 text-violet-400" />
                         <span
                           className="text-xl font-black"
-                          style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                          style={{ background: "linear-gradient(90deg,#7C3AED,#6366F1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                         >
                           {row.after}
                         </span>
@@ -179,7 +179,7 @@ export default function Aperion() {
       <section className="py-20 lg:py-28 border-b border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-14">
-            <p className="text-xs font-bold text-cyan-600 uppercase tracking-widest mb-5">How Aperion Works</p>
+            <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-5">How Aperion Works</p>
             <h2
               className="font-black uppercase text-[#0A0E1A] leading-[0.95] mb-5"
               style={{ fontSize: "clamp(28px,4vw,48px)", letterSpacing: "-0.04em" }}
@@ -196,26 +196,26 @@ export default function Aperion() {
             <svg viewBox="0 0 1000 440" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="aGradLeft2" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#2563EB" stopOpacity="0" />
-                  <stop offset="100%" stopColor="#2563EB" stopOpacity="0.3" />
+                  <stop offset="0%" stopColor="#7C3AED" stopOpacity="0" />
+                  <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.35" />
                 </linearGradient>
                 <linearGradient id="aGradRight2" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#06B6D4" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#6366F1" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient id="aEngineGrad2" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#2563EB" />
-                  <stop offset="100%" stopColor="#06B6D4" />
+                  <stop offset="0%" stopColor="#7C3AED" />
+                  <stop offset="100%" stopColor="#6366F1" />
                 </linearGradient>
               </defs>
-              <text x="115" y="28" textAnchor="middle" fill="rgba(37,99,235,0.55)" fontSize="8.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">DATA INPUTS</text>
-              <text x="885" y="28" textAnchor="middle" fill="rgba(6,182,212,0.55)" fontSize="8.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">OUTPUTS</text>
+              <text x="115" y="28" textAnchor="middle" fill="rgba(124,58,237,0.55)" fontSize="8.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">DATA INPUTS</text>
+              <text x="885" y="28" textAnchor="middle" fill="rgba(99,102,241,0.55)" fontSize="8.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="2.5">OUTPUTS</text>
               {INPUTS.map((inp, i) => {
                 const y = 55 + i * 82;
                 return (
                   <g key={i}>
                     <rect x="10" y={y} width="210" height="64" rx="8" fill="white" stroke="#E5E7EB" strokeWidth="1" />
-                    <rect x="10" y={y} width="3" height="64" rx="1.5" fill="#2563EB" />
+                    <rect x="10" y={y} width="3" height="64" rx="1.5" fill="#7C3AED" />
                     <text x="120" y={y+24} textAnchor="middle" fill="rgba(10,14,26,0.85)" fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">{inp.label}</text>
                     <text x="120" y={y+42} textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">{inp.sub}</text>
                   </g>
@@ -228,11 +228,11 @@ export default function Aperion() {
               <rect x="350" y="110" width="300" height="220" rx="12" fill="#0A0E1A" />
               <rect x="350" y="110" width="300" height="3" rx="1.5" fill="url(#aEngineGrad2)" />
               <text x="500" y="152" textAnchor="middle" fill="white" fontSize="22" fontWeight="900" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="-1">APERION</text>
-              <text x="500" y="170" textAnchor="middle" fill="rgba(103,232,249,0.7)" fontSize="7" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="4">AI INTELLIGENCE ENGINE</text>
+              <text x="500" y="170" textAnchor="middle" fill="rgba(167,139,250,0.7)" fontSize="7" fontWeight="700" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="4">AI INTELLIGENCE ENGINE</text>
               <line x1="375" y1="185" x2="625" y2="185" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
               {ENGINE_ITEMS.map((item, i) => (
                 <g key={i}>
-                  <circle cx="382" cy={204+i*22} r="2.5" fill={i<2?"#2563EB":i<4?"#0891B2":"#06B6D4"} />
+                  <circle cx="382" cy={204+i*22} r="2.5" fill={i<2?"#7C3AED":i<4?"#6366F1":"#8B5CF6"} />
                   <text x="392" y={208+i*22} fill="rgba(255,255,255,0.6)" fontSize="9.5" fontWeight="600" fontFamily="Urbanist, system-ui, sans-serif">{item}</text>
                 </g>
               ))}
@@ -245,7 +245,7 @@ export default function Aperion() {
                 return (
                   <g key={i}>
                     <rect x="780" y={y} width="210" height="64" rx="8" fill="white" stroke="#E5E7EB" strokeWidth="1" />
-                    <rect x="987" y={y} width="3" height="64" rx="1.5" fill="#06B6D4" />
+                    <rect x="987" y={y} width="3" height="64" rx="1.5" fill="#6366F1" />
                     <text x="880" y={y+24} textAnchor="middle" fill="rgba(10,14,26,0.85)" fontSize="10.5" fontWeight="800" fontFamily="Urbanist, system-ui, sans-serif" letterSpacing="0.3">{out.label}</text>
                     <text x="880" y={y+42} textAnchor="middle" fill="rgba(107,122,144,0.9)" fontSize="8.5" fontFamily="Urbanist, system-ui, sans-serif">{out.sub}</text>
                   </g>
@@ -278,7 +278,7 @@ export default function Aperion() {
               <AnimatedSection key={i} delay={0.07 * i} className="group bg-white border border-gray-200 rounded-2xl p-8 hover:border-gray-300 hover:shadow-lg transition-all">
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center mb-7"
-                  style={{ background: `${cap.color}10`, color: cap.color }}
+                  style={{ background: `${cap.color}12`, color: cap.color }}
                 >
                   {cap.icon}
                 </div>
@@ -292,10 +292,10 @@ export default function Aperion() {
             ))}
 
             <AnimatedSection delay={0.35} className="bg-[#0A0E1A] rounded-2xl p-8 flex flex-col">
-              <p className="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-5">Net Result</p>
+              <p className="text-xs font-bold text-violet-400 uppercase tracking-widest mb-5">Net Result</p>
               <div
                 className="text-6xl font-black leading-none mb-4"
-                style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.05em" }}
+                style={{ background: "linear-gradient(90deg,#7C3AED,#6366F1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.05em" }}
               >
                 20:1
               </div>
@@ -329,7 +329,7 @@ export default function Aperion() {
               <AnimatedSection key={i} delay={0.1 * i} className="bg-white border border-gray-200 rounded-2xl p-8">
                 <div
                   className="font-black text-[clamp(36px,4vw,52px)] leading-none mb-5"
-                  style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.05em" }}
+                  style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.05em" }}
                 >
                   {item.stat}
                 </div>
@@ -344,7 +344,7 @@ export default function Aperion() {
       {/* ── CTA ── */}
       <section className="py-24 lg:py-32 bg-[#0A0E1A] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.08) 0%, transparent 65%)" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.1) 0%, transparent 65%)" }} />
         <div className="max-w-2xl mx-auto px-6 text-center relative z-10">
           <AnimatedSection>
             <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-6">Ready to get started?</p>
@@ -354,7 +354,7 @@ export default function Aperion() {
             >
               Free your team
               <br />
-              <span style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              <span style={{ background: "linear-gradient(90deg,#7C3AED,#6366F1,#8B5CF6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 to fundraise.
               </span>
             </h2>
@@ -365,7 +365,7 @@ export default function Aperion() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <button
                 className="px-10 py-4 rounded-xl text-white font-bold text-base transition-all hover:scale-105"
-                style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)", boxShadow: "0 8px 28px rgba(6,182,212,0.3)" }}
+                style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)", boxShadow: "0 8px 28px rgba(124,58,237,0.35)" }}
               >
                 Request a Demo
               </button>
@@ -382,11 +382,11 @@ export default function Aperion() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-6 h-6 rounded-md" style={{ background: "linear-gradient(135deg, #2563EB, #06B6D4)" }} />
+              <div className="w-6 h-6 rounded-md" style={{ background: "linear-gradient(135deg, #7C3AED, #6366F1)" }} />
               <span className="font-black text-sm tracking-tight uppercase text-white">Actionable Insight · Aperion</span>
             </div>
             <p className="text-xs text-white/30">© 2025 Actionable Insight AI · actionableinsightai.com</p>
-            <div className="h-1 w-12 rounded-full" style={{ background: "linear-gradient(90deg,#2563EB,#06B6D4)" }} />
+            <div className="h-1 w-12 rounded-full" style={{ background: "linear-gradient(90deg,#7C3AED,#6366F1)" }} />
           </div>
         </div>
       </footer>

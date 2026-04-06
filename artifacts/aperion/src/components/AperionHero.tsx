@@ -2,18 +2,18 @@ import { ArrowRight, CheckCircle2, Brain, Zap } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const BRIEFING_LINES = [
-  { label: "Giving History",    value: "$2.4M lifetime · Major gifts program since 2018", color: "#2563EB" },
-  { label: "Wealth Capacity",   value: "Est. $14.2M · Top 3% of portfolio",               color: "#0891B2" },
-  { label: "Interest Alignment",value: "Pediatric oncology · Research endowment 94% fit",  color: "#06B6D4" },
-  { label: "Recommended Ask",   value: "$500K — Endowed Research Chair in Pediatric Care", color: "#0E7490" },
+  { label: "Giving History",    value: "$2.4M lifetime · Major gifts program since 2018", color: "#7C3AED" },
+  { label: "Wealth Capacity",   value: "Est. $14.2M · Top 3% of portfolio",               color: "#6366F1" },
+  { label: "Interest Alignment",value: "Pediatric oncology · Research endowment 94% fit",  color: "#8B5CF6" },
+  { label: "Recommended Ask",   value: "$500K — Endowed Research Chair in Pediatric Care", color: "#A78BFA" },
 ];
 
 const PIPELINE = [
-  { label: "Research", count: 142, color: "#2563EB" },
-  { label: "Briefed",  count: 87,  color: "#0891B2" },
-  { label: "Meeting",  count: 34,  color: "#06B6D4" },
-  { label: "Proposal", count: 18,  color: "#0E7490" },
-  { label: "Closed",   count: 9,   color: "#0EA5E9" },
+  { label: "Research", count: 142, color: "#7C3AED" },
+  { label: "Briefed",  count: 87,  color: "#6366F1" },
+  { label: "Meeting",  count: 34,  color: "#8B5CF6" },
+  { label: "Proposal", count: 18,  color: "#A78BFA" },
+  { label: "Closed",   count: 9,   color: "#C4B5FD" },
 ];
 
 export function AperionHero() {
@@ -48,7 +48,7 @@ export function AperionHero() {
       {/* ── Content ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col" style={{ minHeight: "90vh" }}>
 
-        {/* ── Row 1: Text ── */}
+        {/* ── Row 1: Text (blue/cyan palette stays) ── */}
         <div className="flex flex-col lg:flex-row items-start gap-12 pt-24 pb-10 flex-1">
 
           <div className="flex-1 max-w-[620px]">
@@ -118,16 +118,17 @@ export function AperionHero() {
           <div className="flex-1 hidden lg:block" />
         </div>
 
-        {/* ── Row 2: AI Briefing visualization ── */}
+        {/* ── Row 2: AI Briefing visualization — alternate violet/indigo palette below the break ── */}
         <AnimatedSection delay={0.22} className="pb-16">
           <div className="flex flex-col items-center">
 
+            {/* ── Divider break ── */}
             <div className="flex items-center gap-4 mb-8 w-full max-w-5xl">
-              <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.1)" }} />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "rgba(255,255,255,0.3)" }}>
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(124,58,237,0), rgba(124,58,237,0.35))" }} />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "rgba(167,139,250,0.6)" }}>
                 AI Intelligence Engine — Live
               </span>
-              <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.1)" }} />
+              <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(124,58,237,0.35), rgba(124,58,237,0))" }} />
             </div>
 
             <div className="flex flex-col lg:flex-row items-start gap-8 w-full max-w-5xl">
@@ -135,12 +136,16 @@ export function AperionHero() {
               {/* Briefing card */}
               <div
                 className="flex-1 rounded-2xl p-6 flex flex-col gap-4"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", backdropFilter: "blur(12px)" }}
+                style={{
+                  background: "rgba(124,58,237,0.07)",
+                  border: "1px solid rgba(124,58,237,0.2)",
+                  backdropFilter: "blur(12px)",
+                }}
               >
-                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid rgba(124,58,237,0.12)" }}>
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-base flex-shrink-0"
-                    style={{ background: "linear-gradient(135deg,#2563EB,#06B6D4)" }}
+                    style={{ background: "linear-gradient(135deg,#7C3AED,#6366F1)" }}
                   >
                     M
                   </div>
@@ -152,9 +157,9 @@ export function AperionHero() {
                   </div>
                   <div
                     className="ml-auto text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1"
-                    style={{ background: "rgba(6,182,212,0.15)", color: "#06B6D4", border: "1px solid rgba(6,182,212,0.25)" }}
+                    style={{ background: "rgba(124,58,237,0.18)", color: "#A78BFA", border: "1px solid rgba(124,58,237,0.3)" }}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style={{ background: "#A78BFA" }} />
                     AI Briefing Ready
                   </div>
                 </div>
@@ -175,7 +180,7 @@ export function AperionHero() {
 
                 <div
                   className="mt-2 pt-4 text-[11px] font-bold uppercase tracking-widest"
-                  style={{ borderTop: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.2)" }}
+                  style={{ borderTop: "1px solid rgba(124,58,237,0.12)", color: "rgba(167,139,250,0.3)" }}
                 >
                   Generated in 1.4s · Aperion AI
                 </div>
@@ -185,14 +190,14 @@ export function AperionHero() {
               <div className="flex flex-col gap-5" style={{ minWidth: 280 }}>
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { value: "75%",  label: "Admin Saved",        color: "#2563EB" },
-                    { value: "3×",   label: "Donor Touchpoints",  color: "#0891B2" },
-                    { value: "20:1", label: "ROI by Year Two",    color: "#06B6D4" },
+                    { value: "75%",  label: "Admin Saved",       color: "#7C3AED" },
+                    { value: "3×",   label: "Donor Touchpoints", color: "#6366F1" },
+                    { value: "20:1", label: "ROI by Year Two",   color: "#8B5CF6" },
                   ].map(({ value, label, color }) => (
                     <div
                       key={label}
                       className="flex flex-col gap-1 px-3 py-3 rounded-xl"
-                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+                      style={{ background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.18)" }}
                     >
                       <span className="text-lg font-black" style={{ color }}>{value}</span>
                       <span className="text-[9px] font-bold uppercase tracking-wide" style={{ color: "rgba(255,255,255,0.35)" }}>{label}</span>
@@ -202,9 +207,9 @@ export function AperionHero() {
 
                 <div
                   className="rounded-xl p-4 flex flex-col gap-3"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
+                  style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.15)" }}
                 >
-                  <div className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.3)" }}>
+                  <div className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: "rgba(167,139,250,0.45)" }}>
                     Gift Pipeline — Active
                   </div>
                   {PIPELINE.map(({ label, count, color }) => {
@@ -212,7 +217,7 @@ export function AperionHero() {
                     return (
                       <div key={label} className="flex items-center gap-3">
                         <div className="text-[10px] font-bold uppercase tracking-wider w-16 flex-shrink-0" style={{ color: "rgba(255,255,255,0.45)" }}>{label}</div>
-                        <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
+                        <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(124,58,237,0.12)" }}>
                           <div
                             className="h-full rounded-full"
                             style={{ width: `${pct}%`, background: color, animation: "barGrow 1s ease both", animationDelay: "0.8s" }}
@@ -229,7 +234,7 @@ export function AperionHero() {
                     <div
                       key={crm}
                       className="flex-1 text-center text-[10px] font-bold uppercase tracking-wider py-2 rounded-lg"
-                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.35)" }}
+                      style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.15)", color: "rgba(167,139,250,0.4)" }}
                     >
                       {crm}
                     </div>
