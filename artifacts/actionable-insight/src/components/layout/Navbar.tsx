@@ -26,8 +26,8 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 bg-white",
-        isScrolled ? "shadow-sm border-b border-gray-100" : "border-b border-gray-100"
+        "fixed top-0 w-full z-50 transition-all duration-300 bg-gray-100",
+        isScrolled ? "shadow-sm border-b border-gray-200" : "border-b border-gray-200"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -100,7 +100,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+            className="md:hidden bg-gray-100 border-t border-gray-200 overflow-hidden"
           >
             <div className="px-6 pt-3 pb-6 space-y-1">
               {navLinks.map((link) => (
